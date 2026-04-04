@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR arXiv Daily Pro v2.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {font-family: 'Inter', system-ui, sans-serif; margin:0; padding:0; background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%); color:#1e2937;}
+        .container {max-width: 1200px; margin: 0 auto; padding: 40px 20px;}
+        header {text-align:center; margin-bottom: 50px;}
+        h1 {font-size: 3rem; background: linear-gradient(90deg, #1e40af, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin:0;}
+        .subtitle {color:#64748b; font-size:1.2rem; margin-top:8px;}
+        .card {background:white; border-radius:20px; box-shadow:0 15px 35px rgba(0,0,0,0.1); padding:35px; margin-bottom:30px;}
+        .report-link {display:block; padding:25px; background:#f8fafc; border-radius:16px; text-decoration:none; color:#1e2937; margin-bottom:18px; transition:all 0.3s ease;}
+        .report-link:hover {transform:translateY(-4px); box-shadow:0 20px 40px rgba(59,130,246,0.2);}
+        .badge {display:inline-block; padding:6px 16px; background:#3b82f6; color:white; border-radius:9999px; font-size:0.9rem; font-weight:600;}
+        footer {text-align:center; color:#64748b; font-size:0.95rem; margin-top:80px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 OCR arXiv Daily Pro</h1>
+            <p class="subtitle">v2.0 · 每日 OCR / 文档解析研究日报 · Powered by DeepSeek</p>
+        </header>
+
+        <div class="card">
+            <h2 style="margin-top:0;">📅 今日研究日报</h2>
+            <a href="output/LATEST.md" class="report-link" target="_blank">
+                <span class="badge">快捷总结</span><br><br>
+                <strong>OCR / 文档解析研究日报</strong><br>
+                今日高相关论文 + 趋势判断 + 工程启发
+            </a>
+            <a href="output/daily_arxiv_docparse_ocr_pro.md" class="report-link" target="_blank">
+                <span class="badge">完整报告</span><br><br>
+                中文深度分析 · 创新点拆解 · 未来方向 · 工程价值
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>📂 历史归档</h3>
+            <a href="https://github.com/vektozx-lang/ocr-arxiv-daily-pro/tree/main/output/archive" target="_blank" style="color:#3b82f6; text-decoration:underline; font-size:1.1rem;">
+                查看所有历史日报 →
+            </a>
+        </div>
+
+        <footer>
+            <p>每天北京时间 09:10 自动更新 · 抓取最近 14 天论文</p>
+            <p>Made with ❤️ for OCR & Document AI 研究者</p>
+        </footer>
+    </div>
+</body>
+</html>

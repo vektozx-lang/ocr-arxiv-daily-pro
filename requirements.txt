@@ -1,0 +1,4 @@
+# 当前脚本仅依赖 Python 标准库。
+# 如需后续接入 requests / openai / feedparser，可在这里追加。
+litellm>=1.55.0
+pyyaml>=6.0.2

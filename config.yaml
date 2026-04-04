@@ -1,0 +1,15 @@
+llm:
+  provider: deepseek          # 支持: deepseek / openai / grok / ollama
+  model: deepseek-chat
+  api_key_env: DEEPSEEK_API_KEY   # 对应 GitHub Secrets 的变量名
+  temperature: 0.7
+  max_tokens: 4096
+
+# 如果用 Ollama 本地模型，取消注释下面
+# ollama:
+#   base_url: http://localhost:11434
+
+arxiv:
+  max_results: 200          # 同时增加最大抓取数量
+  days_back: 3             # ← 改为 14 天（推荐）
+  final_limit: 15           # 最终保留更多论文
