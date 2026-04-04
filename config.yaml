@@ -12,4 +12,5 @@ llm:
 arxiv:
   max_results: 200          # 同时增加最大抓取数量
   days_back: 3             # ← 改为 14 天（推荐）
+  pre_limit: 60    # ← 新增这行，增加预筛选数量
   final_limit: 15           # 最终保留更多论文
