@@ -6,6 +6,7 @@ import html
 import json
 import os
 import re
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -57,7 +58,8 @@ def call_llm(prompt: str, temperature: float = 0.7, use_system: bool = True) -> 
 # 加引号 = 精确短语匹配，不加引号 = 单词匹配
 # 覆盖范围越广，召回越多，但噪音也越多，依赖后两层过滤
 
-ARXIV_API = "http://export.arxiv.org/api/query"
+# ✅ 修复：改用 HTTPS，避免 HTTP→HTTPS 重定向时 arXiv 返回 500
+ARXIV_API = "https://export.arxiv.org/api/query"
 
 DEFAULT_TERMS = [
     # —— 核心 OCR ——
@@ -119,16 +121,10 @@ DEFAULT_TERMS = [
 ]
 
 # arXiv 分类限定：只在这几个方向的论文里搜索
-# cs.CV=计算机视觉, cs.AI=人工智能, cs.CL=计算语言学,
-# cs.IR=信息检索, eess.IV=图像视频处理
 DEFAULT_CATEGORIES = ["cs.CV", "cs.AI", "cs.CL", "cs.IR", "eess.IV"]
 
 # ==================== 第二层：本地关键词权重打分 ====================
-# 说明：对 API 返回的论文做快速粗筛，分数越高越相关
-# 这一层速度快（无网络），为第三层 LLM 精筛做预排序
-
 KEYWORD_WEIGHTS = [
-    # 高权重：核心 OCR 方向
     ("optical character recognition", 8),
     ("ocr", 7),
     ("text recognition", 6),
@@ -137,29 +133,24 @@ KEYWORD_WEIGHTS = [
     ("text spotting", 6),
     ("handwritten", 5),
     ("handwriting", 5),
-    # 中权重：文档相关
     ("document parsing", 7),
     ("document understanding", 6),
     ("document intelligence", 6),
     ("document layout", 5),
     ("layout analysis", 5),
     ("document image", 4),
-    # 中权重：结构化识别
     ("table recognition", 6),
     ("table detection", 5),
     ("table structure", 5),
     ("formula recognition", 6),
     ("math formula", 5),
-    # 中权重：信息提取
     ("information extraction", 4),
     ("key information", 5),
     ("invoice", 4),
     ("receipt", 4),
-    # 中权重：文档问答与预训练
     ("docvqa", 6),
     ("document visual question", 6),
     ("layout-aware", 5),
-    # 低权重：广义相关
     ("document", 3),
     ("layout", 3),
     ("parsing", 3),
@@ -174,7 +165,6 @@ KEYWORD_WEIGHTS = [
 ]
 
 NEGATIVE_WEIGHTS = [
-    # 明确无关方向，降分避免噪音
     ("speech recognition", -8),
     ("automatic speech recognition", -8),
     ("asr", -7),
@@ -234,8 +224,11 @@ def build_query(terms: list[str], categories: list[str]) -> str:
     cat_query = " OR ".join(f"cat:{c}" for c in categories)
     return f"({term_query}) AND ({cat_query})"
 
-def fetch_arxiv(query: str, max_results: int) -> list[Paper]:
-    """向 arXiv API 发起请求，按提交时间倒序返回论文列表"""
+
+def _fetch_arxiv_single(query: str, max_results: int, retries: int = 3) -> list[Paper]:
+    """
+    向 arXiv API 发起单次请求，内置重试逻辑。
+    """
     params = {
         "search_query": query,
         "start": 0,
@@ -245,12 +238,23 @@ def fetch_arxiv(query: str, max_results: int) -> list[Paper]:
     }
     url = f"{ARXIV_API}?{urllib.parse.urlencode(params)}"
     req = urllib.request.Request(url, headers={"User-Agent": "ocr-arxiv-daily-pro/2.0"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        root = ET.fromstring(resp.read())
-    entries = root.findall("atom:entry", {"atom": "http://www.w3.org/2005/Atom"})
-    papers: list[Paper] = []
+
+    for attempt in range(1, retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                root = ET.fromstring(resp.read())
+            break
+        except Exception as e:
+            print(f"  ⚠️ 请求失败（第 {attempt}/{retries} 次）：{e}")
+            if attempt < retries:
+                time.sleep(5 * attempt)
+            else:
+                print(f"  ❌ 放弃本批次请求：{query[:80]}...")
+                return []
+
     ns = {"atom": "http://www.w3.org/2005/Atom"}
-    for entry in entries:
+    papers: list[Paper] = []
+    for entry in root.findall("atom:entry", ns):
         title = normalize_text(entry.findtext("atom:title", default="", namespaces=ns))
         summary = normalize_text(entry.findtext("atom:summary", default="", namespaces=ns))
         published = normalize_text(entry.findtext("atom:published", default="", namespaces=ns))
@@ -264,7 +268,9 @@ def fetch_arxiv(query: str, max_results: int) -> list[Paper]:
                 link = href
             if link_node.attrib.get("title") == "pdf":
                 pdf_url = href
-        arxiv_id = normalize_text(entry.findtext("atom:id", default="", namespaces=ns)).rsplit("/", 1)[-1]
+        arxiv_id = normalize_text(
+            entry.findtext("atom:id", default="", namespaces=ns)
+        ).rsplit("/", 1)[-1]
         papers.append(Paper(
             title=title, summary=summary, link=link, pdf_url=pdf_url,
             authors=authors, published=published, updated=published,
@@ -272,6 +278,57 @@ def fetch_arxiv(query: str, max_results: int) -> list[Paper]:
             score=score_paper(title, summary, categories)
         ))
     return papers
+
+
+def fetch_arxiv(
+    query: str,
+    max_results: int,
+    terms: list[str] | None = None,
+    categories: list[str] | None = None,
+    batch_size: int = 8,
+) -> list[Paper]:
+    """
+    ✅ 修复：分批查询，避免单次 URL 超长导致 arXiv 返回 HTTP 500。
+
+    将 terms 切分为每批 batch_size 个，每批独立构造查询并请求，
+    最后合并去重。每批之间休眠 3 秒，遵守 arXiv API 使用规范
+    （https://arxiv.org/help/api/tou：每 3 秒最多 1 次请求）。
+
+    兼容原有调用方式（仅传 query）：若 terms/categories 未传入，
+    则回退为单次请求（适用于外部自定义 query 的场景）。
+    """
+    # 兼容旧调用：无 terms 时直接单次请求
+    if terms is None or categories is None:
+        print(f"  → 单次查询模式（兼容）")
+        return _fetch_arxiv_single(query, max_results)
+
+    all_papers: list[Paper] = []
+    seen_ids: set[str] = set()
+    cat_query = " OR ".join(f"cat:{c}" for c in categories)
+    per_batch_results = max(max_results // max(len(terms) // batch_size, 1), 50)
+
+    batches = [terms[i: i + batch_size] for i in range(0, len(terms), batch_size)]
+    print(f"  → 分批查询：共 {len(batches)} 批，每批 {batch_size} 个词条，每批最多 {per_batch_results} 条结果")
+
+    for idx, batch in enumerate(batches, 1):
+        term_query = " OR ".join(f"all:{t}" for t in batch)
+        batch_query = f"({term_query}) AND ({cat_query})"
+        print(f"  [批次 {idx}/{len(batches)}] 查询词条：{', '.join(batch[:3])}{'...' if len(batch) > 3 else ''}")
+
+        batch_papers = _fetch_arxiv_single(batch_query, per_batch_results)
+        new_count = 0
+        for p in batch_papers:
+            if p.arxiv_id not in seen_ids:
+                seen_ids.add(p.arxiv_id)
+                all_papers.append(p)
+                new_count += 1
+        print(f"     获得 {len(batch_papers)} 篇，新增 {new_count} 篇（累计 {len(all_papers)} 篇）")
+
+        if idx < len(batches):
+            time.sleep(3)  # 遵守 arXiv API 频率限制
+
+    return all_papers
+
 
 def dedup_papers(papers: list[Paper]) -> list[Paper]:
     seen = set()
@@ -458,16 +515,21 @@ def build_markdown_report(papers: list[Paper], synthesis: str, today: str) -> st
 def main():
     print("🚀 OCR arXiv Daily Pro v2.0 最终生产版启动...")
 
-    # 第一层：arXiv API 检索
-    query = build_query(DEFAULT_TERMS, DEFAULT_CATEGORIES)
-    papers = fetch_arxiv(query, CONFIG["arxiv"].get("max_results", 200))
+    # 第一层：arXiv API 检索（✅ 修复：分批查询，避免 URL 超长）
+    papers = fetch_arxiv(
+        query="",  # 分批模式下此参数不使用
+        max_results=CONFIG["arxiv"].get("max_results", 200),
+        terms=DEFAULT_TERMS,
+        categories=DEFAULT_CATEGORIES,
+        batch_size=8,
+    )
     papers = dedup_papers(papers)
     papers = filter_recent(papers, CONFIG["arxiv"].get("days_back", 14))
     print(f"✅ 第一层：arXiv 检索到 {len(papers)} 篇论文（最近 {CONFIG['arxiv'].get('days_back')} 天）")
 
     # 第二层：本地关键词权重粗筛，预排序，减少 LLM 调用次数
     papers = sorted(papers, key=lambda p: p.score, reverse=True)
-    pre_limit = CONFIG["arxiv"].get("pre_limit", 60)  # 送入 LLM 的候选数量
+    pre_limit = CONFIG["arxiv"].get("pre_limit", 60)
     papers = papers[:pre_limit]
     print(f"✅ 第二层：本地关键词打分，保留前 {len(papers)} 篇进入 LLM 精筛")
 
