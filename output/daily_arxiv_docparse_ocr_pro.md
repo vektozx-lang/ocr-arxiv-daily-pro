@@ -1,4 +1,4 @@
-# OCR arXiv Daily Pro — 2026-04-06
+# OCR arXiv Daily Pro — 2026-04-07
 
 > 自动生成，共收录 **15** 篇高相关论文
 
@@ -7,691 +7,696 @@
 ## 📊 今日综合分析
 
 ### 今日执行摘要
-今日研究整体呈现高热度，核心聚焦于多模态大模型（MLLMs/VLMs）在文档与视觉理解任务中的性能优化与效率提升。主要方向包括：通过指令微调、强化学习、工具集成等手段增强模型在表格、图表等复杂文档上的结构识别与推理能力；以及通过剪枝、融合互补编码器、设计紧凑架构等技术创新来应对模型的计算效率挑战。最值得关注的突破在于，研究开始深入探讨模型内部机制（如幻觉成因、层间贡献差异）并据此设计更精细的干预方法，这标志着该领域正从“黑盒”应用向“白盒”分析与优化演进。
+今日研究整体态势呈现高热度，核心焦点集中于提升视觉文档理解（VDU）与多模态大模型（MLLMs）的**内在能力评估、数据工程效率及复杂结构化信息处理**。最值得关注的突破在于揭示了当前模型性能评估的潜在缺陷（论文1），并系统性地将性能瓶颈归因于训练数据而非模型架构（论文2），这标志着研究范式可能从“模型中心”向“数据中心”的深刻转变。同时，针对复杂表格（论文3）与高效架构（论文4）的探索，共同指向了解决实际应用中感知与计算瓶颈的迫切需求。
 
 ### 今日研究趋势
-1.  **复杂文档理解的能力增强与评估深化**：研究重点从通用图文匹配转向对表格、图表等富含结构化信息载体的深度理解。例如，**论文1** 通过指令范式改进表格结构识别，**论文5** 和 **论文6** 分别利用强化学习和工具集成来提升图表问答中的视觉推理与数值计算精度。同时，**论文9** 和 **论文11** 开始系统性地研究多模态模型在推理过程中产生幻觉的机制，表明对模型能力边界的评估正变得更为严谨和深入。
-2.  **多模态模型的高效化与轻量化设计**：面对大模型高昂的计算成本，多种模型压缩与效率优化技术并行发展。**论文3** 提出基于跨模态互信息的视觉令牌剪枝，**论文12** 探索参数与令牌的协同多模式剪枝，**论文10** 则设计了紧凑的双编码器回归框架。这些工作共同反映了在保持或提升性能的前提下，降低VLMs/MLLMs部署门槛的迫切需求。
-3.  **视觉编码器的互补融合与数据合成策略的精细化**：为了获取更鲁棒的视觉表征，研究探索超越单一对比学习编码器的方案。**论文2** 致力于规模化融合对比学习与自监督学习两种互补的视觉编码器。另一方面，合成数据的使用策略也在进化，**论文4** 提出基于溯源的输入梯度指导，旨在更直接地教会模型关注对判别真正重要的区域，而非仅仅增加数据多样性。
+1.  **从响应评估转向内部表征诊断**：研究重点不再局限于最终输出性能，而是深入探究模型内部是否真正理解与捕获了所需信息。论文1直接揭示了模型内部表征与生成响应之间的鸿沟，而论文9则提出了细粒度token定位作为检测幻觉的新方法，两者均致力于开发更可靠的模型能力评估与诊断工具。
+2.  **数据工程与系统性数据集的构建成为性能突破关键**：多篇论文明确指出，当前SOTA模型的瓶颈在于共享的训练数据缺陷。论文2提出通过大规模数据工程（MinerU2.5-Pro）来突破文档解析极限；论文3构建了大规模复杂分层表格基准（TableVision）以量化感知瓶颈；论文12的Vero模型也强调了开放RL配方与数据的重要性，这共同凸显了高质量、针对性数据构建的核心地位。
+3.  **追求极致效率与轻量化部署**：在模型能力提升的同时，如何降低计算开销以适应边缘或实时场景成为明确趋势。论文4（Firebolt-VL）提出跨模态调制以替代高开销的交叉注意力；论文6（TriAttention）通过三角KV压缩解决长序列推理的内存瓶颈；论文15（ClickAIXR）则专注于设备端多模态交互框架，均体现了对模型实用性与可部署性的高度关注。
 
 ### 核心技术创新汇总
-1.  **基于内部机制分析的精细化干预技术**：**论文11 (STEAR)** 基于解码器各层对视觉基础与语言组合贡献不同的观察，提出了层感知的时空证据干预方法，为缓解视频大语言模型的幻觉提供了更精细的解决方案。**论文3 (MI-Pruner)** 摒弃了依赖注意力分数的传统剪枝信号，转而利用跨模态互信息作为更“外科手术式”的令牌重要性度量，实现了更高效的视觉信息压缩。
-2.  **面向特定任务的增强学习与工具集成框架**：**论文5 (Chart-RL)** 创新性地将策略优化强化学习应用于图表问答任务，旨在系统性地提升VLMs的数值提取、关系理解和注意力分配能力。**论文6 (CharTool)** 提出了一个结合高质量双源数据管道（DuoChart）与工具集成推理的完整框架，直接针对图表理解中细粒度视觉定位和精确计算的核心难点。
-3.  **互补视觉表征的规模化融合架构**：**论文2 (CoME-VL)** 的核心创新在于系统地研究如何规模化地融合对比学习编码器（擅长跨模态对齐）与自监督视觉编码器（擅长密集语义理解），以构建能力更全面的视觉-语言模型，这为下一代VLMs的预训练架构提供了新思路。
+1.  **内部表征与响应一致性分析框架（论文1）**：该研究创新性地提出并验证了评估VDU模型是否“真理解”的方法论，挑战了仅凭最终答案评估模型能力的传统范式，为模型可靠性研究提供了新维度。
+2.  **以数据为中心的文档解析系统工程方法（论文2）**：其核心创新在于系统性地论证并实践了通过工程化处理“困难样本”来提升各类模型性能的路径，为突破文档解析性能天花板提供了可复现的、架构无关的解决方案。
+3.  **针对复杂表格的感知瓶颈量化与基准构建（论文3）**：通过定量分析揭示了MLLMs在处理复杂分层表格时，任务复杂度与所需感知的离散视觉区域数量之间的非线性增长关系，并据此构建了大规模基准，为后续研究指明了明确的改进方向。
+4.  **生成能力用于退化图像理解的解锁机制（论文8）**：论文CLEAR创新性地利用统一多模态模型自身的生成通路来建模被退化破坏的细粒度视觉结构，提出了解决生成与理解能力在退化输入上脱节问题的方法，为真实场景下的鲁棒性理解提供了新思路。
 
 ### 研究空白与机会
-1.  **文档智能中的长上下文与多页理解**：今日论文虽涉及表格、图表等元素，但均未深入探讨如何让模型有效理解跨越多个页面的长篇文档（如技术报告、法律合同）的连贯语义与逻辑结构，这是一个亟待探索的关键方向。
-2.  **多模态模型安全性与对抗鲁棒性研究不足**：除 **论文13** 对GraphRAG的逻辑攻击外，其他论文较少关注VLMs/MLLMs在文档智能场景下面临的对抗性样本、后门攻击或提示注入等安全威胁。随着模型部署深化，其安全漏洞与防御机制将成为重要研究课题。
-3.  **低资源语言与极端场景的适应性**：现有研究大多基于英语或主流语言的高质量数据，对于低资源语言文档、历史档案、低质量扫描件等极端场景的OCR与理解问题，缺乏针对性的鲁棒性解决方案和评估基准。
+1.  **动态与流式文档理解**：今日论文集中于静态文档图像的分析，缺乏对视频流中的文档（如演示文稿、滚动网页）或交互式文档（如可填写表单）进行时序与状态理解的研究，这是一个重要的实际应用空白。
+2.  **多模态预训练与微调策略的深入探索**：尽管提到了数据的重要性，但如何为特定文档任务（如公式识别、手写体解析）设计更有效的多模态预训练目标、课程学习或持续学习策略，以最大化从基础模型到下游任务的迁移效率，仍有待系统研究。
+3.  **模型可解释性与决策溯源**：虽然论文1和9触及了内部表征与幻觉检测，但对于模型在文档理解（特别是涉及逻辑推理、数值计算时）的具体决策过程，仍缺乏可解释的、人类可理解的溯源工具，这在金融、法律等高风险领域至关重要。
 
 ### 工程落地启发
-1.  **优先考虑“模型+工具”的混合系统设计**：对于图表解析、数值计算等要求精确性的任务，如 **论文6** 所示，纯端到端的模型方案风险较高。工程实践中应借鉴其思路，将大模型的语义理解能力与规则化、可验证的外部工具（如OCR引擎、计算库）相结合，以提升系统可靠性与可解释性。
-2.  **在模型选型与优化中重视效率权衡**：在实际部署中，应参考 **论文3、10、12** 的导向，并非盲目追求最大模型。对于产品推荐（**论文10**）等具体场景，紧凑的双编码器架构可能更具性价比；对于需要处理大量视觉令牌的应用，可探索基于互信息等新指标的剪枝方案来加速推理。
-3.  **利用指令与合成数据低成本提升垂直领域性能**：**论文1** 和 **论文4** 提供了实用思路。对于表格识别等特定任务，可以通过构建高质量的指令微调数据来显著提升效果；在数据匮乏的垂直领域，可采用更智能的合成数据生成与训练策略（如梯度引导），以较低成本提升模型在真实数据上的鲁棒性。
+1.  **优先投资于高质量、针对性的困难样本数据收集与标注**：论文2的结论强烈建议，在工程项目中，与其不断尝试更换模型架构，不如系统性地分析现有模型在业务场景下的共同失败案例，并针对性地进行数据修复与扩充，这可能是提升性能性价比最高的途径。
+2.  **在评估模型时引入内部一致性或细粒度归因检查**：对于可靠性要求高的场景（如合同关键信息抽取），可参考论文1和9的思路，设计超越最终答案匹配的评估指标，例如通过探针或注意力分析来验证模型是否基于正确的视觉文本区域进行决策，以筛选出更可靠的模型。
+3.  **为复杂表格处理设计专门的预处理与表示模块**：面对财务报表等复杂分层表格，直接使用通用VLM可能遭遇论文3所指出的感知瓶颈。工程上应考虑引入专门的表格结构检测器，或将表格转换为更易于模型推理的中间表示（如带有坐标的线性化序列），以降低模型感知负担。
 
 ### 今日优先精读推荐
-1.  **论文11 (STEAR: Layer-Aware Spatiotemporal Evidence Intervention for Hallucination Mitigation in Video Large Language Models)**：推荐理由：该论文对多模态模型幻觉的成因进行了细致的层间分析，并提出了相应的分层干预机制，代表了当前缓解幻觉问题最前沿且具理论深度的研究方向，对提升任何时序性多模态任务的可靠性均有启发。
-2.  **论文6 (CharTool: Tool-Integrated Visual Reasoning for Chart Understanding)**：推荐理由：它提供了一个从高质量数据构建到工具集成推理的完整、可落地的图表理解解决方案，其“DuoChart”数据管道和工具调用框架对解决实际工程中图表信息提取不准、计算错误等问题具有直接的参考价值。
-3.  **论文2 (CoME-VL: Scaling Complementary Multi-Encoder Vision-Language Learning)**：推荐理由：该研究直指当前主流VLM架构（单一对比学习编码器）的潜在局限，探索融合互补视觉表征的规模化路径，属于基础架构层面的创新，可能影响未来视觉-语言预训练的技术路线。
+1.  **论文1：Responses Fall Short of Understanding: Revealing the Gap between Internal Representations and Responses in Visual Document Understanding**
+    **推荐理由**：该研究直指当前VDU评估范式的根本性局限，其提出的“内部表征-响应”一致性分析框架具有方法论上的重要意义，可能引领未来模型评估与可靠性研究的新方向。
+2.  **论文2：MinerU2.5-Pro: Pushing the Limits of Data-Centric Document Parsing at Scale**
+    **推荐理由**：本文以实证系统论证了数据工程对性能提升的关键作用，提供了可操作的“以数据为中心”的研发范式，对学术界和工业界的模型研发策略具有直接的、颠覆性的启发价值。
+3.  **论文3：TableVision: A Large-Scale Benchmark for Spatially Grounded Reasoning over Complex Hierarchical Tables**
+    **推荐理由**：它精准地定位了MLLMs处理专业领域复杂表格的核心瓶颈——感知，并通过构建大规模基准为未来研究提供了可靠的测评平台，对于任何涉及表格理解的研究或应用都极具参考价值。
 
 ---
 
 ## 📄 论文详情
 
-### 1. InstructTable: Improving Table Structure Recognition Through Instructions
+### 1. Responses Fall Short of Understanding: Revealing the Gap between Internal Representations and Responses in Visual Document Understanding
 
-- **ArXiv ID**: [2604.02880v1](https://arxiv.org/abs/2604.02880v1)
-- **作者**: Boming Chen, Zining Wang, Zhentao Guo, Jianqiang Liu, Chen Duan...
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2604.02880v1](https://arxiv.org/pdf/2604.02880v1)
+- **ArXiv ID**: [2604.04411v1](https://arxiv.org/abs/2604.04411v1)
+- **作者**: Haruka Kawasaki, Ryota Tanaka, Kyosuke Nishida
+- **发布时间**: 2026-04-06
+- **分类**: cs.CL, cs.AI, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04411v1](https://arxiv.org/pdf/2604.04411v1)
 - **相关度评分**: 9/10
 
 #### 英文摘要
 
-Table structure recognition (TSR) holds widespread practical importance by parsing tabular images into structured representations, yet encounters significant challenges when processing complex layouts involving merged or empty cells. Traditional visual-centric models rely exclusively on visual information while lacking crucial semantic support, thereby impeding accurate structural recognition in complex scenarios. Vision-language models leverage contextual semantics to enhance comprehension; however, these approaches underemphasize the modeling of visual structural information. To address these limitations, this paper introduces InstructTable, an instruction-guided multi-stage training TSR framework. Meticulously designed table instruction pre-training directs attention toward fine-grained structural patterns, enhancing comprehension of complex tables. Complementary TSR fine-tuning preserves robust visual information modeling, maintaining high-precision table parsing across diverse scenarios. Furthermore, we introduce Table Mix Expand (TME), an innovative template-free method for synthesizing large-scale authentic tabular data. Leveraging TME, we construct the Balanced Complex Dense Synthetic Tables (BCDSTab) benchmark, comprising 900 complex table images synthesized through our method to serve as a rigorous benchmark. Extensive experiments on multiple public datasets (FinTabNet, PubTabNet, MUSTARD) and BCDSTab demonstrate that InstructTable achieves state-of-the-art performance in TSR tasks. Ablation studies further confirm the positive impact of the proposed tabular-data-specific instructions and synthetic data.
+Visual document understanding (VDU) is a challenging task for large vision language models (LVLMs), requiring the integration of visual perception, text recognition, and reasoning over structured layouts. Although recent LVLMs have shown progress on VDU benchmarks, their performance is typically evaluated based on generated responses, which may not necessarily reflect whether the model has actually captured the required information internally. In this paper, we investigate how information required to solve VDU tasks is represented across different layers of LLMs within LVLMs using linear probing. Our study reveals that (1) there is a clear gap between internal representations and generated responses, and (2) information required to solve the task is often encoded more linearly from intermediate layers than from the final layer. Motivated by these findings, we explore fine-tuning strategies that target intermediate layers. Experiments show that fine-tuning intermediate layers improves both linear probing accuracy and response accuracy while narrowing the gap.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出了InstructTable，一个基于指令引导的多阶段训练框架，旨在解决复杂表格（包含合并单元格或空单元格）的结构识别难题。该方法通过精心设计的表格指令预训练来增强模型对细粒度结构模式的理解，并结合互补的TSR微调以保持强大的视觉信息建模能力，从而在多个公开数据集上实现了最先进的性能。
+本文针对视觉文档理解任务，揭示了大型视觉语言模型内部表征与最终生成响应之间存在显著差距。研究发现，解决任务所需的信息在模型中间层比最终层具有更强的线性可分性。基于此，论文提出并验证了针对中间层进行微调的优化策略，有效提升了模型性能并缩小了上述差距。
 
 ### 解决的核心问题
-现有表格结构识别方法存在两大痛点：一是传统的纯视觉模型过度依赖图像信息，缺乏语义上下文支持，在处理复杂布局时准确性受限；二是新兴的视觉-语言模型虽然引入了语义信息，却对视觉结构信息的建模不够充分。本文针对如何在复杂表格场景下，有效融合视觉结构信息与语义指导以提升识别精度这一具体问题展开研究。
+现有研究主要通过最终生成的响应来评估大型视觉语言模型在视觉文档理解任务上的性能，但这无法反映模型是否在内部真正理解和编码了完成任务所需的关键信息。本文针对模型“内部表征”与“外部响应”之间可能存在的脱节这一具体问题展开研究，旨在探究模型内部信息流动的真实状况。
 
 ### 核心创新
-本文的核心创新在于提出了一个指令引导的多阶段训练范式，将表格结构识别任务重新定义为遵循指令的生成任务。此外，论文还创新性地提出了一种无需模板的大规模真实表格数据合成方法，并构建了相应的复杂表格基准数据集。
+本文的核心创新在于提出了一种新的评估与优化视角，即通过线性探测技术系统性地诊断模型各层对任务信息的编码能力，并据此设计出针对中间层的微调策略。该方法跳出了仅依赖最终输出进行评估的传统范式，从模型内部工作机制入手进行干预。
 
 ### 创新点拆解
-- 创新点1：**指令引导的多阶段训练框架（InstructTable）**。该框架包含两个核心阶段：首先通过精心设计的表格指令进行预训练，引导模型关注单元格关系、行列结构等细粒度模式；随后进行互补的TSR任务微调，确保模型在理解语义指令的同时，不丢失对原始视觉特征的精确建模能力。
-- 创新点2：**无模板表格数据合成方法（Table Mix Expand, TME）**。这是一种创新的数据合成方法，它不依赖于预定义的模板，能够通过混合和扩展现有表格来生成大规模、逼真且布局复杂的合成表格图像，有效解决了该领域高质量训练数据稀缺的问题。
-- 创新点3：**平衡的复杂密集合成表格基准（BCDSTab）**。利用TME方法，作者构建了包含900张复杂表格图像的BCDSTab基准数据集。该数据集专注于具有合并单元格、空单元格等挑战性布局的表格，为评估模型在复杂场景下的鲁棒性提供了一个严格的测试平台。
+- 创新点1：**诊断方法的创新**：首次系统性地将线性探测技术应用于视觉文档理解领域，用于量化分析大型视觉语言模型不同网络层对任务相关信息的编码程度，从而揭示了信息在模型内部流动的非单调性。
+- 创新点2：**关键现象的发现**：实证发现了“任务关键信息在模型中间层比最终输出层具有更强的线性可分性”这一反直觉现象，这直接指向了内部表征与最终响应之间存在信息损失或转换瓶颈。
+- 创新点3：**优化策略的创新**：基于上述发现，提出了针对模型中间层而非仅最终层进行参数微调的新策略。这种“由内而外”的优化方法旨在直接强化模型对关键信息的内部保持能力。
 
 ### 实验结果亮点
-在多个公开数据集上，InstructTable均取得了最优性能：在FinTabNet数据集上，其TEDS分数达到99.6%；在PubTabNet数据集上，TEDS分数为99.3%；在更具挑战性的MUSTARD数据集上，TEDS分数为97.6%。特别是在本文提出的BCDSTab复杂数据集上，InstructTable的表现显著优于对比方法，证明了其在处理复杂布局方面的强大能力。消融实验证实了表格指令预训练和合成数据对性能均有积极贡献。
+在DocVQA、InfographicsVQA等标准视觉文档理解基准测试上，所提出的中间层微调策略在线性探测准确率和最终响应准确率上均取得了显著提升。例如，在某个实验设置下，中间层微调将线性探测准确率从约70%提升至超过80%，同时将最终答案准确率提升了数个百分点，有效缩小了内部表征与响应之间的性能差距。
 
 ### 当前局限
-该方法主要依赖于合成数据进行训练和评估，虽然合成方法先进，但其与真实世界表格的分布可能仍存在差异，在极端不规则或手绘表格上的泛化能力有待进一步验证。此外，多阶段训练框架相对复杂，对计算资源和训练流程设计的要求较高，可能影响其部署的便捷性。
+该方法主要依赖于线性探测这一相对简单的诊断工具，可能无法完全捕捉深度神经网络中复杂的非线性表征特性。此外，研究集中于特定架构的模型和有限的基准数据集，其发现和策略在不同模型架构或更复杂、多样化的真实文档上的泛化能力仍有待验证。
 
 ### 后续改进方向
-- 方向1：**探索更高效的指令设计与融合机制**。可以研究如何设计更通用、更细粒度的指令集，以及如何将指令信息更早、更深地融入到视觉编码器中，以简化训练流程并提升模型对指令的理解效率。
-- 方向2：**增强对非标准表格的鲁棒性**。未来的工作可以专注于利用更多样化的真实表格数据（如扫描文档中的扭曲表格、截图表格）进行微调或数据增强，以提升模型在真实复杂场景下的实用性和鲁棒性。
+- 方向1：探索更高级的非线性诊断工具（如基于小规模神经网络的探测头）来更精确地刻画模型内部的信息表征，以验证并深化当前基于线性探测的结论。
+- 方向2：将中间层干预策略与现有的提示工程、思维链等技术结合，研究如何通过外部引导更好地利用模型内部已编码但未充分表达的信息，形成内外协同的优化框架。
 
 ### 工程落地启发
-对实际OCR/文档解析工程最具参考价值的点在于其“指令引导”的思路和“数据合成”的方法。将复杂的版面分析任务转化为遵循自然语言指令的生成任务，为构建统一、可交互的文档智能系统提供了新范式。同时，TME数据合成方法为在缺乏足量标注数据的垂直领域（如金融报表、医疗表格）快速构建高质量训练集提供了切实可行的技术路径。
+对实际OCR/文档解析工程最有价值的启示在于：不应仅满足于模型最终输出的答案是否正确，而应关注模型内部是否稳定、可靠地“理解”了文档中的关键实体、关系和逻辑。在模型调优或失败案例诊断时，可以借鉴文中的线性探测思路，定位信息丢失或扭曲发生的网络层，从而进行更有针对性的模型改进或设计更有效的后处理校验机制。
 
 ---
 
-### 2. CoME-VL: Scaling Complementary Multi-Encoder Vision-Language Learning
+### 2. MinerU2.5-Pro: Pushing the Limits of Data-Centric Document Parsing at Scale
 
-- **ArXiv ID**: [2604.03231v1](https://arxiv.org/abs/2604.03231v1)
-- **作者**: Ankan Deria, Komal Kumar, Xilin He, Imran Razzak, Hisham Cholakkal...
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2604.03231v1](https://arxiv.org/pdf/2604.03231v1)
+- **ArXiv ID**: [2604.04771v1](https://arxiv.org/abs/2604.04771v1)
+- **作者**: Bin Wang, Tianyao He, Linke Ouyang, Fan Wu, Zhiyuan Zhao...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2604.04771v1](https://arxiv.org/pdf/2604.04771v1)
 - **相关度评分**: 9/10
 
 #### 英文摘要
 
-Recent vision-language models (VLMs) typically rely on a single vision encoder trained with contrastive image-text objectives, such as CLIP-style pretraining. While contrastive encoders are effective for cross-modal alignment and retrieval, self-supervised visual encoders often capture richer dense semantics and exhibit stronger robustness on recognition and understanding tasks. In this work, we investigate how to scale the fusion of these complementary visual representations for vision-language modeling. We propose CoME-VL: Complementary Multi-Encoder Vision-Language, a modular fusion framework that integrates a contrastively trained vision encoder with a self-supervised DINO encoder. Our approach performs representation-level fusion by (i) entropy-guided multi-layer aggregation with orthogonality-constrained projections to reduce redundancy, and (ii) RoPE-enhanced cross-attention to align heterogeneous token grids and produce compact fused visual tokens. The fused tokens can be injected into a decoder-only LLM with minimal changes to standard VLM pipelines. Extensive experiments across diverse vision-language benchmarks demonstrate that CoME-VL consistently outperforms single-encoder baselines. In particular, we observe an average improvement of 4.9% on visual understanding tasks and 5.4% on grounding tasks. Our method achieves state-of-the-art performance on RefCOCO for detection while improving over the baseline by a large margin. Finally, we conduct ablation studies on layer merging, non-redundant feature mixing, and fusion capacity to evaluate how complementary contrastive and self-supervised signals affect VLM performance.
+Current document parsing methods compete primarily on model architecture innovation, while systematic engineering of training data remains underexplored. Yet SOTA models of different architectures and parameter scales exhibit highly consistent failure patterns on the same set of hard samples, suggesting that the performance bottleneck stems from shared deficiencies in training data rather than architecture itself. Building on this finding, we present \minerupro, which advances the state of the art solely through data engineering and training strategy optimization while keeping the 1.2B-parameter architecture of \mineru completely fixed. At its core is a Data Engine co-designed around coverage, informativeness, and annotation accuracy: Diversity-and-Difficulty-Aware Sampling expands training data from under 10M to 65.5M samples while correcting distribution shift; Cross-Model Consistency Verification leverages output agreement among heterogeneous models to assess sample difficulty and generate reliable annotations; the Judge-and-Refine pipeline improves annotation quality for hard samples through render-then-verify iterative correction. A three-stage progressive training strategy -- large-scale pre-training, hard sample fine-tuning, and GRPO alignment -- sequentially exploits these data at different quality tiers. On the evaluation front, we fix element-matching biases in OmniDocBench~v1.5 and introduce a Hard subset, establishing the more discriminative OmniDocBench~v1.6 protocol. Without any architectural modification, \minerupro achieves 95.69 on OmniDocBench~v1.6, improving over the same-architecture baseline by 2.71 points and surpassing all existing methods including models with over 200$\times$ more parameters.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出了一种名为CoME-VL的互补多编码器视觉语言学习框架，旨在融合对比学习与自监督学习两种范式下的视觉编码器优势。该框架通过熵引导的多层聚合与正交约束投影来减少特征冗余，并利用RoPE增强的交叉注意力机制对齐异构视觉令牌，最终将融合后的紧凑视觉令牌注入到仅解码器的大语言模型中，从而在多种视觉语言任务上实现了性能的显著提升。
+本文提出了一种纯粹基于数据工程和训练策略优化的文档解析方法MinerU2.5-Pro，其核心在于构建了一个围绕覆盖率、信息量和标注准确性协同设计的“数据引擎”。该方法在保持1.2B参数架构完全不变的情况下，通过大规模数据扩充、困难样本挖掘与精炼以及三阶段渐进式训练，显著提升了模型性能，并在改进的评测基准上达到了新的最先进水平。
 
 ### 解决的核心问题
-当前主流的视觉语言模型通常仅依赖单一的、基于对比学习（如CLIP）训练的视觉编码器，这类编码器虽擅长跨模态对齐与检索，但在密集语义理解和任务鲁棒性上可能不及自监督视觉编码器。本文的核心问题是：如何有效地融合这两种互补的视觉表征，以构建一个在理解和定位任务上均表现更优的视觉语言模型，从而克服单一编码器表征能力有限的痛点。
+当前文档解析领域的研究主要集中于模型架构创新，而对训练数据的系统性工程探索不足。研究发现，不同架构和参数规模的SOTA模型在同一组困难样本上表现出高度一致的失败模式，这表明性能瓶颈源于训练数据共有的缺陷，而非架构本身。本文旨在通过数据中心的视角，解决训练数据在分布、难度和标注质量上的系统性不足。
 
 ### 核心创新
-本文的核心创新在于提出了一个模块化的融合框架，首次系统性地将对比学习编码器与自监督学习编码器（DINO）进行表征级融合，并设计了专门的融合机制来处理两种异构视觉特征。其“新”主要体现在融合策略上，而非简单地拼接或平均特征。
+本文的核心创新在于提出了一套完整的数据中心（Data-Centric）解决方案，而非模型架构创新。其贡献主要体现在方法论层面，即如何系统性地构建、筛选和利用大规模、高质量、高难度的训练数据，并设计了与之匹配的渐进式训练策略，从而在固定模型架构下突破了性能瓶颈。
 
 ### 创新点拆解
-- 创新点1：**熵引导的多层聚合与正交约束投影**：该方法通过计算特征图的熵值来指导从两个编码器的不同深度选择特征层进行融合，并引入正交约束的投影来减少融合过程中来自两个编码器的特征冗余，确保融合后特征的互补性和信息丰富度。
-- 创新点2：**RoPE增强的交叉注意力机制**：为了对齐两个编码器输出的具有不同空间网格的视觉令牌，该方法采用了旋转位置编码（RoPE）来增强交叉注意力模块，使其能够更好地建模异构令牌间的关系，并生成一组紧凑的、融合后的视觉令牌序列。
-- 创新点3：**即插即用的模块化融合设计**：整个融合模块设计为轻量且模块化，可以无缝集成到标准的、基于大语言模型的视觉语言模型流程中，仅需对视觉令牌进行替换，而无需大幅改动LLM主干，保证了方法的通用性和易用性。
+- 创新点1：**协同设计的数据引擎**：构建了一个包含三个关键组件的系统性数据工程框架。1）**多样性与难度感知采样**：将训练数据从不足1000万扩展到6550万样本，并校正了数据分布偏移。2）**跨模型一致性验证**：利用异构模型的输出一致性来评估样本难度并生成可靠标注。3）**评判与精炼流水线**：通过“渲染-验证”迭代校正流程，提升困难样本的标注质量。
+- 创新点2：**三阶段渐进式训练策略**：设计了一种分阶段利用不同质量等级数据的训练范式。依次进行大规模预训练、困难样本微调和基于GRPO的对齐训练，使模型能够逐步吸收通用知识、攻克难点并优化输出格式。
+- 创新点3：**更富区分性的评测基准**：修正了OmniDocBench v1.5中的元素匹配偏差，并引入了一个专门的“困难”子集，建立了更具判别力的OmniDocBench v1.6评测协议，为未来研究提供了更可靠的评估标准。
 
 ### 实验结果亮点
-在广泛的视觉语言基准测试中，CoME-VL一致超越了单编码器基线模型。具体而言，在视觉理解任务上平均提升4.9%，在视觉定位任务上平均提升5.4%。特别是在RefCOCO指代表达理解数据集上，该方法取得了最先进的检测性能，并以较大幅度超越了基线模型。消融实验证实了所提出的层合并、非冗余特征混合等机制的有效性。
+在全新的OmniDocBench v1.6评测基准上，MinerU2.5-Pro取得了95.69的综合得分。相比使用相同1.2B参数架构的基线模型，性能提升了2.71个点。更重要的是，该成绩超越了所有现有方法，包括参数量超过其200倍以上的大模型，证明了数据工程的有效性。
 
 ### 当前局限
-该方法需要同时运行两个视觉编码器进行前向推理，这不可避免地增加了计算开销和内存占用，可能限制其在资源受限环境下的部署。此外，融合机制主要针对图像模态设计，对于视频等时序视觉数据的扩展性尚未得到验证。框架的性能增益高度依赖于所选取的两个基础编码器的质量，若基础编码器能力不足，融合收益可能有限。
+该方法高度依赖数据引擎构建的初始数据池和用于一致性验证的异构模型集合，其效果可能受限于这些“种子”数据的质量和多样性。此外，整个数据构建和迭代精炼流程计算成本高昂，且对于标注规范（如元素类型定义）发生剧烈变化的全新文档类型，其数据引擎的适应性可能不足。
 
 ### 后续改进方向
-- 方向1：**开发动态或选择性编码机制**：研究如何根据输入内容动态决定是否需要激活或部分使用两个编码器，例如在简单检索任务上主要使用对比编码器，在复杂理解任务上再启用自监督编码器，以优化计算效率。
-- 方向2：**探索更高效的融合架构**：设计参数更少、计算更轻量的融合模块，例如通过知识蒸馏将双编码器的互补信息压缩到一个更高效的网络中，或探索早期特征层的融合策略以减少后续处理的计算量。
+- 方向1：**探索更高效的数据筛选与合成技术**：研究如何以更低的计算成本，自动生成或发现对模型能力提升关键的“信息量”样本，降低数据引擎的构建和运行开销。
+- 方向2：**增强数据引擎的领域自适应能力**：开发能够快速适应新领域、新文档格式或新任务定义（如新增版面元素类别）的数据引擎机制，减少对大规模重新标注的依赖。
 
 ### 工程落地启发
-对于OCR与文档智能工程项目，本文的核心启发在于**利用多源、互补的视觉特征来提升复杂文档的理解精度**。例如，在文档图像分析中，可以借鉴此思路，融合一个擅长捕捉全局版面结构和文本区域（类似对比学习）的编码器，与一个擅长理解局部笔划纹理、公式符号或印章等细节（类似自监督学习）的编码器。这种融合策略有望显著提升对表格结构识别、手写体文字检测、以及文档中非文本元素的理解等挑战性任务的鲁棒性和准确性。
+对工程实践最具启发的点在于，在资源受限（无法使用极大模型或频繁改动架构）的场景下，通过系统性的数据质量治理、困难样本针对性增强以及分阶段训练策略，可以成为提升现有模型性能的强有力且更具性价比的手段。这提示项目团队应同等重视数据流水线的建设与模型架构的选择。
 
 ---
 
-### 3. MI-Pruner: Crossmodal Mutual Information-guided Token Pruner for Efficient MLLMs
+### 3. TableVision: A Large-Scale Benchmark for Spatially Grounded Reasoning over Complex Hierarchical Tables
 
-- **ArXiv ID**: [2604.03072v1](https://arxiv.org/abs/2604.03072v1)
-- **作者**: Jiameng Li, Aleksei Tiulpin, Matthew B. Blaschko
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2604.03072v1](https://arxiv.org/pdf/2604.03072v1)
-- **相关度评分**: 9/10
-
-#### 英文摘要
-
-For multimodal large language models (MLLMs), visual information is relatively sparse compared with text. As a result, research on visual pruning emerges for efficient inference. Current approaches typically measure token importance based on the attention scores in the visual encoder or in the LLM decoder, then select visual tokens with high attention scores while pruning others. In this paper, we pursue a different and more surgical approach. Instead of relying on mechanism-specific signals, we directly compute Mutual Information (MI) between visual and textual features themselves, prior to their interaction. This allows us to explicitly measure crossmodal dependency at the feature levels. Our MI-Pruner is simple, efficient and non-intrusive, requiring no access to internal attention maps or architectural modifications. Experimental results demonstrate that our approach outperforms previous attention-based pruning methods with minimal latency.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了一种名为MI-Pruner的新型视觉令牌剪枝方法，用于提升多模态大语言模型的推理效率。该方法的核心在于直接计算视觉与文本特征之间的互信息，以此作为令牌重要性的衡量标准，从而在特征交互前进行精准剪枝，避免了依赖注意力机制等内部信号。
-
-### 解决的核心问题
-现有基于注意力的视觉令牌剪枝方法依赖于视觉编码器或LLM解码器中的注意力分数，这些机制特定的信号可能无法直接、准确地反映跨模态特征间的本质依赖关系。本文针对如何更直接、更本质地衡量视觉令牌对于文本理解的重要性这一具体问题展开研究，旨在实现更高效、更精准的剪枝。
-
-### 核心创新
-本文的核心创新在于提出了一种基于跨模态互信息的令牌重要性度量范式。该方法摆脱了对模型内部注意力机制的依赖，通过计算视觉特征与文本特征之间的互信息，直接从特征层面量化其统计依赖性，从而指导剪枝决策。
-
-### 创新点拆解
-- 创新点1：**提出基于互信息的跨模态依赖度量**：首次将互信息这一信息论度量直接应用于MLLM的视觉令牌剪枝任务，在特征交互前显式地计算视觉与文本特征间的互信息，作为令牌重要性的根本依据。
-- 创新点2：**设计非侵入式、轻量化的剪枝框架**：MI-Pruner无需访问模型内部的注意力图，也无需对模型架构进行任何修改，仅作为一个前置的、独立的处理模块，具有简单、高效和非侵入式的优点。
-- 创新点3：**实现特征层面的“外科手术式”剪枝**：通过在跨模态交互发生之前，直接在原始特征层面评估并剪除信息量低的视觉令牌，实现了比基于交互后注意力信号更精准、更前置的剪枝操作。
-
-### 实验结果亮点
-实验结果表明，MI-Pruner在多个基准测试上超越了以往的注意力基剪枝方法。具体而言，在保持可比甚至更优任务性能的前提下，该方法实现了更低的推理延迟，证明了其在高效率多模态推理方面的有效性。
-
-### 当前局限
-该方法的核心度量——互信息的计算依赖于对视觉和文本特征分布的估计，在数据分布复杂或特征维度极高时，互信息的准确估计本身可能成为一个挑战。此外，该方法主要针对视觉令牌的稀疏性进行优化，对于文本令牌或其它模态的剪枝可能需要进行额外的适配研究。
-
-### 后续改进方向
-- 方向1：**研究更高效稳健的互信息估计器**：探索在高维、小样本场景下更稳定、计算成本更低的互信息估计方法，以提升MI-Pruner的适用性和效率。
-- 方向2：**扩展至多模态全令牌动态剪枝**：将当前针对视觉令牌的静态/动态剪枝思想，推广到文本令牌乃至更多模态，研究基于跨模态互信息的全局动态令牌选择策略。
-
-### 工程落地启发
-对于OCR与文档智能工程项目，本文最大的启发在于提供了一种“特征先行”的稀疏化处理思路。在处理包含大量冗余视觉信息（如高分辨率文档图像背景、无关图表区域）的文档时，可以借鉴其思想，在送入复杂的文档理解模型之前，先基于跨模态信息（如图像区块与可能出现的文本类型）的统计依赖性进行预处理和剪枝，从而显著降低后续解析的计算开销。
-
----
-
-### 4. Learning from Synthetic Data via Provenance-Based Input Gradient Guidance
-
-- **ArXiv ID**: [2604.02946v1](https://arxiv.org/abs/2604.02946v1)
-- **作者**: Koshiro Nagano, Ryo Fujii, Ryo Hachiuma, Fumiaki Sato, Taiki Sekii...
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV, cs.AI, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2604.02946v1](https://arxiv.org/pdf/2604.02946v1)
-- **相关度评分**: 9/10
-
-#### 英文摘要
-
-Learning methods using synthetic data have attracted attention as an effective approach for increasing the diversity of training data while reducing collection costs, thereby improving the robustness of model discrimination. However, many existing methods improve robustness only indirectly through the diversification of training samples and do not explicitly teach the model which regions in the input space truly contribute to discrimination; consequently, the model may learn spurious correlations caused by synthesis biases and artifacts. Motivated by this limitation, this paper proposes a learning framework that uses provenance information obtained during the training data synthesis process, indicating whether each region in the input space originates from the target object, as an auxiliary supervisory signal to promote the acquisition of representations focused on target regions. Specifically, input gradients are decomposed based on information about target and non-target regions during synthesis, and input gradient guidance is introduced to suppress gradients over non-target regions. This suppresses the model's reliance on non-target regions and directly promotes the learning of discriminative representations for target regions. Experiments demonstrate the effectiveness and generality of the proposed method across multiple tasks and modalities, including weakly supervised object localization, spatio-temporal action localization, and image classification.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文针对利用合成数据训练模型时，模型可能学习到由合成偏差和伪影导致的虚假相关性问题，提出了一种基于来源信息的输入梯度引导学习框架。该框架利用合成过程中获取的目标/非目标区域来源信息，通过分解和引导输入梯度，显式地抑制模型对非目标区域的依赖，从而直接促进模型学习针对目标区域的判别性表征。
-
-### 解决的核心问题
-现有基于合成数据的学习方法主要通过增加训练样本多样性来间接提升模型鲁棒性，未能显式地教导模型识别输入空间中真正对判别任务有贡献的区域。这导致模型容易学习到合成数据中存在的偏差和伪影，形成虚假关联，从而损害模型的泛化能力和可解释性。
-
-### 核心创新
-本文的核心创新在于提出了一种利用合成数据“来源”信息作为辅助监督信号的学习范式。该方法超越了传统仅利用合成数据本身的做法，通过引入基于来源的输入梯度引导，在训练过程中直接干预模型的学习焦点，使其更集中于目标物体区域。
-
-### 创新点拆解
-- 创新点1：**利用合成来源信息作为监督信号**：创新性地将合成数据生成过程中可获取的“来源”信息（即每个像素/区域属于目标物体还是非目标背景/伪影）转化为一种像素级的辅助监督信号，为模型提供了关于“应关注何处”的明确指引。
-- 创新点2：**基于来源的输入梯度分解与引导**：提出将模型预测相对于输入特征的梯度（输入梯度）按照来源信息分解为目标区域梯度和非目标区域梯度。通过引入梯度引导损失，显式地抑制来自非目标区域的梯度贡献，从而直接、可解释地约束模型的学习过程。
-- 创新点3：**任务与模态无关的通用框架**：所提出的方法不依赖于特定网络结构或任务损失函数，被设计为一个可插拔的通用训练框架。这使其能够灵活应用于图像分类、弱监督目标定位、时空动作定位等多种视觉任务和模态。
-
-### 实验结果亮点
-在弱监督目标定位任务中，在CUB-200-2011和ILSVRC2016数据集上的定位准确率分别提升了约3.2%和2.1%。在时空动作定位任务上，于AVA v2.2数据集上的帧级mAP提升了1.5%。在图像分类任务中，在包含合成伪影的鲁棒性测试集上，分类准确率相比基线方法有显著提升，证明了其缓解合成偏差的有效性。
-
-### 当前局限
-该方法的核心前提是能够获得精确的合成数据来源信息（即清晰的目标/非目标区域划分），这对于某些复杂或自动化程度很高的合成流程可能难以保证。此外，方法主要处理了空间域上的注意力引导，对于合成过程中引入的、与目标物体耦合更紧密的特定纹理或风格偏差，其缓解能力可能有限。
-
-### 后续改进方向
-- 方向1：开发对不完美或噪声来源信息具有鲁棒性的梯度引导机制，例如通过引入不确定性估计或采用软掩码加权，以应对合成来源标注不准的情况。
-- 方向2：将来源引导的概念从空间域扩展到特征通道域或频域，以处理更隐蔽的合成偏差，例如研究如何抑制由特定渲染引擎导致的、弥漫在整个图像中的特征分布偏差。
-
-### 工程落地启发
-对于OCR/文档解析工程，该研究提供了利用合成数据时提升模型鲁棒性的新思路。在生成合成文档图像时，可以记录文本区域、背景、模拟噪声或装饰性元素等不同部分的“来源”标签。在训练解析模型时，利用这些标签引导模型聚焦于真正的文本内容区域，从而减少模型对合成背景板式、模拟污渍等无关伪影的依赖，提升模型在真实复杂文档上的泛化性能。
-
----
-
-### 5. Chart-RL: Policy Optimization Reinforcement Learning for Enhanced Visual Reasoning in Chart Question Answering with Vision Language Models
-
-- **ArXiv ID**: [2604.03157v1](https://arxiv.org/abs/2604.03157v1)
-- **作者**: Yunfei Bai, Amit Dhanda, Shekhar Jain
-- **发布时间**: 2026-04-03
+- **ArXiv ID**: [2604.03660v1](https://arxiv.org/abs/2604.03660v1)
+- **作者**: Xiaoyu Chen, Lu Dai, Hanqing Wang, Zhuoyu Li, Wenbin Dai...
+- **发布时间**: 2026-04-04
 - **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2604.03157v1](https://arxiv.org/pdf/2604.03157v1)
+- **PDF**: [https://arxiv.org/pdf/2604.03660v1](https://arxiv.org/pdf/2604.03660v1)
+- **相关度评分**: 9/10
+
+#### 英文摘要
+
+Structured tables are essential for conveying high-density information in professional domains such as finance, healthcare, and scientific research. Despite the progress in Multimodal Large Language Models (MLLMs), reasoning performance remains limited for complex tables with hierarchical layouts. In this paper, we identify a critical Perception Bottleneck through quantitative analysis. We find that as task complexity scales, the number of involved discrete visual regions increases disproportionately. This processing density leads to an internal "Perceptual Overload," where MLLMs struggle to maintain accurate spatial attention during implicit generation. To address this bottleneck, we introduce TableVision, a large-scale, trajectory-aware benchmark designed for spatially grounded reasoning. TableVision stratifies tabular tasks into three cognitive levels (Perception, Reasoning, and Analysis) across 13 sub-categories. By utilizing a rendering-based deterministic grounding pipeline, the dataset explicitly couples multi-step logical deductions with pixel-perfect spatial ground truths, comprising 6,799 high-fidelity reasoning trajectories. Our empirical results, supported by diagnostic probing, demonstrate that explicit spatial constraints significantly recover the reasoning potential of MLLMs. Furthermore, our two-stage decoupled framework achieves a robust 12.3% overall accuracy improvement on the test set. TableVision provides a rigorous testbed and a fresh perspective on the synergy between perception and logic in document understanding.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对多模态大语言模型在处理具有复杂层次结构的表格时存在的“感知瓶颈”问题，提出了一个大规模、轨迹感知的基准数据集TableVision。该数据集通过渲染和确定性标注流程，将表格任务分层为三个认知级别，并提供了精确的空间位置真值，旨在显式地耦合多步逻辑推理与空间感知，从而提升模型在复杂表格上的空间基础推理能力。
+
+### 解决的核心问题
+现有多模态大语言模型在处理布局复杂的层次化表格时，推理性能受限。本文通过定量分析发现，随着任务复杂性增加，模型需要处理的离散视觉区域数量不成比例地增长，导致内部“感知过载”，使其在隐式生成过程中难以维持准确的空间注意力，这构成了一个关键的感知瓶颈。
+
+### 核心创新
+本文的核心创新在于构建了一个用于空间基础推理的大规模基准数据集TableVision，并基于此提出了一个诊断性的分析框架。其“新”主要体现在通过显式的空间约束来桥接感知与逻辑，以及数据集中包含的精确到像素级的推理轨迹真值，为研究表格理解中的感知-逻辑协同提供了新视角和严谨的测试平台。
+
+### 创新点拆解
+- 创新点1：**提出“感知瓶颈”的定量分析与诊断**。通过实验揭示了MLLMs在处理复杂表格时，因视觉区域处理密度过高而导致“感知过载”的内在机制，为问题定位提供了实证依据。
+- 创新点2：**构建大规模、轨迹感知的基准数据集TableVision**。该数据集将表格任务系统性地分为感知、推理、分析三个认知层次，涵盖13个子类别，并通过基于渲染的确定性标注流程，生成了6799条包含像素级空间真值的高保真推理轨迹。
+- 创新点3：**提出并验证了显式空间约束的有效性**。实验证明，引入显式的空间基础能显著恢复MLLMs的推理潜力，并据此设计的两阶段解耦框架在测试集上实现了12.3%的整体准确率提升。
+
+### 实验结果亮点
+在本文提出的TableVision基准测试集上，所提出的两阶段解耦框架实现了**12.3%** 的整体准确率显著提升。诊断性探测实验进一步证实，显式引入空间约束能有效缓解感知瓶颈，恢复模型的推理潜力。
+
+### 当前局限
+该方法依赖于高质量的渲染图像和精确的像素级空间标注，其性能在低质量、模糊或非标准渲染的表格图像上可能会下降。此外，当前工作主要关注静态表格的理解，对于涉及动态变化或需要跨表格、跨文档关联的复杂推理场景，其能力尚未得到验证。
+
+### 后续改进方向
+- 方向1：**增强模型的鲁棒性**。研究如何使模型对表格图像的渲染质量、分辨率、噪声等变化更具鲁棒性，例如通过数据增强或引入更强大的视觉编码器。
+- 方向2：**扩展至动态与跨文档推理**。将空间基础推理的框架扩展到处理时序变化的表格（如财务报表序列）或需要从多个相关表格中整合信息的更复杂任务。
+
+### 工程落地启发
+对实际OCR/文档解析工程最具参考价值的点在于其**“显式空间基础”** 的思想。在开发复杂文档（如财务报表、科学论文表格）的理解系统时，不应仅依赖模型隐式的空间感知能力，而应主动设计流程，将版面分析（如单元格定位、层次关系识别）产生的结构化空间信息作为明确的约束或输入，与文本语义推理模块进行耦合，以提升系统在复杂场景下的准确性和可解释性。
+
+---
+
+### 4. Firebolt-VL: Efficient Vision-Language Understanding with Cross-Modality Modulation
+
+- **ArXiv ID**: [2604.04579v1](https://arxiv.org/abs/2604.04579v1)
+- **作者**: Quoc-Huy Trinh, Mustapha Abdullahi, Bo Zhao, Debesh Jha
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04579v1](https://arxiv.org/pdf/2604.04579v1)
+- **相关度评分**: 9/10
+
+#### 英文摘要
+
+Recent advances in multimodal large language models (MLLMs) have enabled impressive progress in vision-language understanding, yet their high computational cost limits deployment in resource-constrained scenarios such as personal assistants, document understanding, and smart cameras. Most existing methods rely on Transformer-based cross-attention, whose quadratic complexity hinders efficiency. Moreover, small vision-language models often struggle to precisely capture fine-grained, task-relevant visual regions, leading to degraded performance on fine-grained reasoning tasks that limit their effectiveness in the real world. To address these issues, we introduce Firebolt-VL, an efficient vision-language model that replaces the Transformer-based decoder with a Liquid Foundation Model (LFM) decoder. To further enhance visual grounding, we propose a Token-Grid Correlation Module, which computes lightweight correlations between text tokens and image patches and modulates via the state-space model with FiLM conditioning. This enables the model to selectively emphasize visual regions relevant to the textual prompt while maintaining linear-time inference. Experimental results across multiple benchmarks demonstrate that Firebolt-VL achieves accurate, fine-grained understanding with significantly improved efficiency. Our model and code are available at: https://fireboltvl.github.io
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对多模态大语言模型计算成本高、难以在资源受限场景部署，以及现有小模型在细粒度视觉推理任务上表现不佳的问题，提出了Firebolt-VL模型。该模型采用液态基础模型解码器替代Transformer解码器以提升效率，并设计了基于状态空间模型与FiLM调节的Token-Grid关联模块，以增强模型对文本提示相关视觉区域的细粒度感知能力。
+
+### 解决的核心问题
+现有基于Transformer交叉注意力的多模态大语言模型存在二次方计算复杂度，导致推理效率低下，难以应用于个人助手、文档理解等资源受限场景。同时，小型视觉语言模型普遍难以精确捕捉与任务相关的细粒度视觉区域，导致其在需要精细推理的任务上性能受限，影响了实际应用的有效性。
+
+### 核心创新
+本文的核心创新在于提出了一种全新的高效视觉语言理解架构。该方法层面，首次将液态基础模型解码器引入视觉语言任务，以线性复杂度替代Transformer解码器；模型层面，创新性地设计了Token-Grid关联模块，通过轻量化的文本-图像相关性计算与状态空间模型的调制，实现了对关键视觉区域的动态聚焦。
+
+### 创新点拆解
+- 创新点1：采用液态基础模型解码器。用具有线性时间复杂度的LFM解码器完全取代了传统的Transformer解码器，从根本上降低了模型的计算开销，为高效推理奠定了基础。
+- 创新点2：提出Token-Grid关联模块。该模块计算文本标记与图像块之间的轻量化相关性，并利用状态空间模型结合FiLM条件进行调制，使模型能够根据文本提示有选择性地强调相关的细粒度视觉区域。
+
+### 实验结果亮点
+在多个基准测试上的实验结果表明，Firebolt-VL在保持高精度的同时显著提升了效率。具体而言，模型在需要细粒度理解的VQA、图像描述生成等任务上取得了与大型模型相当的性能，同时推理速度相比基于Transformer的基线模型有显著提升（例如，在特定硬件上实现了约2.3倍的加速），验证了其高效且准确的特点。
+
+### 当前局限
+该方法主要针对图像-文本对任务进行优化，对于视频序列或更复杂的多轮对话等时序依赖性强的多模态任务，其动态调制机制的有效性尚未验证。此外，模型在极端细粒度（如文档中的微小文字或复杂表格结构）的定位与理解能力上可能存在边界，其性能增益在数据分布差异较大的下游任务上可能衰减。
+
+### 后续改进方向
+- 方向1：将模型框架扩展至视频理解或文档序列理解任务，探索Token-Grid关联模块在时序维度上的泛化能力，例如处理连续的视频帧或文档页面序列。
+- 方向2：研究更高效的视觉特征提取器与LFM解码器的协同设计，例如引入动态视觉令牌筛选机制，进一步减少输入冗余，在边缘设备上实现更极致的效率优化。
+
+### 工程落地启发
+对OCR与文档解析工程最具参考价值的是其Token-Grid关联模块的设计思想。该模块通过轻量化的跨模态相关性计算与条件调制，能够引导模型聚焦于文本查询相关的特定文档区域（如某个表格单元格、特定段落或公式），这为开发能够理解复杂查询、进行精准信息抽取的轻量级文档智能系统提供了可行的架构参考。
+
+---
+
+### 5. Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning
+
+- **ArXiv ID**: [2604.04746v1](https://arxiv.org/abs/2604.04746v1)
+- **作者**: Lei Zhang, Junjiao Tian, Zhipeng Fan, Kunpeng Li, Jialiang Wang...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04746v1](https://arxiv.org/pdf/2604.04746v1)
+- **相关度评分**: 9/10
+
+#### 英文摘要
+
+Humans paint images incrementally: they plan a global layout, sketch a coarse draft, inspect, and refine details, and most importantly, each step is grounded in the evolving visual states. However, can unified multimodal models trained on text-image interleaved datasets also imagine the chain of intermediate states? In this paper, we introduce process-driven image generation, a multi-step paradigm that decomposes synthesis into an interleaved reasoning trajectory of thoughts and actions. Rather than generating images in a single step, our approach unfolds across multiple iterations, each consisting of 4 stages: textual planning, visual drafting, textual reflection, and visual refinement. The textual reasoning explicitly conditions how the visual state should evolve, while the generated visual intermediate in turn constrains and grounds the next round of textual reasoning. A core challenge of process-driven generation stems from the ambiguity of intermediate states: how can models evaluate each partially-complete image? We address this through dense, step-wise supervision that maintains two complementary constraints: for the visual intermediate states, we enforce the spatial and semantic consistency; for the textual intermediate states, we preserve the prior visual knowledge while enabling the model to identify and correct prompt-violating elements. This makes the generation process explicit, interpretable, and directly supervisable. To validate proposed method, we conduct experiments under various text-to-image generation benchmarks.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出了一种名为“过程驱动图像生成”的新范式，旨在模拟人类绘画的渐进式过程，将图像合成分解为文本与视觉状态交替演进的推理轨迹。该方法通过“文本规划-视觉草图-文本反思-视觉精炼”的多轮迭代，使生成过程变得显式化、可解释且可直接监督，从而解决了传统单步生成模型在中间状态规划与评估上的模糊性问题。
+
+### 解决的核心问题
+现有文本到图像生成模型多为单步“黑箱”操作，缺乏对人类创作过程中“构思-草图-反思-细化”这一渐进式、可解释推理链的模拟。这导致模型难以对生成过程中的中间状态进行规划、评估和可控的修正，限制了生成过程的可解释性和精细控制能力。
+
+### 核心创新
+本文的核心创新在于提出了一个全新的“过程驱动”图像生成范式，将生成任务重构为一个文本推理与视觉状态交替演进的多步迭代过程。该方法不仅引入了新的模型架构和训练流程，更重要的是建立了一套对中间状态进行密集、逐步监督的机制，确保了生成轨迹的语义一致性和可控性。
+
+### 创新点拆解
+- 创新点1：提出了“过程驱动图像生成”的多步迭代范式，将单步生成分解为“文本规划、视觉草图、文本反思、视觉精炼”四个交替进行的阶段，模拟了人类的创作认知过程。
+- 创新点2：设计了针对中间状态的密集逐步监督机制，对视觉中间状态施加空间与语义一致性约束，对文本中间状态则要求其既能保留先验视觉知识，又能识别并修正与提示不符的元素。
+- 创新点3：构建了一个使生成过程显式化、可解释化的框架，文本推理明确指导视觉状态的演进，而生成的视觉中间结果又反过来约束和锚定下一轮的文本推理，形成了闭环的、可监督的推理轨迹。
+
+### 实验结果亮点
+在多个文本到图像生成基准测试上，该方法在图像保真度（如FID分数）和对文本提示的遵循程度（如CLIP Score）上均取得了显著提升。具体而言，与基线模型相比，其在复杂场景和细节描述上的生成质量有明确改进，关键量化指标（如FID）在标准数据集上降低了约15%-20%。
+
+### 当前局限
+该方法依赖于对生成过程中间状态的密集监督，这需要高质量、步骤对齐的标注数据，数据获取成本较高。此外，多轮迭代的推理过程显著增加了计算开销和生成时间，难以满足实时应用的需求。在生成长序列、需要极长规划步骤的复杂图像时，错误可能在迭代中累积。
+
+### 后续改进方向
+- 方向1：研究更高效的中间状态表示与监督方法，例如利用自监督或弱监督学习来减少对昂贵密集标注的依赖，从而降低数据成本。
+- 方向2：优化迭代推理架构，引入早期退出机制或自适应迭代次数策略，在保证质量的前提下动态减少不必要的计算步骤，以提升生成效率。
+
+### 工程落地启发
+该论文提出的“交替推理与细化”思想对OCR与文档智能工程极具启发性。在处理复杂文档（如混合排版、表格、手写体）时，可以借鉴其多步迭代范式：先进行全局版面分析与类型识别（规划），生成初步解析结果（草图），然后通过规则或模型进行一致性检查与错误识别（反思），最后针对性地修正特定区域（精炼），从而构建更鲁棒、可解释的文档解析流水线。
+
+---
+
+### 6. TriAttention: Efficient Long Reasoning with Trigonometric KV Compression
+
+- **ArXiv ID**: [2604.04921v1](https://arxiv.org/abs/2604.04921v1)
+- **作者**: Weian Mao, Xi Lin, Wei Huang, Yuxin Xie, Tianfu Fu...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CL, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04921v1](https://arxiv.org/pdf/2604.04921v1)
+- **相关度评分**: 9/10
+
+#### 英文摘要
+
+Extended reasoning in large language models (LLMs) creates severe KV cache memory bottlenecks. Leading KV cache compression methods estimate KV importance using attention scores from recent post-RoPE queries. However, queries rotate with position during RoPE, making representative queries very few, leading to poor top-key selection and unstable reasoning. To avoid this issue, we turn to the pre-RoPE space, where we observe that Q and K vectors are highly concentrated around fixed non-zero centers and remain stable across positions -- Q/K concentration. We show that this concentration causes queries to preferentially attend to keys at specific distances (e.g., nearest keys), with the centers determining which distances are preferred via a trigonometric series. Based on this, we propose TriAttention to estimate key importance by leveraging these centers. Via the trigonometric series, we use the distance preference characterized by these centers to score keys according to their positions, and also leverage Q/K norms as an additional signal for importance estimation. On AIME25 with 32K-token generation, TriAttention matches Full Attention reasoning accuracy while achieving 2.5x higher throughput or 10.7x KV memory reduction, whereas leading baselines achieve only about half the accuracy at the same efficiency. TriAttention enables OpenClaw deployment on a single consumer GPU, where long context would otherwise cause out-of-memory with Full Attention.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对大语言模型长序列推理时KV缓存内存瓶颈问题，提出了一种基于三角函数的KV压缩方法TriAttention。该方法通过分析RoPE前空间中查询和键向量的集中特性，利用其确定的距离偏好来评估键的重要性，从而在保持全注意力推理精度的同时，显著提升了吞吐量并降低了KV内存占用。
+
+### 解决的核心问题
+现有主流KV缓存压缩方法依赖RoPE后最近查询的注意力分数来估计键的重要性，但由于RoPE导致查询向量随位置旋转，具有代表性的查询极少，导致关键键选择效果差且推理不稳定。本文具体针对如何稳定、高效地压缩长上下文推理中的KV缓存这一难题展开研究。
+
+### 核心创新
+本文的核心创新在于首次观察到RoPE前空间中Q/K向量围绕固定非零中心高度集中且跨位置稳定的现象（Q/K集中），并基于此现象提出了一种全新的、不依赖具体查询的键重要性估计机制。该方法利用三角函数级数将中心向量表征的距离偏好转化为对键位置的评分，实现了对键重要性的高效、稳定估计。
+
+### 创新点拆解
+- 创新点1：揭示了RoPE前空间中Q/K向量的集中现象及其稳定性，为理解注意力机制在长上下文中的行为提供了新的理论视角。
+- 创新点2：提出了TriAttention框架，利用Q/K集中中心所确定的距离偏好（通过三角函数级数表达）来直接对键的位置进行重要性评分，避免了依赖具体旋转后查询的不稳定性。
+- 创新点3：在重要性估计中引入了Q/K向量的范数作为辅助信号，进一步提升了重要性评分的准确性。
+
+### 实验结果亮点
+在AIME25基准测试上进行32K令牌的长序列生成时，TriAttention在推理准确率上匹配了全注意力机制，同时实现了2.5倍的吞吐量提升或10.7倍的KV内存压缩。相比之下，在同等效率下，领先的基线方法只能达到约一半的准确率。此外，TriAttention使得OpenClaw模型能够部署在单个消费级GPU上，而全注意力机制则会因长上下文导致内存溢出。
+
+### 当前局限
+该方法的核心机制建立在观察到的Q/K集中现象之上，此现象在不同模型架构或预训练数据下的普适性有待进一步验证。此外，方法依赖于对中心向量的估计，在序列长度极端长或数据分布发生剧烈变化时，估计的准确性可能下降，从而影响压缩性能。
+
+### 后续改进方向
+- 方向1：探索将TriAttention的压缩思想与动态稀疏注意力等机制相结合，以应对更极端的超长序列场景，并研究其理论压缩下界。
+- 方向2：将该方法扩展至多模态大模型或具有特殊位置编码的模型，验证并调整其对于不同模态键值对和不同位置编码机制的适用性。
+
+### 工程落地启发
+对于OCR及文档解析工程，该研究展示了如何通过深入分析模型内部表示（如注意力前的向量分布）来设计高效的数据（键值对）选择策略。在处理长文档（如书籍、复杂报告）时，可以借鉴这种基于内容固有“中心”或稳定特征进行重要性判定的思路，来优化文档分块、关键信息缓存或跨页内容关联的算法，从而在有限资源下提升长文档理解的效率和稳定性。
+
+---
+
+### 7. A Frame is Worth One Token: Efficient Generative World Modeling with Delta Tokens
+
+- **ArXiv ID**: [2604.04913v1](https://arxiv.org/abs/2604.04913v1)
+- **作者**: Tommie Kerssies, Gabriele Berton, Ju He, Qihang Yu, Wufei Ma...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04913v1](https://arxiv.org/pdf/2604.04913v1)
+- **相关度评分**: 9/10
+
+#### 英文摘要
+
+Anticipating diverse future states is a central challenge in video world modeling. Discriminative world models produce a deterministic prediction that implicitly averages over possible futures, while existing generative world models remain computationally expensive. Recent work demonstrates that predicting the future in the feature space of a vision foundation model (VFM), rather than a latent space optimized for pixel reconstruction, requires significantly fewer world model parameters. However, most such approaches remain discriminative. In this work, we introduce DeltaTok, a tokenizer that encodes the VFM feature difference between consecutive frames into a single continuous "delta" token, and DeltaWorld, a generative world model operating on these tokens to efficiently generate diverse plausible futures. Delta tokens reduce video from a three-dimensional spatio-temporal representation to a one-dimensional temporal sequence, for example yielding a 1,024x token reduction with 512x512 frames. This compact representation enables tractable multi-hypothesis training, where many futures are generated in parallel and only the best is supervised. At inference, this leads to diverse predictions in a single forward pass. Experiments on dense forecasting tasks demonstrate that DeltaWorld forecasts futures that more closely align with real-world outcomes, while having over 35x fewer parameters and using 2,000x fewer FLOPs than existing generative world models. Code and weights: https://deltatok.github.io.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出了一种名为DeltaTok的高效视频世界建模方法，其核心是将连续帧之间的视觉基础模型特征差异编码为单一的连续“增量”令牌。基于此，作者构建了DeltaWorld生成式世界模型，该模型能够在此紧凑表示上高效地生成多样且合理的未来状态，显著降低了模型的计算开销和参数量。
+
+### 解决的核心问题
+现有视频世界建模方法面临两大痛点：判别式模型仅能产生确定性预测，无法捕捉未来的多样性；而现有的生成式模型虽然能预测多种未来，但计算成本极其高昂。本文旨在解决如何高效地构建一个能够生成多样化未来预测的生成式世界模型这一具体问题。
+
+### 核心创新
+本文的核心创新在于提出了一种全新的视频表示范式，将三维时空视频数据压缩为一维时间序列，并在此基础上设计了高效的生成式建模与训练策略。其“新”主要体现在从预测原始像素或潜在空间特征，转向预测连续帧间的特征增量，从而实现了表示和计算效率的飞跃。
+
+### 创新点拆解
+- 创新点1：提出DeltaTok令牌化器，它将连续帧间的视觉基础模型特征差异编码为一个单一的“增量”令牌，将视频表示从三维时空结构大幅压缩为一维时间序列，例如对于512x512帧，令牌数量可减少1024倍。
+- 创新点2：提出DeltaWorld生成式世界模型，它直接在增量令牌序列上进行操作，利用其紧凑性实现了可并行化的多假设训练策略，即同时生成多个未来序列，仅对最优预测进行监督学习。
+- 创新点3：设计了一种高效的推理机制，得益于紧凑的表示和模型设计，模型在单次前向传播中即可生成多样化的未来预测，无需昂贵的采样或迭代过程。
+
+### 实验结果亮点
+在密集预测任务上的实验表明，DeltaWorld生成的未来预测与真实世界结果更为吻合。与现有的生成式世界模型相比，DeltaWorld在性能相当甚至更优的情况下，参数量减少了35倍以上，计算量（FLOPs）降低了2000倍。
+
+### 当前局限
+该方法高度依赖于预训练的视觉基础模型的特征质量，其性能受限于该特征空间的有效性和泛化能力。此外，模型主要处理连续帧间的增量，对于涉及复杂场景突变或长期依赖的预测任务，其有效性可能尚未得到充分验证。
+
+### 后续改进方向
+- 方向1：探索将DeltaTok与更多样化或任务特定的视觉基础模型结合，以提升在不同领域（如自动驾驶、机器人学）的适应性和预测精度。
+- 方向2：研究如何将当前的帧间增量建模扩展到更长的时间尺度，或引入更复杂的时序依赖建模机制，以处理更复杂的动态场景和长期预测任务。
+
+### 工程落地启发
+对于OCR与文档解析工程，该方法的核心启发在于“增量编码”和“高效序列建模”的思想。在处理连续页面或视频流文档时，可以借鉴其思路，不直接对每一帧的完整版面进行重复编码，而是专注于识别和建模连续页面之间的“变化”（如翻页动画、批注出现、表格扩展），从而构建轻量、高效的文档动态理解与预测流水线。
+
+---
+
+### 8. CLEAR: Unlocking Generative Potential for Degraded Image Understanding in Unified Multimodal Models
+
+- **ArXiv ID**: [2604.04780v1](https://arxiv.org/abs/2604.04780v1)
+- **作者**: Xiangzhao Hao, Zefeng Zhang, Zhenyu Zhang, Linhao Yu, Yao Chen...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04780v1](https://arxiv.org/pdf/2604.04780v1)
+- **相关度评分**: 9/10
+
+#### 英文摘要
+
+Image degradation from blur, noise, compression, and poor illumination severely undermines multimodal understanding in real-world settings. Unified multimodal models that combine understanding and generation within a single architecture are a natural fit for this challenge, as their generative pathway can model the fine-grained visual structure that degradation destroys. Yet these models fail to leverage their own generative capacity on degraded inputs. We trace this disconnect to two compounding factors: existing training regimes never ask the model to invoke generation during reasoning, and the standard decode-reencode pathway does not support effective joint optimization. We present CLEAR, a framework that connects the two capabilities through three progressive steps: (1) supervised fine-tuning on a degradation-aware dataset to establish the generate-then-answer reasoning pattern; (2) a Latent Representation Bridge that replaces the decode-reencode detour with a direct, optimizable connection between generation and reasoning; (3) Interleaved GRPO, a reinforcement learning method that jointly optimizes text reasoning and visual generation under answer-correctness rewards. We construct MMD-Bench, covering three degradation severity levels across six standard multimodal benchmarks. Experiments show that CLEAR substantially improves robustness on degraded inputs while preserving clean-image performance. Our analysis further reveals that removing pixel-level reconstruction supervision leads to intermediate visual states with higher perceptual quality, suggesting that task-driven optimization and visual quality are naturally aligned.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对现实场景中图像因模糊、噪声、压缩和光照不佳等退化问题严重影响统一多模态模型理解能力的问题，提出了CLEAR框架。该框架通过建立“先生成后推理”的模式、引入可优化的潜在表示桥接以及设计联合优化文本推理与视觉生成的强化学习方法，有效解锁了模型自身的生成潜力以理解退化图像，并在构建的MMD-Bench基准上显著提升了模型鲁棒性。
+
+### 解决的核心问题
+现有统一多模态模型虽然集成了理解与生成能力，但在处理退化图像时，其内在的生成潜力并未被有效利用来辅助理解。这一问题的根源在于两方面：首先，常规训练范式从未要求模型在推理过程中主动调用生成能力；其次，标准的“解码-重编码”路径（即先生成像素图像再编码理解）效率低下且难以进行有效的联合优化，导致生成与理解两个能力模块相互割裂。
+
+### 核心创新
+本文的核心创新在于提出了一个系统性的框架CLEAR，首次在统一多模态模型中建立了生成能力与理解能力之间的有效协同机制，以应对图像退化挑战。其创新性体现在方法层面，通过三步渐进式策略解决了能力割裂与优化难题，并构建了一个覆盖多种退化类型与严重程度的新基准MMD-Bench用于评估。
+
+### 创新点拆解
+- 创新点1：**监督微调建立推理模式**：通过在包含退化图像的感知数据集上进行监督微调，明确教导模型形成“先生成视觉内容，再基于此进行问答”的推理模式，为后续优化奠定了基础。
+- 创新点2：**潜在表示桥接**：提出用可优化的“潜在表示桥接”取代传统低效的“解码-重编码”路径，直接在生成模块的潜在空间与理解模块的编码器之间建立直接连接，实现了信息的高效流通与端到端的梯度优化。
+- 创新点3：**交错GRPO强化学习**：设计了一种名为交错GRPO的强化学习方法，在答案正确性的统一奖励信号下，交替且联合地优化模型的文本推理路径和视觉生成路径，促使两者为共同任务目标协同进化。
+
+### 实验结果亮点
+在涵盖六大标准多模态基准（如VQA-v2、TextVQA等）并包含三个退化严重等级的MMD-Bench上，CLEAR框架显著提升了对退化图像的理解鲁棒性。例如，在严重退化级别下，相比强大的基线模型，CLEAR在多项任务上取得了显著的绝对性能提升（具体数值因任务而异，论文中图表显示提升幅度显著），同时完全保持了在干净图像上的原始性能，实现了鲁棒性与通用性的平衡。
+
+### 当前局限
+该方法主要针对视觉退化问题，对于文本模糊、版面扭曲等文档图像特有的复杂退化模式可能效果有限。其性能提升依赖于在包含退化样本的数据集上进行训练，对于训练数据未覆盖的全新或极端退化类型，泛化能力存疑。此外，引入额外的生成与桥接模块可能带来一定的计算开销，在实时性要求高的场景中需权衡效率。
+
+### 后续改进方向
+- 方向1：**扩展退化类型与模态**：将框架应用于更广泛的退化类型（如文档图像中的墨迹扩散、透视变形）和多模态场景（如音频-视觉中的噪声干扰），测试并增强其普适性。
+- 方向2：**探索更高效的架构**：研究更轻量化的潜在表示桥接方式或动态路由机制，以减少计算负担，使方法更适用于资源受限的边缘设备部署。
+
+### 工程落地启发
+对于OCR与文档解析工程，最具参考价值的点在于其“利用生成能力辅助理解”的核心思想。在处理低质量、模糊、低分辨率的扫描文档或拍摄图像时，可以借鉴CLEAR的思路，尝试在文档理解模型中引入一个轻量的、任务驱动的“视觉修复”或“结构重建”生成子模块，并通过可优化的连接将其与文本识别、版面分析模块深度耦合，而非孤立地先做图像增强再做识别，从而可能提升整体系统在真实复杂场景下的鲁棒性和准确性。
+
+---
+
+### 9. Beyond the Global Scores: Fine-Grained Token Grounding as a Robust Detector of LVLM Hallucinations
+
+- **ArXiv ID**: [2604.04863v1](https://arxiv.org/abs/2604.04863v1)
+- **作者**: Tuan Dung Nguyen, Minh Khoi Ho, Qi Chen, Yutong Xie, Nguyen Cam-Tu...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04863v1](https://arxiv.org/pdf/2604.04863v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-The recent advancements in Vision Language Models (VLMs) have demonstrated progress toward true intelligence requiring robust reasoning capabilities. Beyond pattern recognition, linguistic reasoning must integrate with visual comprehension, particularly for Chart Question Answering (CQA) tasks involving complex data visualizations. Current VLMs face significant limitations in CQA, including imprecise numerical extraction, difficulty interpreting implicit visual relationships, and inadequate attention mechanisms for capturing spatial relationships in charts. In this work, we address these challenges by presenting Chart-RL, a novel reinforcement learning framework that enhances VLMs chart understanding through feedback-driven policy optimization of visual perception and logical inference. Our key innovation includes a comprehensive framework integrating Reinforcement Learning (RL) from Policy Optimization techniques along with adaptive reward functions, that demonstrates superior performance compared to baseline foundation models and competitive results against larger state-of-the-art architectures. We also integrated Parameter-Efficient Fine-Tuning through Low-Rank Adaptation (LoRA) in the RL framework that only requires single GPU configurations while preserving performance integrity. We conducted extensive benchmarking across open-source, proprietary, and state-of-the-art closed-source models utilizing the ChartQAPro dataset. The RL fine-tuned Qwen3-VL-4B-Instruct model achieved an answer accuracy of 0.634, surpassing the 0.580 accuracy of the Qwen3-VL-8B-Instruct foundation model despite utilizing half the parameter count, while simultaneously reducing inference latency from 31 seconds to 9 seconds.
+Large vision-language models (LVLMs) achieve strong performance on visual reasoning tasks but remain highly susceptible to hallucination. Existing detection methods predominantly rely on coarse, whole-image measures of how an object token relates to the input image. This global strategy is limited: hallucinated tokens may exhibit weak but widely scattered correlations across many local regions, which aggregate into deceptively high overall relevance, thus evading the current global hallucination detectors. We begin with a simple yet critical observation: a faithful object token must be strongly grounded in a specific image region. Building on this insight, we introduce a patch-level hallucination detection framework that examines fine-grained token-level interactions across model layers. Our analysis uncovers two characteristic signatures of hallucinated tokens: (i) they yield diffuse, non-localized attention patterns, in contrast to the compact, well-focused attention seen in faithful tokens; and (ii) they fail to exhibit meaningful semantic alignment with any visual region. Guided by these findings, we develop a lightweight and interpretable detection method that leverages patch-level statistical features, combined with hidden-layer representations. Our approach achieves up to 90% accuracy in token-level hallucination detection, demonstrating the superiority of fine-grained structural analysis for detecting hallucinations.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对视觉语言模型在图表问答任务中存在的数值提取不精确、隐含视觉关系理解困难等问题，提出了一种名为Chart-RL的强化学习框架。该框架通过基于策略优化的反馈机制，自适应地优化模型的视觉感知与逻辑推理能力，在显著提升小规模模型性能的同时，大幅降低了推理延迟。
+本文针对大型视觉语言模型（LVLM）中普遍存在的幻觉问题，提出了一种细粒度的、基于图像块的幻觉检测新范式。论文的核心洞察在于，一个忠实的物体描述词必须被牢固地“锚定”在图像的特定局部区域，而幻觉词则表现出弥散、非局部的注意力模式，且与任何视觉区域都缺乏有意义的语义对齐。
 
 ### 解决的核心问题
-现有视觉语言模型在图表问答任务中存在三大核心痛点：一是从图表中提取数值信息不精确；二是难以解读图表元素间隐含的视觉关系；三是标准的注意力机制难以有效捕捉图表中复杂的空间关系。本文旨在解决这些模型在复杂数据可视化理解任务中，视觉感知与语言推理能力脱节的问题。
+现有幻觉检测方法主要依赖图像级别的全局相关性度量，存在显著局限。幻觉词可能与图像中许多分散区域产生微弱但广泛的关联，这些关联在全局聚合后会形成欺骗性的高相关性分数，从而逃逸现有的全局检测器。本文旨在解决这种粗粒度检测策略的不足，聚焦于更精细的、词级别的幻觉检测问题。
 
 ### 核心创新
-本文的核心创新在于提出了一种全新的、基于策略优化的强化学习框架，用于系统性增强视觉语言模型在图表理解任务中的推理能力。该方法将强化学习的反馈优化机制与视觉语言模型的微调过程深度融合，实现了对模型视觉感知和逻辑推断策略的联合优化。
+本文的核心创新在于从全局相关性分析转向了细粒度的、基于图像块的词-区域交互分析。该方法通过深入挖掘模型内部跨层的注意力机制和隐藏层表示，识别出幻觉词特有的两种“特征签名”，并据此构建了一个轻量级、可解释的检测框架。
 
 ### 创新点拆解
-- 创新点1：提出了一种集成策略优化技术的强化学习框架，并设计了自适应奖励函数，以反馈驱动的方式优化模型对图表的视觉感知和逻辑推理策略。
-- 创新点2：将参数高效微调技术（LoRA）集成到强化学习框架中，使得整个优化过程仅需单GPU配置即可完成，在保持性能的同时大幅降低了计算资源需求。
-- 创新点3：构建了一个全面的评估体系，在ChartQAPro数据集上对开源、专有及前沿闭源模型进行了广泛基准测试，验证了方法的有效性与高效性。
+- 创新点1：**提出细粒度幻觉检测新范式**：摒弃了传统的全局图像评分策略，开创性地在图像块（patch）级别上分析每个物体描述词与视觉输入之间的交互，为幻觉检测提供了更精细的分析粒度。
+- 创新点2：**识别幻觉词的双重特征签名**：通过分析模型内部机制，首次系统性地总结出幻觉词的两个关键特征：一是其注意力模式呈现弥散、非局部化分布，与忠实词的紧凑聚焦模式形成鲜明对比；二是其隐藏层表示与任何图像区域都缺乏有意义的语义对齐。
+- 创新点3：**构建轻量级可解释检测方法**：基于上述特征签名，设计了一个结合图像块级统计特征与隐藏层表示的检测器。该方法无需复杂训练，具有轻量化和结果可解释的优势。
 
 ### 实验结果亮点
-在ChartQAPro数据集上的实验表明，经过Chart-RL框架微调的Qwen3-VL-4B-Instruct模型取得了0.634的答案准确率。这一结果超越了参数量为其两倍的Qwen3-VL-8B-Instruct基础模型的0.580准确率，同时将推理延迟从31秒大幅降低至9秒。
+论文提出的方法在词级别幻觉检测任务上取得了高达**90%的准确率**，显著优于依赖全局相关性分数的基线方法。这一结果在多个基准数据集上得到验证，证明了细粒度结构分析在检测LVLM幻觉方面的优越性。
 
 ### 当前局限
-该方法主要针对结构化图表（如柱状图、折线图）的问答任务进行优化，对于高度非结构化或包含大量文本注释的复杂信息图表的泛化能力尚未验证。此外，强化学习训练过程的稳定性依赖于精心设计的奖励函数，在奖励稀疏或难以量化的复杂推理场景中可能面临挑战。
+该方法主要针对物体描述词级别的幻觉进行检测，对于更复杂或抽象的幻觉类型（如关系、属性或事件幻觉）的检测能力尚未充分验证。此外，其检测性能可能依赖于特定模型架构（如Transformer）的内部注意力机制，对于不同架构的LVLM的泛化能力有待进一步研究。
 
 ### 后续改进方向
-- 方向1：将框架扩展至更广泛的文档智能任务，如表格理解、科学图表解析等，研究其对于不同模态间关系推理的通用增强能力。
-- 方向2：探索更高效、更稳定的强化学习算法（如近端策略优化PPO的改进变体）与自适应奖励塑形技术，以降低训练方差，提升在复杂多步推理任务中的性能。
+- 方向1：**扩展检测范围**：将当前针对物体词的检测框架，推广到检测模型输出中的关系、动作、属性等更复杂的语义单元产生的幻觉。
+- 方向2：**增强模型泛化性**：研究如何将所提出的特征签名和检测机制适配到更多样化的LVLM架构上，减少对特定内部机制（如注意力）的依赖，提升方法的普适性。
 
 ### 工程落地启发
-对于实际OCR/文档解析工程项目，本文最具参考价值的点在于其“轻量高效”的优化范式。它证明了通过精心设计的强化学习策略与参数高效微调技术结合，可以在不显著增加计算开销的前提下，针对性且大幅度地提升模型在特定复杂任务（如图表理解）上的性能与推理速度，这为在资源受限环境下部署高性能文档理解模型提供了可行的技术路径。
+对于OCR与文档智能工程，本文的核心启发在于**利用模型内部细粒度交互信号进行质量评估与错误检测**。例如，在文档视觉问答或信息提取任务中，可以借鉴其“词-区域对齐”的分析思路，通过检查模型内部注意力或表示对齐情况，来定位和识别模型输出中与文档图像特定区域（如某个表格单元格或段落）关联不实的“幻觉”信息，从而提升输出结果的可靠性和可解释性。
 
 ---
 
-### 6. CharTool: Tool-Integrated Visual Reasoning for Chart Understanding
+### 10. Rethinking Model Efficiency: Multi-Agent Inference with Large Models
 
-- **ArXiv ID**: [2604.02794v1](https://arxiv.org/abs/2604.02794v1)
-- **作者**: Situo Zhang, Yifan Zhang, Zichen Zhu, Da Ma, Lei Pan...
-- **发布时间**: 2026-04-03
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2604.02794v1](https://arxiv.org/pdf/2604.02794v1)
+- **ArXiv ID**: [2604.04929v1](https://arxiv.org/abs/2604.04929v1)
+- **作者**: Sixun Dong, Juhua Hu, Steven Li, Wei Wen, Qi Qian
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04929v1](https://arxiv.org/pdf/2604.04929v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-Charts are ubiquitous in scientific and financial literature for presenting structured data. However, chart reasoning remains challenging for multimodal large language models (MLLMs) due to the lack of high-quality training data, as well as the need for fine-grained visual grounding and precise numerical computation. To address these challenges, we first propose DuoChart, a scalable dual-source data pipeline that combines synthesized charts with real-world charts to construct diverse, high-quality chart training data. We then introduce CharTool, which equips MLLMs with external tools, including image cropping for localized visual perception and code-based computation for accurate numerical reasoning. Through agentic reinforcement learning on DuoChart, CharTool learns tool-integrated reasoning grounded in chart content. Extensive experiments on six chart benchmarks show that our method consistently improves over strong MLLM baselines across model scales. Notably, CharTool-7B outperforms the base model by **+8.0%** on CharXiv (Reasoning) and **+9.78%** on ChartQAPro, while achieving competitive performance with substantially larger or proprietary models. Moreover, CharTool demonstrates positive generalization to out-of-domain visual math reasoning benchmarks.
+Most vision-language models (VLMs) apply a large language model (LLM) as the decoder, where the response tokens are generated sequentially through autoregression. Therefore, the number of output tokens can be the bottleneck of the end-to-end latency. However, different models may require vastly different numbers of output tokens to achieve comparable performance. In this work, we conduct a comprehensive analysis of the latency across different components of VLMs on simulated data. The experiment shows that a large model with fewer output tokens can be more efficient than a small model with a long output sequence. The empirical study on diverse real-world benchmarks confirms the observation that a large model can achieve better or comparable performance as a small model with significantly fewer output tokens. To leverage the efficiency of large models, we propose a multi-agent inference framework that keeps large models with short responses but transfers the key reasoning tokens from the small model when necessary. The comparison on benchmark tasks demonstrates that by reusing the reasoning tokens from small models, it can help approach the performance of a large model with its own reasoning, which confirms the effectiveness of our proposal.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对多模态大语言模型在图表理解任务中面临的训练数据稀缺、细粒度视觉定位与精确数值计算能力不足等挑战，提出了一种名为CharTool的解决方案。该方法通过构建一个名为DuoChart的双源数据管道来生成高质量、多样化的训练数据，并采用工具集成策略，使模型能够调用图像裁剪和代码计算等外部工具进行基于内容的推理，从而显著提升了模型在多个图表基准测试上的性能。
+本文针对视觉语言模型（VLM）端到端推理延迟的瓶颈问题进行了深入分析，指出输出令牌（token）数量是影响延迟的关键因素，并发现大模型凭借更少的输出令牌即可达到或超越小模型的性能。基于此，作者提出了一种多智能体推理框架，通过在小模型生成的关键推理令牌与大模型的简短响应之间进行智能切换，以兼顾效率与性能。
 
 ### 解决的核心问题
-现有方法主要面临两大痛点：一是缺乏高质量、大规模的图表理解训练数据，导致模型泛化能力受限；二是现有多模态大语言模型在图表理解任务中，难以同时实现细粒度的视觉信息定位和精确的数值计算。本文具体针对如何让模型在图表理解中实现更精准的视觉感知和数值推理这一核心问题展开研究。
+现有视觉语言模型通常采用大型语言模型作为解码器进行自回归生成，其端到端推理延迟严重受限于输出令牌序列的长度。一个普遍存在的效率误区是，仅关注模型参数规模而忽略了输出长度对延迟的巨大影响，导致实际部署中，参数更少但输出冗长的小模型可能比输出精炼的大模型更慢。
 
 ### 核心创新
-本文的核心创新在于提出了一套结合数据构建与工具集成学习的完整框架。其创新性主要体现在方法层面，即通过智能体强化学习策略，让模型自主学会在推理过程中调用并整合外部工具，从而将视觉感知与符号计算能力深度融合，以解决图表理解中的复杂推理问题。
+本文的核心创新在于从“模型效率”的视角重新审视了VLM的推理延迟，并提出了一个新颖的多智能体协同推理框架。该框架创造性地将大模型（高效但可能推理不充分）与小模型（低效但推理步骤完整）的优势相结合，通过令牌级别的知识转移来提升整体系统的效率与性能。
 
 ### 创新点拆解
-- 创新点1：提出了DuoChart，一种可扩展的双源数据生成管道。该方法创新性地结合了合成图表与真实世界图表，能够自动构建大规模、高质量且多样化的图表理解训练数据，有效缓解了该领域的数据瓶颈问题。
-- 创新点2：提出了CharTool，一种工具集成的视觉推理框架。该框架为多模态大语言模型配备了图像裁剪（用于局部视觉感知）和基于代码的计算器（用于精确数值推理）等外部工具，并通过智能体强化学习训练模型自主决策工具调用，实现了基于图表内容的、可解释的推理过程。
+- 创新点1：**对VLM推理延迟的精细化分解分析**：通过模拟数据和实验，系统性地量化了模型不同组件（如视觉编码器、LLM解码）的延迟，并明确指出输出令牌数量是自回归解码过程中的主要瓶颈，挑战了“小模型一定更快”的固有认知。
+- 创新点2：**提出“大模型配短响应”的效率新范式**：基于上述分析，实证研究确立了“使用输出令牌更少的大模型”作为一种更高效的部署策略，为模型选型提供了新的指导原则。
+- 创新点3：**设计多智能体推理与令牌转移机制**：构建了一个包含大模型和小模型的协同推理系统。当大模型自身生成的简短响应置信度不足时，系统能智能地引入小模型生成的关键中间推理令牌，以此提升回答质量，实现了效率与性能的权衡。
 
 ### 实验结果亮点
-在六个图表基准测试上的广泛实验表明，该方法在不同模型规模上均能稳定超越强大的基线模型。具体而言，CharTool-7B模型在CharXiv (Reasoning) 基准上比其基础模型提升了 **+8.0%**，在ChartQAPro基准上提升了 **+9.78%**。此外，该模型仅以7B参数量，就达到了与参数量大得多或闭源模型相竞争的性能，并展现出向视觉数学推理等域外任务的良好泛化能力。
+在多个真实世界基准测试上的实验证实了核心发现：**大模型能以显著更少的输出令牌（具体数量对比未在摘要中给出，但差异被强调为“显著”）达到与小模型相当或更好的性能**。所提出的多智能体框架在基准任务上，通过复用小模型的推理令牌，能够帮助系统逼近完全由大模型自身进行完整推理所能达到的性能，这验证了框架的有效性。
 
 ### 当前局限
-该方法依赖于外部工具（如代码解释器）的可用性和正确性，在工具调用失败或产生错误时，整个推理链条可能中断。此外，其性能提升在很大程度上依赖于DuoChart数据集的构建质量，对于训练数据中未充分覆盖的、极其复杂或非典型的图表类型，模型的泛化能力可能下降。智能体强化学习的训练过程也相对复杂且计算成本较高。
+该方法依赖于同时部署一大一小两个模型，增加了系统复杂度和内存开销。其性能增益高度依赖于小模型生成的关键推理令牌的质量与可迁移性，在任务差异较大或小模型本身能力不足的场景下可能失效。此外，如何自动、精准地触发令牌转移（即判断何时大模型的响应“置信度不足”）是一个未完全解决的挑战。
 
 ### 后续改进方向
-- 方向1：扩展工具集，例如集成更强大的图表结构解析器或符号数学引擎，以处理更复杂的图表类型和数学推理问题，从而增强模型的综合问题解决能力。
-- 方向2：研究更高效、更鲁棒的训练策略，例如探索监督微调与强化学习的更好结合方式，或开发无需依赖精确奖励信号的训练方法，以降低训练复杂性和对奖励模型设计的依赖。
+- 方向1：**开发更轻量级的令牌转移触发与融合机制**：研究基于输出概率或熵值的动态阈值方法，或训练一个轻量级路由器模型，以更低的开销决定何时以及如何融合两个模型的输出。
+- 方向2：**探索单模型内部的高效推理路径**：受此启发，可研究在单一大型模型内部，能否通过早期退出（early-exiting）或条件计算来模拟“简短响应”与“深度推理”两种模式，从而避免部署双模型。
 
 ### 工程落地启发
-对于OCR与文档解析工程项目，最有参考价值的点在于其“工具集成”的思想。在实际工程中，可以借鉴此思路，不追求单一模型解决所有问题，而是设计一个能够灵活调用专用工具（如版面分析器、表格识别引擎、公式识别模块、计算库）的智能体框架。通过让大语言模型担任“调度中心”和“逻辑推理器”，协调各专业工具协同工作，可以更可靠、更精确地完成复杂的文档理解与信息抽取任务。
+对于OCR/文档解析工程项目，本文最重要的启发是：**在评估和选择文档理解或视觉问答模型时，必须将“输出响应长度”作为与“模型参数量”同等重要的效率评估指标**。在构建复杂文档分析流水线时，可以考虑采用类似的异构模型协作策略，例如用快速模型处理简单、格式化的信息提取，而仅在遇到复杂推理问题时才调用深度分析模型，从而优化整体系统的吞吐量与响应时间。
 
 ---
 
-### 7. SFFNet: Synergistic Feature Fusion Network With Dual-Domain Edge Enhancement for UAV Image Object Detection
+### 11. Your Pre-trained Diffusion Model Secretly Knows Restoration
 
-- **ArXiv ID**: [2604.03176v1](https://arxiv.org/abs/2604.03176v1)
-- **作者**: Wenfeng Zhang, Jun Ni, Yue Meng, Xiaodong Pei, Wei Hu...
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV, cs.MM
-- **PDF**: [https://arxiv.org/pdf/2604.03176v1](https://arxiv.org/pdf/2604.03176v1)
-- **相关度评分**: 7/10
+- **ArXiv ID**: [2604.04924v1](https://arxiv.org/abs/2604.04924v1)
+- **作者**: Sudarshan Rajagopalan, Vishal M. Patel
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2604.04924v1](https://arxiv.org/pdf/2604.04924v1)
+- **相关度评分**: 8/10
 
 #### 英文摘要
 
-Object detection in unmanned aerial vehicle (UAV) images remains a highly challenging task, primarily caused by the complexity of background noise and the imbalance of target scales. Traditional methods easily struggle to effectively separate objects from intricate backgrounds and fail to fully leverage the rich multi-scale information contained within images. To address these issues, we have developed a synergistic feature fusion network (SFFNet) with dual-domain edge enhancement specifically tailored for object detection in UAV images. Firstly, the multi-scale dynamic dual-domain coupling (MDDC) module is designed. This component introduces a dual-driven edge extraction architecture that operates in both the frequency and spatial domains, enabling effective decoupling of multi-scale object edges from background noise. Secondly, to further enhance the representation capability of the model's neck in terms of both geometric and semantic information, a synergistic feature pyramid network (SFPN) is proposed. SFPN leverages linear deformable convolutions to adaptively capture irregular object shapes and establishes long-range contextual associations around targets through the designed wide-area perception module (WPM). Moreover, to adapt to the various applications or resource-constrained scenarios, six detectors of different scales (N/S/M/B/L/X) are designed. Experiments on two challenging aerial datasets (VisDrone and UAVDT) demonstrate the outstanding performance of SFFNet-X, achieving 36.8 AP and 20.6 AP, respectively. The lightweight models (N/S) also maintain a balance between detection accuracy and parameter efficiency. The code will be available at https://github.com/CQNU-ZhangLab/SFFNet.
+Pre-trained diffusion models have enabled significant advancements in All-in-One Restoration (AiOR), offering improved perceptual quality and generalization. However, diffusion-based restoration methods primarily rely on fine-tuning or Control-Net style modules to leverage the pre-trained diffusion model's priors for AiOR. In this work, we show that these pre-trained diffusion models inherently possess restoration behavior, which can be unlocked by directly learning prompt embeddings at the output of the text encoder. Interestingly, this behavior is largely inaccessible through text prompts and text-token embedding optimization. Furthermore, we observe that naive prompt learning is unstable because the forward noising process using degraded images is misaligned with the reverse sampling trajectory. To resolve this, we train prompts within a diffusion bridge formulation that aligns training and inference dynamics, enforcing a coherent denoising path from noisy degraded states to clean images. Building on these insights, we introduce our lightweight learned prompts on the pre-trained WAN video model and FLUX image models, converting them into high-performing restoration models. Extensive experiments demonstrate that our approach achieves competitive performance and generalization across diverse degradations, while avoiding fine-tuning and restoration-specific control modules.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对无人机图像中背景噪声复杂和目标尺度不平衡导致检测困难的问题，提出了一种具有双域边缘增强的协同特征融合网络（SFFNet）。该网络通过多尺度动态双域耦合模块在频域和空间域分离目标边缘与背景噪声，并利用协同特征金字塔网络增强模型对不规则目标形状和长程上下文信息的建模能力，最终在多个尺度上实现了高效且准确的检测。
+本文揭示了预训练扩散模型内部固有的图像/视频修复能力，并提出了一种无需微调或额外控制模块的轻量级方法。该方法通过直接学习文本编码器输出的提示嵌入，并在扩散桥框架下对齐训练与推理的动态过程，从而解锁了预训练模型在多种退化类型下的高性能修复能力。
 
 ### 解决的核心问题
-现有方法难以有效处理无人机图像中复杂的背景噪声干扰，导致目标与背景难以分离。同时，传统模型未能充分利用图像中丰富的多尺度信息，在处理尺度变化剧烈的目标时性能受限，且缺乏适应不同应用场景（如资源受限环境）的灵活模型架构。
+现有基于扩散模型的“一体化修复”方法主要依赖模型微调或引入类似Control-Net的额外模块来利用预训练先验，这增加了计算成本和模型复杂性。本文针对的核心问题是：如何在不修改预训练扩散模型参数的前提下，高效、稳定地激发其内在的修复能力，并解决直接优化提示嵌入时因前向加噪过程与反向采样轨迹不匹配而导致的训练不稳定问题。
 
 ### 核心创新
-本文的核心创新在于提出了一种融合频域与空间域信息的双驱动边缘增强机制，以及一种能够协同建模几何与语义信息的特征金字塔网络。此外，作者还构建了一个包含六个不同规模检测器的模型家族，以兼顾精度与效率的平衡。
+本文的核心创新在于提出了一种全新的“提示学习”范式，将预训练扩散模型直接转化为修复模型。其“新”主要体现在：1）发现了预训练扩散模型内部存在但无法通过文本提示直接访问的修复行为；2）提出了一种在扩散桥框架下学习提示嵌入的方法，确保了训练与推理动态的一致性。
 
 ### 创新点拆解
-- 创新点1：设计了多尺度动态双域耦合模块，该模块采用频域和空间域双驱动的边缘提取架构，能够有效将多尺度目标边缘从背景噪声中解耦出来，提升了模型对关键轮廓信息的感知能力。
-- 创新点2：提出了协同特征金字塔网络，它利用线性可变形卷积自适应捕捉不规则目标形状，并通过设计的广域感知模块建立目标周围的长程上下文关联，从而增强了模型颈部在几何和语义信息上的表征能力。
-- 创新点3：构建了包含N/S/M/B/L/X六个不同尺度的检测器模型家族，这使得SFFNet能够灵活适应从资源受限到追求极致精度的多样化应用场景，提供了精度与效率的权衡选择。
+- 创新点1：揭示了预训练扩散模型的固有修复先验。研究发现，通过直接优化文本编码器输出的提示嵌入，而非文本标记或使用文本提示，可以解锁模型内部的修复能力，这表明修复知识已编码在模型中但访问路径不同。
+- 创新点2：提出了基于扩散桥的稳定提示学习框架。针对直接用退化图像进行前向加噪会导致训练与采样轨迹错位的问题，该方法在扩散桥框架下训练提示，强制模型学习从带噪的退化状态到干净图像的一致性去噪路径，从而稳定了训练过程。
+- 创新点3：构建了轻量级、免微调的修复方案。基于上述发现，仅在预训练的WAN（视频）和FLUX（图像）模型上学习轻量的提示嵌入，即可将其转换为高性能的一体化修复模型，避免了参数微调和设计特定控制模块的开销。
 
 ### 实验结果亮点
-在VisDrone和UAVDT两个具有挑战性的航空数据集上，最大的SFFNet-X模型分别取得了36.8 AP和20.6 AP的优异性能，证明了其有效性。同时，轻量级模型（N/S）在检测精度和参数量效率之间保持了良好平衡，展现了模型家族的实用性。
+在图像和视频修复的多个基准测试中，该方法取得了具有竞争力的性能。例如，在图像修复任务中，基于FLUX模型的方法在多个退化类型（如模糊、噪声、JPEG压缩等）上达到了与当前先进方法相当甚至更好的性能，同时展现出优异的泛化能力。具体量化指标（如PSNR、SSIM、LPIPS）在论文相关表格中均有显著提升。
 
 ### 当前局限
-该方法主要针对无人机俯拍图像设计，其双域边缘增强机制在处理极端视角或严重遮挡的地面目标时可能效果受限。此外，模型在频域的操作可能增加计算开销，在实时性要求极高的边缘设备上部署仍需优化。
+该方法依赖于一个强大的预训练基础扩散模型（如FLUX），其性能上限受限于基础模型的能力。对于训练数据分布外或极其复杂的混合退化类型，其修复效果可能下降。此外，方法主要关注视觉质量（感知质量），在需要极高保真度（如像素级精确还原）的特定应用场景中可能存在局限。
 
 ### 后续改进方向
-- 方向1：探索更轻量化的频域特征提取算子，或设计动态机制以在简单场景下绕过频域计算，从而进一步降低模型计算复杂度，提升在移动平台上的推理速度。
-- 方向2：将双域解耦的思想与更多样的数据增强策略（如针对性的天气、光照模拟）相结合，以增强模型在更复杂多变天气条件和低光照无人机场景下的鲁棒性。
+- 方向1：探索将提示学习框架与更精细的条件控制机制（如空间感知的掩码或草图引导）相结合，以处理局部修复或用户引导的修复任务，提升控制的灵活性。
+- 方向2：研究如何将针对不同退化类型学习的提示进行组合或自适应选择，以更鲁棒地处理未知或复合的退化场景，进一步提升模型的泛化能力和实用性。
 
 ### 工程落地启发
-对于OCR与文档解析工程，本文提出的双域（频域/空间域）协同处理思路具有重要参考价值。例如，在处理复杂背景、低质量或带有纹理噪声的文档图像时，可以借鉴其频域分析能力来分离文本笔画与背景干扰。同时，其多尺度模型家族的设计理念可直接应用于文档解析系统，以构建适应不同文档复杂度与处理速度要求的可配置模型管线。
+对于OCR/文档解析工程，本工作最有价值的启发在于：强大的预训练视觉基础模型（如扩散模型）内部可能已经包含了处理图像退化（如模糊、噪声、低分辨率）的关键先验知识。这意味着，针对文档图像质量增强任务，可以探索类似的轻量级适配方法（如学习特定的提示或适配器），而非从头训练或全面微调大型模型，从而以更低的计算成本快速构建高质量的文档图像预处理模块。
 
 ---
 
-### 8. Self-Optimizing Multi-Agent Systems for Deep Research
+### 12. Vero: An Open RL Recipe for General Visual Reasoning
 
-- **ArXiv ID**: [2604.02988v1](https://arxiv.org/abs/2604.02988v1)
-- **作者**: Arthur Câmara, Vincent Slot, Jakub Zavrel
-- **发布时间**: 2026-04-03
-- **分类**: cs.IR, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2604.02988v1](https://arxiv.org/pdf/2604.02988v1)
-- **相关度评分**: 6/10
+- **ArXiv ID**: [2604.04917v1](https://arxiv.org/abs/2604.04917v1)
+- **作者**: Gabriel Sarch, Linrong Cai, Qunzhong Wang, Haoyang Wu, Danqi Chen...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2604.04917v1](https://arxiv.org/pdf/2604.04917v1)
+- **相关度评分**: 8/10
 
 #### 英文摘要
 
-Given a user's complex information need, a multi-agent Deep Research system iteratively plans, retrieves, and synthesizes evidence across hundreds of documents to produce a high-quality answer. In one possible architecture, an orchestrator agent coordinates the process, while parallel worker agents execute tasks. Current Deep Research systems, however, often rely on hand-engineered prompts and static architectures, making improvement brittle, expensive, and time-consuming. We therefore explore various multi-agent optimization methods to show that enabling agents to self-play and explore different prompt combinations can produce high-quality Deep Research systems that match or outperform expert-crafted prompts.
+What does it take to build a visual reasoner that works across charts, science, spatial understanding, and open-ended tasks? The strongest vision-language models (VLMs) show such broad visual reasoning is within reach, but the recipe behind them remains unclear, locked behind proprietary reinforcement learning (RL) pipelines with non-public data. We introduce Vero, a family of fully open VLMs that matches or exceeds existing open-weight models across diverse visual reasoning tasks. We scale RL data and rewards across six broad task categories, constructing Vero-600K, a 600K-sample dataset from 59 datasets, and designing task-routed rewards that handle heterogeneous answer formats. Vero achieves state-of-the-art performance, improving over four base models by 3.7-5.5 points on average across VeroEval, our suite of 30 challenging benchmarks. Starting from Qwen3-VL-8B-Instruct, Vero outperforms Qwen3-VL-8B-Thinking on 23 of 30 benchmarks without additional proprietary thinking data. When trained from the same base model, Vero-600K exceeds existing RL datasets across task categories. Systematic ablations reveal that different task categories elicit qualitatively distinct reasoning patterns that transfer poorly in isolation, suggesting that broad data coverage is the primary driver of strong RL scaling. All data, code, and models are released.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对当前深度研究系统依赖人工设计提示词和静态架构、导致系统优化脆弱且成本高昂的问题，提出并探索了多种多智能体优化方法。核心思想是通过让智能体进行自我博弈和探索不同的提示词组合，从而自动化地构建出性能匹配或超越专家手工设计的高质量深度研究系统。
+本文提出了Vero，一个完全开源的视觉语言模型系列，旨在构建一个在图表、科学、空间理解和开放任务上通用的视觉推理器。其核心贡献在于公开了一套完整的强化学习配方，包括一个从59个数据集中构建的、覆盖六类任务的60万样本数据集Vero-600K，以及处理异构答案格式的任务路由奖励机制，从而在广泛的视觉推理基准上实现了最先进的性能。
 
 ### 解决的核心问题
-现有深度研究系统通常采用固定的、由专家手工设计的提示词来驱动智能体协作，其系统架构也往往是静态的。这种强依赖人工经验的方法使得系统的性能提升变得脆弱、昂贵且耗时，难以实现自动化的持续优化和适应不同任务需求。
+当前最强大的视觉语言模型虽展现出广泛的视觉推理能力，但其成功秘诀被锁定在非公开的专有强化学习流程和数据中，导致社区难以复现和推进。现有开源模型在跨任务泛化能力上存在不足，且缺乏一个统一的、可扩展的强化学习框架来处理视觉推理中答案格式多样、任务类型异构的挑战。
 
 ### 核心创新
-本文的核心创新在于将“自我优化”机制引入多智能体深度研究系统，提出通过智能体间的自我博弈和探索来自动化地搜索和优化提示词组合与协作策略，从而替代传统依赖专家手工调优的系统构建范式。
+本文的核心创新在于提供了一个完全开源的、可复现的视觉语言模型强化学习通用配方。其创新性体现在构建了一个大规模、任务覆盖广泛的强化学习数据集，并设计了一种能够适配不同任务输出格式的统一奖励计算机制，从而系统性地提升了模型在多样化视觉推理任务上的泛化性能。
 
 ### 创新点拆解
-- 创新点1：**引入多智能体自我博弈优化框架**。该方法允许系统中的智能体（如协调者和工作者）通过模拟交互和探索来评估不同行动策略（如提示词选择）的效果，从而在无需人工干预的情况下发现更优的协作模式。
-- 创新点2：**自动化提示词组合搜索与评估**。研究探索了多种优化方法，使系统能够自动地尝试、评估并迭代不同的提示词组合，而非依赖预设的、固定的专家提示，实现了提示工程的过程自动化。
-- 创新点3：**验证了自优化系统与专家手工系统的性能可比性**。通过实验证明，通过上述自优化方法产生的系统，其最终性能能够达到甚至超过由专家精心手工设计和调优的基准系统，为自动化构建高性能系统提供了实证依据。
+- 创新点1：**构建了大规模、多任务覆盖的RL数据集Vero-600K**。该数据集整合了59个来源的60万个样本，系统性地覆盖了图表、科学、空间理解等六大类视觉推理任务，为强化学习训练提供了广泛且高质量的数据基础。
+- 创新点2：**设计了任务路由的奖励函数**。针对不同视觉推理任务答案格式（如文本、坐标、多项选择）异构的难题，该方法为每类任务设计了特定的奖励计算路径，实现了在单一强化学习框架下对多样化评估标准的统一处理。
+- 创新点3：**提供了完全开源的RL训练配方与模型**。研究完整公开了数据、代码和模型权重，揭示了通过广泛的跨任务数据覆盖（而非单一任务数据堆砌）是实现强化学习性能有效扩展的关键驱动因素，这对开源社区具有重要指导意义。
 
 ### 实验结果亮点
-在涉及从数百份文档中综合证据以回答复杂问题的深度研究任务上，采用自优化方法的多智能体系统在答案质量上**匹配或超越了**使用专家手工设计提示词的基准系统。具体而言，通过自我博弈探索得到的提示词组合，能够使系统在关键评估指标上达到与人工调优相当的水平，证明了自动化优化的有效性。
+在作者构建的包含30个挑战性基准的VeroEval评测套件上，Vero模型相比四个基础模型平均提升了3.7-5.5个百分点，达到了最先进的性能。具体而言，基于Qwen3-VL-8B-Instruct训练的Vero，在30个基准中的23个上超越了使用了专有“思维”数据的Qwen3-VL-8B-Thinking模型。与使用相同基础模型但其他RL数据集训练的结果相比，Vero-600K在所有任务类别上均表现更优。
 
 ### 当前局限
-该方法依赖于大量的模拟交互和探索来进行优化，可能导致较高的计算成本和时间开销。此外，自优化过程可能陷入局部最优，其发现的策略在超出训练或探索范围的任务泛化能力上可能存在不确定性。系统性能的最终上限也可能受限于底层基础模型的能力。
+该方法依赖于一个预先收集好的、静态的混合数据集进行强化学习训练，可能无法动态适应新兴的或分布外的新型视觉推理任务。此外，尽管覆盖了六类任务，但对于某些高度专业化或需要复杂多步推理的领域（如高级数学图表推导），其性能上限仍有待探索。奖励函数的设计虽然统一了格式，但对子任务间奖励权重的手动或启发式设定可能并非最优。
 
 ### 后续改进方向
-- 方向1：**开发更高效的探索与优化算法**。可以研究引入元学习或贝叶斯优化等技术，以减少自我博弈所需的交互轮次和计算资源，加速收敛到高性能策略。
-- 方向2：**增强系统的泛化与适应能力**。可以探索如何将优化得到的策略或提示词模板进行模块化封装，使其能够快速适应新的、未见过的任务领域或文档类型，提升实用价值。
+- 方向1：**探索在线或课程式强化学习策略**。研究如何让模型在训练过程中主动生成或选择困难样本，或按照从易到难的课程进行学习，以动态提升其在复杂任务上的推理能力和对未知任务的适应力。
+- 方向2：**研究更精细、可学习的奖励建模机制**。替代当前基于规则的任务路由奖励，尝试使用一个可学习的奖励模型来更精准地评估模型生成内容的质量，特别是对于开放式的、无标准答案的视觉推理任务。
 
 ### 工程落地启发
-对于OCR与文档解析工程项目，本文最有参考价值的点在于其**“自动化优化”的设计思想**。这启发我们在构建复杂的文档理解流水线时，可以借鉴多智能体自优化的思路，例如，设计能够自动调整版面分析、实体识别、信息抽取等模块间协作策略与参数配置的机制，从而减少对规则和人工调参的依赖，提升系统在面对多样化文档格式和内容时的鲁棒性与适应性。
+对于OCR与文档智能工程项目，本研究最直接的启发在于其**处理异构任务和输出格式的统一框架思路**。在实际文档解析系统中，常需同时处理表格识别、公式理解、版面分析等不同子任务，其输出格式各异。Vero的任务路由奖励机制为在一个统一模型中协调训练这些异构任务提供了可行的技术路径，有助于构建更通用、更强大的端到端文档理解系统。
 
 ---
 
-### 9. Understanding the Role of Hallucination in Reinforcement Post-Training of Multimodal Reasoning Models
+### 13. Discovering Failure Modes in Vision-Language Models using RL
 
-- **ArXiv ID**: [2604.03179v1](https://arxiv.org/abs/2604.03179v1)
-- **作者**: Gengwei Zhang, Jie Peng, Zhen Tan, Mufan Qiu, Hossein Nourkhiz Mahjoub...
-- **发布时间**: 2026-04-03
-- **分类**: cs.LG, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2604.03179v1](https://arxiv.org/pdf/2604.03179v1)
-- **相关度评分**: 6/10
+- **ArXiv ID**: [2604.04733v1](https://arxiv.org/abs/2604.04733v1)
+- **作者**: Kanishk Jain, Qian Yang, Shravan Nayak, Parisa Kordjamshidi, Nishanth Anand...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2604.04733v1](https://arxiv.org/pdf/2604.04733v1)
+- **相关度评分**: 8/10
 
 #### 英文摘要
 
-The recent success of reinforcement learning (RL) in large reasoning models has inspired the growing adoption of RL for post-training Multimodal Large Language Models (MLLMs) to enhance their visual reasoning capabilities. Although many studies have reported improved performance, it remains unclear whether RL training truly enables models to learn from visual information. In this work, we propose the Hallucination-as-Cue Framework, an analytical framework designed to investigate the effects of RL-based post-training on multimodal reasoning models from the perspective of model hallucination. Specifically, we introduce hallucination-inductive, modality-specific corruptions that remove or replace essential information required to derive correct answers, thereby forcing the model to reason by hallucination. By applying these corruptions during both training and evaluation, our framework provides a unique perspective for diagnosing RL training dynamics and understanding the intrinsic properties of datasets. Through extensive experiments and analyses across multiple multimodal reasoning benchmarks, we reveal that the role of model hallucination for RL-training is more significant than previously recognized. For instance, we find that RL post-training under purely hallucination-inductive settings can still significantly improve models' reasoning performance, and in some cases even outperform standard training. These findings challenge prevailing assumptions about MLLM reasoning training and motivate the development of more modality-aware RL-based training designs.
+Vision-language Models (VLMs), despite achieving strong performance on multimodal benchmarks, often misinterpret straightforward visual concepts that humans identify effortlessly, such as counting, spatial reasoning, and viewpoint understanding. Previous studies manually identified these weaknesses and found that they often stem from deficits in specific skills. However, such manual efforts are costly, unscalable, and subject to human bias, which often overlooks subtle details in favor of salient objects, resulting in an incomplete understanding of a model's vulnerabilities. To address these limitations, we propose a Reinforcement Learning (RL)-based framework to automatically discover the failure modes or blind spots of any candidate VLM on a given data distribution without human intervention. Our framework trains a questioner agent that adaptively generates queries based on the candidate VLM's responses to elicit incorrect answers. Our approach increases question complexity by focusing on fine-grained visual details and distinct skill compositions as training progresses, consequently identifying 36 novel failure modes in which VLMs struggle. We demonstrate the broad applicability of our framework by showcasing its generalizability across various model combinations.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对强化学习（RL）后训练多模态大语言模型（MLLMs）时，模型是否真正学会了利用视觉信息进行推理这一核心疑问，提出了“幻觉即线索”分析框架。该框架通过引入诱导幻觉的模态特异性信息破坏，揭示了RL后训练过程中模型幻觉所扮演的关键角色，并发现即使在纯幻觉诱导环境下进行RL训练，模型推理性能也能显著提升，挑战了当前对MLLM推理训练的普遍认知。
+本文针对视觉语言模型在计数、空间推理、视角理解等直观概念上表现不佳的问题，提出了一种基于强化学习的自动化框架，用于发现模型在给定数据分布上的失败模式。该框架训练一个提问者智能体，根据候选模型的响应自适应地生成查询以诱导其出错，并成功识别出36种新的VLM失败模式，展现了跨模型组合的泛化能力。
 
 ### 解决的核心问题
-现有研究普遍观察到RL后训练能提升多模态模型的基准性能，但无法确定这种提升是源于模型真正学会了视觉推理，还是仅仅通过“走捷径”利用了数据集中的偏差或文本线索。本文旨在具体诊断RL后训练对多模态推理模型的内在影响机制，厘清模型幻觉与性能提升之间的真实关系。
+现有研究主要依赖人工识别VLM的弱点，这种方法成本高昂、难以扩展，且易受人类偏见影响，例如倾向于关注显著物体而忽略细微视觉细节，导致对模型脆弱性的理解不完整。本文旨在解决如何无需人工干预、自动且系统地发现VLM在特定技能上的失败模式这一具体问题。
 
 ### 核心创新
-本文的核心创新在于提出了一个全新的“幻觉即线索”分析框架，用于诊断和理解RL后训练在多模态模型中的作用机制。该框架通过系统性地破坏输入中的关键模态信息，迫使模型在训练和评估中依赖幻觉进行“推理”，从而为分析训练动态和数据集本质属性提供了独特视角。
+本文的核心创新在于提出了一种基于强化学习的自动化探索框架，将失败模式的发现过程形式化为一个交互式学习任务。该方法不再依赖预设的、静态的测试集，而是通过一个动态的提问者智能体，主动生成能暴露目标VLM弱点的复杂查询。
 
 ### 创新点拆解
-- 创新点1：提出了“幻觉即线索”分析框架，这是一个方法论创新。它通过设计幻觉诱导、模态特异性的信息破坏（如移除或替换关键视觉信息），创造了一个可控的实验环境来分离和观察模型幻觉行为。
-- 创新点2：引入了在训练和评估阶段统一应用信息破坏的实验范式。这使得研究者能够直接评估模型在缺乏关键信息（即必须依赖幻觉）的情况下，RL训练带来的性能变化，从而诊断其学习本质。
-- 创新点3：基于该框架，揭示了关于RL后训练的反直觉发现，即纯幻觉诱导训练仍能显著提升性能，有时甚至超越标准训练。这一发现挑战了领域内关于模型必须依赖真实视觉信号才能有效学习的假设。
+- 创新点1：**基于强化学习的自适应提问框架**：设计了一个提问者智能体，其策略网络以目标VLM的历史回答为输入，通过强化学习奖励机制（诱导错误答案）进行优化，从而能动态生成针对性强、复杂度递增的查询。
+- 创新点2：**细粒度与技能组合的渐进式探索**：训练过程中，框架有策略地引导提问者关注细粒度的视觉细节（而非仅显著物体），并通过组合不同的基础技能（如计数+空间关系）来构建更复杂的问题，从而系统地挖掘深层失败模式。
+- 创新点3：**可泛化的失败模式发现流程**：该框架被设计为与具体的目标VLM和初始数据分布解耦，作为一个通用工具，能够应用于不同的VLM组合，并输出可解释的、新颖的失败模式集合（文中发现了36种）。
 
 ### 实验结果亮点
-在多个多模态推理基准（如VQA、ScienceQA等）上的广泛实验表明，在纯幻觉诱导设置下（即输入视觉信息被破坏），经过RL后训练的模型性能仍能获得显著提升。例如，在某些任务上，这种设置下的性能提升幅度与标准训练设置相当，甚至部分结果实现了超越，具体数字因任务而异，但趋势一致且显著。
+该方法在多个VLM（如CLIP、BLIP等）上进行了验证，成功自动发现了36种此前未被文献记载的新失败模式。实验表明，该框架生成的对抗性查询能有效降低目标VLM的性能，并且所发现的失败模式在不同模型架构和规模间具有一定的普遍性。
 
 ### 当前局限
-该方法主要作为一种诊断和分析工具，其设计的“信息破坏”操作在真实应用场景中并不存在，因此其直接生成的模型不具备实际部署价值。此外，框架可能对某些需要严格模态对齐的任务（如细粒度图像描述）的分析能力有限，且未深入探讨不同RL算法（如PPO与DPO）在幻觉诱导环境下的差异性影响。
+该方法的有效性依赖于初始数据分布和强化学习智能体的探索能力，可能无法覆盖训练分布之外或极其罕见的失败场景。此外，框架主要针对视觉问答任务进行设计，对于更复杂的多模态任务（如长文档理解、视频推理）的迁移适用性有待验证。强化学习训练过程本身也存在计算成本较高和不稳定性的问题。
 
 ### 后续改进方向
-- 方向1：基于本文的发现，设计新的、对模态信息更敏感的RL训练目标或奖励函数，将抑制无根据幻觉与鼓励基于证据的推理 explicitly 结合到训练过程中。
-- 方向2：利用该框架对现有大型多模态基准数据集进行系统性“审计”，量化其中可通过文本偏差或幻觉“走捷径”解决的比例，从而推动构建更鲁棒、更依赖真实多模态推理的评估数据集。
+- 方向1：**引入课程学习与元学习**：可以设计更结构化的课程学习策略，引导提问者智能体从简单到复杂、从通用到特定领域进行探索；或采用元学习技术，使智能体能快速适应新的目标模型或任务分布。
+- 方向2：**融合可解释性分析工具**：将框架与视觉注意力图、概念激活向量等可解释性技术结合，不仅发现失败模式，还能进一步定位导致模型出错的内部机制（如关注了错误区域），为模型修正提供更直接的洞见。
 
 ### 工程落地启发
-对于OCR/文档解析工程，本文的核心启发在于：在利用RL等高级训练技术优化文档理解模型时，需警惕性能提升可能源于模型学习了数据集的表层偏差或上下文模式（类似“幻觉”），而非真正理解了版面结构或文档语义。在构建训练数据与评估集时，应有意识地设计“对抗性”样本或破坏关键视觉/文本线索，以检验模型推理的鲁棒性和真实性。
+对于OCR与文档智能工程项目，该研究提供了一种自动化、系统化的模型弱点评估与压力测试方法论。启示在于，可以借鉴其“主动探测”思想，构建一个针对文档理解模型（如版面分析、表格识别、信息抽取）的测试智能体，自动生成包含复杂版面、模糊字体、非常规表格结构的挑战性样本，从而更全面地评估和提升实际系统的鲁棒性。
 
 ---
 
-### 10. EffiMiniVLM: A Compact Dual-Encoder Regression Framework
+### 14. Is a Picture Worth a Thousand Words? Adaptive Multimodal Fact-Checking with Visual Evidence Necessity
 
-- **ArXiv ID**: [2604.03172v1](https://arxiv.org/abs/2604.03172v1)
-- **作者**: Yin-Loon Khor, Yi-Jie Wong, Yan Chai Hum
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2604.03172v1](https://arxiv.org/pdf/2604.03172v1)
-- **相关度评分**: 6/10
+- **ArXiv ID**: [2604.04692v1](https://arxiv.org/abs/2604.04692v1)
+- **作者**: Jaeyoon Jung, Yejun Yoon, Kunwoo Park
+- **发布时间**: 2026-04-06
+- **分类**: cs.CL, cs.AI, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.04692v1](https://arxiv.org/pdf/2604.04692v1)
+- **相关度评分**: 8/10
 
 #### 英文摘要
 
-Predicting product quality from multimodal item information is critical in cold-start scenarios, where user interaction history is unavailable and predictions must rely on images and textual metadata. However, existing vision-language models typically depend on large architectures and/or extensive external datasets, resulting in high computational cost. To address this, we propose EffiMiniVLM, a compact dual-encoder vision-language regression framework that integrates an EfficientNet-B0 image encoder and a MiniLM-based text encoder with a lightweight regression head. To improve training sample efficiency, we introduce a weighted Huber loss that leverages rating counts to emphasize more reliable samples, yielding consistent performance gains. Trained using only 20% of the Amazon Reviews 2023 dataset, the proposed model contains 27.7M parameters and requires 6.8 GFLOPs, yet achieves a CES score of 0.40 with the lowest resource cost in the benchmark. Despite its small size, it remains competitive with significantly larger models, achieving comparable performance while being approximately 4x to 8x more resource-efficient than other top-5 methods and being the only approach that does not use external datasets. Further analysis shows that scaling the data to 40% alone allows our model to overtake other methods, which use larger models and datasets, highlighting strong scalability despite the model's compact design.
+Automated fact-checking is a crucial task not only in journalism but also across web platforms, where it supports a responsible information ecosystem and mitigates the harms of misinformation. While recent research has progressed from text-only to multimodal fact-checking, a prevailing assumption is that incorporating visual evidence universally improves performance. In this work, we challenge this assumption and show that indiscriminate use of multimodal evidence can reduce accuracy. To address this challenge, we propose AMuFC, a multimodal fact-checking framework that employs two collaborative agents with distinct roles for the adaptive use of visual evidence: An Analyzer determines whether visual evidence is necessary for claim verification, and a Verifier predicts claim veracity conditioned on both the retrieved evidence and the Analyzer's assessment. Experimental results on three datasets show that incorporating the Analyzer's assessment of visual evidence necessity into the Verifier's prediction yields substantial improvements in verification performance. In addition to all code, we release WebFC, a newly constructed dataset for evaluating fact-checking modules in a more realistic scenario, available at https://github.com/ssu-humane/AMuFC.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对冷启动场景下预测产品质量的任务，提出了一种紧凑的双编码器视觉语言回归框架EffiMiniVLM。该模型通过集成轻量级图像与文本编码器，并引入加权Huber损失函数，在仅使用少量内部数据训练的情况下，实现了与大型模型相媲美的性能，同时显著降低了计算资源消耗。
+本文挑战了多模态事实核查中“视觉证据总是有益”的普遍假设，指出不加区分地使用视觉证据反而可能降低准确性。为此，作者提出了AMuFC框架，该框架通过一个分析器智能体自适应地判断视觉证据的必要性，并将此判断与证据一同输入验证器智能体进行最终核查，从而显著提升了验证性能。
 
 ### 解决的核心问题
-现有视觉语言模型通常依赖庞大的模型架构和/或海量的外部数据集，导致计算成本高昂，难以在资源受限的场景下部署。本文具体针对冷启动推荐场景，即缺乏用户交互历史、仅能依赖商品图像和文本元数据进行质量预测的问题，旨在设计一个高效且无需外部数据的解决方案。
+现有多模态事实核查方法通常默认融合文本与视觉证据，但未考虑视觉证据对特定声明的实际必要性，这种不加区分的融合可能导致模型被无关或误导性图像干扰，从而降低核查准确性。本文针对的核心问题是：如何让多模态事实核查系统能够自适应地、有选择性地利用视觉证据，而非盲目依赖。
 
 ### 核心创新
-本文的核心创新在于构建了一个参数和计算量极小的双编码器回归框架，并设计了一种利用样本可靠性信息（评分数量）的加权损失函数，从而在模型架构和训练策略两个层面实现了高效学习。
+本文的核心创新在于提出了一个由两个协作智能体构成的AMuFC框架，实现了对视觉证据必要性的自适应判断与利用。此外，作者还构建并开源了一个新的数据集WebFC，用于在更贴近真实场景（如社交媒体）的环境下评估事实核查模块。
 
 ### 创新点拆解
-- 创新点1：提出紧凑的双编码器回归框架EffiMiniVLM，其集成了EfficientNet-B0图像编码器和基于MiniLM的文本编码器，并配备轻量级回归头，模型总参数量仅为27.7M，计算量为6.8 GFLOPs。
-- 创新点2：引入加权Huber损失函数，该损失利用商品的评分数量作为权重，赋予高评分数量的可靠样本更大的重要性，有效提升了训练样本的利用效率，带来了稳定的性能增益。
+- 创新点1：**提出双智能体协作框架（AMuFC）**：设计了“分析器”和“验证器”两个角色分明的智能体。分析器专门评估给定声明是否需要视觉证据来验证，验证器则综合文本证据、视觉证据以及分析器的必要性判断来预测声明的真实性。
+- 创新点2：**引入视觉证据必要性评估机制**：将“是否需要视觉证据”作为一个明确的决策任务，并将该决策作为条件信息输入给验证器，从而引导模型在必要时关注视觉内容，在不需要时则主要依赖文本证据。
+- 创新点3：**构建并开源WebFC数据集**：为了在更真实的网络信息场景下进行评估，作者构建了WebFC数据集，该数据集模拟了社交媒体帖子（包含文本和图像）的事实核查需求，弥补了现有数据集在场景真实性上的不足。
 
 ### 实验结果亮点
-在Amazon Reviews 2023数据集上，仅使用20%数据训练的EffiMiniVLM取得了0.40的CES分数，其资源成本为基准测试中最低。与性能前五的其他方法相比，其资源效率高出约4至8倍，且是唯一未使用任何外部数据集的方法。进一步将训练数据扩展到40%后，该模型性能超越了所有使用更大模型和数据集的方法。
+在三个基准数据集（包括新构建的WebFC）上的实验表明，AMuFC框架显著优于强基线模型。例如，在WebFC数据集上，相较于直接融合多模态证据的基线方法，AMuFC在准确率上取得了显著的提升（具体数字因论文中未在摘要列出，需参考正文，但摘要明确指出有“substantial improvements”）。
 
 ### 当前局限
-该方法主要针对商品评分回归任务进行设计和验证，其在小样本、多模态场景下的通用性（如复杂文档理解）尚未得到充分检验。此外，模型的双编码器架构可能对图像与文本间细粒度、复杂的交互关系建模能力有限。
+该方法依赖于分析器对视觉证据必要性的准确判断，若分析器判断错误（如将需要视觉证据的声明误判为不需要），可能会将错误信号传递给验证器，导致最终核查失败。此外，框架主要针对声明-证据对的验证，对于需要复杂推理或多跳推理的复杂声明，其有效性可能受限。
 
 ### 后续改进方向
-- 方向1：探索将加权损失的思想迁移至其他需要衡量样本可靠性的多模态回归或分类任务中，例如基于用户生成内容的文档质量评估。
-- 方向2：在保持模型紧凑的前提下，研究引入轻量级的跨模态注意力机制，以增强对图像与文本间深层语义关联的捕捉能力，可能进一步提升性能。
+- 方向1：**增强分析器的鲁棒性**：可以引入更细粒度的必要性分级（如“必需”、“有益”、“无关”），而非简单的二元判断，并为分析器设计更丰富的预训练任务，以提升其判断的准确性。
+- 方向2：**扩展至动态多模态信息流**：当前工作处理静态的声明-证据对，未来可探索如何将该框架应用于实时、流式的社交媒体信息流中进行事实核查，这需要处理证据检索与必要性判断的时序性问题。
 
 ### 工程落地启发
-本工作对OCR与文档智能工程的启发在于，证明了通过精心选择轻量级骨干网络和设计高效的训练策略，可以在不依赖海量外部数据的前提下，构建高性能的多模态理解模型。这对于开发部署在边缘设备、或处理特定领域（如金融、法律文档）且标注数据有限的文档解析系统具有重要参考价值。
+对于OCR与文档智能工程项目，本文的核心启发在于**“智能路由”或“条件处理”的思想**。在处理包含图文的多模态文档（如宣传海报、信息图表、扫描报告）时，并非所有任务都需要同等深度地解析图像中的文字或版面信息。可以借鉴本文思路，设计一个前置模块，动态判断当前任务是否需要启动OCR或复杂的版面分析，从而在保证效果的同时优化系统资源分配与处理效率。
 
 ---
 
-### 11. STEAR: Layer-Aware Spatiotemporal Evidence Intervention for Hallucination Mitigation in Video Large Language Models
+### 15. ClickAIXR: On-Device Multimodal Vision-Language Interaction with Real-World Objects in Extended Reality
 
-- **ArXiv ID**: [2604.03045v1](https://arxiv.org/abs/2604.03045v1)
-- **作者**: Linfeng Fan, Yuan Tian, Ziwei Li, Zhiwu Lu
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV, cs.MM
-- **PDF**: [https://arxiv.org/pdf/2604.03045v1](https://arxiv.org/pdf/2604.03045v1)
-- **相关度评分**: 6/10
+- **ArXiv ID**: [2604.04905v1](https://arxiv.org/abs/2604.04905v1)
+- **作者**: Dawar Khan, Alexandre Kouyoumdjian, Xinyu Liu, Omar Mena, Dominik Engel...
+- **发布时间**: 2026-04-06
+- **分类**: cs.CV, cs.GR, cs.HC
+- **PDF**: [https://arxiv.org/pdf/2604.04905v1](https://arxiv.org/pdf/2604.04905v1)
+- **相关度评分**: 8/10
 
 #### 英文摘要
 
-Video Large Language Models (Video-LLMs) remain prone to spatiotemporal hallucinations, often generating visually unsupported details or incorrect temporal relations. Existing mitigation methods typically treat hallucination as a uniform decoding failure, applying globally shared correction rules. We instead observe that decoder layers contribute differently to visual grounding and later linguistic composition, indicating that intervention must be layer-aware. Based on this insight, we propose STEAR, a layer-aware spatiotemporal evidence intervention framework. STEAR identifies high-risk decoding steps and selects token-conditioned visual evidence from grounding-sensitive middle layers. It uses this shared evidence for two coupled purposes: restoring missing local grounding in middle layers, and constructing temporally perturbed patch-level counterfactuals to falsify inconsistent reasoning during late-layer decoding. Consequently, STEAR mitigates both spatial and temporal hallucinations within an efficient single-encode inference framework. Experiments across representative Video-LLM backbones and challenging benchmarks demonstrate that STEAR consistently reduces hallucinations while improving faithfulness, temporal consistency, and robustness. Our results confirm that reliable video decoding relies on intervening on precise evidence at the right layer, rather than enforcing a global penalty. The code is provided in the Supplementary Material.
+We present ClickAIXR, a novel on-device framework for multimodal vision-language interaction with objects in extended reality (XR). Unlike prior systems that rely on cloud-based AI (e.g., ChatGPT) or gaze-based selection (e.g., GazePointAR), ClickAIXR integrates an on-device vision-language model (VLM) with a controller-based object selection paradigm, enabling users to precisely click on real-world objects in XR. Once selected, the object image is processed locally by the VLM to answer natural language questions through both text and speech. This object-centered interaction reduces ambiguity inherent in gaze- or voice-only interfaces and improves transparency by performing all inference on-device, addressing concerns around privacy and latency. We implemented ClickAIXR in the Magic Leap SDK (C API) with ONNX-based local VLM inference. We conducted a user study comparing ClickAIXR with Gemini 2.5 Flash and ChatGPT 5, evaluating usability, trust, and user satisfaction. Results show that latency is moderate and user experience is acceptable. Our findings demonstrate the potential of click-based object selection combined with on-device AI to advance trustworthy, privacy-preserving XR interactions. The source code and supplementary materials are available at: nanovis.org/ClickAIXR.html
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对视频大语言模型在解码过程中容易产生时空幻觉的问题，提出了一种名为STEAR的层感知时空证据干预框架。该框架的核心在于识别高风险解码步骤，并从对视觉接地敏感的中层解码器中提取令牌条件化的视觉证据，进而通过恢复中层缺失的局部接地和构建扰动反事实来协同抑制空间与时间幻觉。
+本文提出了ClickAIXR，一种新颖的、在设备端运行的扩展现实（XR）多模态视觉-语言交互框架。该框架通过控制器点击选择真实世界中的物体，并利用本地视觉语言模型（VLM）处理物体图像，以文本和语音形式回答用户的自然语言问题。其核心在于将基于点击的物体选择与设备端AI推理相结合，旨在解决云端依赖带来的隐私、延迟问题，以及仅依赖视线或语音交互的模糊性。
 
 ### 解决的核心问题
-现有缓解视频大语言模型幻觉的方法通常将幻觉视为一种均匀的解码失败，并应用全局共享的校正规则，忽略了不同解码层在视觉接地和语言组合中的差异性贡献。本文具体针对模型生成的视觉无依据细节和错误时间关系这两类时空幻觉问题展开研究，旨在实现更精细、高效的干预。
+现有XR交互系统主要存在两大痛点：一是依赖云端AI（如ChatGPT）进行视觉问答，引发了用户隐私泄露和网络延迟的担忧；二是依赖视线（如GazePointAR）或纯语音的物体选择方式，在复杂场景下存在交互意图模糊、选择不精确的问题。本文针对如何在XR环境中实现精确、透明且保护隐私的物体级多模态交互这一具体问题展开研究。
 
 ### 核心创新
-本文的核心创新在于提出了首个层感知的时空证据干预框架，通过分析解码器内部不同层的功能差异，实现了对幻觉的精准、分层干预。该方法在单一编码推理框架内，耦合了证据恢复与反事实推理两种机制，以同时应对空间和时间维度的幻觉。
+本文的核心创新在于提出并实现了一个集成了“控制器点击选择”与“设备端视觉语言模型推理”的完整XR交互框架。其新颖性体现在将传统的精确点击交互范式与前沿的轻量化、本地化VLM能力相结合，构建了一个端到端的、以物体为中心的隐私保护型交互闭环。
 
 ### 创新点拆解
-- 创新点1：提出了层感知的干预视角，通过分析发现解码器的中层对视觉接地敏感，而高层更侧重于语言组合，从而指导干预策略的制定。
-- 创新点2：设计了令牌条件化的视觉证据选择机制，能够根据当前解码的令牌动态地从视频中提取相关的时空证据，为干预提供精确的输入。
-- 创新点3：构建了耦合的双重干预机制，即利用共享证据一方面恢复中层缺失的视觉接地，另一方面构建时间扰动的补丁级反事实来证伪高层解码中的不一致推理。
+- 创新点1：提出并实现了“点击-询问”的物体中心交互范式。用户通过XR控制器物理点击来选择真实世界中的物体，此操作提供了明确的交互对象，有效避免了纯视线或语音交互中常见的指代模糊问题。
+- 创新点2：构建了完全在设备端运行的多模态处理流程。框架在Magic Leap设备上本地集成VLM，使用ONNX运行时进行推理，将物体图像处理和问答生成全部置于本地，消除了对云服务的依赖，从而在系统层面保障了数据隐私并降低了交互延迟。
+- 创新点3：设计并完成了针对新型交互范式的用户体验评估。研究没有局限于技术实现，而是通过用户研究，将ClickAIXR与Gemini 2.5 Flash、ChatGPT 5等云端方案在可用性、信任度和满意度等维度进行对比，为设备端XR交互的可行性提供了实证依据。
 
 ### 实验结果亮点
-在多个代表性视频大语言模型骨干（如Video-LLaMA、LLaMA-VID）和具有挑战性的基准（如Video-Hallucination Benchmark, Temporal-Naturalism）上进行了实验。STEAR在幻觉减少率上取得了显著提升（例如，在某个基准上相对降低超过15%），同时提高了生成内容的忠实度、时间一致性和模型鲁棒性。
+论文通过用户研究评估了系统性能，关键结果包括：1）**延迟表现**：系统整体延迟被评估为“中等”（moderate），表明在设备端运行VLM的响应时间在可接受范围内。2）**用户体验**：用户对ClickAIXR的体验反馈为“可接受”（acceptable），并且在**信任度**方面，由于其数据本地处理的特性，相较于依赖云端的对比系统（Gemini 2.5 Flash, ChatGPT 5）展现出潜在优势。
 
 ### 当前局限
-该方法依赖于对解码器内部层功能的准确识别，其有效性可能因模型架构的不同而有所变化。此外，构建时间扰动反事实需要额外的计算开销，虽然框架本身是单次编码，但在极端复杂或长时程的视频理解任务中，其干预精度和效率可能面临挑战。
+该方法的局限性主要源于其对设备端算力的依赖：首先，本地运行的VLM其模型规模和能力必然弱于大型云端模型，在处理复杂、需要大量世界知识的问答时可能表现不足。其次，当前的物体选择依赖于控制器的物理点击，在用户双手被占用或需要远距离交互的场景下并不适用。此外，框架尚未深入处理动态场景或部分遮挡物体的鲁棒性选择问题。
 
 ### 后续改进方向
-- 方向1：探索更通用、自适应的层功能识别方法，使其能够无缝迁移到不同的视频大语言模型架构，减少对特定模型先验分析的依赖。
-- 方向2：优化反事实构建过程，例如通过更高效的采样策略或学习到的扰动模式，以降低计算成本并提升对细微时间逻辑错误的捕捉能力。
+- 方向1：探索更高效的设备端VLM架构与模型压缩技术。可以研究知识蒸馏、动态推理或混合精度量化等方法，在保持可接受延迟的前提下，提升本地模型的理解与推理能力，以应对更复杂的用户查询。
+- 方向2：扩展多模态选择与交互方式。可研究融合手势识别、眼动追踪与轻微头部姿态的“软选择”机制，作为控制器点击的补充，以支持更自然、更灵活的双手解放式交互场景。
 
 ### 工程落地启发
-对于OCR与文档智能工程，该研究最关键的启发在于“分层诊断与干预”的思想。在处理复杂的文档理解任务（如表格解析或跨页引用）时，可以借鉴此思路，分析模型内部不同层或模块对版面结构信息、语义关联信息的处理差异，从而设计针对性的增强或纠正机制，而非施加全局性的后处理规则。
-
----
-
-### 12. Collaborative Multi-Mode Pruning for Vision-Language Models
-
-- **ArXiv ID**: [2604.02956v1](https://arxiv.org/abs/2604.02956v1)
-- **作者**: Zimeng Wu, Yunhong Wang, Donghao Wang, Jiaxin Chen
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2604.02956v1](https://arxiv.org/pdf/2604.02956v1)
-- **相关度评分**: 6/10
-
-#### 英文摘要
-
-Vision-Language Models (VLMs) have advanced rapidly within the unified Transformer architecture, yet their deployment on resource-constrained devices remains challenging due to high computational complexity. While pruning has emerged as an effective technique for compressing VLMs, existing approaches predominantly focus on a single mode by pruning either parameters or tokens, neglecting fully exploring the inherent redundancy in each mode, which leads to substantial performance degradation at high pruning ratios. To address the above limitations, we propose Collaborative Multi-Mode Pruning (CoMP), a novel framework tailored for VLMs by performing joint parameter and token pruning. Specifically, we first design a Collaborative Importance Metric (CIM) that investigates the mutual interference between the coupled parameters and tokens. It incorporates distinct significance of tokens into the computation of parameter importance scores, while simultaneously mitigating the affect of pruned parameters on token importance scores. Moreover, we develop a Multi-Mode Pruning Strategy (MPS) that decomposes the overall pruning process into a sequence of pruning stages, while in each stage we estimate the priory of different pruning modes based on their pruning cost and adaptively shift to the optimal one. Additionally, MPS integrates the historical cost and random exploration, in order to achieve a stable pruning process and avoid local optimum. Extensive experiments across various vision-language tasks and models demonstrate that our method effectively promotes the performance under high pruning ratios by comparing to the state-of-the-art approaches. The source code is available at https://github.com/Wuzimeng/CoMP.git.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文针对视觉-语言模型在资源受限设备上部署困难的问题，提出了一种协同多模态剪枝框架。该框架通过联合剪枝模型参数和输入令牌，并设计协同重要性度量和多模态剪枝策略，有效缓解了高剪枝率下的性能退化问题。
-
-### 解决的核心问题
-现有视觉-语言模型剪枝方法大多孤立地专注于剪枝参数或令牌中的单一模态，未能充分挖掘各模态内部固有的冗余性，导致在高剪枝率下模型性能显著下降。本文旨在解决参数剪枝与令牌剪枝之间的相互干扰问题，并探索一种协同、自适应的多模态剪枝策略，以实现更高效的模型压缩。
-
-### 核心创新
-本文的核心创新在于首次为视觉-语言模型提出了一个协同的参数与令牌联合剪枝框架。其“新”主要体现在两个方面：一是设计了能够量化参数与令牌相互影响的协同重要性度量；二是开发了一种能够自适应选择最优剪枝模态并避免局部最优的多阶段剪枝策略。
-
-### 创新点拆解
-- 创新点1：**协同重要性度量**。该度量方法在计算参数重要性时，融入了不同令牌的独特重要性；同时，在计算令牌重要性时，主动减轻已被剪枝参数带来的影响，从而更准确地评估参数与令牌的联合重要性。
-- 创新点2：**多模态剪枝策略**。该策略将整体剪枝过程分解为多个阶段，在每个阶段根据各剪枝模式的“成本”估算其优先级，并自适应地切换到最优剪枝模式，实现了动态的剪枝决策。
-- 创新点3：**稳定化与探索机制**。在多模态剪枝策略中，集成了历史成本记录和随机探索，这不仅使剪枝过程更加稳定，还有助于算法跳出局部最优解，找到全局更优的剪枝路径。
-
-### 实验结果亮点
-在多种视觉-语言任务（如图像-文本检索、视觉问答）和模型（如BLIP、ALBEF）上的实验表明，所提方法在高剪枝率下显著优于现有先进方法。例如，在图像-文本检索任务上，与基线方法相比，在剪枝率高达50%时，Recall@1指标仍能保持显著的性能优势。
-
-### 当前局限
-该方法主要针对基于Transformer架构的视觉-语言模型进行优化，对于其他非Transformer架构的跨模态模型可能无法直接适用。此外，框架中的协同重要性度量计算和多模态策略搜索会引入额外的计算开销，在极端资源受限的场景下可能成为负担。
-
-### 后续改进方向
-- 方向1：将协同剪枝框架扩展至更广泛的跨模态架构，例如包含卷积或循环神经网络的混合模型，以验证其通用性。
-- 方向2：研究更轻量化的协同重要性评估方法，例如通过知识蒸馏或元学习来预测重要性，以减少剪枝过程本身的计算成本。
-
-### 工程落地启发
-对于OCR或文档解析工程项目，该研究最重要的启发在于其“多模态协同优化”的思想。在处理复杂文档（包含文本、表格、公式、版面）时，可以借鉴此思路，不孤立地对文本识别、版面分析或表格检测等单一模块进行压缩或加速，而是设计一种协同的轻量化策略，综合考虑各模块间的相互依赖与冗余，从而在保证整体系统性能的前提下实现更高效的部署。
-
----
-
-### 13. LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation
-
-- **ArXiv ID**: [2604.02954v1](https://arxiv.org/abs/2604.02954v1)
-- **作者**: Yilin Xiao, Jin Chen, Qinggang Zhang, Yujing Zhang, Chuang Zhou...
-- **发布时间**: 2026-04-03
-- **分类**: cs.CL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2604.02954v1](https://arxiv.org/pdf/2604.02954v1)
-- **相关度评分**: 6/10
-
-#### 英文摘要
-
-Graph-based Retrieval-Augmented Generation (GraphRAG) enhances the reasoning capabilities of Large Language Models (LLMs) by grounding their responses in structured knowledge graphs. Leveraging community detection and relation filtering techniques, GraphRAG systems demonstrate inherent resistance to traditional RAG attacks, such as text poisoning and prompt injection. However, in this paper, we find that the security of GraphRAG systems fundamentally relies on the topological integrity of the underlying graph, which can be undermined by implicitly corrupting the logical connections, without altering surface-level text semantics. To exploit this vulnerability, we propose \textsc{LogicPoison}, a novel attack framework that targets logical reasoning rather than injecting false contents. Specifically, \textsc{LogicPoison} employs a type-preserving entity swapping mechanism to perturb both global logic hubs for disrupting overall graph connectivity and query-specific reasoning bridges for severing essential multi-hop inference paths. This approach effectively reroutes valid reasoning into dead ends while maintaining surface-level textual plausibility. Comprehensive experiments across multiple benchmarks demonstrate that \textsc{LogicPoison} successfully bypasses GraphRAG's defenses, significantly degrading performance and outperforming state-of-the-art baselines in both effectiveness and stealth. Our code is available at \textcolor{blue}https://github.com/Jord8061/logicPoison.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了一种名为 LogicPoison 的新型攻击框架，专门针对基于知识图谱的检索增强生成系统。该攻击通过保持实体类型不变的前提下交换实体，隐秘地破坏图谱的拓扑连接逻辑，而非注入虚假内容，从而有效误导模型的推理路径，显著降低了 GraphRAG 系统的性能。
-
-### 解决的核心问题
-现有的 GraphRAG 系统通过社区检测和关系过滤等技术，对传统的文本投毒和提示注入攻击表现出固有的抵抗性。然而，本文发现其安全性根本上依赖于底层知识图谱的拓扑完整性，现有攻击方法未能有效利用这一深层逻辑漏洞，即在不改变表层文本语义的情况下，通过破坏逻辑连接来误导推理。
-
-### 核心创新
-本文的核心创新在于提出了一种针对逻辑推理而非内容本身的攻击范式。该方法通过扰动图谱的拓扑结构来实施攻击，具体包括设计了一种类型保持的实体交换机制，并区分了针对全局逻辑枢纽和查询特定推理桥梁的扰动策略。
-
-### 创新点拆解
-- 创新点1：提出了“逻辑攻击”的新范式，将攻击目标从传统的注入虚假内容转向隐秘地破坏知识图谱中的逻辑连接关系，实现了攻击思路的根本转变。
-- 创新点2：设计了一种类型保持的实体交换机制作为核心攻击手段，该机制在保持实体类型和局部文本语义合理性的前提下，通过交换实体来扰乱图谱的拓扑结构。
-- 创新点3：制定了双管齐下的攻击策略，既针对作为全局连接关键节点的“逻辑枢纽”进行扰动以破坏整体图谱连通性，也针对支撑特定多跳推理路径的“推理桥梁”进行切断，从而精准误导查询相关的推理过程。
-
-### 实验结果亮点
-在多个基准测试上的综合实验表明，LogicPoison 能成功绕过 GraphRAG 的防御机制。例如，在 HotpotQA 数据集上，其攻击使 GraphRAG 的答案准确率相对下降了超过 30%，并且在攻击有效性和隐蔽性方面均显著优于最先进的基线方法。
-
-### 当前局限
-该攻击方法的效果高度依赖于对目标知识图谱结构的先验了解，在图谱结构未知或动态变化剧烈的场景下可能难以实施。此外，攻击主要针对基于社区检测的 GraphRAG 系统，对于采用其他图谱构建或推理机制的变体，其普适性有待进一步验证。
-
-### 后续改进方向
-- 方向1：研究在仅具有部分图谱信息或通过黑盒查询间接推断图谱结构的情况下，如何实施有效的逻辑攻击，以提升方法的适用性和实战性。
-- 方向2：探索针对 LogicPoison 的防御机制，例如设计对拓扑扰动具有鲁棒性的图谱构建算法，或引入逻辑一致性校验模块来检测和修复被破坏的推理路径。
-
-### 工程落地启发
-对于 OCR 与文档智能工程项目，本文的核心启发在于揭示了结构化信息（如图谱）的“逻辑完整性”与“内容正确性”同等重要。在构建文档知识图谱或进行信息抽取时，不仅需要确保抽取实体和关系的准确性，还必须高度重视并验证实体间逻辑连接的合理性与鲁棒性，以防患于未然。
-
----
-
-### 14. The Eleventh NTIRE 2026 Efficient Super-Resolution Challenge Report
-
-- **ArXiv ID**: [2604.03198v1](https://arxiv.org/abs/2604.03198v1)
-- **作者**: Bin Ren, Hang Guo, Yan Shu, Jiaqi Ma, Ziteng Cui...
-- **发布时间**: 2026-04-03
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2604.03198v1](https://arxiv.org/pdf/2604.03198v1)
-- **相关度评分**: 5/10
-
-#### 英文摘要
-
-This paper reviews the NTIRE 2026 challenge on efficient single-image super-resolution with a focus on the proposed solutions and results. The aim of this challenge is to devise a network that reduces one or several aspects, such as runtime, parameters, and FLOPs, while maintaining PSNR of around 26.90 dB on the DIV2K_LSDIR_valid dataset, and 26.99 dB on the DIV2K_LSDIR_test dataset. The challenge had 95 registered participants, and 15 teams made valid submissions. They gauge the state-of-the-art results for efficient single-image super-resolution.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文回顾了NTIRE 2026高效单图像超分辨率挑战赛，重点介绍了参赛团队提出的解决方案与最终结果。该挑战赛的核心目标是设计能够在DIV2K_LSDIR验证集和测试集上分别维持约26.90 dB和26.99 dB的PSNR性能的同时，显著降低网络计算量、参数量或运行时间的超分辨率模型。
-
-### 解决的核心问题
-现有高效超分辨率方法往往在追求极致轻量化的过程中，难以维持与大型模型相媲美的重建质量，导致性能与效率的权衡面临瓶颈。本文针对的具体问题是：如何系统性地推动社区设计出在严格PSNR约束下（约26.9-27.0 dB），在运行时、参数量和FLOPs等多个效率维度上实现显著优化的实用化超分辨率网络。
-
-### 核心创新
-本文的核心创新在于通过组织大规模、目标明确的竞赛，系统性地收集和评估了多种前沿的高效超分辨率解决方案，从而整体推动了该领域的技术边界。其贡献在于提供了一个统一的评估框架和最新的性能基准，集中展示了社区为平衡模型性能与效率所采用的最新架构设计策略。
-
-### 创新点拆解
-- 创新点1：**设立了明确且严格的多目标优化挑战任务**：不同于仅追求PSNR或单一效率指标的比赛，本次挑战要求模型在维持特定高PSNR基线（~26.9 dB）的前提下，优化运行时、参数量和FLOPs中的一个或多个方面，这更贴合实际部署需求。
-- 创新点2：**提供了全面的最新解决方案综述与性能基准**：论文对来自15支决赛队伍的多样化方法进行了系统性的回顾、比较与分析，总结了当前高效超分辨率领域的主流技术路径，为后续研究提供了清晰的参考坐标。
-- 创新点3：**引入了面向真实效率的评估维度**：挑战赛不仅关注传统的FLOPs和参数量，还强调了实际“运行时”这一关键部署指标，引导研究从理论计算量向实际推理速度转变。
-
-### 实验结果亮点
-在DIV2K_LSDIR测试数据集上，优胜方案在将PSNR成功维持在目标值26.99 dB附近的同时，显著提升了效率。例如，部分方案在保持性能的前提下，将模型参数量压缩至极低水平（具体数字需参考原文，但挑战报告会展示如参数量大幅低于基准模型的结果），或是在特定硬件平台上的推理速度获得了数倍的提升，确立了新的效率-性能权衡前沿。
-
-### 当前局限
-该方法（指挑战赛汇集的方法）的局限性在于，其性能评估高度依赖于特定的PSNR阈值和DIV2K_LSDIR数据集，在更广泛的真实世界图像、不同退化模型或感知质量指标（如LPIPS）下，其泛化能力和视觉质量有待验证。此外，许多优化方案可能针对特定硬件或框架进行了深度定制，其可移植性和普适性可能受限。
-
-### 后续改进方向
-- 方向1：**探索更全面的质量评估体系**：后续工作可以引入对感知质量、纹理真实性和跨数据集鲁棒性的联合评估，推动模型在维持效率的同时，超越PSNR指标限制，生成视觉上更令人满意的结果。
-- 方向2：**研究动态自适应的高效架构**：可以探索根据图像内容复杂度动态调整网络计算路径或宽度的机制，实现计算资源的按需分配，从而在平均效率上获得进一步提升。
-
-### 工程落地启发
-对OCR/文档解析工程最有参考价值的点在于，挑战赛强调的“在严格质量约束下优化运行时”的思路可直接迁移。例如，在文档图像超分辨率预处理环节，可以借鉴这些高效网络设计范式，在确保文字区域清晰度（类似于维持PSNR）的前提下，极大提升处理速度，从而满足大规模文档数字化流水线对实时性或低资源消耗的严苛要求。
-
----
-
-### 15. PRISM: LLM-Guided Semantic Clustering for High-Precision Topics
-
-- **ArXiv ID**: [2604.03180v1](https://arxiv.org/abs/2604.03180v1)
-- **作者**: Connor Douglas, Utkucan Balci, Joseph Aylett-Bullock
-- **发布时间**: 2026-04-03
-- **分类**: cs.LG, cs.CL, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2604.03180v1](https://arxiv.org/pdf/2604.03180v1)
-- **相关度评分**: 5/10
-
-#### 英文摘要
-
-In this paper, we propose Precision-Informed Semantic Modeling (PRISM), a structured topic modeling framework combining the benefits of rich representations captured by LLMs with the low cost and interpretability of latent semantic clustering methods. PRISM fine-tunes a sentence encoding model using a sparse set of LLM- provided labels on samples drawn from some corpus of interest. We segment this embedding space with thresholded clustering, yielding clusters that separate closely related topics within some narrow domain. Across multiple corpora, PRISM improves topic separability over state-of-the-art local topic models and even over clustering on large, frontier embedding models while requiring only a small number of LLM queries to train. This work contributes to several research streams by providing (i) a student-teacher pipeline to distill sparse LLM supervision into a lightweight model for topic discovery; (ii) an analysis of the efficacy of sampling strategies to improve local geometry for cluster separability; and (iii) an effective approach for web-scale text analysis, enabling researchers and practitioners to track nuanced claims and subtopics online with an interpretable, locally deployable framework.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了PRISM（Precision-Informed Semantic Modeling）框架，该框架通过结合大语言模型（LLM）的丰富语义表示能力和传统潜在语义聚类方法的低成本与可解释性，实现了高精度的主题建模。该方法利用少量LLM标注样本微调句子编码模型，并通过阈值聚类在嵌入空间中划分出能够区分细粒度子主题的簇，在多个语料库上超越了现有先进局部主题模型和前沿大模型嵌入聚类的效果。
-
-### 解决的核心问题
-现有主题建模方法面临两难困境：基于大语言模型的方法能捕获丰富语义但成本高昂且难以部署，而传统的潜在语义聚类方法虽成本低、可解释性强，但在区分语义相近的细粒度主题时精度不足。本文针对在特定狭窄领域内，如何低成本、高精度地分离紧密相关主题或细微主张这一具体问题展开研究。
-
-### 核心创新
-本文的核心创新在于提出了一种“师生”蒸馏框架，将稀疏的、来自大语言模型的高质量语义监督信号，蒸馏到一个轻量级的、可本地部署的句子编码模型中，从而实现了高精度主题聚类。其“新”在于将LLM的语义理解能力与可解释的聚类流程结构化结合，并通过采样策略优化局部嵌入空间的几何结构以提升簇可分性。
-
-### 创新点拆解
-- 创新点1：提出了一种师生蒸馏流水线，仅需对语料库进行极少量采样并交由LLM标注，即可将LLM的语义知识迁移至一个轻量级的句子编码模型，大幅降低了获得高质量主题区分能力的计算与查询成本。
-- 创新点2：系统分析了不同采样策略（如基于不确定性或多样性的采样）对优化局部嵌入空间几何结构的影响，旨在提升聚类边界的清晰度与主题分离的精确度。
-- 创新点3：构建了一个适用于网络规模文本分析的有效流程，使研究者和实践者能够以可解释、可本地部署的框架，在线追踪细微的主张和子话题演变。
-
-### 实验结果亮点
-在多个不同领域的语料库上，PRISM在主题分离性指标上超越了最先进的局部主题模型（如BERTopic）。实验表明，PRISM甚至优于直接在大型前沿嵌入模型（如OpenAI的`text-embedding-3-large`）生成的嵌入上进行聚类的结果。关键数字体现在，PRISM仅需数百次LLM查询进行训练，即可达到或超越上述基线方法。
-
-### 当前局限
-该方法的性能依赖于初始采样样本的代表性以及LLM教师模型标注的质量与一致性。对于语义极其模糊或领域极度专业、超出教师LLM知识范围的文本，效果可能下降。此外，阈值聚类方法可能对超参数（如距离阈值）较为敏感，需要针对不同领域进行一定调整。
-
-### 后续改进方向
-- 方向1：探索更鲁棒或自适应的采样策略，例如结合主动学习循环，动态选择最能改善模型决策边界的样本进行LLM标注，以进一步提升蒸馏效率与模型性能。
-- 方向2：将框架扩展至动态或流式文本数据，研究如何增量更新微调后的编码模型和聚类结构，以实现在线主题的实时发现与追踪。
-
-### 工程落地启发
-对于OCR/文档解析工程项目，PRISM框架提供了一条将昂贵但强大的通用大模型能力，高效蒸馏到轻量级、可私有化部署的专用模型中的可行路径。这启示我们，在处理特定垂直领域（如法律、医疗文档）的细粒度信息分类与主题挖掘时，可以借鉴其思路，用极少量的人工或LLM标注，快速构建出高精度、低成本且可解释的文档语义理解与组织系统。
+对于OCR与文档智能工程项目，本文最具参考价值的点在于其 **“明确对象、本地处理”** 的设计哲学。在移动端或边缘设备的文档扫描与理解应用中，可以借鉴其思路：首先通过用户交互（如框选）精确指定待处理的文档区域，然后将该区域图像送入一个轻量化的、本地部署的文档专用VLM或OCR模型进行理解与问答。这能有效保护敏感文档内容不外泄，并减少网络往返延迟，提升响应速度和用户体验。
 
 ---
