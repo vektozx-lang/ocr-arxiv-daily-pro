@@ -13,6 +13,7 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
+from zoneinfo import ZoneInfo
 
 import litellm
 import yaml
@@ -341,9 +342,66 @@ def dedup_papers(papers: list[Paper]) -> list[Paper]:
         result.append(p)
     return result
 
-def filter_recent(papers: list[Paper], days_back: int) -> list[Paper]:
-    cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days_back)
-    return [p for p in papers if dt.datetime.fromisoformat(p.published.replace("Z", "+00:00")) >= cutoff]
+def get_report_timezone() -> ZoneInfo:
+    return ZoneInfo(CONFIG["arxiv"].get("timezone", "Asia/Shanghai"))
+
+
+def get_schedule_utc_time() -> tuple[int, int]:
+    hour = int(CONFIG["arxiv"].get("schedule_utc_hour", 1))
+    minute = int(CONFIG["arxiv"].get("schedule_utc_minute", 10))
+    return hour, minute
+
+
+def get_report_window(report_tz: ZoneInfo) -> tuple[dt.datetime, dt.datetime, str]:
+    override = os.getenv("REPORT_END_UTC", "").strip()
+    if override:
+        window_end = dt.datetime.fromisoformat(override.replace("Z", "+00:00")).astimezone(dt.timezone.utc)
+    else:
+        now_utc = dt.datetime.now(dt.timezone.utc)
+        schedule_hour, schedule_minute = get_schedule_utc_time()
+        scheduled_today = now_utc.replace(
+            hour=schedule_hour,
+            minute=schedule_minute,
+            second=0,
+            microsecond=0,
+        )
+        window_end = scheduled_today if now_utc >= scheduled_today else scheduled_today - dt.timedelta(days=1)
+
+    report_date_override = os.getenv("REPORT_DATE", "").strip()
+    if report_date_override:
+        report_date = dt.date.fromisoformat(report_date_override)
+        schedule_hour, schedule_minute = get_schedule_utc_time()
+        window_end = dt.datetime.combine(
+            report_date,
+            dt.time(hour=schedule_hour, minute=schedule_minute, tzinfo=dt.timezone.utc),
+        )
+
+    window_start = window_end - dt.timedelta(days=1)
+    report_day = window_end.astimezone(report_tz).strftime("%Y-%m-%d")
+    return window_start, window_end, report_day
+
+
+def parse_arxiv_datetime(value: str) -> dt.datetime:
+    return dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+
+def format_local_date(value: str, report_tz: ZoneInfo) -> str:
+    return parse_arxiv_datetime(value).astimezone(report_tz).strftime("%Y-%m-%d")
+
+
+def format_local_datetime(value: dt.datetime, report_tz: ZoneInfo) -> str:
+    return value.astimezone(report_tz).strftime("%Y-%m-%d %H:%M")
+
+
+def filter_for_report_window(
+    papers: list[Paper],
+    window_start: dt.datetime,
+    window_end: dt.datetime,
+) -> list[Paper]:
+    return [
+        p for p in papers
+        if window_start <= parse_arxiv_datetime(p.published) < window_end
+    ]
 
 # ==================== 第三层：LLM 精筛与分析 ====================
 
@@ -482,11 +540,22 @@ def generate_daily_synthesis(papers: list[Paper]) -> str:
 
 # ==================== 报告构建 ====================
 
-def build_markdown_report(papers: list[Paper], synthesis: str, today: str) -> str:
+def build_markdown_report(
+    papers: list[Paper],
+    synthesis: str,
+    today: str,
+    report_tz: ZoneInfo,
+    window_start: dt.datetime,
+    window_end: dt.datetime,
+) -> str:
     """将分析结果拼装成完整 Markdown 报告"""
     lines = []
     lines.append(f"# OCR arXiv Daily Pro — {today}\n")
     lines.append(f"> 自动生成，共收录 **{len(papers)}** 篇高相关论文\n")
+    lines.append(
+        f"> 时间窗口：{format_local_datetime(window_start, report_tz)} - "
+        f"{format_local_datetime(window_end, report_tz)} ({report_tz.key})\n"
+    )
     lines.append("---\n")
     lines.append("## 📊 今日综合分析\n")
     lines.append(synthesis)
@@ -497,7 +566,7 @@ def build_markdown_report(papers: list[Paper], synthesis: str, today: str) -> st
         lines.append(f"### {i}. {p.title}\n")
         lines.append(f"- **ArXiv ID**: [{p.arxiv_id}]({p.link})")
         lines.append(f"- **作者**: {authors_str}")
-        lines.append(f"- **发布时间**: {p.published[:10]}")
+        lines.append(f"- **发布时间**: {format_local_date(p.published, report_tz)}")
         lines.append(f"- **分类**: {', '.join(p.categories[:3])}")
         lines.append(f"- **PDF**: [{p.pdf_url}]({p.pdf_url})")
         lines.append(f"- **相关度评分**: {p.score}/10\n")
@@ -514,6 +583,8 @@ def build_markdown_report(papers: list[Paper], synthesis: str, today: str) -> st
 
 def main():
     print("🚀 OCR arXiv Daily Pro v2.0 最终生产版启动...")
+    report_tz = get_report_timezone()
+    window_start, window_end, report_day = get_report_window(report_tz)
 
     # 第一层：arXiv API 检索（✅ 修复：分批查询，避免 URL 超长）
     papers = fetch_arxiv(
@@ -524,8 +595,15 @@ def main():
         batch_size=8,
     )
     papers = dedup_papers(papers)
-    papers = filter_recent(papers, CONFIG["arxiv"].get("days_back", 14))
-    print(f"✅ 第一层：arXiv 检索到 {len(papers)} 篇论文（最近 {CONFIG['arxiv'].get('days_back')} 天）")
+    fetched_window_days = CONFIG["arxiv"].get("days_back", 3)
+    cutoff = window_end - dt.timedelta(days=fetched_window_days)
+    papers = [p for p in papers if parse_arxiv_datetime(p.published) >= cutoff]
+    papers = filter_for_report_window(papers, window_start, window_end)
+    print(
+        f"✅ 第一层：arXiv 检索到 {len(papers)} 篇论文"
+        f"（{format_local_datetime(window_start, report_tz)} -> "
+        f"{format_local_datetime(window_end, report_tz)}, {report_tz.key}）"
+    )
 
     # 第二层：本地关键词权重粗筛，预排序，减少 LLM 调用次数
     papers = sorted(papers, key=lambda p: p.score, reverse=True)
@@ -540,7 +618,10 @@ def main():
 
     final_limit = CONFIG["arxiv"].get("final_limit", 15)
     top_papers = sorted(papers, key=lambda p: p.score, reverse=True)[:final_limit]
-    print(f"📊 最终选中 {len(top_papers)} 篇高相关论文（LLM 评分 ≥ {top_papers[-1].score}/10）")
+    if not top_papers:
+        print(f"ℹ️ {report_day} 没有符合条件的论文，生成空日报。")
+    else:
+        print(f"📊 最终选中 {len(top_papers)} 篇高相关论文（LLM 评分 ≥ {top_papers[-1].score}/10）")
 
     # 深度分析每篇论文
     for i, paper in enumerate(top_papers, 1):
@@ -548,19 +629,28 @@ def main():
         top_papers[i - 1] = generate_single_paper_analysis(paper)
 
     # 综合日报
-    synthesis = generate_daily_synthesis(top_papers)
+    if top_papers:
+        synthesis = generate_daily_synthesis(top_papers)
+    else:
+        synthesis = "### 今日执行摘要\n\n今日未筛选到符合条件的论文。"
 
     # ==================== 写出文件 ====================
-    today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     out_dir = Path("output")
     archive_dir = out_dir / "archive"
     out_dir.mkdir(parents=True, exist_ok=True)
     archive_dir.mkdir(parents=True, exist_ok=True)
 
-    report_md = build_markdown_report(top_papers, synthesis, today)
+    report_md = build_markdown_report(
+        top_papers,
+        synthesis,
+        report_day,
+        report_tz,
+        window_start,
+        window_end,
+    )
 
     (out_dir / "LATEST.md").write_text(report_md, encoding="utf-8")
-    (archive_dir / f"{today}.md").write_text(report_md, encoding="utf-8")
+    (archive_dir / f"{report_day}.md").write_text(report_md, encoding="utf-8")
     (out_dir / "daily_arxiv_docparse_ocr_pro.md").write_text(report_md, encoding="utf-8")
 
     json_data = [
@@ -583,7 +673,7 @@ def main():
 
     print("✅ 文件已写出到 output/ 目录：")
     print(f"   - output/LATEST.md")
-    print(f"   - output/archive/{today}.md")
+    print(f"   - output/archive/{report_day}.md")
     print(f"   - output/daily_arxiv_docparse_ocr_pro.md")
     print(f"   - output/daily_arxiv_docparse_ocr_pro.json")
     print("🎉 最终版日报生成完成！")

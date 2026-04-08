@@ -10,6 +10,9 @@ llm:
 #   base_url: http://localhost:11434
 
 arxiv:
+  timezone: Asia/Shanghai
+  schedule_utc_hour: 1
+  schedule_utc_minute: 10
   max_results: 200          # 同时增加最大抓取数量
   days_back: 3             # ← 改为 14 天（推荐）
   pre_limit: 60    # ← 新增这行，增加预筛选数量
