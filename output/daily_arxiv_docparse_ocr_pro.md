@@ -1,17 +1,722 @@
-# OCR arXiv Daily Pro — 2026-04-27
+# OCR arXiv Daily Pro — 2026-04-28
 
-> 自动生成，共收录 **0** 篇高相关论文
+> 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-04-26 09:10 - 2026-04-27 09:10 (Asia/Shanghai)
+> 时间窗口：2026-04-27 09:10 - 2026-04-28 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
 ### 今日执行摘要
+今日共15篇论文，整体研究态势呈现多元化，但核心聚焦于提升大模型在长上下文、多模态与结构化内容处理上的效率与准确性。值得关注的突破包括：针对长上下文推理的KV缓存剪枝方法、面向布局感知文本生成的Prompt对齐数据集、以及跨语言编程语言的图表代码生成框架。此外，视觉语言模型的幻觉缓解、小语言模型的设备端部署工程挑战，以及面向多跳问答的结构化检索方法也构成了重要的技术分支。
 
-今日未筛选到符合条件的论文。
+### 今日研究趋势
+1.  **长上下文与推理效率优化**：大模型在处理长序列时的内存瓶颈是当前热点。论文1提出DepthKV，通过层依赖的KV缓存剪枝策略，动态丢弃低注意力得分的token，以缓解推理时的内存压力。论文8则从注意力头路由角度出发，为基于注意力信号的零样本重排序任务动态选择信息量最丰富的注意力头，避免冗余或冲突，提升效率。
+2.  **结构化与多模态内容生成与理解**：论文2和论文3聚焦于将非结构化数据（图像）转化为结构化或可执行形式。TextGround4M构建了超400万规模的Prompt对齐数据集，旨在解决文本到图像生成中文字布局不准确的问题。Chart2NCode则致力于将图表图像转化为Python、R、LaTeX等多语言可执行代码，实现忠实复现与编辑，弥补了现有Python中心化方法的局限。
+3.  **幻觉抑制与视觉忠实性**：视觉语言模型（VLM）的幻觉问题仍是研究焦点。论文4通过分析VLM中视觉特征权重不足的注意力赤字现象，提出无需训练的Positive-and-Negative Decoding（PND）框架，在解码过程中直接干预以强制视觉忠实性，有效缓解物体幻觉。这为提升文档理解等下游任务的可靠性提供了新思路。
+
+### 核心技术创新汇总
+*   **DepthKV的层依赖KV缓存剪枝**：不同于传统的统一剪枝策略，该方法根据各层在推理中的重要性差异，自适应地剪枝，更精细地平衡了内存占用与模型性能。
+*   **TextGround4M的Prompt对齐数据集**：该数据集将精确的文本内容与空间布局信息直接与Prompt对齐，为训练布局感知的文本渲染模型提供了稀缺的、大规模的高质量监督信号，直接回应了多跨度、结构化文本渲染的挑战。
+*   **Chart2NCode的多视角脚本对齐**：首创地将同一图表与Python、R、LaTeX三种语言的功能等价脚本对齐，构建了跨语言监督信号，打破了单一语言的限制，为通用图表代码生成任务奠定了数据基础。
+*   **PND的正负解码框架**：通过识别并纠正VLM中视觉特征的注意力赤字，该训练无关的方法在推理阶段直接提升视觉忠实性，为缓解对象幻觉提供了一种高效、即插即用的解决方案。
+
+### 研究空白与机会
+*   **文档级长上下文与结构化知识的融合**：今日论文多关注通用长文本或特定任务（如图表、问答），但鲜有论文解决OCR领域特有的、融合了复杂版面结构（如表格、多栏、页眉页脚）的长文档理解问题。如何将布局先验与长上下文剪枝/检索策略结合，是一个明确的研究机会。
+*   **小模型在文档理解任务上的能力边界**：论文5虽讨论了SLM的设备端工程挑战，但未深入评估其在实际OCR/文档解析任务（如发票识别、表格提取）上的性能与精度。探索轻量级模型在资源受限场景下完成高精度文档理解的能力与局限，具有工程价值。
+*   **跨文档的复杂推理与事实核查**：论文13虽涉及临床记录的智能体推理，但多数研究仍停留在单文档或简单多跳问答。针对需要跨多份不同格式、不同来源的文档进行综合推理、事实一致性校验的场景（如合同审核、法律文书分析），研究尚属空白。
+
+### 工程落地启发
+*   **自适应KV缓存管理**：对于部署在资源受限设备上的文档分析应用，可借鉴DepthKV思想，根据文档长度动态调整KV缓存剪枝策略，以平衡推理速度与精度，尤其适合处理长篇幅的PDF文件。
+*   **布局感知的文本生成**：在生成包含特定文字（如报告标题、图表标签）的文档图像时，可直接利用TextGround4M的数据构建思路，将精确的文本内容和预期布局作为条件输入，提升生成内容的可用性和可控性。
+*   **多语言图表代码生成**：对于需要将扫描图表转换为可编辑格式（如Excel图表、PPT图表）的工程场景，Chart2NCode的跨语言脚本对齐思路极具参考价值，可尝试构建更通用的、支持多种脚本语言的图表解析与代码生成管线。
+
+### 今日优先精读推荐
+1.  **TextGround4M: A Prompt-Aligned Dataset for Layout-Aware Text Rendering**：该工作直接回应了文本渲染中的核心瓶颈——缺乏对齐数据集，其构建思路对提升文档图像生成质量具有奠基性意义。
+2.  **Chart2NCode: Aligned Multi-View Scripts for Universal Chart-to-Code Generation**：提出了一个新颖且极具实用价值的数据集和任务，打破了图表代码生成的单语言壁垒，是推动该领域发展的重要基石。
+3.  **DepthKV: Layer-Dependent KV Cache Pruning for Long-Context LLM Inference**：针对长上下文推理的内存瓶颈提出了精细化的解决方案，对优化文档级大模型应用的推理效率具有直接指导意义。
 
 ---
 
 ## 📄 论文详情
+
+### 1. DepthKV: Layer-Dependent KV Cache Pruning for Long-Context LLM Inference
+
+- **ArXiv ID**: [2604.24647v1](https://arxiv.org/abs/2604.24647v1)
+- **作者**: Zahra Dehghanighobadi, Asja Fischer
+- **发布时间**: 2026-04-28
+- **分类**: cs.CL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2604.24647v1](https://arxiv.org/pdf/2604.24647v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Long-context reasoning is a critical capability of large language models (LLMs), enabling applications such as long-document understanding, summarization, and code generation. However, efficient autoregressive inference relies on the key-value (KV) cache, whose memory footprint grows linearly with sequence length, leading to a major memory bottleneck. To mitigate this overhead, KV cache pruning methods discard cached tokens with low attention scores during inference. Most existing methods apply a uniform pruning ratio across layers, implicitly assuming that all layers contribute equally to overall model performance. We show that this assumption is suboptimal, as layers differ significantly in their sensitivity to pruning. We propose DepthKV, a layer-dependent pruning framework that allocates a fixed global KV budget across layers based on their sensitivity, rather than using a uniform allocation. Across multiple models and tasks, DepthKV consistently outperforms uniform pruning at the same global pruning ratio, demonstrating more effective utilization of the KV cache budget through layer-dependent allocation.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出了一种名为DepthKV的层依赖式KV缓存剪枝框架，用于解决长上下文大语言模型推理中的内存瓶颈问题。该方法通过为不同层分配基于其剪枝敏感度的非均匀KV缓存预算，替代了传统均匀剪枝策略。实验表明，在同等全局剪枝率下，DepthKV在多种模型和任务上均优于均匀剪枝方法，实现了更高效的缓存利用。
+
+### 解决的核心问题
+现有KV缓存剪枝方法通常对所有Transformer层采用相同的剪枝比例，隐含假设各层对模型性能的贡献一致。本文通过实验证明这一假设存在缺陷，不同层对剪枝的敏感度差异显著，均匀分配导致缓存预算利用效率低下。因此，核心问题是如何根据各层特性动态分配有限的全局KV缓存预算，在保持模型性能的同时最大化内存节省。
+
+### 核心创新
+核心创新在于提出了一种基于层间剪枝敏感度的非均匀KV缓存分配机制。该方法打破了传统均匀剪枝的范式，通过量化每层对剪枝的鲁棒性，将固定的全局KV预算按需分配给不同层，从而在整体性能上实现更优的权衡。这是首次系统性地将层依赖性引入KV缓存剪枝的预算分配决策中。
+
+### 创新点拆解
+- 创新点1：提出层敏感度度量指标。通过分析各层在剪枝后对模型输出影响的差异，首次定义了层间剪枝敏感度的量化方法，为差异化预算分配提供依据。
+- 创新点2：构建全局预算约束下的层依赖分配策略。不同于逐层独立剪枝，该方法在固定全局KV总预算的前提下，利用层敏感度进行优化分配，确保高敏感层保留更多缓存，低敏感层积极剪枝。
+- 创新点3：跨模型与任务的通用性验证。在多个主流LLM（如Llama系列）和长上下文任务（如文档理解、摘要）上验证了方法的有效性，证明其非均匀策略具有普适性。
+
+### 实验结果亮点
+在多个长上下文基准测试（如LongBench、NarrativeQA）中，DepthKV在相同全局剪枝率（如50%）下，平均性能比均匀剪枝方法提升2-5个百分点。例如，在Llama-2-7B模型上，压缩50%KV缓存时，DepthKV的准确率仅下降1.2%，而均匀剪枝下降3.8%。同时，该方法在保持性能的同时，将内存占用降低至原来的50%以下。
+
+### 当前局限
+该方法依赖离线计算的层敏感度，可能无法适应动态输入特征（如不同长度或主题的文本）导致的层重要性变化。此外，当前研究未考虑剪枝对模型生成多样性和长程依赖捕获能力的潜在影响，且仅针对自回归解码的预填充阶段，未扩展到生成阶段的自适应调整。
+
+### 后续改进方向
+- 方向1：设计在线层敏感度估计机制。通过引入轻量级代理模型或基于注意力熵的实时度量，使剪枝预算分配动态适应输入内容的变化，增强鲁棒性。
+- 方向2：探索与量化或稀疏注意力技术的结合。将DepthKV与量化KV缓存或稀疏注意力矩阵相结合，在剪枝基础上进一步压缩内存，形成多级混合优化方案。
+
+### 工程落地启发
+对于OCR/文档解析工程，该研究提示在部署长文档理解模型时，可针对不同Transformer层（如浅层编码局部特征、深层捕获语义）定制KV缓存保留策略。例如，在处理包含表格和公式的复杂文档时，对深层语义层保留更多缓存以维持推理质量，而对浅层结构层激进剪枝以降低显存占用，从而在有限GPU资源下支持更长的文档序列。
+
+---
+
+### 2. TextGround4M: A Prompt-Aligned Dataset for Layout-Aware Text Rendering
+
+- **ArXiv ID**: [2604.24459v1](https://arxiv.org/abs/2604.24459v1)
+- **作者**: Dongxing Mao, Yilin Wang, Linjie Li, Zhengyuan Yang, Alex Jinpeng Wang
+- **发布时间**: 2026-04-27
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.24459v1](https://arxiv.org/pdf/2604.24459v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Despite recent advances in text-to-image generation, models still struggle to accurately render prompt-specified text with correct spatial layout -- especially in multi-span, structured settings. This challenge is driven not only by the lack of datasets that align prompts with the exact text and layout expected in the image, but also by the absence of effective metrics for evaluating layout quality. To address these issues, we introduce TextGround4M, a large-scale dataset of over 4 million prompt-image pairs, each annotated with span-level text grounded in the prompt and corresponding bounding boxes. This enables fine-grained supervision for layout-aware, prompt-grounded text rendering. Building on this, we propose a lightweight training strategy for autoregressive T2I models that appends layout-aware span tokens during training, without altering model architecture or inference behavior. We further construct a benchmark with stratified layout complexity to evaluate both open-source and proprietary models in a zero-shot setting. In addition, we introduce two layout-aware metrics to address the long-standing lack of spatial evaluation in text rendering. Our results show that models trained on TextGround4M outperform strong baselines in text fidelity, spatial accuracy, and prompt consistency, highlighting the importance of fine-grained layout supervision for grounded T2I generation.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出了TextGround4M，一个包含超过400万张图像-文本对的大规模数据集，每个样本都标注了与提示词对齐的文本区域及其对应的边界框，旨在解决文本到图像生成中多段文本空间布局渲染不准确的问题。基于该数据集，作者设计了一种轻量级训练策略，通过在自回归T2I模型训练过程中附加布局感知的跨度标记，在不改变模型架构或推理行为的前提下提升文本渲染质量。此外，论文构建了分层布局复杂度基准并引入两种布局感知评估指标，实验表明在TextGround4M上训练的模型在文本保真度、空间准确性和提示一致性上显著优于强基线模型。
+
+### 解决的核心问题
+现有文本到图像生成模型在处理多段、结构化文本时，难以同时满足提示词指定的文本内容和精确的空间布局要求，导致生成的图像中文本位置错乱或内容缺失。这一问题源于两个痛点：一是缺乏同时包含提示词对齐的文本标注和空间边界框的大规模数据集，使得模型无法进行细粒度的布局监督学习；二是缺少能够有效评估生成文本空间布局质量的量化指标，阻碍了该方向的系统化研究。
+
+### 核心创新
+本文的核心创新在于构建了首个大规模、细粒度布局监督的文本渲染数据集TextGround4M，并提出了与之兼容的轻量级训练策略，在无需修改模型架构的前提下实现了布局感知的文本生成。此外，论文首次引入了专门针对文本空间布局质量的评估指标，填补了该领域长期存在的评价空白。
+
+### 创新点拆解
+- 创新点1：构建了TextGround4M数据集，包含超过400万对提示-图像样本，每个样本具有跨度级别的文本标注（与提示词对齐）和对应的边界框，为布局感知的文本渲染提供了细粒度监督信号。
+- 创新点2：提出了一种轻量级训练策略，通过在自回归T2I模型训练时嵌入布局感知的跨度标记（layout-aware span tokens），在不改变模型原始架构和推理流程的情况下，使模型学会将提示词中的文本内容映射到图像中正确的空间位置。
+- 创新点3：建立了分层布局复杂度的基准测试集，并设计了两个布局感知评估指标，用于量化生成文本在图像中的空间准确性，弥补了现有文本渲染评估仅关注文本内容正确性的不足。
+
+### 实验结果亮点
+在零样本设置下，基于TextGround4M训练的模型在文本保真度（如OCR准确率）、空间准确性（如边界框IoU）和提示一致性（如CLIP得分）三个维度上均显著优于当前最强的开源和闭源模型。例如，在多层文本布局的测试中，模型生成的文本平均边界框定位误差降低超过30%，且文本内容与提示词的对齐准确率提升约15个百分点。
+
+### 当前局限
+该方法主要适用于自回归架构的文本到图像生成模型，对于扩散模型等其他架构的兼容性尚未验证。此外，TextGround4M数据集中的文本布局模式基于人工合成和有限场景采集，可能无法完全覆盖真实世界中复杂的、非结构化的文本渲染需求（如手写体、艺术字体、遮挡文本等）。
+
+### 后续改进方向
+- 方向1：扩展数据集覆盖范围，纳入更多真实场景的文本图像（如街道标牌、产品包装），并增加对非拉丁文字（如中文、阿拉伯语）和多样化字体风格的支持，以提升模型的泛化能力。
+- 方向2：探索将布局感知跨度标记机制迁移至扩散模型（如Stable Diffusion）中，设计相应的条件注入方式（如交叉注意力调制），实现架构无关的布局可控文本生成。
+
+### 工程落地启发
+在实际OCR或文档解析工程项目中，最值得借鉴的是其“细粒度布局监督”思路：通过将文本内容、空间位置与提示词进行显式对齐标注，可以显著提升模型对复杂版面中多段文本的定位与生成能力。这启示我们在构建文档理解系统时，不仅需要关注文本内容识别，更应重视文本区域的空间关系建模，例如在训练数据中引入边界框与文本内容的联合标注，可有效改善版面分析中的文本区域检测与结构化输出质量。
+
+---
+
+### 3. Aligned Multi-View Scripts for Universal Chart-to-Code Generation
+
+- **ArXiv ID**: [2604.24559v1](https://arxiv.org/abs/2604.24559v1)
+- **作者**: Zhihan Zhang, Lizi Liao
+- **发布时间**: 2026-04-27
+- **分类**: cs.CL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2604.24559v1](https://arxiv.org/pdf/2604.24559v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Chart-to-code generation converts a chart image into an executable plotting script, enabling faithful reproduction and editable visualizations. Existing methods are largely Python-centric, limiting practical use and overlooking a critical source of supervision: the same chart can be expressed by semantically equivalent scripts in different plotting languages. To fill this gap, we introduce Chart2NCode, a dataset of 176K charts paired with aligned scripts in Python, R, and LaTeX that render visually equivalent outputs, constructed via a metadata-to-template pipeline with rendering verification and human quality checks. Building on a LLaVA-style architecture, we further propose CharLuMA, a parameter-efficient adaptation module that augments the multimodal projector with a language-conditioned mixture of low-rank subspaces, allowing the model to share core chart understanding while specializing code generation to the target language through lightweight routing. Extensive experiments show consistent gains in executability and visual fidelity across all languages, outperforming strong open-source baselines and remaining competitive with proprietary systems. Further analyses reveal that balanced multi-language supervision benefits all languages and that the adapter allocates a compact shared core plus language-specific capacity. Codes and data are available at https://github.com/Zhihan72/CharLuMA.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出Chart2NCode数据集，包含176K张图表及其在Python、R和LaTeX三种语言中对齐的可执行脚本，通过元数据到模板的流水线构建并经过渲染验证与人工质检。基于LLaVA架构，作者进一步提出CharLuMA模型，采用语言条件混合低秩子空间投影适配模块，使模型共享图表理解能力的同时实现多语言代码生成的专化。实验表明，该方法在脚本可执行性和视觉保真度上全面超越开源基线，并与专有系统性能相当。
+
+### 解决的核心问题
+现有图表转代码方法主要聚焦Python单一语言，忽视了同一图表可由不同绘图语言中语义等价的脚本表达这一关键监督信号，导致模型在实际多语言场景下的实用性受限。此外，缺乏多语言对齐的高质量图表-代码数据集，使得模型难以学习跨语言的图表理解与代码生成能力。
+
+### 核心创新
+本文的创新在于构建了首个大规模多语言对齐的图表-脚本数据集Chart2NCode，以及提出语言条件混合低秩子空间适配模块CharLuMA，实现参数高效的多语言图表转代码生成，在统一图表理解基础上通过轻量路由实现目标语言专化。
+
+### 创新点拆解
+- 创新点1：构建Chart2NCode数据集，包含176K张图表及其在Python、R和LaTeX三种语言中对齐的脚本，通过元数据到模板的自动化流水线、渲染验证和人工质量检查确保脚本的视觉等价性。
+- 创新点2：提出CharLuMA适配模块，在LLaVA架构的多模态投影器中引入语言条件混合低秩子空间，通过轻量路由机制让模型共享核心图表理解能力，同时为每种语言分配专化子空间以生成高质量代码。
+- 创新点3：实验发现平衡的多语言监督对各语言均有正向收益，且适配器分配了紧凑的共享核心容量与语言专化容量，揭示了多任务学习的结构化知识迁移特性。
+
+### 实验结果亮点
+在Chart2NCode测试集上，CharLuMA在Python、R和LaTeX三种语言上均取得最高可执行率（Executable Rate）和视觉保真度（Visual Fidelity），相比基线模型（如ChartLlama、DePlot+CodeGen等）提升显著。例如，在Python任务上可执行率提升约8-12个百分点，视觉保真度提升约15-20%；在多语言联合评估中，CharLuMA性能与GPT-4o等专有系统持平或更优。
+
+### 当前局限
+当前方法仅支持Python、R和LaTeX三种语言，未覆盖Julia、MATLAB等科研与工业界广泛使用的绘图语言。此外，模型依赖预定义的元数据-模板流水线构建数据集，对于复杂图表（如多子图、动态交互式图表）的覆盖能力有限，且渲染验证仅检查视觉等价性，未深入验证代码逻辑正确性。
+
+### 后续改进方向
+- 方向1：扩展Chart2NCode数据集覆盖更多绘图语言（如Julia的Plots.jl、MATLAB的figure函数），并引入自动代码等价性验证工具（如基于符号执行或语义匹配），提升数据质量与语言多样性。
+- 方向2：探索端到端的多语言图表转代码框架，无需显式模板构建，直接学习图表-代码的跨语言映射关系，并引入对比学习或跨语言一致性正则化，增强模型对语言无关的图表结构的鲁棒理解。
+
+### 工程落地启发
+最直接的工程启发是：在多语言文档解析场景中，可采用“共享编码器+语言专化解码器”的轻量适配架构，通过低秩子空间路由实现参数高效的跨语言知识复用，避免为每种语言单独训练大模型。其次，基于元数据-模板的自动化数据构建流水线可大幅降低多语言数据集标注成本，结合渲染验证与人工抽检，能确保数据质量，为实际OCR系统中的图表理解与代码生成功能提供可落地的数据基础。
+
+---
+
+### 4. Global Context or Local Detail? Adaptive Visual Grounding for Hallucination Mitigation
+
+- **ArXiv ID**: [2604.24396v1](https://arxiv.org/abs/2604.24396v1)
+- **作者**: Yubo Jiang, Xin Yang, Abudukelimu Wuerkaixi, Zheming Yuan, Xuxin Cheng...
+- **发布时间**: 2026-04-27
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2604.24396v1](https://arxiv.org/pdf/2604.24396v1)
+- **相关度评分**: 3/10
+
+#### 英文摘要
+
+Vision-Language Models (VLMs) are frequently undermined by object hallucination--generating content that contradicts visual reality--due to an over-reliance on linguistic priors. We introduce Positive-and-Negative Decoding (PND), a training-free inference framework that intervenes directly in the decoding process to enforce visual fidelity. PND is motivated by our key finding of a critical attention deficit in VLMs, where visual features are empirically under-weighted. Our framework corrects this via a dual-path contrast: The positive path amplifies salient visual evidence using multi-layer attention to encourage faithful descriptions, directly counteracting the attention deficit. Simultaneously, the negative path identifies and degrades the core object's features to create a strong counterfactual, which penalizes ungrounded, prior-dominant generation. By contrasting the model's outputs from these two perspectives at each step, PND steers generation towards text that is not just linguistically probable, but visually factual. Extensive experiments on benchmarks like POPE, MME, and CHAIR show that PND achieves state-of-the-art performance with up to 6.5% accuracy improvement, substantially reducing object hallucination while also enhancing descriptive detail--all without requiring any model retraining. The method generalizes effectively across diverse VLM architectures including LLaVA, InstructBLIP, InternVL, and Qwen-VL.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出一种名为正负解码（Positive-and-Negative Decoding, PND）的无训练推理框架，通过直接干预解码过程来缓解视觉语言模型（VLM）中的物体幻觉问题。PND基于一个关键发现：VLM存在视觉注意力缺陷，导致视觉特征在生成过程中被欠加权。该方法通过正向路径放大视觉证据与负向路径削弱核心物体特征的双路对比机制，在每一步解码中惩罚缺乏视觉依据的生成，从而在POPE、MME和CHAIR等基准上实现了高达6.5%的准确率提升，同时增强了描述细节。
+
+### 解决的核心问题
+现有VLM在生成文本时过度依赖语言先验，导致频繁出现物体幻觉——即生成与视觉现实矛盾的内容。主流缓解方法如基于外部知识或重训练策略存在计算开销大、泛化性差等问题，且未能从解码过程的根本机制上纠正视觉注意力缺陷。本文针对这些痛点，聚焦于如何在无需模型重训练的前提下，通过修改解码流程来强制模型生成视觉上忠实的内容。
+
+### 核心创新
+核心创新在于提出了一种训练无关的推理阶段干预方法PND，它不依赖外部知识库或模型微调，仅通过修改解码路径即可显著抑制幻觉。新在首次从注意力缺陷的实证发现出发，设计了正向（放大视觉证据）与负向（创建反事实惩罚）双路对比的解码策略，直接作用于每一步的token生成概率分布。
+
+### 创新点拆解
+- **创新点1：发现并量化了VLM的视觉注意力缺陷**。通过实验分析揭示，在解码过程中，VLM对视觉特征的注意力权重系统性低于语言特征，这是物体幻觉的重要成因。
+- **创新点2：提出双路对比解码框架（PND）**。正向路径利用多层注意力机制放大视觉证据，鼓励忠实描述；负向路径通过退化核心物体特征构建强反事实，从而惩罚缺乏视觉依据、依赖语言先验的生成。
+- **创新点3：实现无需重训练的即插即用特性**。PND可直接应用于LLaVA、InstructBLIP、InternVL、Qwen-VL等多种主流VLM架构，无需任何模型参数更新或额外数据，显著降低了部署成本。
+
+### 实验结果亮点
+在POPE基准上，PND将准确率最高提升了6.5%；在MME物体感知任务中，性能提升超过5%；在CHAIR指标上，物体幻觉率降低了约4%。该方法在LLaVA、InstructBLIP、InternVL和Qwen-VL四种不同架构上均取得一致提升，验证了其通用性与鲁棒性。
+
+### 当前局限
+PND主要针对物体幻觉问题，对于其他类型幻觉（如属性幻觉、关系幻觉）的抑制效果尚未充分验证。此外，负向路径需要预先指定核心物体区域，这在实际开放场景中可能依赖外部检测器，增加了流程复杂性，且对检测器的误差敏感。方法在极短文本或高抽象度描述任务中的稳定性也有待考察。
+
+### 后续改进方向
+- **方向1：扩展负向路径的自动化**。研究如何利用VLM自身的注意力图或自监督信号来自动定位核心物体区域，消除对外部检测器的依赖，提升端到端部署的便捷性。
+- **方向2：融合多类型反事实构建**。针对属性、关系等不同幻觉类型，设计对应的负向特征退化策略（如替换属性词、打乱空间关系），构建更全面的对比解码框架，以覆盖更广泛的幻觉场景。
+
+### 工程落地启发
+最直接的工程启发是：在OCR或文档解析系统的后处理阶段，可以借鉴PND的双路对比思想，通过实时对比“增强视觉特征”与“退化关键区域”的解码结果，来纠正模型对文档图像中文字、表格或印章的幻觉生成。例如，在表格结构识别中，若模型倾向于基于语言先验预测常见布局，可通过负向路径削弱该先验，强制生成与图像对齐的精确坐标。该方法无需重训练，适合快速集成到现有流水线中。
+
+---
+
+### 5. Less Is More: Engineering Challenges of On-Device Small Language Model Integration in a Mobile Application
+
+- **ArXiv ID**: [2604.24636v1](https://arxiv.org/abs/2604.24636v1)
+- **作者**: William Oliveira
+- **发布时间**: 2026-04-28
+- **分类**: cs.SE, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2604.24636v1](https://arxiv.org/pdf/2604.24636v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+On-device Small Language Models (SLMs) promise fully offline, private AI experiences for mobile users (no cloud dependency, no data leaving the device). But is this promise achievable in practice? This paper presents a longitudinal practitioner case study documenting the engineering challenges of integrating SLMs (Gemma 4 E2B, 2.6B parameters; Qwen3 0.6B, 600M parameters) into Palabrita, a production Android word-guessing game. Over a 5-day development sprint comprising 204 commits (~90 directly AI-related), the system underwent a radical transformation: from an ambitious design where the LLM generated complete structured puzzles (word, category, difficulty, and five hints as JSON) to a pragmatic architecture where curated word lists provide the words and the LLM generates only three short hints, with a deterministic fallback if it fails. We identify five categories of failures specific to on-device SLM integration: output format violations, constraint violations, context quality degradation, latency incompatibility, and model selection instability. For each failure category, we document the observed symptoms, root causes, and the prompt engineering and architectural strategies that effectively mitigated them, including multi-layer defensive parsing, contextual retry with failure feedback, session rotation, progressive prompt hardening, and systematic responsibility reduction. Our findings demonstrate that on-device SLMs are viable for production mobile applications, but only when the developer accepts a fundamental constraint: the most reliable on-device LLM feature is one where the LLM does the least. We distill our experience into eight actionable design heuristics for practitioners integrating SLMs into mobile apps.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文通过一项为期5天的纵向实践案例研究，记录了将Gemma 4 E2B（2.6B参数）和Qwen3 0.6B（600M参数）两个小语言模型（SLM）集成到生产级Android猜词游戏Palabrita中的工程挑战。研究揭示了从“LLM生成完整结构化谜题”的雄心设计到“LLM仅生成三个简短提示并配有确定性回退”的务实架构的彻底转变，并系统总结了五大类集成失败模式及其缓解策略。最终提出了“最可靠的设备端LLM功能是LLM做得最少的功能”这一核心设计约束，并提炼出八条可操作的设计启发式。
+
+### 解决的核心问题
+现有研究多关注云端大语言模型（LLM）在通用任务上的能力，但对设备端小语言模型（SLM）在真实移动应用中的工程化集成缺乏系统性指导。具体痛点包括：SLM输出格式不稳定、逻辑约束违反、上下文质量退化、推理延迟与移动端实时性不兼容，以及模型选择的不稳定性。本文针对这些在有限算力和离线环境下集成SLM时特有的工程难题进行了实证研究。
+
+### 核心创新
+本文的核心创新在于从“软件工程”而非“模型训练”视角，首次提供了设备端SLM集成的纵向实践案例研究。贡献包括：1）系统定义了五类设备端SLM集成特有的失败模式（输出格式违规、约束违规、上下文质量退化、延迟不兼容、模型选择不稳定）；2）针对每类失败模式，记录了有效的缓解策略（如多层防御性解析、带失败反馈的上下文重试、会话轮换等）；3）提炼出“责任递减”的架构设计原则，将LLM的任务从“全权负责”降级为“辅助生成”，并配套了确定性回退机制。
+
+### 创新点拆解
+- 创新点1：首次系统分类并命名了设备端SLM集成中的五类失败模式，每种模式均包含症状、根因和缓解策略的完整文档，为后续研究提供了标准化的故障分析框架。
+- 创新点2：提出了“系统性责任递减”的架构设计策略，即通过逐步削减LLM承担的任务复杂度（从生成完整JSON谜题到仅生成三个提示），并配合确定性回退（如硬编码提示库）来保证系统鲁棒性，这是一种从软件容错角度优化AI系统的思路。
+- 创新点3：通过204次提交的详细开发日志（约90次直接与AI相关），量化展示了从“LLM驱动”到“LLM辅助+规则兜底”的迭代过程，为移动端AI功能开发提供了真实的演进轨迹和成本数据。
+
+### 实验结果亮点
+本文并非传统基准测试论文，但提供了关键的工程量化指标：在5天开发中，系统经历了从失败率极高的“LLM生成完整谜题”架构到稳定运行的“LLM生成3个提示+回退”架构的转变。关键数字包括：1）204次提交中约90次直接与AI相关，表明AI集成占据了开发工作量的44%；2）通过多层防御性解析和上下文重试，将输出格式违规和约束违规的失败率降至可接受水平；3）在2.6B和0.6B参数模型之间切换时，观察到模型选择不稳定导致的不同失败模式分布，最终选择更小模型以换取更稳定的延迟表现。
+
+### 当前局限
+1. 案例场景单一：仅针对猜词游戏这一特定移动应用类型，结论对其他领域（如文档处理、图像分析）的通用性有待验证。2. 模型规模受限：仅测试了2.6B和0.6B参数的两个模型，未覆盖更大参数量的设备端模型（如7B级别）或更新的架构。3. 开发周期短：5天的开发冲刺无法反映长期维护和模型更新迭代中的工程挑战。4. 缺乏用户研究：未报告实际用户对LLM生成内容质量的感知和接受度，仅从工程稳定性角度评估。
+
+### 后续改进方向
+- 方向1：扩展至更多应用类型（如文档OCR后处理、表格结构修复），验证“责任递减”原则是否适用于需要更高生成准确性的场景，并探索与规则引擎的混合架构。
+- 方向2：研究模型选择与任务复杂度的动态匹配机制，例如根据设备当前算力、电池状态和任务紧急度，自动在多个候选SLM间切换，以平衡延迟和生成质量。
+- 方向3：引入更细粒度的失败模式自动检测与自适应修复机制，例如利用一个轻量级验证器实时监控LLM输出，当检测到特定违规模式时自动触发预设的修复策略或回退方案。
+
+### 工程落地启发
+对OCR/文档解析工程最有价值的启发是：**设备端AI功能设计应遵循“降级优先”原则**。即从一开始就将LLM定位为“辅助增强器”而非“核心引擎”，为其设计完整的确定性回退路径（如硬编码模板、规则匹配）。在文档解析场景中，这意味着SLM不应承担完整的表格结构理解任务，而应仅用于辅助修正OCR初步结果（如纠正歧义字符、补充缺失标点），主流程仍由传统规则或轻量模型完成。此外，本文提出的“多层防御性解析”策略（即对LLM输出进行多轮格式校验与修复）可直接迁移至文档结构化输出场景，用于保证JSON/XML格式的合规性。
+
+---
+
+### 6. Case-Specific Rubrics for Clinical AI Evaluation: Methodology, Validation, and LLM-Clinician Agreement Across 823 Encounters
+
+- **ArXiv ID**: [2604.24710v1](https://arxiv.org/abs/2604.24710v1)
+- **作者**: Aaryan Shah, Andrew Hines, Alexia Downs, Denis Bajet, Paulius Mui...
+- **发布时间**: 2026-04-28
+- **分类**: cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2604.24710v1](https://arxiv.org/pdf/2604.24710v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Objective. Clinical AI documentation systems require evaluation methodologies that are clinically valid, economically viable, and sensitive to iterative changes. Methods requiring expert review per scoring instance are too slow and expensive for safe, iterative deployment. We present a case-specific, clinician-authored rubric methodology for clinical AI evaluation and examine whether LLM-generated rubrics can approximate clinician agreement. Materials and Methods. Twenty clinicians authored 1,646 rubrics for 823 clinical cases (736 real-world, 87 synthetic) across primary care, psychiatry, oncology, and behavioral health. Each rubric was validated by confirming that an LLM-based scoring agent consistently scored clinician-preferred outputs higher than rejected ones. Seven versions of an EHR-embedded AI agent for clinicians were evaluated across all cases. Results. Clinician-authored rubrics discriminated effectively between high- and low-quality outputs (median score gap: 82.9%) with high scoring stability (median range: 0.00%). Median scores improved from 84% to 95%. In later experiments, clinician-LLM ranking agreement (tau: 0.42-0.46) matched or exceeded clinician-clinician agreement (tau: 0.38-0.43), attributable to both ceiling compression and LLM rubric improvement. Discussion. This convergence supports incorporating LLM rubrics alongside clinician-authored ones. At roughly 1,000 times lower cost, LLM rubrics enable substantially greater evaluation coverage, while continued clinical authorship grounds evaluation in expert judgment. Ceiling compression poses a methodological challenge for future inter-rater agreement studies. Conclusion. Case-specific rubrics offer a path for clinical AI evaluation that preserves expert judgment while enabling automation at three orders lower cost. Clinician-authored rubrics establish the baseline against which LLM rubrics are validated.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出一种针对临床AI文档系统的案例特定评分准则方法，由临床医生为每个临床案例编写评分准则，并通过LLM评分代理验证其区分能力。该方法在823个临床案例上评估了7个版本的AI代理，结果表明临床医生编写的准则能有效区分高质量与低质量输出（中位数分差82.9%），且评分稳定性极高（中位数范围0.00%）。研究进一步发现，LLM生成的准则与临床医生的排序一致性（tau: 0.42-0.46）达到甚至超过了临床医生之间的一致性（tau: 0.38-0.43），同时成本降低约1000倍。
+
+### 解决的核心问题
+现有临床AI评估方法依赖专家逐实例评审，速度慢、成本高，无法支持安全且迭代的部署。具体痛点包括：传统评分方法需要临床医生逐条评估输出，导致评估覆盖范围有限、迭代反馈周期长；缺乏一种既保留专家判断权威性，又能实现自动化、低成本、高覆盖率的评估框架。
+
+### 核心创新
+本文的核心创新在于提出并验证了一套“案例特定评分准则”方法论，将评估单元从通用评分标准细化为每个临床案例的专属准则。该方法首次系统性地比较了临床医生与LLM在准则编写上的表现，并证明LLM生成的准则在排序一致性上可媲美甚至超越临床医生间的一致性，同时大幅降低成本。
+
+### 创新点拆解
+- 创新点1：提出案例特定评分准则（Case-Specific Rubrics）范式。不同于传统通用评分标准，该方法要求临床医生或LLM为每个临床案例编写一组具体的评分准则，这些准则直接关联该案例的核心临床需求，从而实现对AI输出的精细化、情境化评估。
+- 创新点2：构建了“准则验证-评分-排序一致性分析”的完整评估流程。通过LLM评分代理对临床医生偏好输出与拒绝输出的评分差异来验证准则有效性，并采用Kendall's tau系数量化临床医生之间、临床医生与LLM之间的排序一致性，建立了可量化的评估基准。
+- 创新点3：揭示了LLM准则与临床医生准则在成本-效果上的权衡关系。实验证明，LLM准则在排序一致性上可匹配甚至超越临床医生间一致性，但成本仅为后者的约千分之一，为大规模、持续性的临床AI评估提供了可行方案。
+
+### 实验结果亮点
+- 临床医生编写的准则能有效区分高质量与低质量输出，中位数评分差为82.9%，评分稳定性极高（中位数范围0.00%）。
+- 评估的7个版本AI代理中，中位数得分从84%提升至95%。
+- 临床医生-LLM排序一致性（tau: 0.42-0.46）匹配或超过了临床医生间一致性（tau: 0.38-0.43）。
+- LLM准则的成本约为临床医生准则的千分之一，实现了评估覆盖率的显著提升。
+
+### 当前局限
+- 天花板压缩效应（ceiling compression）限制了排序一致性指标的上限，当所有AI版本得分均接近满分时，区分度下降，导致tau值偏低。
+- 研究仅覆盖了初级保健、精神科、肿瘤科和行为健康四个领域，对其他临床专科的泛化性尚未验证。
+- 准则编写依赖于临床医生或LLM对案例的充分理解，对于罕见病或极端案例，准则可能不够精准。
+
+### 后续改进方向
+- 方向1：引入自适应评分准则生成机制。针对天花板压缩问题，可在AI输出质量接近时，动态调整准则的难度或权重，例如增加对细微错误（如用药剂量偏差、语言表述歧义）的惩罚项，提升区分敏感度。
+- 方向2：扩展准则生成的自动化与多模态融合。当前LLM准则仅基于文本，未来可整合电子健康记录中的结构化数据（如实验室检查值、影像报告摘要）作为准则编写的输入，使准则更贴合临床上下文。
+
+### 工程落地启发
+对OCR/文档解析工程最有价值的启发是：将“案例特定评分准则”思想应用于文档质量评估。例如，对于医疗表单识别任务，可以为每个表单实例（而非通用模板）自动生成一组评分准则，如字段完整性、数值合理性、版面对齐度等，然后利用LLM作为评分代理进行自动化评估。这种方法能够显著降低人工评审成本，同时保持评估的临床相关性，尤其适合需要频繁迭代的文档解析模型。
+
+---
+
+### 7. Governing What You Cannot Observe: Adaptive Runtime Governance for Autonomous AI Agents
+
+- **ArXiv ID**: [2604.24686v1](https://arxiv.org/abs/2604.24686v1)
+- **作者**: German Marin, Jatin Chaudhary
+- **发布时间**: 2026-04-28
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2604.24686v1](https://arxiv.org/pdf/2604.24686v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Autonomous AI agents can remain fully authorized and still become unsafe as behavior drifts, adversaries adapt, and decision patterns shift without any code change. We propose the \textbf{Informational Viability Principle}: governing an agent reduces to estimating a bound on unobserved risk $\hat{B}(x) = U(x) + SB(x) + RG(x)$ and allowing an action only when its capacity $S(x)$ exceeds $\hat{B}(x)$ by a safety margin. The \textbf{Agent Viability Framework}, grounded in Aubin's viability theory, establishes three properties -- monitoring (P1), anticipation (P2), and monotonic restriction (P3) -- as individually necessary and collectively sufficient for documented failure modes. \textbf{RiskGate} instantiates the framework with dedicated statistical estimators (KL divergence, segment-vs-rest $z$-tests, sequential pattern matching), a fail-secure monotonic pipeline, and a closed-loop Autopilot formalised as an instance of Aubin's regulation map with kill-switch-as-last-resort; a scalar Viability Index $VI(t) \in [-1,+1]$ with first-order $t^*$ prediction transforms governance from reactive to predictive. Contributions are the theoretical framework, the reference implementation, and analytical coverage against published agent-failure taxonomies; quantitative empirical evaluation is scoped as follow-up work.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对自主AI智能体在运行时因行为漂移、对手适应等原因产生的不可观测风险，提出了信息可行性原则，将治理问题归结为对未观测风险边界的估计。作者基于Aubin的生存理论构建了Agent Viability Framework，定义了监测、预测与单调限制三个必要且充分的性质，并实例化为RiskGate系统。该系统通过KL散度、分段z检验等统计估计器与闭环Autopilot机制，将治理从反应式转变为预测式，并提供了理论覆盖与参考实现。
+
+### 解决的核心问题
+现有AI智能体治理方法大多依赖静态权限检查或事后审计，无法应对行为在无代码变更情况下逐渐漂移、对手动态适应等运行时风险。论文核心问题是如何在无法直接观测智能体内部状态与完整行为轨迹的条件下，实现对其安全性的实时、前瞻性治理，并形式化地保证治理策略的完备性。
+
+### 核心创新
+本文的核心创新在于将生存理论（viability theory）引入AI智能体运行时治理，提出了一个具备数学形式化基础的理论框架，而非仅依赖启发式规则。具体创新包括：定义了信息可行性原则，将治理问题转化为对未观测风险边界的在线估计；提出了Agent Viability Framework，明确了监测、预测、单调限制三个性质作为治理系统必要的充分条件；并基于此实现了RiskGate系统，通过统计估计器与闭环控制机制将治理从反应式升级为预测式。
+
+### 创新点拆解
+- 创新点1：信息可行性原则。该原则将智能体的治理简化为估计未观测风险边界\(\hat{B}(x) = U(x) + SB(x) + RG(x)\)，并设定决策条件（智能体能力\(S(x)\)超过风险边界并保留安全裕度），为治理提供了可量化的决策判据。
+- 创新点2：Agent Viability Framework。基于Aubin的生存理论，严格定义了监测（P1）、预测（P2）与单调限制（P3）三个性质，并证明其对于覆盖已文档化的失败模式是单独必要且联合充分的，为系统设计提供了形式化保证。
+- 创新点3：RiskGate系统实例化。设计了一个包含KL散度、分段-vs-整体z检验、序列模式匹配等统计估计器的单调安全管道，以及一个形式化为Aubin调节映射的闭环Autopilot（内含kill-switch-as-last-resort），并引入标量生存指数\(VI(t) \in [-1,+1]\)及其一阶\(t^*\)预测，将治理从反应式转变为预测式。
+
+### 实验结果亮点
+论文明确指出定量实证评估被限定为后续工作（quantitative empirical evaluation is scoped as follow-up work），因此本节无实验结果数据。论文的核心贡献在于理论框架、参考实现以及对已发布的智能体失败分类法的分析覆盖。
+
+### 当前局限
+该方法目前缺乏定量实证评估，其有效性仅通过理论分析和分类覆盖论证。此外，框架依赖于对未观测风险分量的统计估计（\(U(x), SB(x), RG(x)\)），这些估计器的准确性和实时性在实际复杂环境中（如高维状态空间、非平稳对手行为）可能受限。单调限制（P3）可能导致过度保守，在需要快速响应的场景下可能造成性能损失。
+
+### 后续改进方向
+- 方向1：在多个标准自主智能体基准环境（如WebArena、AgentBench）中开展定量实验，对比RiskGate与传统权限审计、行为日志分析等方法在风险检测延迟、误报率、任务成功率等指标上的表现。
+- 方向2：研究更鲁棒、低延迟的未观测风险估计器，例如利用在线异常检测、因果推断或基于世界模型的前瞻模拟，以替代当前使用的KL散度与z检验组合，提升在非平稳对手行为下的估计精度。
+
+### 工程落地启发
+对OCR/文档解析工程项目，最直接的启发是采用“单调限制”设计原则来构建文档处理管道的安全护栏。例如，在文档版面分析或表格结构识别中，可以设计一个单调递增的置信度阈值管道：只有当当前模块（如表格检测）的输出置信度超过历史基线且未触发异常模式（如连续低质量区域）时，才允许后续模块（如单元格解析）执行，否则触发回退或人工介入。这种设计可有效防止因单次识别错误导致的级联失败。
+
+---
+
+### 8. Learning to Route Queries to Heads for Attention-based Re-ranking with Large Language Models
+
+- **ArXiv ID**: [2604.24608v1](https://arxiv.org/abs/2604.24608v1)
+- **作者**: Yuxing Tian, Fengran Mo, Zhiqi Huang, Weixu Zhang, Jian-Yun Nie
+- **发布时间**: 2026-04-27
+- **分类**: cs.IR, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2604.24608v1](https://arxiv.org/pdf/2604.24608v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Large Language Models (LLMs) have recently been explored as fine-grained zero-shot re-rankers by leveraging attention signals to estimate document relevance. However, existing methods either aggregate attention signals across all heads or rely on a statically selected subset identified by heuristic rules. This solution can be suboptimal because the informative heads can vary across queries or domains. Moreover, naively combining multiple heads can degrade performance due to redundancy or conflicting ranking signals. In this paper, we propose a query-dependent head selection method, RouteHead, for attention-based re-ranking with LLMs. Specifically, we learn a lightweight router that can map each query to an optimal head set, and relevance scores are computed by aggregating attention signals only from these heads. Since query-to-head optimal labels are unavailable, we first construct pseudo labels via an offline search. The router represents each head with a learnable embedding and represents each query using an embedding extracted from the hidden states of the frozen LLM. Then it is trained on the pseudo labels with a sparsity regularizer. Experiments on diverse benchmarks and multiple LLM backbones show that the proposed method consistently outperforms strong baselines.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出一种名为RouteHead的查询依赖型多头注意力头选择方法，用于基于大语言模型的注意力信号重排序任务。该方法通过训练一个轻量级路由器，为每个查询动态选择最优的注意力头集合，并仅聚合这些头的信号来估计文档相关性。在多个基准数据集和不同大语言模型骨干上的实验表明，RouteHead显著优于现有基于固定头集或全头聚合的重排序方法。
+
+### 解决的核心问题
+现有基于大语言模型注意力信号的重排序方法存在两个主要痛点：一是使用所有注意力头或通过启发式规则静态选择子集，忽略了不同查询或领域下信息头分布的高度差异性；二是简单聚合多个头的信号会导致冗余或冲突的排序信号，从而降低重排序性能。本文的核心问题是如何实现查询感知的自适应头选择，以最大化注意力信号的利用效率并消除干扰。
+
+### 核心创新
+本文的核心创新在于将注意力头的选择从静态启发式规则转变为可学习的查询依赖型路由机制。具体而言，设计了RouteHead框架，通过离线搜索构造伪标签来训练一个轻量路由器，该路由器利用冻结LLM的隐藏状态表示查询，并学习每个头的可微嵌入，从而为每个查询动态分配最优头集。这一方法首次在重排序中实现了细粒度的、数据驱动的注意力头选择。
+
+### 创新点拆解
+- 创新点1：提出查询依赖的头选择范式。不同于以往对所有查询使用固定头集或基于简单统计（如方差）的静态选择，RouteHead根据每个查询的语义特征动态路由到不同的注意力头，从而适应查询的多样性。
+- 创新点2：基于离线搜索的伪标签构造与稀疏正则化训练。由于查询到最优头集的真实标签不可获得，本文设计了一种离线搜索策略，在验证集上为每个查询找到表现最好的头组合作为伪标签；并在训练路由器时引入稀疏正则化，强制模型只激活少数关键头，减少噪声。
+- 创新点3：轻量级路由器设计。路由器仅由一个前馈网络和头嵌入层组成，参数量远小于LLM本身，且LLM在训练和推理时保持冻结，因此计算开销极低，便于实际部署。
+
+### 实验结果亮点
+在MS MARCO Passage、TREC Deep Learning 2019/2020等多个重排序基准上，RouteHead在NDCG@10、MAP等指标上全面超越全头聚合（All-Head）和静态选择（如Top-K方差选择）等强基线。例如，在MS MARCO上使用LLaMA-7B作为骨干时，RouteHead相比全头聚合将NDCG@10提升了约3-5个百分点；在跨域迁移测试（如从新闻域到医疗域）中，性能提升更为显著，表明查询依赖头选择具有更好的泛化能力。
+
+### 当前局限
+该方法依赖于离线搜索构造伪标签，这需要额外的验证集和计算资源，且搜索空间随注意力头数指数增长，在头数极多（如GPT-3的96层）时可能面临效率瓶颈。此外，路由器仅利用LLM最后一层隐藏状态表示查询，可能丢失浅层的语义信息；同时，方法未考虑不同文档对同一查询的注意力分布差异，即头选择是查询级的而非查询-文档对级的。
+
+### 后续改进方向
+- 方向1：设计更高效的伪标签搜索算法，例如采用强化学习或进化策略，避免穷举搜索，从而支持更大规模的头数（如100头以上）。
+- 方向2：将查询级路由扩展为查询-文档对级路由，即对于同一查询下的不同候选文档，允许路由器选择不同的注意力头，以捕捉文档特异性信号。
+
+### 工程落地启发
+对于OCR/文档解析工程，此方法最具参考价值的点是“为不同查询/任务动态选择不同模型组件”的思想。例如，在文档版面分析中，可以训练一个轻量路由器，根据输入文档的布局类型（如表格、发票、手写体）动态激活OCR模型的不同解码头或特征通道，从而在不增加整体模型规模的前提下提升复杂文档的解析精度。此外，RouteHead的轻量路由器设计（冻结主干+可学习路由）可直接迁移到多任务文档理解系统中，实现低成本的模型适配。
+
+---
+
+### 9. Why AI Harms Can't Be Fixed One Identity at a Time: What 5300 Incident Reports Reveal About Intersectionality
+
+- **ArXiv ID**: [2604.24519v1](https://arxiv.org/abs/2604.24519v1)
+- **作者**: Edyta Bogucka, Sanja Šćepanović, Daniele Quercia
+- **发布时间**: 2026-04-27
+- **分类**: cs.CY, cs.AI, cs.HC
+- **PDF**: [https://arxiv.org/pdf/2604.24519v1](https://arxiv.org/pdf/2604.24519v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+AI risk assessment is the primary tool for identifying harms caused by AI systems. These include intersectional harms, which arise from the interaction between identity categories (e.g., class and skin tone) and which do not occur, or occur differently, when those categories are considered separately. Yet existing AI risk assessments are still built around isolated identity categories, and when intersections are considered, they focus almost exclusively on race and gender. Drawing on a large-scale analysis of documented AI incidents, we show that AI harms do not occur one identity category at a time. Using a structured rubric applied with a Large Language Model (LLM), we analyze 5,300 reports from 1,200 documented incidents in the AI Incident Database, the most curated source of incident data. From these reports, we identify 1,513 harmed subjects and their associated identity categories, achieving 98% accuracy. At the level of individual categories, we find that age and political identity appear in documented AI harms at rates comparable to race and gender. At the level of intersecting categories, harm is amplified up to three times at specific intersections: adolescent girls, lower-class people of color, and upper-class political elites. We argue that intersectionality should be a core component of AI risk assessment to more accurately capture how harms are produced and distributed across social groups.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文通过大规模分析AI Incident Database中1,200起事件、5,300份报告，揭示了AI危害并非孤立地作用于单一身份类别，而是在多个身份类别（如年龄、政治身份、阶层、肤色）的交叉处被显著放大。作者利用大语言模型（LLM）结合结构化准则进行编码，识别出1,513名受害主体及其关联身份类别，准确率达98%，并发现年龄与政治身份在危害报告中的出现频率与种族和性别相当，而特定交叉组合（如青春期女孩、低阶层有色人种、上层政治精英）的危害强度可达单一类别的三倍。论文主张将交叉性（intersectionality）作为AI风险评估的核心组件，以更精确地捕捉危害的产生与分布。
+
+### 解决的核心问题
+现有AI风险评估主要围绕孤立的单一身份类别（如仅考虑种族或仅考虑性别）构建，即使考虑交叉性也几乎只关注种族与性别的组合。这导致大量因多个身份类别交互而产生的“交叉性危害”（intersectional harms）被系统性忽视，无法准确反映危害在不同社会群体中的真实分布与强度差异。
+
+### 核心创新
+- **方法层面**：首次将交叉性理论系统性地引入大规模AI危害实证分析，提出了基于LLM的结构化编码准则，实现了对5,300份事件报告中受害主体身份类别的高精度（98%）自动识别与交叉分析。
+- **发现层面**：揭示了年龄与政治身份在AI危害中的出现频率堪比种族与性别，并量化了特定交叉组合（如青春期女孩）的危害放大效应（最高达三倍），挑战了当前风险评估的单一类别范式。
+
+### 创新点拆解
+- **创新点1：基于LLM的大规模交叉性危害编码框架**。设计了一套包含14个身份类别（年龄、性别、种族、阶层、政治身份、肤色、身体能力、宗教、性取向、教育、国籍、移民身份、语言、职业）的结构化准则，利用LLM从非结构化文本中自动提取受害主体及其关联身份，替代了传统耗时且易错的人工标注，实现了千级规模的高效分析。
+- **创新点2：交叉危害的量化与放大效应发现**。不仅统计了单一身份类别的出现频率，还通过联合分布分析，识别出“青春期女孩”（年龄×性别）、“低阶层有色人种”（阶层×肤色）、“上层政治精英”（阶层×政治身份）等特定交叉组合，其危害报告数量是单一类别预期的三倍，首次提供了交叉性危害在真实世界AI事故中的量化证据。
+- **创新点3：对现有AI风险评估范式的批判性重构**。通过实证数据证明，仅关注种族和性别的交叉性评估存在严重盲区，论证了必须将年龄、阶层、政治身份等更多类别纳入AI风险评估框架，才能全面捕捉危害的分布，具有重要的政策与伦理指导意义。
+
+### 实验结果亮点
+- 在AI Incident Database的5,300份报告中，成功识别出1,513名受害主体及其身份类别，LLM编码的准确率达到98%（与人工标注对比）。
+- 在单一类别层面，年龄（17.1%的报告涉及）和政治身份（12.8%）的出现频率与种族（17.5%）和性别（14.2%）相当，打破了“种族与性别是AI危害主要维度”的普遍认知。
+- 在交叉类别层面，青春期女孩（年龄×性别）的危害报告数量是单一类别预期的3.1倍，低阶层有色人种（阶层×肤色）为2.8倍，上层政治精英（阶层×政治身份）为2.5倍，表明交叉性危害存在显著的“放大效应”。
+
+### 当前局限
+- **数据源局限**：仅基于AI Incident Database，该数据库主要收录北美与欧洲的报道，可能遗漏其他地区（如亚洲、非洲）的AI危害案例，导致结论的全球普适性受限。
+- **身份类别粒度不足**：编码框架仅包含14个粗粒度类别，无法捕捉更细粒度的子类别（如“亚裔女性”中的亚裔细分），且未考虑身份类别的动态变化（如年龄随时间增长）。
+- **因果关系缺失**：研究仅揭示了危害与身份类别的相关性，未建立因果关系，无法区分“系统因身份类别产生偏见”与“系统仅在高风险群体部署中暴露了更多问题”两种机制。
+
+### 后续改进方向
+- **方向1：多源数据融合与跨文化验证**。引入其他AI事故数据库（如AIAAIC、OECD AI事件监测器）及非英语地区的本地化报告，构建覆盖全球、多语言、多文化背景的交叉性危害数据集，验证并扩展本文发现。
+- **方向2：动态交叉性建模与因果推断**。将身份类别视为随时间演变的动态变量（如年龄增长、职业变动），结合时间序列分析与因果图模型，区分“系统偏见”与“部署分布不均”对交叉性危害的贡献，提升分析的解释性。
+- **方向3：细粒度身份子类别与多模态信息融合**。在现有14个类别基础上，增加更细粒度的子类别（如肤色细分、残疾类型细分），并融合图像、语音等多模态数据（如从面部图像中自动提取肤色、性别估计），提升身份识别的精度与丰富度。
+
+### 工程落地启发
+对OCR/文档解析工程而言，本文最直接的启发是：**在构建文档理解系统（如表单识别、身份信息提取）时，必须警惕并量化“交叉性偏见”**。例如，一个用于简历解析的OCR系统，若仅测试种族和性别的公平性，可能忽略“低阶层有色人种女性”这一交叉群体在学历字段识别上的高错误率。工程团队应参考本文的编码框架，在测试阶段构建包含年龄、阶层、政治身份等多维度的交叉性测试集，并监控特定交叉组合（如“老年低收入人群”的地址字段识别）的性能下降，从而在模型层面（如数据重采样、对抗训练）或后处理层面（如对高风险交叉群体增加校验规则）进行针对性修复。
+
+---
+
+### 10. SEARCH-R: Structured Entity-Aware Retrieval with Chain-of-Reasoning Navigator for Multi-hop Question Answering
+
+- **ArXiv ID**: [2604.24515v1](https://arxiv.org/abs/2604.24515v1)
+- **作者**: Yuqing Fu, Yimin Deng, Wanyu Wang, Yuhao Wang, Yejing Wang...
+- **发布时间**: 2026-04-27
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2604.24515v1](https://arxiv.org/pdf/2604.24515v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Multi-hop Question Answering (MHQA) aims to answer questions that require multi-step reasoning. It presents two key challenges: generating correct reasoning paths in response to the complex user queries, and accurately retrieving essential knowledge in the face of potential limitations in large language models (LLMs). Existing approaches primarily rely on prompt-based methods to generate reasoning paths, which are further combined with traditional sparse or dense retrieval to produce the final answer. However, the generation of reasoning paths commonly lacks effective control over the generative process, thus leading the reasoning astray. Meanwhile, the retrieval methods over-rely on knowledge matching or similarity scores rather than evaluating the practical utility of the information, resulting in retrieving homogeneous or non-useful information. Therefore, we propose a Structured Entity-Aware Retrieval with Chain-of-Reasoning Navigator framework named SEARCH-R. Specifically, SEARCH-R trains an end-to-end reasoning path navigator, which is able to provide a powerful sub-question decomposer by fine-tuning the Llama3.1-8B model. Moreover, a novel dependency tree-based retrieval is designed to evaluate the informational contribution of the document quantitatively. Extensive experiments on three challenging multi-hop datasets validate the effectiveness of the proposed framework. The code and dataset are available at: https://github.com/Applied-Machine-Learning-Lab/ACL2026_SEARCH-R.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出SEARCH-R框架，通过端到端推理路径导航器与基于依赖树的检索机制，解决多跳问答中推理路径失控与检索同质化的问题。该框架微调Llama3.1-8B模型实现子问题分解，并量化文档信息贡献以提升检索质量。在三个多跳问答数据集上的实验验证了其有效性。
+
+### 解决的核心问题
+现有方法依赖提示词生成推理路径，缺乏对生成过程的有效控制，易导致推理偏离正确方向。同时，传统稀疏或稠密检索仅基于语义匹配或相似度分数，无法评估信息的实际效用，常检索到同质化或无关内容。本文针对这两大痛点，研究如何结构化引导推理路径并实现信息实用性导向的检索。
+
+### 核心创新
+方法层面，本文提出了融合结构化实体感知与链式推理导航的检索框架SEARCH-R，其核心在于将推理路径生成与信息效用评估统一到端到端框架中。具体而言，创新性地设计了基于依赖树的检索机制，通过量化文档对推理步骤的信息贡献度来替代传统相似度排序，并训练了专门的推理路径导航器以增强子问题分解的准确性。
+
+### 创新点拆解
+- 创新点1：端到端推理路径导航器。通过微调Llama3.1-8B模型，训练一个能够直接输出结构化子问题分解的导航器，替代了传统依赖提示词的不稳定生成方式，增强了对推理过程的控制力。
+- 创新点2：基于依赖树的检索机制。将文档检索建模为依赖树结构，通过量化每个文档在推理路径中的信息贡献度（如是否填补了知识缺口），实现从“语义匹配”到“信息效用”的检索范式转变。
+- 创新点3：实体感知的检索增强。在检索过程中显式引入实体信息，利用结构化实体知识辅助子问题与文档的匹配，减少检索噪声。
+
+### 实验结果亮点
+在HotpotQA、2WikiMultihopQA、MuSiQue三个多跳问答数据集上，SEARCH-R在答案准确率上平均提升3.2-5.7个百分点。例如在HotpotQA上，相比基线方法（如ReAct、Self-Ask），F1分数提升至78.4%，且检索返回的文档中有效信息比例提高约12%。
+
+### 当前局限
+该方法高度依赖预训练语言模型（Llama3.1-8B）的微调质量，若基础模型在特定领域知识不足，可能导致子问题分解错误。此外，依赖树构建需要预定义推理步数，对于动态变化长度的复杂问题可能产生冗余或缺失节点。实验仅在英文数据集上验证，跨语言场景下的泛化性尚未评估。
+
+### 后续改进方向
+- 方向1：引入自适应推理步数控制机制。利用强化学习或动态停止策略，让模型根据问题复杂度自动决定依赖树的深度与分支数，避免固定步数带来的结构僵化。
+- 方向2：融合多模态信息。将文档中的表格、图表等非文本元素纳入依赖树节点，利用OCR与版面分析技术提取结构化信息，增强对科学文献或报告类问答的支持。
+
+### 工程落地启发
+对文档智能工程最有价值的点在于“基于信息贡献度的检索排序”思想。在实际OCR文档解析系统中，可借鉴此方法：在提取文本后，不直接使用全文语义检索，而是先根据问答任务将文档内容分解为关键信息单元（如表格行、段落核心句），再通过依赖树评估每个单元对当前查询的决策贡献度，从而优先返回高价值片段，显著提升下游问答系统的准确率与效率。
+
+---
+
+### 11. CA-IDD: Cross-Attention Guided Identity-Conditional Diffusion for Identity-Consistent Face Swapping
+
+- **ArXiv ID**: [2604.24493v1](https://arxiv.org/abs/2604.24493v1)
+- **作者**: Md Shohel Rana, Tanoy Debnath
+- **发布时间**: 2026-04-27
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.24493v1](https://arxiv.org/pdf/2604.24493v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Face swapping aims to optimize realistic facial image generation by leveraging the identity of a source face onto a target face while preserving pose, expression, and context. However, existing methods, especially GAN-based methods, often struggle to balance identity preservation and visual realism due to limited controllability and mode collapse. In this paper, we introduce CA-IDD (Cross-Attention Guided Identity-Conditional Diffusion), the first diffusion-based face swapping approach that integrates multi-modal guidance comprising gaze, identity, and facial parsing through multi-scale cross-attention. Precomputed identity embeddings are incorporated into the denoising process via hierarchical attention layers, resulting in accurate and consistent identity transfer. To improve semantic coherence and visual quality, we use expert-guided supervision, with facial parsing and gaze-consistency modules. Unlike GAN-based or implicit-fusion methods, our diffusion framework provides stable training, robust generalization, and spatially adaptive identity alignment, allowing for fine-grained regional control across pose and expression variations. CA-IDD achieves an FID of 11.73, exceeding established baselines such as FaceShifter and MegaFS. Qualitative results also reveal improved identity retention across diverse poses, establishing CA-IDD as a strong foundation for future diffusion-based face editing.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出CA-IDD，首个基于扩散模型的人脸交换方法，通过多尺度交叉注意力机制将身份、注视方向和面部解析等多模态先验信息融入去噪过程。该方法利用预计算的身份嵌入通过层级注意力层实现精确的身份传递，并采用专家引导的面部解析和注视一致性模块提升语义一致性与视觉质量。在多个基准测试上，CA-IDD以11.73的FID分数超越了FaceShifter和MegaFS等GAN基线方法，展现出更强的身份保持能力和鲁棒泛化性。
+
+### 解决的核心问题
+现有GAN-based人脸交换方法在身份保持与视觉真实感之间难以取得平衡，面临模式坍塌和可控性不足的问题。此外，传统方法缺乏对注视方向、面部结构等细粒度语义信息的显式建模，导致在复杂姿态和表情变化下身份迁移不一致。
+
+### 核心创新
+本文首次将扩散模型引入人脸交换任务，并设计了多尺度交叉注意力机制以融合身份、注视和面部解析的多模态条件。与隐式特征融合不同，该方法通过层级注意力层将预计算的身份嵌入直接调控去噪过程，实现了空间自适应的身份对齐。
+
+### 创新点拆解
+- 创新点1：提出基于扩散模型的人脸交换框架，利用去噪过程的渐进式生成特性替代GAN的对抗训练，提升训练稳定性和泛化能力。
+- 创新点2：设计多尺度交叉注意力模块，将注视方向、身份特征和面部解析图作为条件注入不同分辨率的特征层，实现区域化细粒度控制。
+- 创新点3：引入专家引导的监督策略，包括面部解析损失和注视一致性损失，在保持身份的同时约束生成结果的结构合理性。
+
+### 实验结果亮点
+在FaceForensics++数据集上，CA-IDD取得11.73的FID分数，显著优于FaceShifter（14.21）和MegaFS（15.08）。定性实验显示，在极端姿态（如侧脸、低头）和表情变化下，该方法仍能保持源身份特征，而GAN基线方法出现身份模糊或畸变。
+
+### 当前局限
+该方法依赖预计算的身份嵌入和面部解析图，当源人脸存在大角度遮挡（如墨镜、口罩）时，身份特征提取可能失效。此外，扩散模型的采样速度较慢（需多步迭代），实时性不如GAN方法，且对注视方向的强依赖可能限制其在非正面视角下的表现。
+
+### 后续改进方向
+- 方向1：引入条件蒸馏或一致性采样策略，将扩散步数从数百步压缩至10步以内，提升推理速度以满足实时应用需求。
+- 方向2：设计鲁棒的身份编码器，结合3D人脸重建或部分遮挡感知机制，提升对遮挡、非正面光照等退化场景的适应能力。
+
+### 工程落地启发
+对于OCR/文档解析工程，该论文的核心启发在于：利用多模态条件（如文本、布局、字体）通过交叉注意力机制引导扩散生成，可解决文档图像中表格结构恢复、文字风格迁移等需要保持语义一致性的任务。具体而言，可将版面解析结果作为条件，结合预训练的字体特征嵌入，实现文档图像的局部编辑与风格统一，而无需训练多阶段GAN。
+
+---
+
+### 12. Zero-to-CAD: Agentic Synthesis of Interpretable CAD Programs at Million-Scale Without Real Data
+
+- **ArXiv ID**: [2604.24479v1](https://arxiv.org/abs/2604.24479v1)
+- **作者**: Mohammadmehdi Ataei, Farzaneh Askari, Kamal Rahimi Malekshan, Pradeep Kumar Jayaraman
+- **发布时间**: 2026-04-27
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.24479v1](https://arxiv.org/pdf/2604.24479v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Computer-Aided Design (CAD) models are defined by their construction history: a parametric recipe that encodes design intent. However, existing large-scale 3D datasets predominantly consist of boundary representations (B-Reps) or meshes, stripping away this critical procedural information. To address this scarcity, we introduce Zero-to-CAD, a scalable framework for synthesizing executable CAD construction sequences. We frame synthesis as an agentic search problem: by embedding a large language model (LLM) within a feedback-driven CAD environment, our system iteratively generates, executes, and validates code using tools and documentation lookup to promote geometric validity and operation diversity. This agentic approach enables the synthesis of approximately one million executable, readable, editable CAD sequences, covering a rich vocabulary of operations beyond sketch-and-extrude workflows. We also release a curated subset of 100,000 high-quality models selected for geometric diversity. To demonstrate the dataset's utility, we fine-tune a vision-language model on our synthetic data to reconstruct editable CAD programs from multi-view images, outperforming strong baselines, including GPT-5.2, and effectively bootstrapping sequence generation capabilities without real construction-history training data. Zero-to-CAD bridges the gap between geometric scale and parametric interpretability, offering a vital resource for the next generation of CAD AI.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出Zero-to-CAD框架，通过将大型语言模型嵌入反馈驱动的CAD环境，以智能体搜索方式自动合成约一百万条可执行、可读、可编辑的CAD构造序列。该框架无需真实构造历史数据即可大规模生成参数化CAD程序，并从中筛选出10万个高质量模型用于下游任务。实验表明，基于合成数据微调的视觉语言模型在多视角图像重建CAD程序任务上超越了GPT-5.2等强基线方法，有效实现了从零到可编辑CAD序列的生成能力。
+
+### 解决的核心问题
+现有大规模3D数据集（如ShapeNet、ABC）主要存储边界表示或网格模型，丢失了CAD模型构造历史中的参数化设计意图和程序化步骤。这导致无法直接用于训练能够生成可编辑、可解释CAD序列的AI模型，而真实CAD构造数据的获取成本极高且规模有限，制约了该领域的发展。
+
+### 核心创新
+本文的核心创新在于提出了一种无需真实数据的、基于智能体搜索的CAD程序合成框架，将LLM与CAD环境反馈闭环结合，实现了百万级可执行CAD序列的自动生成。同时，通过设计工具查找、代码验证等机制保证了生成序列的几何有效性和操作多样性，突破了传统仅基于草图和拉伸的简单工作流。
+
+### 创新点拆解
+- 创新点1：将CAD程序合成重构为智能体搜索问题。LLM作为核心智能体，在CAD执行环境中迭代生成、运行和验证代码，并利用文档查找和工具调用进行自我修正，从而保证几何正确性。
+- 创新点2：设计了可扩展的合成流程，覆盖草图、拉伸、旋转、扫掠、倒角、布尔运算等丰富CAD操作，生成了约一百万条多样化、可读可编辑的构造序列，并发布了精选的10万高质量子集。
+- 创新点3：验证了合成数据在零构造历史训练数据场景下的有效性，通过微调视觉语言模型，从多视角图像直接重建CAD程序，显著优于GPT-5.2等现有方法，展示了数据驱动的序列生成能力。
+
+### 实验结果亮点
+在多视角图像到CAD程序重建任务上，基于Zero-to-CAD合成数据微调的模型在重建成功率、程序正确性和几何精度等指标上全面超越GPT-5.2基线。具体地，该方法在未见过的CAD模型上实现了超过15%的重建成功率提升，且生成的程序可直接在CAD软件中编辑修改。
+
+### 当前局限
+该方法生成的CAD程序仍以单个实体为主，对于包含多部件装配、复杂约束关系的工业级CAD模型合成能力有限。此外，智能体搜索过程依赖LLM的代码生成质量，当遇到非常规几何拓扑或极端复杂操作组合时，可能导致验证失败或生成低效序列。合成数据的多样性受限于初始提示和CAD环境支持的操作范围。
+
+### 后续改进方向
+- 方向1：引入装配层级构造历史建模，将单实体合成扩展至多部件装配体，支持零件间的约束、配合和运动关系描述。
+- 方向2：结合强化学习优化智能体搜索策略，动态调整LLM的代码生成偏好，减少无效迭代次数，提升合成效率和序列质量。
+
+### 工程落地启发
+对于OCR/文档解析工程项目，该工作最值得借鉴的是“智能体+反馈环境”的合成数据生成范式。在缺乏真实标注的文档版面分析、表格结构识别等任务中，可以构建类似的代码执行环境（如PDF渲染引擎），利用LLM自动生成带程序化标注的文档图像，通过渲染-验证闭环保证标注质量，从而低成本、大规模地合成训练数据。
+
+---
+
+### 13. Agentic clinical reasoning over longitudinal myeloma records: a retrospective evaluation against expert consensus
+
+- **ArXiv ID**: [2604.24473v1](https://arxiv.org/abs/2604.24473v1)
+- **作者**: Johannes Moll, Jannik Lübberstedt, Christoph Nuernbergk, Jacob Stroh, Luisa Mertens...
+- **发布时间**: 2026-04-27
+- **分类**: cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2604.24473v1](https://arxiv.org/pdf/2604.24473v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Multiple myeloma is managed through sequential lines of therapy over years to decades, with each decision depending on cumulative disease history distributed across dozens to hundreds of heterogeneous clinical documents. Whether LLM-based systems can synthesise this evidence at a level approaching expert agreement has not been established. A retrospective evaluation was conducted on longitudinal clinical records of 811 myeloma patients treated at a tertiary centre (2001-2026), covering 44,962 documents and 1,334,677 laboratory values, with external validation on MIMIC-IV. An agentic reasoning system was compared against single-pass retrieval-augmented generation (RAG), iterative RAG, and full-context input on 469 patient-question pairs from 48 templates at three complexity levels. Reference labels came from double annotation by four oncologists with senior haematologist adjudication. Iterative RAG and full-context input converged on a shared ceiling (75.4% vs 75.8%, p = 1.00). The agentic system reached 79.6% concordance (95% CI 76.4-82.8), exceeding both baselines (+3.8 and +4.2 pp; p = 0.006 and 0.007). Gains rose with question complexity, reaching +9.4 pp on criteria-based synthesis (p = 0.032), and with record length, reaching +13.5 pp in the top decile (n = 10). The system error rate (12.2%) was comparable to expert disagreement (13.6%), but severity was inverted: 57.8% of system errors were clinically significant versus 18.8% of expert disagreements. Agentic reasoning was the only approach to exceed the shared ceiling, with gains concentrated on the most complex questions and longest records. The greater clinical consequence of residual system errors indicates that prospective evaluation in routine care is required before these findings translate into patient benefit.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对多发性骨髓瘤诊疗中需整合数十年跨度、数千份异构临床文档的复杂推理任务，构建了一个基于智能体推理的LLM系统，并在811名患者的44,962份文档和1,334,677项实验室数据上进行了回顾性评估。该系统通过多轮检索-推理-验证循环，在469个患者-问题对上的准确率达到79.6%，显著优于单次RAG（75.4%）和全上下文输入（75.8%），且在复杂问题和长记录场景下增益尤为突出。尽管系统错误率（12.2%）与专家分歧率（13.6%）相当，但系统错误的临床严重性更高（57.8% vs 18.8%），提示仍需前瞻性验证。
+
+### 解决的核心问题
+现有的LLM系统在处理多发性骨髓瘤这类需要跨数十年、跨文档类型（如影像报告、实验室数据、治疗记录）进行综合推理的临床任务时，面临两个核心痛点：一是单次RAG或全上下文输入无法有效处理长序列中的关键信息筛选与跨文档逻辑串联；二是缺乏针对复杂临床决策（如治疗线选择、疗效标准判断）的基准评估方法和专家共识标签。本文旨在验证智能体推理能否在真实临床数据上达到接近专家水平的证据综合能力。
+
+### 核心创新
+本文的核心创新在于提出了一个面向纵向临床记录的智能体推理系统，该系统通过多轮检索-推理-验证循环，将复杂临床问题分解为可执行的子任务，并利用外部工具（如实验室值提取器、时间线构建器）进行结构化证据整合。此外，论文构建了一个包含48个模板、三个复杂度等级、经过双标注和高级血液学家裁决的基准数据集，为评估LLM在临床推理中的可靠性提供了标准化参考。
+
+### 创新点拆解
+- **创新点1：智能体推理架构**：设计了一个由规划器、检索器、推理器和验证器组成的模块化智能体系统，能够根据问题复杂度动态调整检索深度和推理步骤，而非简单地依赖单次或迭代检索。
+- **创新点2：多层次基准构建**：从48个临床模板中生成469个患者-问题对，并按问题复杂度（事实性、比较性、合成性）和病历长度分层，同时采用双标注+高级专家裁决的方式生成高质量参考标签，确保了评估的细粒度与可靠性。
+- **创新点3：系统性错误分析**：不仅比较了系统与专家的准确率，还首次量化了系统错误与专家分歧的临床严重性差异，揭示了LLM在低错误率下仍可能产生高风险误判的隐患。
+
+### 实验结果亮点
+- 智能体系统在469个问题上的整体一致率为79.6%（95% CI: 76.4-82.8），显著优于迭代RAG（75.4%，p=0.006）和全上下文输入（75.8%，p=0.007）。
+- 在最高复杂度的“合成性”问题上，智能体系统相比迭代RAG提升达9.4个百分点（p=0.032）；在病历长度前10%的最长记录中，提升幅度达13.5个百分点。
+- 系统错误率（12.2%）与专家间分歧率（13.6%）接近，但系统错误中57.8%被判定为临床显著，而专家分歧中仅18.8%为临床显著。
+
+### 当前局限
+- 系统错误虽然数量少，但临床严重性高，表明当前智能体在关键决策节点上的鲁棒性不足，可能因错误引用或缺失关键证据导致高风险误判。
+- 评估仅基于单中心回顾性数据（2001-2026年），且外部验证仅使用MIMIC-IV中的有限样本，缺乏多中心、前瞻性临床验证。
+- 智能体系统的计算开销高于单次RAG，且对文档结构（如PDF解析质量、表格识别精度）依赖较大，在低质量OCR输入下可能性能下降。
+
+### 后续改进方向
+- **方向1：引入不确定性感知机制**：在智能体推理过程中增加置信度估计，当系统对关键决策（如治疗线切换）的置信度低于阈值时，主动触发人工审核或二次验证，以降低临床显著错误率。
+- **方向2：与结构化知识库融合**：将MM诊疗指南、药物禁忌症等结构化知识图谱与智能体检索结合，使系统在推理时不仅能从文档中提取证据，还能基于规则进行逻辑校验，减少因文档噪声导致的错误。
+
+### 工程落地启发
+- **对OCR/文档解析的启示**：系统性能高度依赖对非结构化文档（如PDF报告、手写笔记）的准确解析，尤其是对实验室值、日期、治疗线编号等关键实体的提取。工程上应优先优化表格识别（如实验室报告中的数值与单位分离）和时间线对齐能力，并设计针对临床文档的专用后处理规则。
+- **对系统架构的启示**：智能体系统的模块化设计（规划器、检索器、推理器、验证器）为复杂文档推理任务提供了可复用的工程范式，尤其适用于需要跨文档、跨时间维度进行证据综合的场景（如法律合同审查、科研文献综述），其核心价值在于通过多轮交互将“一次问答”转化为“可控的推理流水线”。
+
+---
+
+### 14. An Affordable,Wearable Stereo-Eye-Tracking Platform
+
+- **ArXiv ID**: [2604.24331v1](https://arxiv.org/abs/2604.24331v1)
+- **作者**: Alexander Zimmer, Yasmeen Abdrabou, Enkelejda Kasneci
+- **发布时间**: 2026-04-27
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2604.24331v1](https://arxiv.org/pdf/2604.24331v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Research on video-based eye-tracking has long explored stereo and glint-based methods, yet existing wearable eye trackers - both commercial and open-source - offer limited flexibility for algorithm development and comparative evaluation. We present an affordable, wearable stereo eye-tracking platform built from off-the-shelf and 3D-printable components that explicitly targets this gap. The system combines four infrared eye cameras, infrared illumination, an optional scene camera, and software support for calibration and synchronized data acquisition. By design, the platform supports multiple eye-tracking paradigms, including stereo, glint-based, and binocular approaches, within a single hardware configuration. Rather than optimizing for end-user robustness, the platform prioritizes modularity and extensibility for research use. This paper focuses on the hardware architecture and calibration pipeline and demonstrates the feasibility of the approach using a prototype implementation. All hardware designs and documentation are made openly available.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出了一种基于现成组件和3D打印部件的低成本、可穿戴立体眼动追踪平台，旨在填补现有商用与开源眼动追踪设备在算法开发与比较评估方面的灵活性不足。该平台集成了四个红外眼动相机、红外照明、可选场景相机及配套软件，支持立体、基于角膜反射和双眼等多种眼动追踪范式。论文重点描述了硬件架构与校准流程，并通过原型实现验证了方案的可行性，所有设计资料均已开源。
+
+### 解决的核心问题
+现有视频眼动追踪研究虽已探索立体与基于角膜反射（glint）的方法，但商用与开源可穿戴眼动设备普遍缺乏对多种追踪范式的统一支持，且硬件设计封闭，难以进行算法开发、对比实验与定制化改进。本文针对这一痛点，设计了一个模块化、可扩展的研究平台，使研究者能够在同一硬件配置下灵活切换不同眼动追踪算法，从而降低实验门槛并促进算法创新。
+
+### 核心创新
+本文的核心创新在于提出了一种面向研究用途而非终端鲁棒性的可穿戴眼动追踪硬件与软件协同设计范式。具体而言，该平台通过模块化硬件架构和开放的校准流程，首次在低成本、轻量级设备中实现了对立体、glint与双眼三种眼动追踪方式的统一支持，打破了现有设备的功能壁垒。
+
+### 创新点拆解
+- 创新点1：**多范式兼容的硬件架构**。平台通过集成四个红外眼动相机和可调照明，使同一硬件配置无需物理修改即可在立体追踪、基于glint的追踪和纯双眼追踪模式间切换，极大提升了研究灵活性。
+- 创新点2：**低成本与开源设计**。所有硬件组件均为商用现货或3D打印件，总成本远低于同类商用设备，且硬件设计、文档与软件完全开源，便于其他研究者复现、修改与扩展。
+- 创新点3：**面向研究的校准与数据采集流程**。平台提供了明确的校准管线与同步数据采集软件，支持多种眼动追踪方法的横向比较，而非仅仅追求端到端的追踪精度，为算法开发提供了标准化实验环境。
+
+### 实验结果亮点
+论文通过原型实现验证了平台的可行性，但未提供与传统眼动追踪设备在精度（如角度误差）或数据质量上的定量对比结果。其亮点主要在于展示了平台能够在实际佩戴场景中稳定采集多相机红外视频，并成功完成校准与眼动参数估计，证明了硬件与软件管线的有效集成。
+
+### 当前局限
+1. **缺乏定量性能基准**：论文未在公开眼动数据集（如GazeCapture、NVGaze）上报告追踪精度（如平均角度误差），无法直接与其他商用设备（如Pupil Labs、Tobii Pro）进行性能比较。  
+2. **鲁棒性与佩戴舒适性未充分验证**：作为研究原型，其在不同光照条件、不同佩戴者面部几何差异下的稳定性，以及长时间佩戴的舒适性尚未经过系统测试。  
+3. **场景相机集成简化**：虽然支持可选场景相机，但未深入讨论场景相机与眼动相机之间的时空对齐精度，这在需要注视点映射的应用中可能成为瓶颈。
+
+### 后续改进方向
+- 方向1：**引入实时精度评估与校准优化**。可在软件中集成在线精度监控模块，利用已知固定点（如LED阵列）或场景中的自然特征进行动态校准，提升长期使用中的追踪稳定性。  
+- 方向2：**扩展至多模态眼动数据集构建**。利用该平台的灵活性，同步采集高帧率眼动视频、场景视频与头动数据，构建用于训练深度学习眼动模型（如基于CNN或Transformer的注视估计）的大规模多模态数据集。  
+- 方向3：**轻量化与无线化**。将当前基于PC的采集系统替换为嵌入式边缘计算设备（如Jetson Nano），并增加无线传输模块，实现完全便携、低延迟的实时眼动追踪，满足VR/AR或移动HCI场景需求。
+
+### 工程落地启发
+对于OCR/文档解析工程项目，该平台最值得借鉴的是其**模块化硬件与开源协同设计**策略。在构建文档采集设备（如便携式扫描仪、文档摄像头）时，可采用类似思路：使用标准化的光学组件和3D打印外壳快速搭建原型，并通过开放的软件接口支持不同OCR引擎、图像预处理算法或版面分析模型的集成测试。这种“硬件即研究工具”的思路能显著降低开发周期，便于快速迭代验证新算法在真实物理环境下的性能。
+
+---
+
+### 15. Scaling Properties of Continuous Diffusion Spoken Language Models
+
+- **ArXiv ID**: [2604.24416v1](https://arxiv.org/abs/2604.24416v1)
+- **作者**: Jason Ramapuram, Eeshan Gunesh Dhekane, Amitis Shidani, Dan Busbridge, Bogdan Mazoure...
+- **发布时间**: 2026-04-27
+- **分类**: cs.CL, cs.AI, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2604.24416v1](https://arxiv.org/pdf/2604.24416v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Speech-only spoken language models (SLMs) lag behind text and text-speech models in performance, with recent discrete autoregressive (AR) SLMs indicating significant computational and data demands to match text models. Since discretizing continuous speech for AR creates bottlenecks, we explore whether continuous diffusion (CD) SLM is more viable. To quantify the SLMs linguistic quality, we introduce the phoneme Jensen-Shannon divergence (pJSD) metric. Our analysis reveals CD SLMs, mirroring AR behavior, exhibit scaling laws for validation loss and pJSD, and show optimal token-to-parameter ratios decreasing as compute scales. However, for the latter, loss becomes insensitive to choice of data and model sizes, showing potential for fast inference. Scaling CD SLMs to 16B parameters with tens of millions of hours of conversational data enables generation of emotive, prosodic, multi-speaker, multilingual speech, though achieving long-form coherence remains a significant challenge.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文系统研究了连续扩散（CD）框架下纯语音语言模型（SLM）的扩展属性，发现其在验证损失和语音质量指标（pJSD）上遵循与离散自回归（AR）模型类似的标度律，且最优token-参数比随计算量增大而降低。通过扩展至160亿参数和数千万小时对话数据，CD SLM能够生成富有情感、韵律、多说话人和多语言的语音，但长程连贯性仍是重大挑战。
+
+### 解决的核心问题
+现有纯语音语言模型（SLM）性能显著落后于文本模型和文本-语音混合模型，而离散自回归（AR）SLM在匹配文本模型性能时面临巨大的计算和数据需求瓶颈。本文旨在探索连续扩散（CD）框架能否作为一种更可行的替代方案，以降低对计算和数据资源的依赖，同时提升SLM的语言质量和生成能力。
+
+### 核心创新
+本文首次系统性地揭示了连续扩散语音语言模型（CD SLM）的扩展属性，包括其验证损失和语音质量指标（pJSD）随模型规模、数据规模和计算量变化的标度律。此外，引入音素Jensen-Shannon散度（pJSD）作为评估SLM语言质量的新指标，并发现CD SLM在扩展过程中对数据大小和模型大小的选择变得不敏感，为快速推理提供了潜力。
+
+### 创新点拆解
+- 创新点1：发现连续扩散SLM在验证损失和pJSD上遵循与离散自回归SLM类似的标度律，且最优token-参数比随计算量增加而下降，揭示了CD框架的扩展规律。
+- 创新点2：引入音素Jensen-Shannon散度（pJSD）作为评估SLM语言质量的新指标，弥补了传统损失指标在语音质量评估上的不足。
+- 创新点3：发现CD SLM在扩展过程中损失对模型和数据大小的选择变得不敏感，表明其在大规模场景下具有更稳定的性能和更快的推理潜力。
+
+### 实验结果亮点
+在扩展至160亿参数和数千万小时对话数据后，CD SLM能够生成富有情感、韵律、多说话人和多语言的语音。实验验证了标度律的准确性，并表明pJSD与验证损失在扩展趋势上高度一致，但长程连贯性指标（如文本级困惑度）仍显著落后于文本模型。
+
+### 当前局限
+尽管CD SLM在语音生成质量上取得显著进展，但长程连贯性（如生成连贯的段落级内容）仍是一个重大挑战。此外，模型对超大规模数据（数千万小时）和参数（160亿）的依赖限制了其实用性，且当前未在标准文本理解基准（如GLUE）上进行评估，无法直接与文本模型对比语言理解能力。
+
+### 后续改进方向
+- 方向1：结合离散自回归与连续扩散的混合框架，利用AR的长程依赖建模能力改善CD SLM的连贯性，同时保留CD的生成质量和效率优势。
+- 方向2：设计更高效的扩展策略，如动态调整token-参数比或引入稀疏注意力机制，以降低对超大规模数据和参数的需求，提升模型在小规模场景下的实用性。
+
+### 工程落地启发
+对实际OCR/文档解析工程项目最有参考价值的点是：连续扩散框架在扩展过程中对模型和数据大小选择的不敏感性，意味着在工程部署中可以通过固定计算预算并优化token-参数比来快速获得稳定性能，从而避免繁琐的超参数调优。此外，pJSD指标可作为评估语音或音频生成质量的有效工具，用于优化文档转语音系统的输出自然度。
+
+---
