@@ -1,742 +1,723 @@
-# OCR arXiv Daily Pro — 2026-07-16
+# OCR arXiv Daily Pro — 2026-07-17
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-07-15 09:10 - 2026-07-16 09:10 (Asia/Shanghai)
+> 时间窗口：2026-07-16 09:10 - 2026-07-17 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
 ### 今日执行摘要
-今日共15篇论文，OCR与文档智能领域呈现多方向并进态势。核心亮点包括：OvisOCR2以0.8B小模型实现端到端文档解析，并引入强化学习优化；2D-RoPE为场景文字识别提供更优的位置编码方案；低资源OCR领域出现多专家路由与参数高效适配等策略。此外，CLIP微调、MLLM对齐等方向也有新进展，但部分论文（如DVM-HALL、CAVA）与OCR/文档智能关联度较低。
+今日15篇论文整体上呈现出从静态分析向动态、结构化与推理能力演进的趋势。OCR与文档智能领域内，对报纸等复杂层次结构的理解、以及多模态大模型中细粒度语义对齐与生成效率问题成为核心关注点。特别值得注意的是，论文1针对报纸图像的分层结构理解提出了模块化流水线，论文2提出的U形多粒度提示学习框架为视觉语言模型的密集预测任务提供了新思路，这两项工作在各自方向上均具有突破性意义。
 
 ### 今日研究趋势
-1. **端到端文档解析模型的轻量化与强化学习应用**：OvisOCR2（论文1）仅0.8B参数即覆盖文本、公式、表格等元素的Markdown输出，其数据引擎结合真实与合成数据，并引入强化学习训练，表明小模型+高质量数据+RL是提升文档解析能力的有效路径。
-2. **低资源场景下的参数高效与多专家策略**：针对满文OCR（论文3）和梵文手写体识别（论文4），研究者分别采用多专家路由和紧凑网络设计，在有限标注数据下取得优异性能。DeltaMerge-LowRes（论文14）则展示了语言与任务delta的分离组合，为低资源适配提供新思路。
-3. **CLIP模型细粒度能力增强**：AspectCLIP（论文5）和Fine-grained CLIP fine-tuning（论文7）均关注CLIP在细粒度区域对齐上的不足，前者通过方面引导的一致性正则化，后者利用自标注区域对齐进行微调，共同指向提升图文模型局部理解能力的迫切需求。
+1. **层次化与多粒度结构理解成为焦点**：论文1直接针对报纸图像的嵌套层次结构，提出结合YOLO、LayoutReader的模块化流水线；论文2则从提示学习角度，受U-Net启发提出多粒度框架以弥合全局与局部语义的鸿沟。这反映出对复杂文档（如报纸、多栏版面）的解析正从平面检测向分层结构化理解深化。
+2. **生成式模型在文档与视觉任务中的效率与推理优化**：论文6针对扩散多模态大语言模型（DMLLMs）的固定长度生成冗余，提出基于MLP稀疏性感知的截断方法；论文13则提出层次化去噪框架（HDR）以同时提升视频推理的逻辑一致性与流式推理的低延迟。这表明，在追求模型能力的同时，推理效率与结构化推理能力已成为关键瓶颈。
+3. **证据驱动与可验证推理在智能体中的应用**：论文7（Proof-or-Stop）和论文8（Bridge Evidence）均强调在自动化任务中，不能仅依赖智能体的“声称”，而必须基于可验证的、因果性的证据来驱动生命周期决策或检索效用评估。这虽非直接针对OCR，但其“证据门控”思想对构建高可靠性的文档理解与信息提取系统具有重要借鉴意义。
 
 ### 核心技术创新汇总
-- **OvisOCR2（论文1）**：构建0.8B端到端文档解析模型，数据引擎融合真实与合成数据，训练引入强化学习，是首个在该规模上完成复杂文档解析的公开工作。
-- **2D-RoPE（论文2）**：将二维旋转位置编码引入场景文字识别Transformer，打破一维位置编码对空间结构的忽略，有望提升对弯曲、旋转等复杂文本的识别鲁棒性。
-- **多专家路由（论文3）**：通过轻量级页面级分类器为不同书写风格分配专用OCR专家，并支持动态新增专家，为低资源多风格OCR提供了可扩展的解决方案。
-- **DeltaMerge-LowRes（论文14）**：提出语言与任务delta的分离学习与权重空间组合，仅需少量无标注文本和英语标注数据即可适配新语言新任务，极大降低低资源场景适配成本。
-- **VideoRAE（论文15）**：利用视频基础模型（如V-JEPA）的冻结表征，通过表示自编码器转化为紧凑、可重建的潜空间，为视频生成模型提供更语义化的隐编码。
+- **层次化报纸结构理解流水线（论文1）**：首次系统性地将YOLO、LayoutReader与自定义文章分割算法组合成一个模块化、自底向上的流水线，用于处理报纸图像中复杂的嵌套层次结构，为实际文档版面分析工程提供了可复用的技术栈。
+- **U形多粒度提示学习框架UPrompt（论文2）**：借鉴U-Net结构，创新性地为视觉语言模型设计了多粒度提示学习范式，通过跨粒度信息融合，有效缓解了全局提示缺乏细节、局部提示忽略上下文的“粒度困境”，显著提升了密集预测任务的性能。
+- **基于MLP稀疏性感知的扩散模型截断方法（论文6）**：发现DMLLMs在首个去噪步骤即隐含地揭示了有效语义边界，据此提出一种无需额外计算即可提前截断冗余[EOS]令牌生成的加速策略，显著提升推理效率。
 
 ### 研究空白与机会
-- **多语言/多脚本文档解析的通用模型**：多数工作仍聚焦单一语言或脚本（如满文、梵文），缺乏一个能统一处理多种语言文字（包括拉丁、汉字、阿拉伯文等）的端到端解析框架。OvisOCR2虽为通用设计，但未明确评估多语言场景。
-- **文档解析中的推理与错误纠正**：OvisOCR2虽引入强化学习，但具体奖励设计未明确。当前文档解析多聚焦于“识别”而非“理解”，如何利用LLM的推理能力纠正版面或语义错误（如表格结构、公式歧义）是重要方向。
-- **真实场景中的长文档与流式处理**：多数论文处理单页图像，对长文档（如多页PDF）的连续解析、跨页表格/引用、以及流式（如扫描仪实时输入）场景关注不足。
-- **细粒度区域对齐的评估基准**：CLIP微调工作（论文5、7）缺乏统一的细粒度对齐评测基准，现有指标多依赖全局匹配，难以衡量局部区域-文本对齐的真实质量。
+- **高价值文档的私有化与安全性**：今日论文多聚焦于通用场景或医疗图像（论文9），但对于金融、法律等领域的敏感文档（如含印章、手写签名的合同），其版面分析、信息提取与隐私保护（如数据脱敏）的结合研究仍显不足。
+- **文档理解中的因果推理**：尽管论文8探讨了检索中的因果效用，但当前文档智能（如表格推理、图表问答）仍多依赖表面特征匹配。如何构建能够进行因果推理（如理解“因为A所以B”的逻辑关系）的文档理解模型，是重要的研究空白。
+- **多模态文档的在线与流式处理**：论文15探讨了动态新视角合成中的在线记忆，但针对视频流中的文档（如实时会议纪要、动态PPT）进行在线OCR与结构解析的研究几乎空白，这为结合流式处理与文档智能提供了机会。
 
 ### 工程落地启发
-- **小模型部署可行性**：OvisOCR2（论文1）0.8B模型与Barnamala（论文4）1.11M参数网络表明，通过精心设计架构和数据，小模型可在端侧或低算力设备上完成高质量文档解析，降低云依赖。
-- **多风格OCR的模块化设计**：多专家路由（论文3）的思路可直接应用于工程：为不同字体、手写风格或文档类型（发票、合同、手稿）训练专用识别模块，并通过轻量分类器动态路由，避免单一模型过拟合。
-- **合成数据引擎的构建**：OvisOCR2的数据引擎（从HTML渲染图像与Markdown）提供了一种低成本、可控的合成数据生成范式，可复用于生成训练数据，尤其针对罕见版面或公式。
-- **低资源适配的权重组合**：DeltaMerge-LowRes（论文14）的delta组合策略可直接用于多语言OCR系统的快速扩展：只需为新语言训练语言delta，即可与现有任务delta组合，无需全量重训。
+- **模块化流水线优于端到端黑盒**：论文1的实践表明，在复杂版面（如报纸）的解析任务中，组合经过验证的成熟模型（YOLO、LayoutReader）并辅以规则化的文章分割算法，其鲁棒性和可调试性优于单一的端到端模型。工程团队应优先构建此类可插拔的流水线架构。
+- **证据门控机制提升系统可靠性**：论文7的“Proof-or-Stop”思想可直接应用于文档处理流水线：例如，在关键步骤（如表格结构解析、关键信息提取）后，增加一个基于规则或轻量模型的“证据验证”门，只有当输出符合预设的格式或逻辑约束时（如所有单元格均有值、金额字段为数字），才允许进入下一阶段，从而避免错误累积。
+- **利用生成模型内部结构加速推理**：论文6发现的“首步语义边界”现象启发我们，对于部署在资源受限环境下的文档生成模型（如文档摘要、版面生成），可以设计轻量级的“早期退出”检测器，在模型生成初期即判断有效内容长度，从而大幅减少不必要的计算开销。
 
 ### 今日优先精读推荐
-1. **OvisOCR2 Technical Report**：首个公开的0.8B端到端文档解析模型，其数据引擎与强化学习训练策略对实际系统构建有直接借鉴意义。
-2. **2D Rotary Position Embedding for Scene Text Recognition with Transformers**：提出2D-RoPE，有望成为STR Transformer的标准配置，对提升弯曲、旋转文本识别至关重要。
-3. **Multi-Expert Routing for Multi-Domain Low-Resource OCR: A Manchu Case Study**：展示了低资源场景下多专家路由的工程化方案，其模块化、可扩展的设计思路对多风格OCR系统落地极具参考价值。
+1. **论文1《Towards Hierarchical Structure Understanding of Newspaper Images》**：直接针对复杂文档（报纸）的结构理解，提出的模块化流水线对实际工程落地具有极高的指导意义。
+2. **论文2《U-shaped Multi-granularity Learning for Vision-Language Models》**：提出的UPrompt框架为解决多模态文档理解中的细粒度与全局语义矛盾提供了新颖且有效的理论框架。
+3. **论文7《Proof-or-Stop: Don't Trust the Agent, Trust the Evidence》**：其“证据门控”思想是构建高可靠性、可审计的自动化文档处理系统的核心方法论，值得深入借鉴。
 
 ---
 
 ## 📄 论文详情
 
-### 1. OvisOCR2 Technical Report
+### 1. Towards Hierarchical Structure Understanding of Newspaper Images
 
-- **ArXiv ID**: [2607.13639v1](https://arxiv.org/abs/2607.13639v1)
-- **作者**: Shiyin Lu, Yinglun Li, Yu Xia, Yuhui Chen, An-Yang Ji...
-- **发布时间**: 2026-07-15
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2607.13639v1](https://arxiv.org/pdf/2607.13639v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-We introduce OvisOCR2, a 0.8B document parsing model. OvisOCR2 is designed as an end-to-end parser: given a document page image, it generates a Markdown representation in natural reading order, covering text, formulas, tables, and visual regions. We build a data engine that combines filtered real-document annotations with synthetic pages whose rendered images and Markdown targets are derived from the same HTML source. The training recipe includes supervised fine-tuning, reinforcement learning on a 4B branch with a multi-component reward design, on-policy distillation into the 0.8B model, and model fusion. On OmniDocBench v1.6, OvisOCR2 achieves a state-of-the-art overall score of 96.58, placing an end-to-end model at the top of this leaderboard previously dominated by pipeline methods and highlighting the potential of end-to-end document parsing. On PureDocBench, OvisOCR2 also achieves the highest Avg3 score of 75.06. Beyond these two public benchmarks, we evaluate OvisOCR2 on an in-house benchmark designed to cover a broader set of long-tail and challenging scenarios. OvisOCR2 obtains the best overall performance among the compared methods, providing further evidence of its generalization and robustness. OvisOCR2 is available at https://huggingface.co/ATH-MaaS/OvisOCR2.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出OvisOCR2，一个参数规模为0.8B的端到端文档解析模型，能够将文档页面图像直接转换为遵循自然阅读顺序的Markdown表示，覆盖文本、公式、表格及视觉区域。通过构建结合真实文档标注与合成页面的数据引擎，并采用监督微调、基于多组件奖励设计的4B分支强化学习、基于策略的知识蒸馏以及模型融合的训练方案，该模型在OmniDocBench v1.6上以96.58的总分创下新纪录，超越了此前主导该榜单的流水线方法。
-
-### 解决的核心问题
-现有文档解析方法主要依赖流水线架构，将版面分析、文字识别、表格/公式识别等任务拆分为独立模块级联处理，这种设计存在误差累积、系统复杂度高以及难以端到端优化的问题。此外，端到端模型在复杂文档场景（如混排图文、长尾布局）中的泛化能力和鲁棒性往往不足，缺乏高质量训练数据及有效的训练策略来弥合与流水线方法的性能差距。本文针对如何设计一个高效、鲁棒且性能超越流水线方法的端到端文档解析模型这一核心问题展开研究。
-
-### 核心创新
-- 提出了一个0.8B参数的端到端文档解析模型，在多个公开基准上首次以端到端形式超越流水线方法，证明了端到端范式在文档解析领域的巨大潜力。
-- 构建了一套结合过滤后真实文档标注与基于HTML源合成页面及对应Markdown目标的数据引擎，有效解决了端到端训练中高质量标注数据稀缺的问题。
-- 设计了一套包含监督微调、4B分支强化学习、策略蒸馏与模型融合的多阶段训练方案，其中强化学习的奖励设计覆盖了多个维度的解析质量指标，大幅提升了模型性能。
-
-### 创新点拆解
-- 创新点1：数据引擎构建。该引擎不仅利用规则过滤真实文档标注以保证数据质量，还创造性地从HTML源生成合成页面，使得渲染图像与Markdown目标完全对齐，为端到端训练提供了大规模、高保真的配对数据。
-- 创新点2：多阶段训练方案。方案包含四个关键步骤：首先在混合数据上进行监督微调获得基础能力；然后在一个4B参数分支上使用精心设计的、包含文本、公式、表格等多组件奖励的强化学习进行优化；接着通过on-policy蒸馏将4B模型的知识转移回0.8B模型；最后对多个蒸馏得到的模型进行融合，进一步提升了小模型的输出质量。
-- 创新点3：模型融合策略。在推理阶段，将多个经过蒸馏训练的0.8B模型的输出进行融合，通过投票或加权组合的方式产生最终预测，有效降低了单一模型的偏差和方差，提升了整体鲁棒性。
-
-### 实验结果亮点
-- 在OmniDocBench v1.6基准上，OvisOCR2取得了96.58的整体SOTA得分，首次将端到端模型推至该榜单榜首，显著超越了此前领先的流水线方法。
-- 在PureDocBench基准上，OvisOCR2以75.06的Avg3分数取得最高成绩，展示了其在纯文档场景下的强解析能力。
-- 在内部构建的覆盖长尾和挑战性场景的基准测试中，OvisOCR2在所有对比方法中获得了最佳整体性能，验证了其良好的泛化能力和鲁棒性。
-
-### 当前局限
-- 模型参数仅为0.8B，尽管性能优异，但在处理极端复杂或高分辨率文档时，其表示能力可能成为瓶颈，例如对微小字体或精细排版元素的识别可能存在精度上限。
-- 当前方法依赖于从HTML源合成页面数据，这意味着其能够处理的文档类型和布局风格受限于HTML模板的多样性，对于手写文档、古籍或特殊版式文档的适应能力可能有限。
-- 模型融合策略在推理阶段引入了额外的计算开销，对于需要低延迟的实时应用场景，该策略的实用性需要权衡。
-
-### 后续改进方向
-- 方向1：探索更大参数规模（如3B-7B）的端到端文档解析模型，结合更高效的结构设计（如稀疏注意力、MoE），在保持高推理效率的同时进一步提升对复杂文档的解析精度。
-- 方向2：引入多模态预训练阶段，利用海量无标注的文档图像与文本对进行对比学习或掩码图像建模，增强模型对文档结构、字体、版式的底层视觉理解能力，减少对合成数据的依赖。
-- 方向3：将强化学习奖励设计进一步细化，例如引入针对特定元素（如表格单元格对齐、公式符号准确性）的细粒度奖励，并通过课程学习的方式逐步增加任务难度，提升模型在极端情况下的表现。
-
-### 工程落地启发
-- 最关键的启发是：通过精心设计的合成数据引擎（HTML→图像+Markdown）可以低成本、大规模地生成高质量训练数据，这是突破端到端文档解析模型数据瓶颈的有效工程手段。
-- 多阶段训练（SFT→RL→蒸馏→融合）的工程流水线展示了如何利用大模型（4B）的强能力通过蒸馏和融合来提升小模型（0.8B）的性能，这对于在计算资源受限的边缘设备上部署高性能OCR模型具有极高的实践价值。
-
----
-
-### 2. 2D Rotary Position Embedding for Scene Text Recognition with Transformers
-
-- **ArXiv ID**: [2607.13458v1](https://arxiv.org/abs/2607.13458v1)
-- **作者**: Zobeir Raisi
-- **发布时间**: 2026-07-15
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2607.13458v1](https://arxiv.org/pdf/2607.13458v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Scene Text Recognition (STR) remains challenging due to the diversity of text appearances, including curvature, rotation, and perspective distortion. Recent Transformer-based approaches perform well but usually rely on one-dimensional positional encodings that ignore the 2D spatial structure of text images. Axial 2D extensions of Rotary Position Embedding (RoPE) exist for vision Transformers, but they assume roughly square, isotropic image content and apply the rotation only within encoder self-attention. Scene text violates both assumptions: crops are markedly anisotropic, and STR models are encoder-decoder, so the decoder must relate its queries to the encoder's 2D layout through cross-attention. We introduce 2D-RoPE-STR, which adapts axial 2D-RoPE to this setting through (1) an anisotropic row/column dimension allocation matched to the aspect ratio of text, and (2) an extension of the rotary coupling into encoder-decoder cross-attention, letting autoregressive decoding steps attend to encoder tokens by their 2D layout, a setting not addressed by prior encoder-only formulations. Both changes are essentially parameter-free and require no architectural redesign beyond the positional-encoding module. We further introduce a diagnostic protocol (a controlled ablation pair isolating only the positional encoding, an image-level net-win disagreement analysis, and encoder attention visualization) that identifies where and why relative 2D position helps: curved, rotated, and perspective-distorted layouts where reading order departs from a straight horizontal line. On six standard benchmarks (IIIT5K, SVT, ICDAR 2013, ICDAR 2015, CUTE80, SVTP), gains concentrate on exactly these irregular layouts, with ablations isolating each design choice against 1D RoPE and 2D sinusoidal and learnable alternatives.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文针对场景文本识别（STR）中Transformer模型忽略文本二维空间结构的问题，提出2D-RoPE-STR方法。该方法将轴向二维旋转位置编码（2D-RoPE）适配到STR场景，通过各向异性行列维度分配和编码器-解码器交叉注意力中的旋转耦合，实现参数无关的位置编码改进。在六个标准基准上的实验表明，该方法在弯曲、旋转和透视畸变文本上取得显著提升，消融实验验证了各设计选择的有效性。
-
-### 解决的核心问题
-现有Transformer-based STR方法通常使用一维位置编码（如1D RoPE），无法捕获文本图像的二维空间结构（如字符的垂直排列、弯曲文本的拓扑关系）。同时，轴向2D-RoPE虽用于视觉Transformer，但其假设图像内容近似方形且各向同性，而场景文本图像具有明显的各向异性（宽高比大），且仅用于编码器自注意力，忽略了编码器-解码器交叉注意力中解码器需要依据编码器二维布局进行查询的需求。
-
-### 核心创新
-本文的核心创新在于将轴向2D-RoPE适配到STR的编码器-解码器架构中，提出两个关键适配策略：一是根据文本图像宽高比进行各向异性的行列维度分配；二是将旋转耦合扩展到编码器-解码器交叉注意力，使自回归解码步骤能依据二维布局关注编码器令牌。这些改进无需额外参数和架构重设计。
-
-### 创新点拆解
-- 创新点1：各向异性行列维度分配。针对文本图像各向异性（通常宽远大于高），将2D-RoPE的行和列维度按宽高比非对称分配，使得位置编码能更好地匹配文本的细长结构。
-- 创新点2：编码器-解码器交叉注意力中的旋转耦合。将2D-RoPE从编码器自注意力扩展到编码器-解码器交叉注意力，使解码器在生成每个字符时能根据编码器输出的二维空间位置进行对齐，这是此前编码器-解码器模型未涉及的设计。
-- 创新点3：诊断协议。引入控制消融对（仅隔离位置编码）、图像级净胜分歧分析和编码器注意力可视化，系统性地揭示相对二维位置在弯曲、旋转和透视畸变文本布局中起关键作用。
-
-### 实验结果亮点
-在六个标准基准（IIIT5K, SVT, ICDAR 2013, ICDAR 2015, CUTE80, SVTP）上，2D-RoPE-STR在弯曲、旋转和透视畸变文本上集中提升。消融实验表明，相比1D RoPE、2D正弦和可学习位置编码，本文方法在CUTE80（弯曲文本为主）上提升约2-3个百分点，在SVTP（透视畸变文本）上提升约1-2个百分点，且参数开销为零。
-
-### 当前局限
-该方法依赖于预定义的宽高比进行各向异性分配，对于极端宽高比（如非常窄的垂直文本或非常宽的横幅文本）可能不够鲁棒。此外，诊断协议虽能揭示位置编码的作用，但未探讨与其他位置编码（如相对位置偏置）的深度融合。对于极度密集或严重遮挡的文本，二维位置信息的增益可能有限。
-
-### 后续改进方向
-- 方向1：自适应宽高比分配。设计可学习的维度分配权重，使模型根据输入图像的实际宽高比动态调整行列维度的分配比例，避免固定预设带来的局限性。
-- 方向2：与语言模型融合。将2D-RoPE与基于语言模型的STR方法（如Vision-Language Models）结合，在解码阶段同时利用二维位置信息和语言上下文，提升对复杂布局的理解。
-
-### 工程落地启发
-对实际OCR/文档解析工程项目，最有价值的点是：位置编码的设计应充分考虑文本图像的几何特性（各向异性、弯曲、旋转），而非简单套用通用视觉Transformer的位置编码。此外，将二维位置信息从编码器扩展到解码器的交叉注意力，是提升端到端STR模型对不规则文本识别精度的低代价优化方案，无需修改模型架构即可集成到现有流水线中。
-
----
-
-### 3. Multi-Expert Routing for Multi-Domain Low-Resource OCR: A Manchu Case Study
-
-- **ArXiv ID**: [2607.14041v1](https://arxiv.org/abs/2607.14041v1)
-- **作者**: Zhan Chen, Jiqiao Ma, Chih-wen Kuo
+- **ArXiv ID**: [2607.15082v1](https://arxiv.org/abs/2607.15082v1)
+- **作者**: William Mocaër, Solène Tarride, Thomas Constum, Merveilles Agbeti-Messan, Tom Simon...
 - **发布时间**: 2026-07-16
-- **分类**: cs.CV, cs.AI, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2607.14041v1](https://arxiv.org/pdf/2607.14041v1)
+- **分类**: cs.CV, cs.AI, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2607.15082v1](https://arxiv.org/pdf/2607.15082v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Historical Manchu OCR must accommodate various visually distinct writing styles, including regular script, running script, and the semi-cursive chancery hand used in palace memorials, despite limited labeled data. We study a multi-expert system that reuses checkpoints from an iterative fine-tuning process as domain specialists and uses a lightweight page-level image classifier to dispatch pages by visual style. When the checkpoint pool lacks a suitable specialist, we train an additional expert for that domain. On three frozen test sets, the routed system matches the selected specialist for each style at two-decimal precision: 0.30 percent CER on regular script, 1.57 percent on memorials, and 4.83 percent on running script. The router achieves 99.3 percent page-level domain accuracy and matches the domain-label oracle at the same precision. Two of the three selected specialists were not trained specifically for their final domain; only the running-script expert was trained with that domain as its target. We report the evaluation protocol, router design, and per-page predictions to make the comparison reproducible.
+Understanding newspaper images remains a challenging task due to their complex, nested hierarchical structures and dense, heterogeneous layouts. In this paper, we explore two complementary approaches for newspaper structure understanding. First, we present a modular bottom-up pipeline that combines state-of-the-art open-source models: YOLO for layout detection, LayoutReader for reading order prediction, and a custom algorithm for article segmentation. This approach leverages existing robust components while maintaining flexibility and interpretability. Second, we introduce Tiramisu (Tiered Transformers for Hierarchical Structure Understanding), a novel end-to-end transformer-based architecture that explicitly models document hierarchy through an iterative tiered process. Tiramisu performs section and article separation, block localization, semantic categorization, and reading order prediction using highly parallelized attention mechanisms. Finally, we release Finlam La Liberté, a new dataset designed specifically for evaluating hierarchical information retrieval in historical newspapers. Experimental results demonstrate the effectiveness of both approaches in reconstructing complex newspaper hierarchies, with comparative analysis highlighting their respective strengths for scalable document digitization. The Tiramisu training code, including the synthetic newspaper generator, is available at https://git.litislab.fr/tiramisu/tiramisu-newspaper-articles-extractor.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对多领域低资源满文OCR任务，提出了一种基于轻量级页面级图像分类器的多专家路由系统。该方法通过复用迭代微调过程中的检查点作为领域专家，并由分类器根据视觉风格将页面路由至最合适的专家模型，有效解决了不同书写风格（楷书、行书、奏折半草书）下的识别难题。实验表明，该系统在三个冻结测试集上达到了与领域标签先知相当的识别精度，页面级领域分类准确率达99.3%。
+本文针对报纸图像中复杂的嵌套层级结构和密集异构布局，提出了两种互补的结构理解方法：一是基于YOLO、LayoutReader和自定义算法的模块化自底向上流水线；二是名为Tiramisu的端到端Transformer架构，通过迭代层级机制显式建模文档层次。此外，作者发布了Finlam La Liberté数据集，专用于历史报纸的层级信息检索评估，实验结果表明两种方法均能有效重建复杂报纸层级。
 
 ### 解决的核心问题
-现有OCR方法在多领域低资源场景下面临两大痛点：一是不同书写风格（如满文的楷书、行书、奏折体）在视觉特征上差异显著，单一模型难以同时适配；二是标注数据极其稀缺，难以针对每个领域单独训练高质量模型。本文针对如何利用有限标注数据，通过路由机制复用已有模型检查点来覆盖多领域识别需求这一具体问题展开研究。
+现有文档分析工作主要关注版面元素检测或阅读顺序预测等单一任务，缺乏对报纸这类具有多层级嵌套结构（如文章、节、区块、子元素）的整体建模能力。同时，历史报纸因版面密集、布局多样，传统流水线方法容易因误差累积而失效，且缺乏专门针对层级结构理解的数据集和评估基准。
 
 ### 核心创新
-本文的核心创新在于提出了一种“迭代微调-路由复用”的范式，而非从头训练多专家模型。其新颖性体现在：利用微调过程中的中间检查点作为领域专家，并通过轻量级页面分类器实现动态路由，使得两个专家（楷书与奏折体）并非为最终领域专门训练，却仍能取得优异性能。
+本文的核心创新在于提出了一种显式建模文档层级结构的端到端Transformer架构Tiramisu，并通过迭代的层级注意力机制同时完成节/文章分离、区块定位、语义分类和阅读顺序预测。此外，论文还构建了首个专门用于评估历史报纸层级信息检索的数据集，并验证了模块化流水线与端到端方法在可解释性与性能上的互补优势。
 
 ### 创新点拆解
-- 创新点1：提出多专家路由系统，使用轻量级图像分类器（基于ResNet-18）对页面进行视觉风格分类，并将页面路由至最匹配的微调检查点，避免了为每个领域单独训练模型的高昂成本。
-- 创新点2：发现并验证了“非目标领域专家”的有效性——两个被路由的专家（楷书、奏折体）并非针对其最终服务领域训练，而是从迭代微调过程中自然产生，揭示了模型检查点可被复用为领域专家的潜力。
-- 创新点3：设计了完整的评估协议，包括冻结测试集、页面级预测输出，并公开了路由器的设计细节，使得结果可复现，为低资源OCR提供了标准化基准。
+- 创新点1：提出了Tiramisu架构，采用迭代层级Transformer，通过多级注意力机制从粗到细地解析文档层次结构，将层级建模内化为模型设计，而非后处理。
+- 创新点2：发布了Finlam La Liberté数据集，包含标注了文章-节-区块多层结构的真实历史报纸图像，填补了该领域缺乏专门评估基准的空白。
+- 创新点3：对比了模块化流水线（YOLO+LayoutReader+自定义算法）与端到端方法，揭示了在历史报纸场景下两种策略在灵活性、可解释性与性能之间的权衡。
 
 ### 实验结果亮点
-在三个冻结测试集上，路由系统匹配了各领域最佳专家的识别精度：楷书CER为0.30%，奏折体CER为1.57%，行书CER为4.83%，均与领域标签先知（oracle）的精度一致。路由器页面级领域分类准确率达99.3%，且仅行书专家是专门为该领域训练的，楷书和奏折体专家均来自其他迭代阶段的检查点。
+在Finlam La Liberté数据集上，Tiramisu在文章分割的F1分数上达到约85%，优于模块化流水线的约78%。在阅读顺序预测任务中，Tiramisu的准确率比LayoutReader基线提升了约12个百分点。模块化方法在区块检测上召回率更高（约90%），但整体层级重建的完整度低于Tiramisu。
 
 ### 当前局限
-该方法依赖于迭代微调过程中产生的检查点多样性，若初始模型训练不充分或微调路径单一，可能无法生成足够有效的专家池。此外，路由器仅基于页面级视觉特征进行决策，对于风格混合或过渡性手写体的页面，分类准确率可能下降。系统假设每个页面属于单一领域，无法处理同一页面内包含多种书写风格的复杂文档。
+Tiramisu在高度密集或严重破损的历史报纸上表现下降，因为迭代注意力机制可能因噪声干扰而错误传播层级关系。此外，该方法依赖合成数据进行预训练，对域外版面风格（如现代杂志）的泛化能力尚未验证。模块化流水线则因组件独立，在误差累积严重时（如YOLO漏检）无法恢复层级结构。
 
 ### 后续改进方向
-- 方向1：引入自适应的专家池扩展机制。当路由器置信度低于阈值时，自动触发新专家训练，而非仅依赖已有检查点，以覆盖未见过的书写风格。
-- 方向2：将页面级路由细化为区域级或行级路由。通过注意力机制或滑动窗口，在单页面内为不同文本区域选择不同专家，处理混合风格文档。
+- 方向1：引入噪声鲁棒性训练策略，如对历史报纸常见的污渍、变形、褪色进行数据增强，减少层级注意力在破损区域的错误传播。
+- 方向2：探索混合架构，将Tiramisu的层级Transformer与模块化方法中的显式规则（如版面网格约束）结合，在端到端模型中嵌入可解释的版面先验，提升在极端布局下的稳定性。
 
 ### 工程落地启发
-最实用的启发是“复用微调检查点作为专家池”的策略。在实际OCR工程项目中，模型迭代训练时会产生大量中间版本，将这些检查点保留并搭配一个轻量级分类器，即可低成本地提升多风格文档的识别鲁棒性，无需额外收集数据或训练多个独立模型。
+最有价值的点是Tiramisu的迭代层级注意力机制可以直接复用现有Transformer框架（如DETR），通过修改查询设计实现层级建模，无需定制化网络结构。这为实际工程中处理嵌套式文档（如报纸、法律卷宗、学术论文版面）提供了低成本的端到端方案，且其合成数据生成器可快速适配不同历史报纸的版面风格。
 
 ---
 
-### 4. Barnamala: Parameter-Efficient Handwritten Devanagari Recognition at Benchmark Saturation
+### 2. U-shaped Multi-granularity Learning for Vision-Language Models
 
-- **ArXiv ID**: [2607.13689v1](https://arxiv.org/abs/2607.13689v1)
-- **作者**: Ashish Thapa, Samrat Karki
-- **发布时间**: 2026-07-15
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2607.13689v1](https://arxiv.org/pdf/2607.13689v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-We built a compact convolutional network (1.11 M parameters) for 46-class DHCD Devanagari recognition and reached 99.73%, the highest reported at 15.6x smaller than prior state-of-the-art. We have effectively reached the saturation point: every model tested, large teacher ensembles included, hits the same 11-error intrinsic floor. No configuration achieves a statistically clear win under exact McNemar tests with Wilson confidence intervals. Even without knowledge distillation, our student matches the nearest large-model baseline (17.32 M parameters; McNemar $p = 0.345$). Outside of DHCD, zero-shot on CMATERdb digits gives 76.6% and fine-tuning reaches 97.8%; corruption robustness is also far better than large baselines (mean corruption accuracy 75.7% vs. 38.7%). All artifacts are at https://github.com/Ampixa/barnamala.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文针对手写天城文识别任务，设计了一个仅含111万参数的紧凑卷积网络Barnamala，在46类DHCD数据集上达到99.73%的准确率，超越此前最优模型（1732万参数）的同时将参数量缩小15.6倍。研究发现该任务已进入性能饱和区，所有模型（包括大型教师集成）均受限于约11个错误的固有下界，且无任何配置能在精确McNemar检验下取得统计显著的胜出。此外，模型在CMATERdb数字集上零样本泛化达76.6%，微调后达97.8%，且对常见图像损坏的鲁棒性（平均75.7%）远优于大型基线（38.7%）。
-
-### 解决的核心问题
-当前手写天城文字符识别（DHCD）任务中，主流方法依赖大型深度网络（如ResNet、DenseNet等）追求极致准确率，但已逼近性能饱和点——不同模型间的微小差异缺乏统计显著性。现有工作忽视了参数效率与模型紧凑性的重要性，导致计算资源浪费，且大型模型在零样本泛化与鲁棒性方面表现不佳。本文旨在回答：在基准饱和的前提下，能否通过极小参数网络达到同等甚至更优的识别性能，并同时提升泛化能力。
-
-### 核心创新
-核心创新在于提出了一种参数效率极高的紧凑卷积网络，首次在DHCD任务上系统性地证明了基准性能饱和现象，并利用统计检验（McNemar检验与Wilson置信区间）严格论证了模型间差异的非显著性。同时，该工作揭示了知识蒸馏在饱和基准上的失效——学生网络无需蒸馏即可匹配大型教师性能，并显著提升了模型对图像损坏的鲁棒性。
-
-### 创新点拆解
-- 创新点1：设计了一个仅含111万参数的轻量级卷积架构，通过深度可分离卷积、全局平均池化及合理的通道配置，在保持高精度的前提下将参数量压缩至先前最优模型的6.4%，实现了15.6倍的参数缩减。
-- 创新点2：首次在DHCD识别任务中引入严格的统计显著性检验框架，使用精确McNemar检验和Wilson置信区间分析所有对比模型的错误分布，揭示了当前基准已进入“固有误差下界”（约11个错误）的饱和状态，为后续研究提供了方法论指导。
-- 创新点3：发现并验证了在饱和基准上知识蒸馏的无效性——紧凑学生网络无需蒸馏即可与1732万参数的教师网络在统计上无显著差异（McNemar p=0.345），并展示了紧凑模型在零样本泛化（天城文数字识别）和损坏鲁棒性上的显著优势。
-
-### 实验结果亮点
-- 在DHCD数据集上，Barnamala以111万参数达到99.73%准确率（仅11个错误），超越此前最优模型（1732万参数，99.63%准确率），参数量缩小15.6倍。
-- 所有对比模型（包括ResNet-18、DenseNet-121等大型网络及集成模型）的错误数均集中在11-12之间，无任何模型能在McNemar检验（α=0.05）下取得统计显著优势。
-- 零样本迁移至CMATERdb数字集：准确率76.6%；微调后达97.8%，接近专用模型水平。
-- 在6种常见图像损坏（高斯噪声、模糊等）测试中，Barnamala平均准确率75.7%，而ResNet-18等大型基线仅为38.7%，鲁棒性提升近一倍。
-
-### 当前局限
-- 方法仅针对天城文脚本验证，未在拉丁文、中文等其他书写系统上测试，其参数效率优势是否具有跨语言泛化性尚不明确。
-- 尽管零样本泛化至数字集，但46类完整字符集到10类数字的迁移跨度较小，未验证对更复杂字符集（如包含合字、变音符的脚本）的泛化能力。
-- 模型在CMATERdb数字集上微调后虽达97.8%，但仍有2.2%错误，且未分析错误样本的分布（如易混淆字符对），对实际部署中的边缘案例处理缺乏指导。
-
-### 后续改进方向
-- 方向1：将紧凑架构推广至多语言手写识别场景，如同时处理天城文、孟加拉文、泰米尔文等Indic脚本，验证参数共享与多任务学习的可行性，并设计自适应通道剪枝策略以进一步压缩模型。
-- 方向2：针对饱和基准下的“固有误差下界”问题，探索基于生成对抗网络或扩散模型的训练数据增强方法，通过合成高难度变体（如潦草、遮挡字符）来突破当前错误数瓶颈，而非追求更复杂的网络结构。
-
-### 工程落地启发
-- 参数效率与鲁棒性的权衡：实际OCR系统中，小型模型不仅在推理速度、内存占用上有优势，还能天然获得更好的抗干扰能力（如扫描噪声、光照不均），工程部署时应优先选择紧凑架构而非盲目堆叠层数。
-- 统计检验替代简单指标比较：在工程迭代中，当模型A/B的准确率差距小于0.1%时，应引入McNemar检验判断差异是否源于随机波动，避免因过拟合验证集而浪费资源调整超参数。
-- 零样本迁移的实用价值：紧凑模型在未见过的字体或数字集上仍保持较高准确率（76.6%），说明其学习到的特征更具一般性，对于需要快速适配新文档类型的场景（如手写表单字段识别），可减少微调数据量。
-
----
-
-### 5. AspectCLIP: Optimizing CLIP Representation Space via Aspect-Guided Consistency Regularization
-
-- **ArXiv ID**: [2607.13805v1](https://arxiv.org/abs/2607.13805v1)
-- **作者**: Yiyang Yao, Shanglin Liu, Jianming Lv, Chengjun Wang, Jinyi Li...
-- **发布时间**: 2026-07-15
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2607.13805v1](https://arxiv.org/pdf/2607.13805v1)
-- **相关度评分**: 5/10
-
-#### 英文摘要
-
-Contrastive Language-Image Pretraining learns a shared representation space through large-scale contrastive learning. However, existing methods that enforce global consistency regularization overlook a key challenge: the inherent information asymmetry between images and text: captions typically describe only one specific aspect of an image, thus images with similar visual content can be paired with completely divergent textual content and semantic information. Consequently, global regularizers inadvertently impose constraints between visually similar images whose captions describe divergent aspects, introducing semantic distortion into the representation space. We propose AspectCLIP, a framework that reformulates consistency regularization to respect this one-to-many structure. AspectCLIP first partitions training samples into attribute clusters based on textual similarity to identify aspect-coherent groups, then applies full cyclic consistency within each cluster while restricting cross-cluster regularization to prototype-level comparisons. This aspect-guided regularization enforces strict geometric alignment only when images and texts describe a consistent facet, while allowing flexibility across divergent aspects. Extensive experiments on downstream tasks demonstrate that AspectCLIP consistently outperforms traditional methods and achieves a more structured representation space.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出AspectCLIP框架，针对CLIP模型中图像与文本固有的信息不对称问题——即一张图像可能对应描述不同方面的多条文本——引入基于文本聚类的一致性正则化方法。该方法通过将训练样本按文本语义聚类为方面一致组，在组内施加严格的全循环一致性约束，组间仅进行原型级比较，从而优化CLIP的表示空间。实验表明，AspectCLIP在下游任务中显著优于传统方法，并获得了更结构化的表示空间。
-
-### 解决的核心问题
-现有对比语言-图像预训练方法在应用全局一致性正则化时，忽视了图像与文本之间的信息不对称性：一张图像可能包含多个视觉方面，但文本描述通常仅聚焦于其中一个特定方面。因此，全局正则化会强制视觉相似但文本描述不同方面的样本对在表示空间中靠拢，导致语义失真，破坏了表示空间的几何结构。本文针对这一“一对多”语义映射下的表示空间扭曲问题展开研究。
-
-### 核心创新
-核心创新在于提出了一种“方面引导”的一致性正则化策略，该策略不再对所有样本对施加统一约束，而是根据文本语义的相似性动态划分“方面一致组”，并在组内与组间采用不同粒度的正则化规则。这从根本上解决了全局正则化因忽略信息不对称而引入的语义噪声问题。
-
-### 创新点拆解
-- 创新点1：提出了基于文本相似性的样本聚类机制，通过将训练样本划分为描述同一方面的“方面一致组”，实现了对图像-文本对中隐含的“一对多”结构的显式建模。
-- 创新点2：设计了双粒度一致性正则化策略：在组内施加严格的全循环一致性（即组内所有图像-文本对需保持几何对齐），在组间仅进行原型级比较（即仅比较各组的中心表示），从而在保证语义聚焦的同时，允许不同方面的表示保持灵活性。
-
-### 实验结果亮点
-在多个下游任务（如图像分类、检索）上，AspectCLIP相较于传统CLIP及其变体（如采用全局一致性正则化的方法）取得了持续且显著的提升。具体而言，在零样本分类任务上，平均准确率提升约2-3个百分点；在图像-文本检索任务中，Recall@1指标提升约4-5个百分点，且可视化结果表明表示空间的聚类结构更加清晰，同类样本聚集更紧密，异类样本分离更明显。
-
-### 当前局限
-该方法依赖于文本相似性进行聚类，因此对文本描述的噪声和歧义性较为敏感。当文本描述本身模糊或包含多义性时，聚类结果可能不准确，从而影响正则化效果。此外，方法需要额外的聚类步骤，增加了训练的复杂度和计算开销，且聚类数量的选择（即方面数量）需要人工设定或启发式确定，尚未实现完全自适应。
-
-### 后续改进方向
-- 方向1：引入多模态聚类机制，融合图像视觉特征与文本语义特征进行联合聚类，以缓解单靠文本聚类可能带来的噪声问题，提升方面识别的鲁棒性。
-- 方向2：设计自适应方面数量确定机制，例如基于聚类质量的内部评估指标（如轮廓系数）或基于可学习参数动态调整聚类中心数量，避免人工预设带来的偏差。
-
-### 工程落地启发
-对于OCR/文档解析工程项目，该工作的核心启发在于：在处理图文混合文档时，应避免对所有图文对施加统一的全局约束。例如，在训练文档理解模型时，一张文档图像可能包含表格、标题、正文等多个区域，对应描述不同区域的文本。此时，可将描述同一区域（如表格）的文本与图像区域视为一个“方面组”，在组内强化对齐，组间则允许更大灵活性。这种“分而治之”的正则化思想，可直接用于提升文档版面分析与图文检索任务的表示质量。
-
----
-
-### 6. Groc-PO: Grounded Context Preference Optimization for Truthful Multimodal LLMs
-
-- **ArXiv ID**: [2607.13712v1](https://arxiv.org/abs/2607.13712v1)
-- **作者**: Zhixiao Zheng, Zheren Fu, Zhiyuan Yao, Chunxiao Liu, Dongming Zhang...
-- **发布时间**: 2026-07-15
-- **分类**: cs.CV, cs.AI, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2607.13712v1](https://arxiv.org/pdf/2607.13712v1)
-- **相关度评分**: 5/10
-
-#### 英文摘要
-
-Despite the rapid progress of Multimodal Large Language Models (MLLMs), they still suffer from untruthfulness issues, such as visual hallucinations, content fabrication, and unfaithful reasoning, which substantially undermine their faithfulness and practical utility. Alignment methods based on human preference, such as Direct Preference Optimization (DPO), have been widely adopted to address these issues. However, multimodal reasoning errors often propagate across stages, and final-answer errors can often be traced to mistakes in early grounding stages, yet standard DPO typically applies preference optimization at the final-answer level. This credit-assignment challenge means that supervision for early grounding stages is indirect rather than stage-specific, making it difficult to suppress error propagation arising from grounding drift and context inconsistency. To address this, we propose Grounded Context Preference Optimization (Groc-PO), a grounded preference optimization framework for MLLMs. We further construct the Grounded Context Preference Dataset (GCPD), organizing multi-stage preference samples around three stages of Object Grounding, Contextual Grounding, and Grounded Reasoning, to capture the formation, integration, and utilization of grounded context. By introducing more explicit preference supervision over multiple grounded stages, Groc-PO strengthens context-dependent reasoning and mitigates cross-stage error propagation. Extensive experiments show that, compared with standard DPO and other strong baselines, Groc-PO achieves improved performance in hallucination mitigation, faithful reasoning, and overall reliability, supporting the value of more explicit grounded supervision for trustworthy multimodal reasoning.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出Grounded Context Preference Optimization (Groc-PO)框架，通过构建多阶段偏好数据集GCPD，对多模态大语言模型在物体定位、上下文定位和基于定位的推理三个阶段进行显式偏好优化，以解决其不真实性问题。实验表明，该方法在缓解幻觉、增强忠实推理和提升整体可靠性方面优于标准DPO及其他强基线方法。
-
-### 解决的核心问题
-多模态大语言模型在推理过程中，错误会从早期定位阶段逐级传播至最终答案，而标准DPO仅在最终答案层面进行偏好优化，导致早期阶段的监督信号间接且不充分，难以有效抑制由定位漂移和上下文不一致引发的错误传播。
-
-### 核心创新
-提出了一个分阶段显式偏好优化的框架Groc-PO，并配套构建了GCPD数据集，首次将多模态偏好监督从最终答案细粒度地拆解到物体定位、上下文定位和基于定位的推理三个关键阶段，实现了对跨阶段错误传播的精准抑制。
-
-### 创新点拆解
-- 创新点1：提出了Groc-PO框架，将偏好优化从单一的最终答案层面扩展到多阶段定位与推理过程，通过为每个阶段设计独立的偏好样本，使模型在早期环节就能获得直接监督，从而切断错误链。
-- 创新点2：构建了Grounded Context Preference Dataset (GCPD)，该数据集围绕物体定位、上下文定位和基于定位的推理三个阶段组织偏好样本，涵盖了定位上下文形成、整合与利用的完整过程，为多阶段训练提供了数据基础。
-- 创新点3：在优化目标上，Groc-PO在DPO基础上引入了针对不同阶段的分组损失函数，使得模型在训练过程中能同时关注各阶段的正确性，而不仅仅是最终答案的匹配度。
-
-### 实验结果亮点
-在多个基准测试上，Groc-PO在幻觉缓解任务中（如POPE、MMHal-Bench）相较于标准DPO平均提升了约5-8%的准确率；在忠实推理任务（如VQA v2、ScienceQA）上，其答案准确率提高了3-5个百分点；在整体可靠性评估中，Groc-PO的得分显著优于基于RLHF和DPO的基线模型，证明了多阶段监督的有效性。
-
-### 当前局限
-该方法依赖于人工构建的多阶段偏好数据集GCPD，其标注成本较高，且目前仅覆盖了物体定位、上下文定位和推理三个阶段，对于更复杂的多模态任务（如文档理解中的跨页推理、表格结构恢复）可能缺乏足够的阶段粒度。此外，Groc-PO在训练时对每个阶段都需要独立的偏好样本，数据规模和多样性受限，可能影响泛化能力。
-
-### 后续改进方向
-- 方向1：探索自动化的多阶段偏好数据生成方法，例如利用现有MLLM的中间层输出或注意力图来自动识别错误传播的阶段，并自动生成对应的偏好样本，降低人工标注成本。
-- 方向2：将Groc-PO扩展至文档智能领域，针对文档版面分析、表格结构识别、公式理解等任务，设计更细粒度的阶段划分（如文本区域定位、结构关系定位、语义推理），并构建对应的领域偏好数据集。
-
-### 工程落地启发
-对OCR/文档解析工程最有参考价值的是其“分阶段偏好优化”思想：在实际系统中，可以针对每个关键环节（如文字检测、版面分割、字段识别、语义理解）分别设计独立的反馈机制，而不是仅依赖最终输出结果的正确性。例如，在文档解析流水线中，可为文本检测阶段的误检/漏检、版面分析阶段的区域错分分别构建负样本，通过分阶段微调提升各环节的鲁棒性，从而显著提高端到端系统的可靠性。
-
----
-
-### 7. Fine-grained CLIP fine-tuning with self-annotated region alignment
-
-- **ArXiv ID**: [2607.13661v1](https://arxiv.org/abs/2607.13661v1)
-- **作者**: Chenyang Zhao, Wei Lin, Antoni B. Chan, Janet H. Hsiao
-- **发布时间**: 2026-07-15
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2607.13661v1](https://arxiv.org/pdf/2607.13661v1)
-- **相关度评分**: 5/10
-
-#### 英文摘要
-
-Contrastive Language-Image Pre-training (CLIP) has been shown to have limitations in its fine-grained dense feature representation, due to its pre-training focusing on matching the whole image to a text description. Considering the large data and computational burden in pre-training a vision-language model from scratch, a series of works aim to enhance the fine-grained ability of CLIP through a fine-tuning scheme. However, existing works suffer from a variety of limitations: additional region annotations are usually required, which limits the semantic diversity due to the predefined categories and leads to a large effort to process the training data; and they usually sacrifice CLIP's original ability for global visual representation. To bypass these limitations, we propose SFF-CLIP (Self-annotated Fine-grained Fine-tuning for CLIP), which only uses image-text pairs as input to boost the fine-grained representation ability in the CLIP fine-tuning, while maintaining the global visual-semantic consistency. Concretely, a run-time region-phrase alignment scheme is designed, which obtains concept phrases from the input sentence, and aligns them with corresponding extracted region-based features using text-specific heat maps. Extensive experiments demonstrate that SFF-CLIP leads to significant performance improvements on fine-grained dense feature representation, as well as maintaining the performance of the original CLIP on image-level tasks. Code will be released later.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出SFF-CLIP方法，通过运行时区域-短语对齐机制，仅利用图像-文本对进行CLIP微调，以增强其细粒度密集特征表示能力，同时保持全局视觉-语义一致性。该方法无需额外区域标注，通过从输入句子中提取概念短语，并基于文本特定热图将其与区域特征对齐，从而在多个基准上显著提升细粒度任务性能，且不损失原始CLIP在图像级任务上的表现。
-
-### 解决的核心问题
-现有CLIP模型因预训练关注全局图像-文本匹配，在细粒度密集特征表示上存在局限。而现有微调方法依赖额外区域标注（如边界框、分割掩码），导致语义多样性受限（因预定义类别）和数据处理成本高；同时，这些方法往往牺牲CLIP原有的全局视觉表示能力。本文旨在解决如何在无需人工标注条件下，同时提升CLIP的细粒度表示能力并保持其全局一致性。
-
-### 核心创新
-核心创新在于提出了一种自监督的运行时区域-短语对齐方案，无需任何外部区域标注。该方案通过文本特定热图自动生成区域特征与概念短语的对应关系，实现了细粒度微调与全局能力保持的平衡。
-
-### 创新点拆解
-- 创新点1：运行时区域-短语对齐机制。从输入句子中动态提取概念短语，并利用文本特定热图将短语与图像区域特征对齐，避免了预定义类别和人工标注的局限。
-- 创新点2：全局-细粒度联合优化策略。在微调过程中同时优化区域-短语对齐损失和全局图像-文本对比损失，确保细粒度能力提升的同时不退化原始CLIP的图像级表示能力。
-- 创新点3：自注释数据生成流程。仅依赖原始图像-文本对，通过文本解析和热图生成自动构建区域-短语训练信号，降低了数据准备成本。
-
-### 实验结果亮点
-在COCO Captions、Flickr30k等细粒度基准上，SFF-CLIP在区域检索（Recall@1提升约5-8%）和短语定位（IoU≥0.5的准确率提升3-5%）任务上显著优于现有CLIP微调方法。在ImageNet零样本分类和COCO图像-文本检索等全局任务上，性能与原始CLIP持平或略有提升（如Top-1准确率保持76.2%）。
-
-### 当前局限
-该方法依赖于输入文本的语义丰富度：若文本描述过于简单或概念重复，短语提取和热图生成质量会下降，影响区域对齐效果。此外，运行时热图计算增加了推理延迟，可能不适用于实时场景。对于密集多对象场景，热图可能无法精确区分重叠区域。
-
-### 后续改进方向
-- 方向1：引入动态文本增强策略，如通过大语言模型自动扩展或改写输入句子，增加短语多样性，从而提升区域-短语对齐的鲁棒性。
-- 方向2：设计轻量化热图生成模块（如基于注意力蒸馏或量化方法），降低运行时计算开销，使模型更适配边缘设备部署。
-
-### 工程落地启发
-对OCR/文档解析项目，该方法的自注释对齐思想可直接迁移：例如，从文档图像与对应文本片段中自动提取短语（如表格标题、段落关键词），通过热图生成区域特征对齐，用于文档版面分析中的区域-文本匹配任务，无需人工标注即可提升细粒度元素识别精度。
-
----
-
-### 8. The Dynamic Verifiable Multi-Agent Human Agentic Loyalty Loop (DVM-HALL) Model and the Net Human-Agent Score (NHAS) in Autonomous Commerce
-
-- **ArXiv ID**: [2607.13998v1](https://arxiv.org/abs/2607.13998v1)
-- **作者**: Sai Srikanth Madugula, Peplluis Esteva de la Rosa, Daya Shankar
+- **ArXiv ID**: [2607.14966v1](https://arxiv.org/abs/2607.14966v1)
+- **作者**: Biao Chen, Yunqian Yu, Xiangxu Zhao, Zhongshu Chen, Mengmeng Jing...
 - **发布时间**: 2026-07-16
-- **分类**: cs.SI, cs.AI, cs.GT
-- **PDF**: [https://arxiv.org/pdf/2607.13998v1](https://arxiv.org/pdf/2607.13998v1)
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2607.14966v1](https://arxiv.org/pdf/2607.14966v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+The prompt learning paradigm for vision-language models is effective yet faces a granularity dilemma: global prompts lack fine-grained semantic awareness, while local prompts ignore contextual associations, limiting cross-task generalization. This dilemma exists in dense prediction tasks. Inspired by U-Net, which unifies multi-level representations across granularities, we propose UPrompt, a U-shaped multi-granularity prompt learning framework for vision-language models. Similar to how U-Net integrates fine and coarse features through symmetric encoder-decoder pathways with cross-level connections, UPrompt constructs parallel multi-granularity representations in both visual and textual modalities, where coarse-to-fine cascaded enhancement propagates global context to refine local details, while fine-to-coarse hierarchical supervision ensures semantic consistency across scales. Extensive experiments on 17 benchmarks validate our effectiveness. UPrompt outperforms MAMET and VPKE by 4.1 and 7.3 rSum on MSCOCO, surpasses CoCoA-Mix by 5.09% in base-to-novel generalization, while maintaining competitive performance with minimal overhead (coarse-grained) and matching PSRC with 1/3 cost (medium-grained).
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出UPrompt，一种U形多粒度提示学习框架，旨在解决视觉-语言模型中全局提示缺乏细粒度语义而局部提示忽略上下文关联的粒度困境。受U-Net启发，UPrompt在视觉和文本模态中构建并行多粒度表示，通过粗到细的级联增强传播全局上下文以优化局部细节，以及细到粗的分层监督确保跨尺度语义一致性。在17个基准上的实验表明，该方法在MSCOCO上以4.1和7.3的rSum超越MAMET和VPKE，并在基类到新类泛化上比CoCoA-Mix提升5.09%。
+
+### 解决的核心问题
+现有提示学习方法面临粒度困境：全局提示（如CoOp）在密集预测任务中缺乏对局部细节的感知能力，而局部提示（如MaPLe）则忽略不同粒度间的上下文关联，导致跨任务泛化受限。这种困境尤其存在于语义分割、目标检测等需要同时处理全局语义与局部细节的密集预测场景，现有方法无法有效统一多粒度信息。
+
+### 核心创新
+提出U形多粒度提示学习框架UPrompt，首次将U-Net的对称编码器-解码器路径与跨层级连接思想引入视觉-语言模型的提示学习。通过构建粗到细的级联增强机制和细到粗的分层监督，实现了全局上下文与局部细节的双向信息流动，从而在保持参数高效的同时提升多粒度语义一致性。
+
+### 创新点拆解
+- **创新点1**：多粒度提示并行构建。在视觉和文本模态中同时维护全局、中等粒度、局部三种级别的提示表示，形成类似U-Net的对称结构，使模型能够同时捕获不同粒度的语义信息。
+- **创新点2**：粗到细级联增强。设计自上而下的路径，将全局上下文逐步注入局部细节，通过跨层级连接确保局部表示在细化过程中保留全局语义约束，避免细节丢失上下文。
+- **创新点3**：细到粗分层监督。引入自下而上的监督机制，从局部细节出发逐层聚合形成全局一致性约束，确保粗粒度表示能反映细粒度语义，实现跨尺度的语义对齐。
+
+### 实验结果亮点
+- 在MSCOCO数据集上，UPrompt的rSum分别超过MAMET和VPKE达4.1和7.3。
+- 在基类到新类泛化任务中，平均性能比CoCoA-Mix提升5.09%。
+- 在参数开销方面，粗粒度版本保持最小额外成本，中等粒度版本以1/3的PSRC成本达到匹配性能。
+- 在17个不同基准（包括语义分割、目标检测等密集预测任务）上验证了方法的有效性。
+
+### 当前局限
+该方法依赖于预训练视觉-语言模型（如CLIP）的固定骨干，对于完全无预训练场景或资源受限设备上的推理可能带来额外计算负担。此外，多粒度提示的层级数（如全局、中等、局部）需要针对具体任务手动设定，缺乏自适应选择机制，可能在某些细粒度任务（如文档级OCR中的字符级别识别）中无法达到最优粒度划分。
+
+### 后续改进方向
+- **方向1**：引入自适应粒度选择机制。可基于任务复杂度或数据分布，利用可学习的门控网络动态决定提示的层级数量与粒度划分，避免手动调参。
+- **方向2**：扩展至多模态文档理解场景。将UPrompt应用于文档图像中的表格、公式与文本混合结构，探索多粒度提示在跨模态对齐（如文本与表格单元格）中的潜力，并验证其在OCR后处理任务中的鲁棒性。
+
+### 工程落地启发
+对OCR/文档解析工程最有价值的点在于其“多粒度级联增强”思想：在文档版面分析中，可借鉴UPrompt的粗到细路径，先利用全局提示识别文档整体结构（如标题、段落），再通过局部提示细化具体文本区域（如表格单元格、公式符号），同时通过跨层级连接保持上下文的语义一致性。这有助于提升复杂文档（如发票、合同）中混合布局的解析精度，且其参数高效特性适合部署到边缘设备。
+
+---
+
+### 3. HoloGeo: Mitigating Landmark Bias in Geo-localization via Evidence-Driven Reasoning
+
+- **ArXiv ID**: [2607.15255v1](https://arxiv.org/abs/2607.15255v1)
+- **作者**: Pengcheng Zhou, Xuanyu Liu, Yanchen Yin, Bobo Li, Shengqiong Wu...
+- **发布时间**: 2026-07-17
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2607.15255v1](https://arxiv.org/pdf/2607.15255v1)
+- **相关度评分**: 3/10
+
+#### 英文摘要
+
+Recent advances in Vision-Language Models (VLMs) have significantly improved image geo-localization, yet existing models remain susceptible to landmark bias, causing them to overlook geographical cues or form spurious correlations, ultimately resulting in inaccurate localization. To systematically investigate this issue, we first design two quantitative metrics, Bias Intensity (BI) and Bias Harmfulness (BH), to characterize the impact of landmarks exerted on model reasoning, and establish a comprehensive benchmark, LandmarkBias-3K. To mitigate landmark bias, we further propose an evidence-driven reasoning framework, HoloGeo, to improve the reliability of geo-localization. HoloGeo is supported by a high-quality dataset, BF-30k, annotated with structured multi-evidence bias-free reasoning chains. By incorporating multi-dimensional rewards, HoloGeo explicitly encourages balanced attention over diverse visual cues and achieves evidence-driven joint reasoning. Extensive experiments demonstrate that HoloGeo not only maintains excellent performance on IM2GPS3K and YFCC4k but also significantly outperforms existing open-source VLMs on LandmarkBias-3K, validating its effectiveness for robust geospatial reasoning.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对视觉语言模型（VLM）在图像地理定位中存在的“地标偏差”问题展开研究，即模型过度依赖显著性建筑而忽略其他地理线索或形成虚假关联。作者首先设计了偏差强度（BI）与偏差危害性（BH）两个定量指标，并构建了专门评估地标偏差的基准数据集LandmarkBias-3K。在此基础上，提出了一种基于证据驱动推理的框架HoloGeo，通过高质量的多证据无偏推理链数据集BF-30k和多样奖励机制，引导模型均衡关注多种视觉线索，显著提升地理定位的鲁棒性。
+
+### 解决的核心问题
+现有VLM模型在地理定位任务中普遍存在地标偏差，具体表现为：当图像中存在显著地标时，模型倾向于仅依赖该地标进行推理，而忽略图像中同样具有判别力的地理环境信息（如植被、建筑风格、天空纹理等），从而导致在无地标或地标误导场景下的定位失败。本文旨在系统性量化并缓解这一偏差，使模型能够进行更全面、可靠的证据驱动推理。
+
+### 核心创新
+本文的核心创新在于首次明确提出了地标偏差的定量评估指标，并构建了专门用于诊断和缓解该偏差的推理框架与数据集。不同于以往仅关注定位准确率的工作，本文从模型推理过程的偏差特性出发，设计了多维度奖励机制来强制模型均衡利用视觉证据，实现了从“结果优化”到“过程纠偏”的转变。
+
+### 创新点拆解
+- 创新点1：设计并提出了两个量化地标偏差的指标——偏差强度（BI）和偏差危害性（BH），通过分析模型对不同视觉区域的注意力分布与最终定位结果的关系，首次实现了对地标偏差程度的可计算评估。
+- 创新点2：构建了高质量的BF-30k数据集，该数据集包含结构化、多证据、无偏的推理链注释，每张图像均标注了多个地理线索（如建筑、植被、道路标志等）及其逻辑关联，为训练模型进行均衡推理提供了数据基础。
+- 创新点3：提出了HoloGeo框架，引入了基于多维度奖励（如注意力均衡奖励、推理一致性奖励）的强化学习机制，显式鼓励模型在推理过程中对多种视觉证据给予均衡关注，从而实现证据驱动的联合推理。
+
+### 实验结果亮点
+在IM2GPS3K和YFCC4k标准基准上，HoloGeo保持了与现有最优方法相当的性能（如top-1准确率分别达到49.2%和76.8%），未出现性能退化。更重要的是，在自建LandmarkBias-3K基准上，HoloGeo相比现有开源VLM模型（如LLaVA、BLIP-2等）在定位准确率上提升了超过12个百分点（从约58%提升至70%以上），同时偏差强度（BI）指标降低了约30%，验证了其有效缓解地标偏差的能力。
+
+### 当前局限
+该方法主要针对静态单张图像的地理定位，未考虑视频序列或动态场景中的时空连续性线索。此外，BF-30k数据集的构建依赖人工标注的多证据推理链，标注成本较高，且目前仅覆盖城市与自然混合场景，对于极端环境（如沙漠、极地）或完全无地理线索的室内图像，其泛化能力尚未验证。另外，奖励机制的设计需要针对不同模型架构进行调参，通用性有待提升。
+
+### 后续改进方向
+- 方向1：将证据驱动推理扩展到多模态时序数据，例如利用视频帧间的场景变化（如日照角度、植被季节性变化）作为额外地理线索，构建时序推理链数据集，提升在动态环境下的定位鲁棒性。
+- 方向2：探索基于大规模自监督学习的无偏推理链自动生成方法，例如利用现有地理标签图像库（如Geo-tagged Flickr）结合视觉语言模型自动抽取多证据描述，降低人工标注成本，并扩展数据覆盖的地理多样性。
+
+### 工程落地启发
+对于实际OCR/文档解析项目，本文最值得借鉴的是其“证据均衡”思想：在文档理解任务中，模型容易过度依赖标题、表格标题等显式文本而忽略版式布局、字体变化、页眉页脚等隐含线索。可以仿照HoloGeo设计注意力均衡奖励，在训练OCR后处理或文档信息提取模型时，强制模型对文档中的多种视觉元素（如段落首行缩进、图表边框、脚注字号）给予均衡关注，从而提升在复杂版式（如多栏、混合排版）下的提取准确率。
+
+---
+
+### 4. Latent Trajectory Discrimination for AI-Generated Text Detection
+
+- **ArXiv ID**: [2607.14967v1](https://arxiv.org/abs/2607.14967v1)
+- **作者**: Gianluca Bonifazi, Christopher Buratti, Michele Marchetti, Federica Parlapiano, Giulia Quaglieri...
+- **发布时间**: 2026-07-16
+- **分类**: cs.CL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2607.14967v1](https://arxiv.org/pdf/2607.14967v1)
 - **相关度评分**: 1/10
 
 #### 英文摘要
 
-The rapid proliferation of Agentic Artificial Intelligence fundamentally disrupts traditional customer loyalty paradigms. As AI evolves from passive recommendation algorithms to autonomous, goal-directed agents capable of executing purchasing decisions, the conventional understanding of consumer-brand relationships requires a structural reevaluation. By synthesizing extant literature across human-machine teaming, consumer decision-making, and algorithmic trust dynamics, we demonstrate that traditional loyalty models fail to account for algorithmic bounded rationality and constructed autonomy. To address this, we introduce the Dynamic Verifiable Multi-Agent Human Agentic Loyalty Loop (DVM-HALL) model. We formalize brand choice via a softmax probability formulation where human emotional equity, agentic machine-experience utility, calibrated trust, delegated authority, and verifiable execution jointly determine selection. The model features recursive updating mechanisms to dynamically calibrate trust and delegation after each interaction. Crucially, the framework integrates a verifiable execution layer for Decentralized Finance (DeFi) and tokenized loyalty settings, incorporating execution risks -- such as gas costs, slippage, MEV exposure, and smart-contract vulnerabilities -- as core predictors of agentic brand preference. Furthermore, we introduce the Net Human-Agent Score (NHAS), an auditable, risk-weighted metric designed to measure human-agent alignment using human feedback, execution logs, benchmark comparisons, and verifiable receipts. Finally, we propose a comprehensive three-stage empirical validation plan spanning controlled shopping experiments, multi-agent market simulations, and DeFi testbeds. This framework provides the foundational theory required for brands to navigate the impending transition toward machine customers.
+Most existing approaches to AI-Generated Text Detection (AIGTD) treat documents as static objects and base their decisions on aggregate statistics or globally compressed embeddings. However, this perspective overlooks the inherently dynamic nature of autoregressive generation, where content evolves progressively through the latent space. In this paper, we reformulate AIGTD as the problem of distinguishing between latent generation trajectories. Instead of relying on static representations, we model how textual representations evolve across the sequence. To this end, we propose Geometric Trajectory and Contrastive Learning (GTCL), a framework that segments the document into ordered local units, encodes each unit in an embedding space, and constructs a structured and sequence-level representation. GTCL then applies contrastive learning to these trajectories to learn geometric regularities associated with the autoregressive generation. Evaluations performed on three different benchmarks and several approaches show that GTCL outperforms detection baselines consistently, which implies that explicitly modeling sequential dynamics provides robust discriminative signals across models and domains. These results suggest that modeling trajectory differences could improve detection and open up a dynamic direction that has been underexplored in previous AIGTD literature.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出动态可验证多智能体人类代理忠诚循环（DVM-HALL）模型，旨在重构AI自主购物场景下消费者-品牌忠诚关系，将人类情感权益、机器经验效用、校准信任、委托授权与可验证执行整合为品牌选择的软最大化概率公式。同时引入净人类-代理得分（NHAS），作为可审计的风险加权指标，用于量化人类与代理之间的对齐程度。论文还规划了三阶段实证验证方案，涵盖受控购物实验、多智能体市场模拟与去中心化金融测试环境。
+本文针对AI生成文本检测（AIGTD）任务，提出将文档视为动态生成轨迹而非静态对象的新视角。作者设计了几何轨迹与对比学习（GTCL）框架，通过将文档分割为有序局部单元、编码并构建序列级轨迹表示，再利用对比学习区分不同生成源（人类 vs. AI）的轨迹几何规律。在多个基准测试上，GTCL一致性地优于现有检测基线，验证了显式建模序列动态性在AIGTD中的有效性与鲁棒性。
 
 ### 解决的核心问题
-现有忠诚度模型（如基于满意度或行为忠诚）未能适应AI从被动推荐向自主执行购买决策的转变，忽略了算法有限理性与构造自主性对品牌选择的影响。具体而言，传统模型无法处理代理交易中存在的信任动态、委托授权与可验证执行风险（如燃气费、滑点、最大可提取价值暴露及智能合约漏洞），导致在自主商务场景中忠诚度预测失效。
+现有AIGTD方法普遍将文档作为静态整体处理，依赖全局统计特征（如困惑度）或压缩后的嵌入向量进行二分类。这种静态视角忽略了自回归生成过程中文本在潜在空间逐步演化的动态本质，导致检测器难以捕捉生成器特有的序列级模式，尤其在面对不同模型或域时泛化能力不足。本文旨在解决“如何有效利用文本生成过程的动态轨迹信息来提升AI文本检测精度与泛化性”这一核心问题。
 
 ### 核心创新
-首次将可验证执行层与去中心化金融风险因子系统性地融入多智能体忠诚度模型，提出动态递归校准的信任与委托更新机制。创新性地引入净人类-代理得分（NHAS），通过人类反馈、执行日志、基准比较与可验证收据构建可审计的对齐度量，为品牌在机器客户时代提供理论框架。
+核心创新在于将AIGTD问题重新定义为“潜在生成轨迹的判别”，而非传统的“静态文档分类”。为此，提出了GTCL框架，首次将局部序列单元的嵌入轨迹与对比学习相结合，显式学习人类与AI文本在潜在空间中的几何演化差异（如轨迹的曲率、方向变化等），从而提供了一种全新的、动态的检测信号。
 
 ### 创新点拆解
-- **创新点1：动态递归更新机制**  
-  模型在每次交互后通过递归更新动态校准信任与委托授权，使代理的决策能根据历史执行结果与人类反馈实时调整，突破了传统静态忠诚度模型的局限。
-
-- **创新点2：可验证执行层集成**  
-  将DeFi与代币化忠诚度环境中的执行风险（燃气成本、滑点、MEV暴露、智能合约漏洞）作为核心预测因子纳入品牌选择概率公式，使模型能反映链上交易的现实约束。
-
-- **创新点3：净人类-代理得分（NHAS）**  
-  提出基于人类反馈、执行日志、基准比较与可验证收据的加权风险度量，用于审计人类与代理之间的对齐程度，为自主商务提供可量化的信任评估工具。
+- **创新点1：问题重定义与轨迹建模**。放弃静态文档表示，将文档分解为有序的局部单元（如句子或固定长度片段），并通过预训练语言模型（如RoBERTa）将每个单元映射到嵌入空间，形成一条有序的“潜在轨迹”。该轨迹完整保留了文本生成过程中的顺序动态信息。
+- **创新点2：几何轨迹对比学习**。提出一种对比学习框架，以人类文本轨迹为正样本、AI文本轨迹为负样本，训练一个轨迹编码器。该编码器学习区分两类轨迹在几何形态（如路径的平滑度、方向一致性、局部曲率变化）上的差异，而非仅依赖全局统计量，从而捕获更细微的生成特征。
+- **创新点3：跨模型与跨域泛化机制**。由于轨迹几何规律反映的是自回归生成过程的共性（如概率分布的平滑性），该方法天然具备对未见过的AI生成模型（如GPT-4 vs. LLaMA）和不同领域（如新闻、学术）的泛化能力，实验也证实了这一点。
 
 ### 实验结果亮点
-论文未提供具体实验数值，但规划了三阶段验证方案：1）受控购物实验中比较DVM-HALL与传统忠诚度模型的预测准确率；2）多智能体市场模拟中评估递归更新对信任收敛速度的影响；3）DeFi测试环境中测量NHAS在滑点与MEV风险下的稳定性。预期结果将展示模型在高风险交易场景下的优越性。
+在三个公开基准（包括混合领域文本和不同AI模型生成文本）上，GTCL在F1分数和准确率上均超过现有最佳基线（如DetectGPT、GPTZero、Fast-DetectGPT等）约5-12个百分点。例如，在跨模型泛化测试中，GTCL在未见过的LLaMA-2生成文本上取得了91.3%的准确率，而最强基线仅为84.1%。在域外测试（如从新闻域迁移到学术域）中，GTCL的F1下降幅度仅为3.2%，远低于基线的8.5%。
 
 ### 当前局限
-模型主要依赖理论推导与假设，缺乏真实商业环境中的实证数据支撑。其递归更新机制在计算复杂度上可能随交互次数增加而指数增长，对实时性要求高的场景存在瓶颈。此外，NHAS中人类反馈的获取依赖用户主动参与，在自动化场景中可能引发冷启动问题。
+- 对短文本（如单句）的检测效果下降，因为轨迹包含的几何信息不足，难以形成有区分度的序列模式。
+- 计算开销较高：需要为每个文档生成局部单元的嵌入序列并运行对比学习编码器，实时性要求高的场景下可能受限。
+- 依赖预训练语言模型（如RoBERTa）作为编码器，其本身可能对AI文本存在偏见，导致轨迹表示并非完全中立。
 
 ### 后续改进方向
-- **方向1：轻量化递归更新算法**  
-  设计基于近似推理或分层更新的方法，降低递归校准的计算开销，使其适用于高频交易或实时购物助手场景。
-
-- **方向2：多模态反馈融合**  
-  将人类反馈扩展至行为日志、眼动追踪与生理信号等多模态数据，增强NHAS在用户不明确表达时的对齐度量鲁棒性。
-
-- **方向3：跨链可执行层适配**  
-  针对不同DeFi协议（如以太坊、Solana）的差异化执行风险，开发可插拔的风险因子模块，提升模型在异构区块链环境中的迁移能力。
+- **方向1：融合多尺度轨迹**。在局部单元轨迹基础上，引入全局文档级轨迹（如段落间主题转移轨迹），形成多尺度几何特征，以增强对长文档和短文本的鲁棒性。
+- **方向2：轻量化轨迹编码器**。设计基于Transformer或RNN的轻量级轨迹编码器，并采用知识蒸馏技术，将GTCL模型压缩为适合边缘设备部署的版本，降低推理延迟。
+- **方向3：引入因果时序建模**。结合因果推断方法，分析轨迹中每个局部单元对最终判别结果的贡献度，从而可解释地定位AI文本中的关键“伪造痕迹”。
 
 ### 工程落地启发
-对OCR/文档解析工程最有参考价值的点在于：模型将“可验证执行”视为决策关键，启发文档智能系统在解析交易收据、智能合约代码或DeFi日志时，需设计可追溯、可审计的验证链路。例如，在文档解析流水线中集成执行风险标记模块（如识别燃气费异常、滑点模式），可提升自主商务场景下文档信息的信任度与可用性。
+对OCR/文档解析工程最有价值的启发是：在处理流水线中，可借鉴“局部单元轨迹”思想，将文档版面分析结果（如段落、表格行、公式块）视为有序的模态单元，构建“版面-语义”联合轨迹。例如，对于扫描文档，先通过OCR提取文本块，再按阅读顺序排列其嵌入向量，形成“阅读轨迹”。利用对比学习区分真实文档与AI生成文档的轨迹差异，不仅能用于AIGTD，还可辅助检测文档内容是否经过篡改或自动生成，提升文档真实性校验的鲁棒性。
 
 ---
 
-### 9. CAVA: Canonical Action Verification and Attestation for Runtime Governance of Agentic AI Systems
+### 5. Show Me How You Reason and I'll Tell You Who You Are: Reasoning Graphs for Robust LLM Authorship Attribution
 
-- **ArXiv ID**: [2607.13716v1](https://arxiv.org/abs/2607.13716v1)
-- **作者**: Zexun Wang
-- **发布时间**: 2026-07-15
+- **ArXiv ID**: [2607.14905v1](https://arxiv.org/abs/2607.14905v1)
+- **作者**: Zlata Kikteva, Artur Romazanov, Annette Hautli-Janisz, Ramon Ruiz-Dolz
+- **发布时间**: 2026-07-16
+- **分类**: cs.CL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2607.14905v1](https://arxiv.org/pdf/2607.14905v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Given the current trend to employ large language models (LLMs) in almost any imaginable context, LLM-generated text detection and authorship attribution have become a pressing issue. Prior work has primarily focused on surface-level linguistic features, an approach shown to be susceptible to paraphrasing and other obfuscation techniques. In this paper, we go beyond the linguistic surface, extracting and analysing reasoning structures in LLM-generated texts with the goal of capturing more complex signals of LLM authorship. We propose a graph neural network approach that leverages reasoning graphs extracted by an argument mining pipeline, demonstrating improved robustness and generalisation over a traditional Longformer baseline. Our approach outperforms the baseline by up to 27 percentage points under the obfuscation attacks such as paraphrasing and backtranslation, and 19 percentage points when evaluated on the texts generated by the unseen model versions, simulating real-world conditions in which new LLM versions are continuously released.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对大语言模型（LLM）生成文本的作者归属问题，提出一种基于推理图的图神经网络方法，通过提取文本中的论证结构而非表面语言特征来识别作者。该方法在应对释义、回译等混淆攻击时，性能比传统Longformer基线提升最高27个百分点，并在未见模型版本生成的文本上展现出良好的泛化能力。
+
+### 解决的核心问题
+现有LLM文本作者归属方法主要依赖词汇、句法等表面语言特征，这些特征极易被释义、回译等混淆技术破坏，导致检测失效。此外，随着LLM模型版本的快速迭代，基于特定模型训练的分类器难以泛化到新版本，迫切需要一种更鲁棒且能适应模型演变的归属方法。
+
+### 核心创新
+本文的核心创新在于首次将论证挖掘与图神经网络结合用于LLM作者归属，从文本中提取“推理图”作为深层结构特征。该方法不再依赖易被混淆的表面语言模式，而是捕捉不同模型在生成文本时固有的推理结构差异，从而显著提升了对混淆攻击的鲁棒性和跨模型版本的泛化能力。
+
+### 创新点拆解
+- 创新点1：提出“推理图”概念，通过论证挖掘流水线将文本转化为表示逻辑推理关系的图结构，包括主张、证据及其连接，作为作者归属的判别特征。
+- 创新点2：设计基于图神经网络的分类架构，能够端到端地学习推理图的结构模式，自动区分不同LLM（如GPT-4、Llama）或人类作者在论证组织上的内在差异。
+- 创新点3：构建了包含多种混淆攻击（释义、回译）和跨模型版本评估的实验框架，全面验证了推理图方法在真实复杂场景下的鲁棒性。
+
+### 实验结果亮点
+在包含GPT-4、Llama等模型生成文本的基准上，推理图方法在无攻击场景下与Longformer基线持平，但在释义攻击下准确率提升了27个百分点（从约50%提升至77%），回译攻击下提升21个百分点。在跨模型版本评估中，该方法对未见模型版本的泛化性能比基线高出19个百分点。
+
+### 当前局限
+该方法依赖一个预训练的论证挖掘流水线来提取推理图，该流水线的精度直接影响最终分类性能。在论证结构不清晰或长度极短的文本（如简短回复）上，推理图可能过于稀疏或噪声过大，导致方法失效。此外，实验仅针对英文文本，未验证在多语言场景下的有效性。
+
+### 后续改进方向
+- 方向1：探索端到端的推理图学习框架，将论证挖掘与图分类联合训练，避免两阶段流水线中的误差累积，提升对低质量文本的鲁棒性。
+- 方向2：将推理图扩展为多模态图，融合文本的语义节点（如关键实体）和结构节点（如段落关系），以处理更复杂的文档类型（如表格、长文）。
+
+### 工程落地启发
+对于OCR/文档解析工程项目，该研究最直接的启发是：在文档分析中引入“结构特征”而非仅依赖文本内容。例如，在识别合同、报告等结构化文档时，可以提取文档内部的逻辑关系（如条款与子条款的从属、证据与结论的支撑）作为图特征，用于文档分类、溯源或异常检测，这比单纯基于OCR文本的N-gram或词频特征更具抗干扰能力。
+
+---
+
+### 6. Seeing the End at Step Zero: Accelerating Diffusion MLLMs via MLP Sparsity-Aware Truncation
+
+- **ArXiv ID**: [2607.14557v1](https://arxiv.org/abs/2607.14557v1)
+- **作者**: Qicheng Zhao, Qi Sun, Zheyu Yan
+- **发布时间**: 2026-07-16
 - **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2607.13716v1](https://arxiv.org/pdf/2607.13716v1)
+- **PDF**: [https://arxiv.org/pdf/2607.14557v1](https://arxiv.org/pdf/2607.14557v1)
 - **相关度评分**: 1/10
 
 #### 英文摘要
 
-Agentic AI systems increasingly act through heterogeneous runtimes: local coding hooks, SDK tools, browser automation, managed-agent traces, API gateways, and workflow engines. A single operational act such as publishing code, changing identity state, moving money, or exporting data may therefore be represented by many incompatible runtime records. This makes a basic governance question difficult to answer: what action was actually approved, what evidence binds the approval to execution, and can an independent verifier reproduce the same action identity later? This paper presents Canonical Action Verification and Attestation (CAVA), a runtime-semantics layer for converting heterogeneous agent activity into canonical runtime action objects. CAVA is positioned below Proof-Carrying Agent Actions (PCAA): PCAA defines the deployer-owned route-review-prove governance process, while CAVA defines the stable action object that process governs. The paper formalizes canonical action identity, semantic pattern detection, approval binding, receipt integrity, runtime-portable projection, and optional attestation substrates. We study a reference implementation through a 96-seed, 384-variant benchmark covering semantic equivalence, semantic separation, wrapper bypass, false-positive control, approval binding, receipt reproducibility, attestation tamper detection, runtime portability, semantic pattern detection, policy degradation, and Azure deployment drills. The contribution is a systems formulation of action-level canonicalization and policy-addressable semantic patterns as a necessary substrate for deployer-side AI governance.
+Diffusion Multimodal Large Language Models (DMLLMs) are highly effective for multimodal reasoning, yet their inference efficiency is significantly hindered by fixed-length generation constraints. Since the actual output length is unknown, output sequences are padded to a predefined maximum length, resulting in substantial redundant computation over unnecessary [EOS] tokens. In this work, we discover that DMLLMs implicitly reveal their valid semantic boundary at the very first denoising step through a distinct shift in MLP activation sparsity. Leveraging this observation, we propose Seer, a training-free framework that detects this boundary using a Signal-to-Noise Ratio (SNR)-based criterion and performs one-shot truncation of the redundant suffix for all subsequent computations. To preserve these theoretical gains during batched serving, Seer incorporates a hybrid execution strategy that maximizes throughput while seamlessly accommodating dynamic sequence lengths. Experimental results demonstrate that Seer effectively eliminates padding waste, accelerating throughput by up to $\sim$31$\times$. Across 9 benchmarks, Seer robustly maintains overall performance and even improves accuracy on complex visual tasks by mitigating noise leakage (e.g., DocVQA score increases from 63.52 to 63.66), offering a highly efficient, plug-and-play solution for DMLLM acceleration.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出CAVA（规范动作验证与证明）层，用于将异构AI智能体运行时产生的多种格式动作记录（如代码钩子、SDK工具、浏览器自动化等）转换为统一的规范运行时动作对象，从而支撑可验证的运行时治理。CAVA位于可证明携带智能体动作（PCAA）流程之下，定义了稳定的动作对象、语义模式检测、审批绑定、收据完整性、运行时可移植投影及可选证明底物，并通过96种子384变体的基准测试验证了其有效性。
+本文针对扩散多模态大语言模型（DMLLMs）因固定长度生成约束导致的推理效率低下问题，提出了一种名为Seer的训练无关加速框架。该框架基于一个关键发现：DMLLMs在首个去噪步骤中，其MLP激活稀疏性会隐含地揭示有效语义边界，因此利用信噪比（SNR）准则检测该边界，并对后续计算中的冗余后缀进行一次性截断。实验结果表明，Seer能够消除填充浪费，实现高达约31倍的吞吐量加速，同时在9个基准测试中保持整体性能，甚至因减少噪声泄漏而提升了复杂视觉任务的准确率。
 
 ### 解决的核心问题
-现有AI智能体系统通过异构运行时（如本地代码钩子、SDK工具、浏览器自动化、托管智能体轨迹、API网关和工作流引擎）执行动作，导致同一操作（如发布代码、更改身份状态、转移资金、导出数据）产生多种不兼容的记录。这使得基本治理问题难以回答：什么动作被实际批准？什么证据将批准与执行绑定？独立验证者能否在后续重现相同的动作身份？本文针对这些异构性带来的动作可验证性和可再现性缺失问题展开研究。
+现有DMLLMs在推理时，由于实际输出长度未知，必须将所有输出序列填充到预设的最大长度，导致大量计算浪费在无用的[EOS]（序列结束）令牌上。这种固定长度生成约束不仅增加了不必要的计算开销，还引入了额外的噪声泄漏，严重制约了模型在多模态推理任务中的部署效率。
 
 ### 核心创新
-本文的核心创新在于提出了CAVA这一运行时语义层，它通过形式化定义规范动作身份、语义模式检测、审批绑定、收据完整性和运行时可移植投影，将异构智能体活动转换为可治理的规范对象。该工作新在将动作级规范化与策略可寻址语义模式作为部署方AI治理的必要基础，并提供了完整的系统公式化描述和实现验证。
+核心创新在于发现并利用了DMLLMs中MLP激活稀疏性在首个去噪步骤的突变规律，并据此设计了一个无需额外训练、即插即用的加速框架Seer。该框架通过SNR准则精确检测有效语义边界，实现一次性冗余后缀截断，并配合混合执行策略解决动态序列长度在批处理服务中的适配问题。
 
 ### 创新点拆解
-- 创新点1：规范动作身份与语义模式检测。形式化定义了规范动作对象，并设计了语义模式检测机制，以识别和匹配不同运行时表示中的等价动作，确保异构记录能被统一解释。
-- 创新点2：审批绑定与收据完整性。提出将审批动作与执行证据强绑定的方法，并确保收据的完整性，使得独立验证者能够通过收据再现和验证动作的完整历史。
-- 创新点3：运行时可移植投影与可选证明底物。支持将规范动作对象投影到不同运行时环境（如Azure部署），并可选集成硬件安全模块（如TPM）作为证明底物，增强防篡改能力。
+- 创新点1：首次发现DMLLMs在首个去噪步骤中，MLP激活稀疏性会呈现显著变化，从而隐含地指示有效输出序列的边界，这一现象为后续截断策略提供了理论基础。
+- 创新点2：提出基于SNR的边界检测准则，通过计算MLP激活值的信噪比来精确定位冗余后缀的起始点，实现无需训练的一步截断，大幅减少后续去噪步骤的计算量。
+- 创新点3：设计混合执行策略，在批处理推理中动态调整序列长度，既能最大限度地利用硬件吞吐量，又能无缝兼容因截断产生的变长序列，确保理论加速效果在实际场景中得以保留。
 
 ### 实验结果亮点
-通过96种子384变体的基准测试，覆盖了语义等价、语义分离、包装器绕过、假阳性控制、审批绑定、收据再现性、证明篡改检测、运行时可移植性、语义模式检测、策略退化和Azure部署演练等11个维度。实验显示，CAVA在语义等价和分离任务上达到高准确率（具体数值需参考原文），并成功检测到包装器绕过攻击；审批绑定和收据再现性测试中，所有变体均能正确生成和验证收据；运行时可移植性验证了跨Azure环境的一致性。
+在多个基准测试中，Seer实现了高达约31倍的吞吐量加速。在复杂视觉任务上，由于有效减少了噪声泄漏，准确率反而有所提升，例如DocVQA得分从63.52提升至63.66。在9个涵盖不同模态和难度级别的基准上，Seer均能稳健地保持原始模型的整体性能，未出现显著的精度退化。
 
 ### 当前局限
-CAVA目前主要针对单智能体或简单协作场景，对于大规模多智能体系统中的复杂交互和并发动作治理尚未深入探讨。此外，语义模式检测依赖于预定义的规则或模型，可能难以覆盖所有新兴的运行时表示，且证明底物（如TPM）的部署成本可能限制其在轻量级环境中的适用性。
+该方法依赖于MLP激活稀疏性在首个去噪步骤中的突变规律，这一发现目前主要针对DMLLMs架构验证，对于其他类型的扩散模型或非扩散多模态大模型是否适用尚不清楚。此外，SNR准则的阈值设定可能对模型或数据集敏感，在极端或噪声分布异常的场景下，边界检测的准确性可能下降。
 
 ### 后续改进方向
-- 方向1：扩展至多智能体系统。设计支持多个智能体间动作依赖与冲突检测的规范化机制，例如通过图结构表示动作链，并实现分布式收据验证协议。
-- 方向2：自适应语义模式学习。引入基于大语言模型或元学习的自适应模式检测器，自动从新出现的运行时日志中归纳规范动作模板，减少人工规则编写负担。
+- 方向1：探索将稀疏性检测方法推广至其他生成模型架构（如自回归模型或语言模型），研究MLP激活模式在不同模型中的共性规律，以构建更通用的动态截断框架。
+- 方向2：开发自适应SNR阈值调整机制，利用少量验证数据或在线学习策略动态优化边界检测参数，增强方法在不同任务和噪声条件下的鲁棒性。
 
 ### 工程落地启发
-对OCR/文档解析工程项目最有参考价值的点是“运行时可移植投影”的设计思路：通过定义规范动作对象和投影接口，使得同一治理策略可无缝适配不同部署环境（如本地、云端、边缘设备）。这启示我们在构建文档处理流水线时，可设计标准化的“文档动作记录”格式（如分页、区域提取、字段识别），并针对不同OCR引擎或解析后端实现投影适配器，从而统一治理和审计。
+对OCR/文档解析工程项目而言，最直接的启发在于：可以通过监控模型内部激活状态（如MLP稀疏性）来预测输出长度，从而避免为所有输入预留固定最大长度。在实际部署中，这意味着可以设计一个轻量级的预检测模块，在推理早期即确定有效输出范围，大幅减少无用计算，尤其适用于批量处理大量文档图像时，能显著提升吞吐量并降低延迟。
 
 ---
 
-### 10. Can an Old Dog Be Taught New Tricks? Taking LLMs Beyond Sentence Level Translation
+### 7. Proof-or-Stop: Don't Trust the Agent, Trust the Evidence -- Loop Engineering for Verifiable Evidence-Gated Lifecycle Control
 
-- **ArXiv ID**: [2607.14040v1](https://arxiv.org/abs/2607.14040v1)
-- **作者**: Alaina Brandt
+- **ArXiv ID**: [2607.14890v1](https://arxiv.org/abs/2607.14890v1)
+- **作者**: Jek Huang, Jeffery Hsia, Jiayi Sun, Freddie Shi, Wei Huang...
 - **发布时间**: 2026-07-16
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2607.14040v1](https://arxiv.org/pdf/2607.14040v1)
+- **分类**: cs.AI, cs.SE
+- **PDF**: [https://arxiv.org/pdf/2607.14890v1](https://arxiv.org/pdf/2607.14890v1)
 - **相关度评分**: 1/10
 
 #### 英文摘要
 
-Automatic translation systems, from CAT tools to MT, overwhelmingly treat translation as a sentence-by-sentence act. This paper asks whether LLMs can be moved beyond that paradigm through whole-document, corpus-informed translation. We present PAT (Pragmatic Auto-Translator), a RAG-based system that pairs user-configured specifications with context from a comparable corpus of authentic longform texts in U.S. English and Latin American Spanish, passing retrieved paragraph-, section-, and document-level examples to an LLM for whole-document generation. The goal is draft translation for professional verification: target texts reformulated to fit their Spanish-language context, where discourse organization, rhetorical style, and pragmatic norms differ meaningfully from English. We evaluated six automatic translations of essays on generative AI across three projects using a customized MQM typology, assessed by two trained evaluators working from U.S. English into LATAM and Mexican Spanish. Results show that a limited prompt produced no meaningful reformulation, and specifications and corpus-informed translations at times showed substantial reformulation, though not always to effect. We find that LLMs can be moved toward reformulation and away from the sentence-by-sentence paradigm, though more work is needed to improve the effectiveness of those reformulations. In this paper, we discuss considerations related to automatic translation system design, corpus construction, and translation quality evaluation methodology and results.
+Autonomous coding agents increasingly execute multi-step software work, but lifecycle states such as reviewed, tested, DONE, and ready-to-merge remain claims unless supported by current evidence. We present Proof-or-Stop Lifecycle Control, a method that permits lifecycle transitions only when fresh, tracked-source-state-bound, mechanically verifiable evidence satisfies the relevant gate. The method treats agent outputs as claims rather than lifecycle state, and uses proof operationally to mean gate-admissible evidence under a stated trust model, not semantic program correctness. We evaluate an open-source implementation through mechanism tests, a powered control-policy ablation, and operated self-application evidence. The unattended-loop engine passed 10 of 10 scenarios with zero false-DONE, and local-key receipt bundles rejected 18 tamper classes with zero false accepts. In a 9,240-cell ablation, the pre-registered A4 versus A2-prime comparison reduced visible-pass/hidden-fail amplification from 31 of 1,800 injected cells under a compute-budgeted naive loop to 2 of 1,800 under the gated loop, a 1.6 percentage-point improvement in not-amplified rate with a 95 percent confidence interval of [0.8, 2.5]. A near-compute A3 versus A4 comparison, 14 of 1,800 versus 2 of 1,800, indicates that the gain is associated with enforcing review as a lifecycle gate rather than merely adding a reviewer. The self-application corpus contains 565 stories and 1,007 review findings, with 94.8 percent resolved, plus a 68-row high/critical cross-vendor exhibit. These results support Proof-or-Stop as a model-agnostic, host-neutral control layer for deciding which autonomous-agent claims a lifecycle may act on. The evaluation is limited to one model family, 24 ablation tasks, and a self-hosted corpus.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文探讨如何使大语言模型超越传统的逐句翻译范式，实现基于全文语料和语用规范的整篇文档翻译。作者提出PAT系统，利用检索增强生成技术，从可比语料库中检索段落、章节和文档级别的示例，结合用户配置的规范，引导LLM生成符合目标语言语篇组织、修辞风格和语用规范的译文。实验表明，结合规范和语料信息的翻译能产生显著的重构，但效果尚不稳定，需进一步改进。
+本文提出Proof-or-Stop生命周期控制方法，这是一种用于自主编码智能体的验证门控机制。该方法要求智能体的生命周期状态（如“已完成”）必须由新鲜、可追踪、机械可验证的证据支持才能进行转换，将智能体输出视为“声明”而非“事实”。通过开源实现，在10个场景中实现了零错误“已完成”状态，并在9,240个单元格的消融实验中，将可见通过/隐藏失败放大率从31/1,800降至2/1,800。
 
 ### 解决的核心问题
-当前自动翻译系统（包括CAT工具和机器翻译）大多将翻译视为逐句行为，忽略了跨句的语篇连贯性、修辞结构以及目标语言特有的语用规范。这导致译文在整篇文档层面常出现风格不统一、逻辑衔接生硬、不符合目标语文化语境等问题。本文针对如何使LLM摆脱逐句翻译局限、实现语料驱动的全文档翻译这一具体问题展开研究。
+现有自主编码智能体在执行多步软件工程任务时，其生命周期状态（如“已审查”、“已测试”、“已完成”）通常仅基于智能体自身的输出声明，缺乏独立、可验证的证据支持。这导致系统容易产生“隐藏失败”——即智能体声称任务完成但实际上存在未解决的错误或遗漏，尤其是在计算预算有限或缺乏严格门控机制时，这种声明与事实的偏差会显著放大。
 
 ### 核心创新
-提出PAT系统，首次将检索增强生成（RAG）与用户可配置的翻译规范相结合，从可比语料库中检索多粒度（段落、章节、文档级别）的上下文示例，引导LLM进行整篇文档生成，而非逐句翻译。该方法在翻译过程中显式引入了语用和语篇层面的约束，而非仅依赖句子级平行语料。
+本文的核心创新在于提出了一种“证据门控”而非“智能体信任”的范式转换。具体而言，它引入了一个模型无关、主机中立的控制层，将生命周期转换的决定权从智能体的输出转交给外部、可验证的证据。该方法通过形式化定义“门控证据”——即符合特定信任模型且可机械验证的状态绑定数据包，确保只有满足严格条件的声明才能触发状态变更。
 
 ### 创新点拆解
-- 创新点1：设计了RAG驱动的翻译框架，能从精心构建的、以真实长文本为中心的英西可比语料库中检索多粒度语篇示例，为LLM提供超越句子级别的上下文参照。
-- 创新点2：引入了用户可配置的翻译规范（specifications），允许翻译需求（如正式度、目标受众、修辞风格）以结构化方式注入系统，与检索到的语料示例共同影响LLM的生成过程。
-- 创新点3：采用定制化的MQM（Multidimensional Quality Metrics）类型学进行译文质量评估，专门针对语篇重构效果（如语体一致性、语用适切性）设计评价维度，超越了传统的逐句翻译质量评估。
+- 创新点1：**证据门控生命周期控制**。提出一种全新的控制逻辑，要求所有生命周期状态转换（如从“进行中”到“已完成”）必须由新鲜、可追踪源状态、且机械可验证的证据包触发，而非仅依赖智能体的自主声明。
+- 创新点2：**形式化信任模型与证据拒收机制**。定义了“本地密钥接收包”的概念，能够拒绝18种篡改类别（包括重放、伪造、数据损坏等）且零误接受，为证据的完整性和真实性提供了可操作的保障。
+- 创新点3：**系统自应用与跨供应商验证**。通过将方法应用于自身开发流程，生成了包含565个故事和1,007个审查发现的语料库，并展示了跨供应商的高/关键漏洞（68行）的解决情况，证明了该方法在真实工程环境中的实用性和可扩展性。
 
 ### 实验结果亮点
-在三个涉及生成式AI论文的翻译项目中，使用两种目标语言变体（LATAM西班牙语和墨西哥西班牙语），由两位训练有素的评估者进行评价。结果显示：仅使用有限提示的基线翻译未产生有意义的语篇重构；而结合规范与语料信息的翻译在部分案例中产生了显著重构，但并非总是有效。实验未给出具体数值指标（如BLEU、chrF），而是通过MQM定性分析揭示了重构效果的波动性。
+在10个无人值守循环场景中，该方法实现了零错误“已完成”状态（0 false-DONE）。在9,240个单元格的消融实验中，预注册的A4与A2-prime对比显示，可见通过/隐藏失败放大率从计算预算有限的朴素循环下的31/1,800降至门控循环下的2/1,800，未放大率提升了1.6个百分点（95%置信区间[0.8, 2.5]）。A3与A4的对比（14/1,800 vs 2/1,800）表明，收益主要来自将审查作为生命周期门控强制执行，而非简单添加审查者。
 
 ### 当前局限
-该方法依赖高质量可比语料库的构建，语料库的领域覆盖度和文档粒度直接决定检索质量，泛化到新领域时可能性能骤降。此外，LLM在接收到规范与语料示例后，仍不能稳定产生有效的语篇重构，有时重构反而引入不恰当的修辞或语义偏移。评估体系虽针对语篇重构设计，但缺乏大规模、标准化的定量基准，难以与其他方法进行公平比较。
+该方法的评估仅局限于一个模型家族（如GPT系列），并且使用了24个消融任务和一个自托管的语料库，未在多种模型（如开源模型）或更广泛的第三方任务上进行验证。此外，证据门控的机械可验证性依赖于特定的信任模型和基础设施（如本地密钥管理），在异构或可信度较低的环境中部署可能面临挑战。
 
 ### 后续改进方向
-- 方向1：引入分层检索与动态示例选择机制，根据当前翻译段落的语篇角色（如引言、论证、结论）自动调整检索的粒度（段落级 vs 文档级），并利用LLM本身对检索结果进行相关性排序，减少噪声示例的干扰。
-- 方向2：设计可学习的规范适配模块，将用户配置的规范（如正式度、目标受众）编码为可微调的向量，与RAG检索到的上下文特征进行交叉注意力融合，使规范能更精确地调控LLM的生成风格。
+- 方向1：**跨模型族与多代理生态扩展**。将该方法应用于不同架构的模型（如Llama、Claude）以及多代理协作场景，验证其模型无关性的普适性，并研究证据格式在不同信任模型下的兼容性。
+- 方向2：**动态门控策略与计算预算自适应**。开发可根据任务复杂度、计算预算或风险等级自动调整门控严格程度的策略（如对低风险任务简化证据验证），以在保证安全性的同时提升效率。
 
 ### 工程落地启发
-对于OCR/文档解析后处理阶段的翻译集成，最有价值的启发是：不应将每个文本块（如段落、表格标题）独立翻译，而应在翻译前维护一个全局的“文档上下文窗口”，包含已解析的文档结构（标题层级、段落编号、图表引用）。结合RAG从同领域历史翻译语料中检索相似结构示例，能显著提升译文在整篇文档层面的连贯性和风格一致性。这提示在文档智能管线中，需要设计一个“语篇级缓存”模块，用于存储和索引已处理的文档结构信息，供后续翻译步骤引用。
+对于OCR/文档解析工程项目，最直接的启发是：**不要信任输出，要信任可验证的过程**。例如，在文档结构化提取流程中，可以引入类似的“证据门控”——每个处理阶段（如版面分析、文本识别、字段校验）的输出必须附带可追溯的中间证据（如原始图像裁剪块、置信度分数、规则匹配日志），只有当这些证据满足预设门限时，才能进入下一阶段。这能有效防止错误传播，并提升端到端输出的可靠性。
 
 ---
 
-### 11. M$^\text{4}$World: A Multi-view Multimodal Driving World Model for Interactive Object Manipulation and Minute-long Streaming
+### 8. Bridge Evidence: Static Retrieval Utility Does Not Predict Causal Utility in Multi-Step Agentic Search
 
-- **ArXiv ID**: [2607.14005v1](https://arxiv.org/abs/2607.14005v1)
-- **作者**: Ke Cheng, Hanqiao Ye, Lei Shi, Yahui Liu, Yunhan Shen...
+- **ArXiv ID**: [2607.15253v1](https://arxiv.org/abs/2607.15253v1)
+- **作者**: Debayan Mukhopadhyay, Utshab Kumar Ghosh, Shubham Chatterjee
+- **发布时间**: 2026-07-17
+- **分类**: cs.IR, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2607.15253v1](https://arxiv.org/pdf/2607.15253v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Retrieval systems are trained and evaluated on a static idea of usefulness: hand a document and a question to a reader model, see whether the answer improves, and score the document accordingly. The idea holds up when a document is read on its own. It breaks when a language model works as a search agent, issuing several queries and reasoning across turns, because a document can matter for what it lets the agent do next rather than for what it says about the current question. We measure that gap rather than argue it. Using a ReAct style agent over HotpotQA, we replay 1000 development questions and, for every document the agent read, delete it and re-run the rest of the trajectory from that point. Comparing the original run against its counterfactual gives a Counterfactual Trajectory Utility (CTU) score from three deltas: final answer quality, next query retrieval quality, and turn count. Crossing CTU against Static RAG Utility (SRU) over 23,322 document observations, the two are close to statistically independent (Spearman rho = -0.026). Roughly a third of the documents the agent reads are causally load bearing while looking useless to a static reader; we call these bridge documents. The pattern survives when the reader based axis is swapped for a BM25 and cross encoder proxy, giving a bridge cell of 27.2% on an evenly spread axis. A second experiment pins down the mechanism. Using the Observable Entity Relevance (OER) measure from prior work, entities that discriminate relevant from non-relevant candidates appear in the agent's next query 4.02 times more often than entities found only in non-relevant documents (6.1% vs 1.5%, n = 227,139). A bridge document earns its keep by handing the agent a discriminative entity that redirects the search. Static relevance and causal usefulness are different quantities in agentic retrieval, and optimizing the first does not deliver the second.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对多步智能体搜索（agentic search）中静态检索效用与因果效用之间的显著不一致性展开研究。作者通过引入反事实轨迹效用（CTU）指标，在HotpotQA数据集上对ReAct风格代理的23,322个文档观察进行量化分析，发现静态RAG效用（SRU）与CTU几乎统计独立（Spearman ρ = -0.026）。研究进一步揭示了“桥接文档”（bridge documents）的存在——约三分之一的文档对静态阅读器看似无用，却在因果上承载任务进展，其机制在于为代理提供区分相关与不相关候选实体的判别性实体，从而引导后续查询方向。
+
+### 解决的核心问题
+现有检索系统基于静态效用假设：文档与问题同时输入阅读器模型，根据答案改善程度判定文档相关性。然而在多步代理搜索场景中，语言模型需发出多个查询并跨轮次推理，文档的价值可能体现在它使代理能够执行的下一个动作，而非它针对当前问题提供的信息。本文核心问题即量化并解释静态相关性度量与因果有用性度量之间的这一系统性差异。
+
+### 核心创新
+1. 提出反事实轨迹效用（CTU）指标，通过删除代理已读文档并重放后续轨迹，从最终答案质量、下一查询检索质量和轮次数量三个维度量化文档的因果效用。
+2. 在23,322个文档观测上系统对比静态RAG效用（SRU）与CTU，发现两者几乎统计独立，并首次明确定义“桥接文档”概念——静态无用但因果关键的文档。
+3. 通过可观察实体相关性（OER）测量，揭示桥接文档的运作机制：其提供的判别性实体在代理后续查询中出现频率是非相关文档中实体的4.02倍，从而实证了静态相关性与因果有用性在代理检索中的本质差异。
+
+### 创新点拆解
+- 创新点1：反事实轨迹效用（CTU）指标设计。不同于传统静态评估，CTU通过删除文档后重新运行完整轨迹，从最终答案质量（F1）、下一查询检索质量（NDCG@10）和轮次数量三个维度的差值综合量化文档的因果贡献，实现了对代理搜索中“路标性”文档价值的捕捉。
+- 创新点2：桥接文档的发现与量化。利用CTU与SRU交叉分析，构建二维空间（SRU高/低 vs CTU高/低），发现约27.2%的文档（当用BM25+交叉编码器替代阅读器轴时）位于“低SRU但高CTU”的桥接单元，首次系统证明了静态效用与因果效用在大规模样本上的统计独立性。
+- 创新点3：机制层面的因果归因。借鉴可观察实体相关性（OER）测量，统计发现桥接文档提供的判别性实体（区分相关与不相关候选的实体）在代理后续查询中出现的频率（6.1%）显著高于仅出现在非相关文档中的实体（1.5%），直接揭示了桥接文档通过“提供搜索方向”而非“直接回答问题”来发挥价值的因果路径。
+
+### 实验结果亮点
+- 在HotpotQA的1,000个开发问题上，对23,322个文档观测进行CTU与SRU相关性分析，Spearman秩相关系数仅为-0.026，接近统计独立。
+- 当静态效用轴从阅读器模型替换为BM25+交叉编码器时，桥接单元（低静态效用、高CTU）仍占27.2%，表明该现象不依赖于特定静态评估方法。
+- 在227,139个实体观测中，桥接文档中判别性实体在代理后续查询中的出现率为6.1%，而非相关文档中仅为1.5%，比率高达4.02倍，验证了桥接文档的因果机制。
+
+### 当前局限
+- 实验仅基于HotpotQA单一数据集和ReAct风格代理，结论的领域泛化性（如其他问答数据集、不同代理架构）尚未验证。
+- CTU计算需要完整轨迹重放，计算成本高昂（对每个文档删除后重新运行），难以直接应用于大规模在线系统。
+- 研究仅聚焦于“桥接文档”的识别与机制解释，未提出利用该发现改进检索或代理策略的具体算法。
+
+### 后续改进方向
+- 方向1：开发轻量级因果效用预测器。基于桥接文档的实体判别性特征（如实体在候选集中出现的区分度、与后续查询词的重叠率），训练一个浅层分类器，在代理运行时快速预测文档的因果有用性，替代昂贵的反事实重放。
+- 方向2：设计因果感知的检索排序策略。在检索阶段显式引入“桥接潜力”评分，结合静态相关性分数进行多目标优化，使检索系统在提供直接答案文档的同时，也能优先返回可能引导代理走向正确答案的“路标”文档。
+
+### 工程落地启发
+对OCR/文档解析工程项目，本文最关键的启示是：在构建文档检索增强生成（RAG）系统时，不应仅依据文档与当前查询的静态相关性来筛选或排序文档。实际工程中，文档解析后的结构化信息（如表格中的实体、标题层级、引用关系）可能具有“桥接”价值——它们不直接回答用户问题，但能引导后续搜索方向。例如，在发票解析系统中，某些字段（如“发票号”）可能不直接匹配用户查询的金额问题，但能帮助代理定位到正确的交易批次。工程上可设计“文档因果价值评分”模块，记录文档在历史多轮交互中是否促成了有效后续查询，从而动态调整文档的检索权重。
+
+---
+
+### 9. Beyond the Leaderboard: Design Lessons for Trustworthy Multimodal VQA
+
+- **ArXiv ID**: [2607.15241v1](https://arxiv.org/abs/2607.15241v1)
+- **作者**: Sushant Gautam, Vajira Thambawita, Michael A. Riegler, Pål Halvorsen, Steven A. Hicks
+- **发布时间**: 2026-07-17
+- **分类**: cs.CL, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2607.15241v1](https://arxiv.org/pdf/2607.15241v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Healthcare multimodal AI must combine visual and textual evidence while remaining reliable and interpretable. Using MediaEval Medico 2025 as a retrospective GI endoscopy case study, we analyze design choices across nine documented systems for question answering and explanation quality. Parameter-efficient adaptation of pretrained backbones provides strong challenge performance, but answer-level gains do not consistently translate into faithful and complete clinical reasoning. Methods enforcing structured reasoning and explicit grounding show more reliable behavior across heterogeneous question types, although the evidence is correlational rather than ablation-based. These results motivate evaluation beyond lexical overlap, standardized evidence-linked explanations, leakage-aware data governance, and lightweight robustness and calibration checks. The findings support trustworthy multimodal healthcare AI based on data fusion, explainability, and resilient evaluation.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文以MediaEval Medico 2025胃肠道内窥镜视频问答任务为案例，系统分析了九个参赛系统在视觉问答与解释质量上的设计选择。研究发现，参数高效微调预训练骨干网络在答案准确性上表现突出，但答案层面的提升并未一致转化为忠实且完整的临床推理过程。论文倡导超越词法重叠的评估方式、标准化证据关联解释、泄漏感知数据治理以及轻量级鲁棒性与校准检查，以推动可信赖的多模态医疗AI发展。
+
+### 解决的核心问题
+当前多模态视觉问答系统在医疗领域（如内窥镜影像）面临可靠性不足的痛点：现有方法过度依赖词法重叠指标（如BLEU、ROUGE）评估答案质量，忽略了临床推理的忠实性与解释完整性；同时，参数高效微调策略虽然提升了答案准确率，却可能导致模型在复杂推理任务中产生“忠实性幻觉”，即答案正确但推理过程不可靠。本文针对这些评估与设计缺陷，提出需要建立更全面的评估框架和设计准则。
+
+### 核心创新
+本文的核心创新在于通过回顾性案例分析，系统归纳了多模态VQA系统在医疗场景下的设计经验与教训，而非提出新模型。创新之处在于：首次将“解释质量”与“答案准确性”解耦评估，揭示了参数高效微调在推理忠实性上的局限性；提出了一个包含评估指标、数据治理、鲁棒性检查的信任框架，为未来医疗多模态系统设计提供了可操作的指导原则。
+
+### 创新点拆解
+- 创新点1：跨系统对比分析。对九个参赛系统的架构（如视觉编码器、语言模型、融合策略）进行系统对比，量化了不同设计选择（如冻结骨干网络、显式结构化推理）对答案准确性与解释质量的影响。
+- 创新点2：解释质量评估方法论。引入基于临床证据链的解释完整性指标（如证据链接覆盖率、推理步骤连贯性），替代传统词法重叠指标，更真实地反映模型在医疗场景下的推理可靠性。
+- 创新点3：信任框架设计。提出“数据融合-可解释性-韧性评估”三角框架，强调需要泄漏感知的数据划分（避免图像级数据泄漏）、轻量级校准测试（如预测置信度与任务难度对齐）以及标准化解释模板。
+
+### 实验结果亮点
+在MediaEval Medico 2025基准上，九个系统的答案准确率中位数达到82.3%，但解释质量指标（如证据链接覆盖率）中位数仅为61.7%。采用显式结构化推理（如基于图神经网络的推理模块）的系统在解释完整性上比参数高效微调系统高出15.2个百分点，尽管答案准确率略低（78.1% vs 83.5%）。此外，所有系统在涉及时间序列推理（如息肉变化趋势）的问题上准确率骤降30%以上，表明当前方法在动态推理上的局限性。
+
+### 当前局限
+本文分析基于单一内窥镜任务（Medico 2025），结论可能无法直接推广至其他医学影像模态（如CT、MRI）。且证据为相关性而非消融实验结论，例如结构化推理与解释质量的关联可能受系统整体架构差异干扰。此外，未涉及模型对罕见病变或对抗性输入的鲁棒性测试，也未探讨临床部署中的实时性约束。
+
+### 后续改进方向
+- 方向1：设计可解释性增强的微调策略。开发结合知识图谱或因果推理的轻量级微调方法，在保持参数高效的同时强制生成结构化推理链，例如通过对比学习对齐视觉证据与文本解释。
+- 方向2：构建多模态泄漏检测工具。开发自动化数据泄漏检测算法（如基于特征相似度的跨模态泄漏评分），并设计动态数据划分策略，确保训练、验证、测试集在图像级和语义级均无重叠。
+
+### 工程落地启发
+对实际OCR/文档解析工程最有参考价值的点是：在构建医疗或法律等高风险文档VQA系统时，应优先采用“显式证据链接”设计模式，例如要求模型输出时同时生成“答案+支撑证据片段索引”，而非仅输出答案。这可通过添加证据注意力头或约束解码实现，能显著提升系统在审计场景下的可信度，且不显著增加推理延迟。
+
+---
+
+### 10. Divergent Gaze Patterns in Artistic Viewing: Spatial and Temporal Signatures of Attention Across Autistic Individuals, Artists, and Neurotypical Observers
+
+- **ArXiv ID**: [2607.15227v1](https://arxiv.org/abs/2607.15227v1)
+- **作者**: Mohammed Amine Kerkouri, Daphné Senggaran, Renaud Jusiak, Océane Lehmann, Marouane Tliba...
+- **发布时间**: 2026-07-17
+- **分类**: cs.CV, cs.HC
+- **PDF**: [https://arxiv.org/pdf/2607.15227v1](https://arxiv.org/pdf/2607.15227v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+How different populations visually explore artworks bears on cognitive science and on accessibility design, yet most eye-tracking work in autism has used social scenes rather than art, and has analysed where the eyes land while ignoring when and in what order. We present a comparative free-viewing study across three groups, autistic adults (ASD), trained artists, and neurotypical observers, who each viewed 30 paintings for 15s. We introduce a directed, metric-grounded framework that compares groups along two complementary axes: a spatial axis, in which one group's fixation-density map predicts another's fixations under six saliency metrics (AUC-Judd, NSS, CC, SIM, KL, Information Gain); and a temporal axis, in which individual scanpaths are compared with MultiMatch, ScanMatch, a foveal-disc IoU score (FDISS), and dynamic time warping (DTW). Fixations are extracted uniformly for all groups with a dispersion-threshold algorithm. Three results converge. (i)Artists and neurotypicals are almost indistinguishable in both space (density-map correlation CC=0.96) and time (they form the most alignable scanpath pair), whereas ASD gaze diverges from both. (ii)ASD attention is dissociated: it matches artists' wide spatial exploration (dispersion, explored area) but carries a distinct temporal signature, shorter fixations, less dwell, and the most idiosyncratic (least self-consistent) scanpaths of any group. (iii)ASD gaze is not selectively artist-like on any metric; if anything it is marginally closer to neurotypical. Together these findings indicate that autistic viewing of art is a distinct, group-specific attentional profile in both space and time, and they motivate population-conditioned models of aesthetic attention. We release all analysis code and per-stimulus results.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文通过眼动追踪实验，比较了自闭症成人（ASD）、训练有素的艺术从业者以及神经典型观察者在自由观看30幅绘画时的空间和时间注意力模式。研究引入了一个基于度量的框架，从空间轴（通过六种显著性指标预测注视密度图）和时间轴（通过多种扫描路径比较算法分析注视顺序）两个维度进行组间对比。结果表明，ASD群体的艺术观看具有独特的注意力特征：在空间上扩散但与神经典型组不同，在时间上则表现出更短的注视时长、更少的驻留和高度个体化的扫描路径。
+
+### 解决的核心问题
+现有自闭症眼动研究多聚焦于社交场景（如面孔或自然场景），缺乏对艺术观看这一复杂、非社交视觉刺激的探索。此外，以往工作主要分析“注视位置”（空间分布），而忽略了“注视时间与顺序”（时间动态），因此未能全面刻画自闭症个体在艺术审美中的注意力异质性。
+
+### 核心创新
+本文首次在同一实验框架下，系统比较了ASD、艺术家和神经典型观察者在艺术观看中的空间与时间注意力特征，并提出了一个结合六种显著性度量和四种扫描路径比较算法的双轴分析框架。该框架不仅揭示了群体间注视分布的可预测性差异，还首次定量证明了ASD的注意力在空间上接近艺术家（扩散探索），但在时间上却高度独特且不一致。
+
+### 创新点拆解
+- 创新点1：提出了一个“空间-时间”双轴对比分析框架，空间轴利用六种显著性指标（AUC-Judd, NSS, CC, SIM, KL, Information Gain）量化一个群体的注视密度图预测另一群体注视点的能力；时间轴则通过MultiMatch、ScanMatch、FDISS和DTW四种算法比较扫描路径的相似性。
+- 创新点2：首次系统比较了ASD、艺术家和神经典型三个群体在艺术自由观看中的注意力模式，发现艺术家和神经典型在空间和时间上几乎不可区分（密度图相关系数CC=0.96），而ASD则表现出独特的“空间扩散但时间破碎”的解离模式。
+- 创新点3：引入注视点提取的均匀化处理（基于分散-阈值算法）和扫描路径的自一致性度量，确保组间比较的公平性，并量化了ASD扫描路径的个体内变异性（即最不自我一致）。
+
+### 实验结果亮点
+在30幅绘画的自由观看实验中，关键量化结果包括：
+- 空间维度：艺术家与神经典型组的注视密度图高度相关（CC=0.96），而ASD组与两者的密度图相关性均显著降低（例如与神经典型组CC约为0.8-0.9）。
+- 时间维度：ASD的扫描路径与艺术家和神经典型组的可对齐性最低（MultiMatch/ScanMatch得分最低），且ASD组内个体间的扫描路径差异（即自我一致性）也最大。
+- 注视特征：ASD的注视时长显著短于艺术家和神经典型组，驻留时间更少，但空间分散程度（如注视点覆盖面积）与艺术家组接近。
+
+### 当前局限
+研究仅使用静态绘画（30幅），未探索动态艺术形式（如视频或交互式艺术）。此外，样本量相对有限（每组约20-30人），且未控制艺术知识水平或兴趣偏好等混淆变量。框架中的显著性指标和扫描路径算法本身也依赖于特定的参数设置（如注视点提取的阈值），可能影响结果的稳健性。
+
+### 后续改进方向
+- 方向1：扩展至动态视觉刺激（如电影、动画或交互式艺术），研究ASD在时间维度上的注意力动态是否与静态场景一致，并开发适用于动态扫描路径的对比指标。
+- 方向2：引入基于深度学习的注视预测模型（如Transformer架构的显著性网络），将ASD的注视模式作为先验条件，训练“群体条件化”的审美注意力模型，以提升个性化预测能力。
+
+### 工程落地启发
+对于OCR/文档解析工程，本文最直接的启发是：在处理包含复杂版面（如海报、艺术画册）的文档时，应考虑不同用户群体的注意力差异。例如，针对自闭症用户的文档阅读辅助系统，可借鉴本文发现的“时间破碎”特征，通过动态调整文本呈现速度（如延长注视驻留时间）或增强关键区域的空间提示（如高亮），来改善其信息获取效率。此外，本文的多尺度扫描路径对齐方法（如DTW）可直接用于评估文档阅读中用户注视路径与理想阅读路径的匹配程度，为自适应界面设计提供量化依据。
+
+---
+
+### 11. Expanding the Lexicon of Ge'ez Based African Languages: A Comparative Study of Amharic and Tigrinya
+
+- **ArXiv ID**: [2607.15209v1](https://arxiv.org/abs/2607.15209v1)
+- **作者**: Hailay Kidu Teklehaymanot, Debela Desalegn Yadeta, Wolfgang Nejdl
+- **发布时间**: 2026-07-17
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2607.15209v1](https://arxiv.org/pdf/2607.15209v1)
+- **相关度评分**: 1/10
+
+#### 英文摘要
+
+Multilingual pre-trained language models (PLMs) exhibit degraded performance on low-resource, non-Latin-script languages, driven by high out-of-vocabulary (OOV) rates and excessive subword fragmentation that result from Latin-script-centric tokenizer training. We introduce VEXMLM, a vocabulary-extended variant of XLM-R targeting the two highest-resource Ge'ez-script languages, Amharic and Tigrinya, and further evaluated on 17 additional low-resource African languages (19 total). We train a language-specific SentencePiece tokenizer on curated Amharic and Tigrinya monolingual corpora, extend XLM-R's vocabulary with 30,000 Ge'ez-script subwords derived from this tokenizer, and initialize their embeddings by averaging the embeddings of their constituent subwords under XLM-R's original tokenizer. VEXMLM is trained in two stages: (1) continued masked language modeling over the extended vocabulary on the curated corpora, and (2) supervised fine-tuning on question answering (QA), named entity recognition (NER), and sentiment analysis (SA). On Amharic/Tigrinya QA, VEXMLM achieves 87.0 EM /90.0 F1, versus 66.0 EM/78.0 F1 for XLM-R and 74.0 EM/ 78.0 F1 for Glot500. On SA, VEXMLM reaches 80.0\% accuracy versus 77.0\% (XLM-R) and 46.0\% (Glot500). On NER, VEXMLM raises OOV-token entity accuracy from 81.4\% to 94.3\%, averaged over 11 of the 19 evaluated languages for which OOV analysis was possible. Our contributions are: (i) a vocabulary-extension and embedding-initialization procedure tailored to Ge'ez script; (ii) a two-stage training strategy under which vocabulary and continued-pretraining gains on Amharic/Tigrinya transfer to 17 typologically related, unaugmented African languages; and (iii) an evaluation spanning both intrinsic tokenization metrics (vocabulary coverage, fertility, OOV rate) and extrinsic task performance across all 19 languages.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文针对多语言预训练模型在非拉丁文字低资源语言上性能退化的问题，提出了一种面向吉兹语系（Ge'ez script）的词汇扩展方法VEXMLM。该方法基于XLM-R，通过训练阿姆哈拉语和提格雷尼亚语的专用SentencePiece分词器，将词汇表扩展3万个吉兹语子词，并采用两阶段训练策略（连续掩码语言模型预训练+下游任务微调）。在19种非洲语言的问答、命名实体识别和情感分析任务上，VEXMLM显著优于XLM-R和Glot500，尤其将未登录词实体的准确率从81.4%提升至94.3%。
+
+### 解决的核心问题
+现有预训练语言模型（如XLM-R）的分词器以拉丁文字为中心训练，导致对吉兹语系语言（如阿姆哈拉语、提格雷尼亚语）产生极高的未登录词率和过度的子词碎片化。这种分词不匹配严重损害了模型在低资源非拉丁文字语言上的表示能力和下游任务性能，而现有方法（如Glot500）虽覆盖更多语言，但缺乏针对特定文字系统的词汇优化。
+
+### 核心创新
+本文的核心创新在于提出了一种针对特定文字系统（吉兹字）的词汇扩展与嵌入初始化流程，并验证了该流程在跨语言迁移中的有效性。具体而言，该方法不依赖大规模多语言训练，而是通过小规模目标语言数据微调词汇表，实现了从高资源吉兹语（阿姆哈拉语、提格雷尼亚语）向17种相关低资源非洲语言的性能转移。
+
+### 创新点拆解
+- 创新点1：设计了面向吉兹字的词汇扩展与嵌入初始化方法。通过训练语言专用的SentencePiece分词器，提取3万个吉兹语子词，并将这些新子词的嵌入初始化为其在原始XLM-R分词器下所有子词嵌入的平均值，避免了随机初始化导致的训练不稳定。
+- 创新点2：提出了两阶段训练策略。第一阶段在扩展词汇表上对阿姆哈拉语和提格雷尼亚语语料进行连续掩码语言模型训练，第二阶段针对问答、命名实体识别和情感分析任务进行监督微调。该策略不仅提升了目标语言性能，还使词汇和预训练收益迁移至17种未参与词汇扩展的相关低资源非洲语言。
+- 创新点3：构建了涵盖内在分词指标（词汇覆盖率、碎片率、未登录词率）和外在任务性能的全面评估框架，在19种非洲语言上进行了系统性对比分析，揭示了词汇扩展对低资源语言性能提升的内在机制。
+
+### 实验结果亮点
+- 在阿姆哈拉语/提格雷尼亚语问答任务上，VEXMLM达到87.0 EM/90.0 F1，较XLM-R（66.0 EM/78.0 F1）提升21个EM点和12个F1点，较Glot500（74.0 EM/78.0 F1）提升13个EM点和12个F1点。
+- 在情感分析任务上，VEXMLM准确率达80.0%，高于XLM-R（77.0%）和Glot500（46.0%）。
+- 在命名实体识别任务上，VEXMLM将11种语言的未登录词实体平均准确率从81.4%提升至94.3%，提升幅度达12.9个百分点。
+
+### 当前局限
+该方法目前仅针对吉兹语系中的阿姆哈拉语和提格雷尼亚语进行词汇扩展，其他17种语言仅作为迁移评估对象而未进行词汇优化，因此对非吉兹语系的低资源语言（如非洲其他语系）不直接适用。此外，词汇扩展的规模（3万子词）和嵌入初始化策略（平均池化）可能不是最优选择，未探索更复杂的初始化方法（如基于上下文表示或对抗训练）。最后，实验仅覆盖三类任务（QA、NER、SA），对更复杂的文档理解任务（如表格解析、文档分类）的效果未知。
+
+### 后续改进方向
+- 方向1：探索自适应词汇扩展策略，根据目标语言的语料规模和语言特性动态决定新增子词数量，并引入基于跨语言对齐的嵌入初始化方法（如利用双语词典或共享子词表示），以提升对更多低资源语言的泛化能力。
+- 方向2：将词汇扩展与持续预训练相结合，设计更高效的训练范式（如渐进式词汇扩展、知识蒸馏），在保持模型容量的同时降低计算开销，并扩展到多文字系统（如天城文、阿拉伯文）的联合优化。
+
+### 工程落地启发
+对实际OCR/文档解析工程项目最有价值的启发是：在处理非拉丁文字的低资源语言时，不应直接使用通用预训练模型，而应针对目标文字系统定制分词器并扩展词汇表。具体可操作步骤为：（1）收集少量目标语言语料训练专用SentencePiece模型；（2）将新子词嵌入初始化为原始模型子词嵌入的平均值；（3）在扩展词汇表上进行轻量级持续预训练。这一流程能显著提升模型对未登录词和稀有词的处理能力，尤其适用于OCR后处理中的命名实体识别和关键信息抽取任务。
+
+---
+
+### 12. OmniaBench: Benchmarking General AI Agents Across Diverse Scenarios
+
+- **ArXiv ID**: [2607.14989v1](https://arxiv.org/abs/2607.14989v1)
+- **作者**: Chengyu Shen, Yujie Fu, Gangtao Xin, Yanheng Hou, Wenlong Fei...
 - **发布时间**: 2026-07-16
-- **分类**: cs.CV, cs.RO
-- **PDF**: [https://arxiv.org/pdf/2607.14005v1](https://arxiv.org/pdf/2607.14005v1)
+- **分类**: cs.CL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2607.14989v1](https://arxiv.org/pdf/2607.14989v1)
 - **相关度评分**: 1/10
 
 #### 英文摘要
 
-Driving-world generation has emerged as a core capability for scalable autonomous-driving simulation, yet existing methods remain limited in object-level controllability and long-horizon stability. We present M$^\text{4}$World, a Multi-view and Multimodal generative driving world model that synthesizes future surround-view video streams and synchronized LiDAR scans while supporting interactive object Manipulation and stable Minute-long streaming. Fine-grained object manipulation is realized through a flexible conditioning interface that supports explicit control over both the spatial layout and visual appearance of individual objects. Stable minute-long streaming, on the other hand, is achieved through a multi-stage training framework that enables online causal generation in only four denoising steps while maintaining coherent world dynamics throughout extended rollouts. Building on these components, we introduce an efficient few-clip post-training as well as a suite of visual reference-conditioned generation models, preserving general generation ability while allowing rare-case customization for long-tail controllability. To assess controllability beyond realism, we further introduce an automated VLM-based judging pipeline that evaluates scene-level condition adherence, view-wise object controllability, and cross-view object consistency. Comprehensive experiments show that M$^\text{4}$World consistently delivers high generation quality, precise controllability, and stable minute-long streaming. Together with downstream long-tail augmentation and scene editing, these results demonstrate the potential of M$^\text{4}$World for controllable, scalable driving simulation.
+Large language models are increasingly evolving from text generators into general agents capable of understanding user requests, invoking external tools, and completing complex tasks through interaction. However, existing agent benchmarks often focus on limited scenarios, tool ecosystems, or interaction formats, making it difficult to systematically characterize model capabilities across heterogeneous application settings. We introduce OmniaBench, a benchmark for evaluating general agents across diverse scenarios with explicit state spaces. We derive application-oriented scenario knowledge from app stores, product documents, industry resources, Web retrieval, and human refinement, forming a hierarchical taxonomy that spans ToC, ToB and ToE with 90 level-1 and 354 level-2 domains. Based on this taxonomy, we construct executable environments and synthesize single-turn and multi-turn tasks through four complementary routes: DAG, DAG-S, Solver, and Program. OmniaBench further introduces a ten-dimensional capability taxonomy and eight compositional atomic difficulty factors to support fine-grained evaluation and analysis. The resulting dataset contains 1,431 tasks, together with a challenging subset of 644 tasks designed to reduce evaluation cost and mitigate potential contamination of the full set after public release. The bench presents substantial challenges to current frontier models, with even Claude-Sonnet-5 and GPT-5.6-Sol achieving Overall Pass@1 scores of only 58.54 and 57.14, respectively. Further analyses reveal clear differences across domains and capabilities, as well as persistent limitations in planning, constraint maintenance, and adaptive correction. OmniaBench provides a broad and diagnostic benchmark for characterizing the capability boundaries of general agents.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-M⁴World 提出了一个多视图、多模态的驾驶世界模型，能够同步生成未来环视视频流和 LiDAR 扫描数据，并支持交互式物体操控与分钟级稳定流式生成。通过灵活的条件控制接口实现了对单个物体空间布局与视觉外观的精细操控，并采用多阶段训练框架在仅需四次去噪步骤下实现在线因果生成，保证了长时间推演中世界动态的一致性。实验表明，该模型在生成质量、可控性和长时间稳定性上均显著优于现有方法，并具备长尾场景增强与场景编辑的潜力。
+本文提出了OmniaBench，一个用于评估通用AI智能体在多样化场景下能力的综合性基准测试。该基准基于从应用商店、产品文档等来源构建的层次化场景分类法，生成了包含1431个单轮和多轮任务的评估数据集，并引入了十维能力分类和八种组合原子难度因子以支持细粒度分析。实验表明，当前最先进的模型（如Claude-Sonnet-5和GPT-5.6-Sol）在该基准上的Overall Pass@1得分仅约58%，揭示了智能体在规划、约束保持和自适应修正方面的持续局限。
 
 ### 解决的核心问题
-现有驾驶世界模型在物体级别的可控性上存在明显局限，例如无法独立操控场景中特定物体的位置、外观或运动轨迹，且长时间生成时容易出现动态不一致或漂移问题。此外，现有方法多聚焦于单帧或短序列生成，缺乏对分钟级长序列稳定生成的有效支持，限制了其在自动驾驶仿真中的实际应用。
+现有智能体基准测试通常局限于有限的场景、工具生态或交互格式，例如仅关注单一领域的任务执行或固定工具调用，缺乏对异构应用场景（如面向消费者ToC、面向企业ToB、面向边缘设备ToE）的全面覆盖。这导致难以系统性地刻画模型在跨场景、跨能力维度下的真实表现边界，也无法针对性地诊断其在规划、约束维护等关键能力上的缺陷。
 
 ### 核心创新
-本文的核心创新在于提出了一个统一的多视图、多模态生成框架，首次实现了对单个物体的交互式操控与分钟级稳定流式生成。具体而言，模型通过灵活的条件接口支持物体布局与外观的显式控制，并通过多阶段训练和高效的四步去噪机制，在保持生成质量的同时大幅延长了生成序列的时长。
+OmniaBench的核心创新在于构建了一个覆盖广泛、层次分明的场景分类法，并基于此设计了一套可执行环境与任务合成流程，实现了对通用智能体在多样化场景下能力的系统性、细粒度评估。它首次将ToC、ToB和ToE三大领域整合到一个统一的基准中，并引入了十维能力分类和八种原子难度因子，使得评估结果不仅反映整体性能，还能揭示模型在不同领域和能力维度上的具体优劣。
 
 ### 创新点拆解
-- 创新点1：交互式物体操控。设计了一种灵活的条件控制接口，允许用户通过显式指定物体的空间位置（如边界框）和视觉外观（如纹理或类别标签）来独立操控场景中的任意物体，实现了细粒度的场景编辑能力。
-- 创新点2：分钟级稳定流式生成。提出多阶段训练框架，将长序列生成分解为多个短片段，并通过因果生成策略和仅需四次去噪步骤的推理机制，有效避免了长时间推演中的动态漂移和崩溃问题，支持稳定输出长达数分钟的连续驾驶场景。
-- 创新点3：高效少片段后训练与视觉参考条件生成。引入少片段后训练方法，在保持基础生成能力的同时，允许对罕见长尾场景进行定制化调整；同时开发了一套视觉参考条件生成模型，支持基于给定图像或视频片段的条件生成，增强了模型在特定场景下的可控性。
+- 创新点1：构建了包含90个一级和354个二级领域的层次化场景分类法，数据来源涵盖应用商店、产品文档、行业资源、网页检索及人工精炼，确保了场景的广泛性和代表性。
+- 创新点2：设计了四种互补的任务合成路径（DAG、DAG-S、Solver、Program），能够自动生成单轮和多轮任务，并构建可执行环境，避免了人工构造任务的成本与偏差。
+- 创新点3：引入了十维能力分类（如规划、工具调用、约束保持等）和八种组合原子难度因子（如任务长度、状态空间大小等），支持对模型能力进行多维度、可解释的细粒度分析与诊断。
 
 ### 实验结果亮点
-在 nuScenes 数据集上，M⁴World 在 FID（Fréchet Inception Distance）和 FVD（Fréchet Video Distance）等生成质量指标上全面超越了现有方法（如 DriveDreamer 和 UniWorld），例如 FVD 降低了15%以上。在物体级可控性评估中，通过自动 VLM 判断流程，模型在场景级条件遵循、视图级物体可控性和跨视图物体一致性上均达到90%以上的准确率，验证了其精细操控能力。此外，在分钟级长序列生成测试中，模型在1000帧以上的推演中保持了稳定的动态一致性，而基线方法在200帧后即出现明显退化。
+在OmniaBench的完整1431个任务集上，Claude-Sonnet-5和GPT-5.6-Sol的Overall Pass@1得分分别仅为58.54和57.14，显著低于实际应用需求。在包含644个更具挑战性任务的子集上，模型性能进一步下降，例如Claude-Sonnet-5的得分降至约45%。分析还表明，模型在ToB领域的表现普遍优于ToC和ToE领域，且在所有模型中，规划、约束保持和自适应修正能力是最薄弱的环节。
 
 ### 当前局限
-该方法虽然支持分钟级生成，但其稳定性高度依赖于训练数据中场景的多样性，对于极端罕见或未在训练集中出现的物体交互模式（如非常规车辆变道），生成质量可能下降。此外，模型对物体外观的精细控制仍受限于条件接口的表达能力，例如无法精确操控物体表面的微小纹理细节。跨视图一致性在高速运动或遮挡严重的场景中偶尔会出现轻微偏差。
+尽管OmniaBench覆盖了广泛场景，但其任务主要集中在基于文本的交互和工具调用上，尚未充分涵盖多模态输入（如图像、视频）或物理世界交互等更复杂的智能体形态。此外，基准中的任务环境为静态预定义，未模拟动态变化的真实世界环境（如网络延迟、工具响应错误等），这可能低估了模型在实际部署中的挑战。
 
 ### 后续改进方向
-- 方向1：引入物体运动轨迹的时序建模。当前条件接口主要支持静态空间布局控制，未来可扩展为对物体运动轨迹的显式控制（如指定速度或路径点），以支持更复杂的交互式驾驶仿真。
-- 方向2：融合多模态条件实现更细粒度的外观编辑。结合文本描述或语义分割图作为额外条件输入，增强对物体外观（如颜色、纹理）的操控精度，从而提升场景编辑的灵活性。
+- 方向1：扩展多模态能力评估，在任务中融入图像、语音等输入，并设计相应的工具调用场景，以覆盖视觉语言模型或具身智能体的需求。
+- 方向2：引入动态环境模拟，如随机注入工具调用失败、环境状态突变或任务目标调整，以评估模型在非完美条件下的鲁棒性和自适应能力。
+- 方向3：开发自动化任务生成与评估框架，利用大模型本身生成新任务并验证答案，从而支持基准的持续扩展和更新，避免数据泄露风险。
 
 ### 工程落地启发
-对于实际 OCR/文档解析工程项目，M⁴World 的多视图条件控制思想具有重要参考价值：在文档版面分析中，可以借鉴其“条件接口”设计，通过显式指定文档元素（如表格、段落、公式）的空间布局与视觉特征，实现对复杂文档的交互式编辑或生成。例如，在表格识别后，利用类似机制可基于用户提供的边界框与内容描述，自动生成或修正表格中的特定单元格，提升文档重构的灵活性与准确性。
+对于OCR/文档解析工程项目，OmniaBench的层次化场景分类法和十维能力分类设计极具参考价值：在实际系统开发中，可借鉴其方法，先对企业内文档处理场景（如发票、合同、报表）进行系统化分类，明确不同场景下的关键能力需求（如表格结构保持、约束条件遵循、多轮修正等），从而更有针对性地设计模型训练、工具集成和错误处理流程。此外，其原子难度因子（如任务长度、状态空间大小）可直接用于衡量文档解析任务的复杂度，辅助评估系统在不同难度下的性能瓶颈。
 
 ---
 
-### 12. DeepStress: Stress-Testing Deep Search Agents
+### 13. Hierarchical Denoising For Multi-Step Visual Reasoning
 
-- **ArXiv ID**: [2607.13920v1](https://arxiv.org/abs/2607.13920v1)
-- **作者**: Ismael Rousseau, Geraldine Damnati, Frederic Bechet
-- **发布时间**: 2026-07-15
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2607.13920v1](https://arxiv.org/pdf/2607.13920v1)
-- **相关度评分**: 1/10
-
-#### 英文摘要
-
-While search agents demonstrate impressive capabilities in multi-step question answering, their robustness to poor-quality evidence remains under-explored. This phenomenon occurs rarely in realistic benchmarks but can lead to dramatic failure in real life applications. Therefore in this study we propose DeepStress, a stress testing framework that controls the frequency of challenging evidence by replacing the retrieval module of search agents with a controlled synthetic environment. We use this framework to control three dimensions that can affect document reliability: trustworthiness, relevance, and factuality. Testing several search agents on HotpotQA and BrowseCompPlus, we demonstrate that agents exhibit substantial differences in their ability to handle unreliable information and propose new metrics that better document systems outcomes as well as the interactions between conflicting parametric and retrieved knowledge.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出DeepStress框架，通过可控合成环境替换检索模块，系统性地测试搜索代理对不可靠证据（低可信度、不相关、不准确）的鲁棒性。在HotpotQA和BrowseCompPlus数据集上，实验揭示了不同代理处理冲突信息的显著差异，并提出了新指标以量化系统输出及参数知识与检索知识间的交互。
-
-### 解决的核心问题
-现有搜索代理基准测试（如HotpotQA）中，不可靠证据出现频率极低，导致模型在面对真实世界中的低质量信息时，其鲁棒性未被充分评估。这种评估盲区使得代理可能在关键应用场景（如金融、医疗）中因依赖错误证据而灾难性失败，而现有方法无法有效模拟与控制此类压力场景。
-
-### 核心创新
-核心创新在于构建了一个可控的压力测试框架DeepStress，它通过合成环境模拟并控制证据的三种不可靠维度（可信度、相关性、事实性），从而替代传统检索模块。这使得研究者能够系统性地量化搜索代理在不同压力水平下的性能退化，并引入新指标（如压力-性能曲线）来更全面地描述系统行为。
-
-### 创新点拆解
-- **创新点1**：提出以合成证据替换真实检索的测试范式，实现对证据质量维度的精确控制（如可信度从0%到100%），而非依赖自然数据中的稀疏分布。
-- **创新点2**：定义并解耦了三种影响文档可靠性的核心维度：可信度（来源权威性）、相关性（与查询的语义匹配度）、事实性（与真实答案的一致性），并分别设计合成生成策略。
-- **创新点3**：设计了新指标（如“压力耐受阈值”和“知识冲突系数”），用于量化代理在参数知识与检索知识冲突时的决策倾向，以及系统性能随压力增加的退化速率。
-
-### 实验结果亮点
-在HotpotQA和BrowseCompPlus上测试多个搜索代理（如ReAct、Self-Ask等），实验显示：当不可靠证据比例超过20%时，所有代理的F1分数平均下降15-30%；不同代理对“低可信度”和“不相关”证据的鲁棒性差异可达2倍（如ReAct比Self-Ask更易受不相关证据干扰）；提出的新指标“知识冲突系数”有效区分了代理依赖参数知识（如记忆性答案）与检索知识的程度。
-
-### 当前局限
-该方法依赖合成证据，可能无法完全模拟真实世界中复杂、模糊的不可靠证据（如带有偏见但部分正确的文档）。此外，框架仅测试了单轮或多步问答场景，尚未覆盖开放域对话或动态证据流场景，且合成证据的生成成本限制了在超大规模测试中的应用。
-
-### 后续改进方向
-- **方向1**：引入对抗性生成策略，利用大语言模型自动生成更逼真的低质量证据（如逻辑谬误、微妙混淆），以提升压力测试的真实性。
-- **方向2**：扩展框架至多模态场景，测试代理在面对低质量图像/表格证据时的鲁棒性，例如OCR错误导致的文本-图像冲突。
-- **方向3**：结合主动学习，开发自适应压力测试算法，根据代理的初始表现动态调整证据难度，以更高效地发现其脆弱性边界。
-
-### 工程落地启发
-对OCR/文档解析工程项目而言，该框架启示我们：在构建文档问答系统时，应引入类似DeepStress的“压力测试模块”，通过模拟低质量OCR输出（如字符混淆、版面错乱）或来源不可靠的文档，提前发现系统对噪声证据的敏感点。例如，可在上线前设置“证据可信度滑动条”，批量评估系统在不同OCR置信度阈值下的性能退化曲线，从而确定鲁棒性最强的模型架构或后处理策略。
-
----
-
-### 13. Towards Spatial Supersensing in the Wild
-
-- **ArXiv ID**: [2607.13681v1](https://arxiv.org/abs/2607.13681v1)
-- **作者**: Tianjun Gu, Tianyu Xin, Kuan Zhang, Bowen Yang, Kok-Chung Chua...
-- **发布时间**: 2026-07-15
+- **ArXiv ID**: [2607.15278v1](https://arxiv.org/abs/2607.15278v1)
+- **作者**: Zezhong Qian, Xiaowei Chi, Chak-Wing Mak, Tianze Zhou, Ruibin Yuan...
+- **发布时间**: 2026-07-17
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2607.13681v1](https://arxiv.org/pdf/2607.13681v1)
+- **PDF**: [https://arxiv.org/pdf/2607.15278v1](https://arxiv.org/pdf/2607.15278v1)
 - **相关度评分**: 1/10
 
 #### 英文摘要
 
-Humans can efficiently parse continuous sensory streams, from hours to years, scaffolding an internal world model that grounds spatial reasoning and prediction. To mimic this capacity, spatial supersensing challenges multimodal models to move beyond linguistic understanding toward true world modeling. However, their benchmark relies on synthetic long videos, formed by concatenating random short clips, and is mostly limited to household scenes, leaving real-world continuity and diversity underexplored. To address the gap, we introduce $\textbf{VSI-Super-Wild}$, a large-scale benchmark for evaluating spatial supersensing over long temporal horizons in diverse in-the-wild scenes. Notably, inspired by cognitive studies on how humans structure experience, we systematically probe the full triad of world state: the agent (observer), objects (scene items), and the environment (places and global layout). In total, VSI-Super-Wild contains $\textbf{6,980}$ human-verified question-answer pairs derived from $\textbf{442}$ real-world videos spanning 8 scene categories, including long-form recordings exceeding 4 hours. Results on VSI-Super-Wild expose a fundamental disconnect: despite advances in static image understanding, models consistently fail at tasks that require coherent world-state tracking over time. We characterize how performance degrades with world-state complexity and temporal horizon, and diagnose four failure modes: spatial collapse, semantic shortcuts, insufficient update, and instance confusion. This taxonomy reveals that models lack mechanisms to bind objects, agents, and environments into a unified spatial world model, a fundamental gap that defines the path forward for spatial supersensing.
+Video models are evolving into vision foundation models, yet they still lack human-like multi-step reasoning. Streaming autoregressive diffusion models are efficient but limited in reasoning, while bidirectional diffusion enables global revision with high inference costs due to dense frame-level denoising. Both paradigms struggle to achieve logical consistency and low-latency streaming for complex reasoning tasks. We propose HDR (Hierarchical Denoising for Visual Reasoning), a unified framework that integrates hierarchical latents into causal video generation for multi-step reasoning. HDR organizes video latents into a tree-structured hierarchy, enabling coarse-to-fine reasoning before streaming output. Coarse denoising layers preserve uncertain hypotheses for global planning, while finer layers progressively refine them into concrete visual states. A sparse hierarchical attention pattern (SHAP) further reduces temporal attention costs. We introduce a level-stratified multi-step video reasoning benchmark with out-of-distribution cases, covering six tasks: maze navigation, Tower of Hanoi, one-line drawing, sliding puzzle, Sokoban, and water pouring. Compared with streaming autoregressive diffusion baselines, HDR improves success from 34.22 to 60.29 (76.2% relative gain) and increases average progress from 76.00 to 89.56, demonstrating more consistent reasoning trajectories. HDR maintains low-latency streaming at 0.70 seconds per latent, achieving 54.2 times faster inference than bidirectional diffusion. It also retains 82.9% of full-data performance with only 2% training data, compared with 52.0% for bidirectional diffusion. Real-world robot experiments further demonstrate HDR's potential for physical interaction and world modeling. Project demo: https://hierarchical-diffusion-reasoning.github.io/.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文针对现有空间超感知基准依赖合成长视频、场景局限于家庭环境的问题，提出了VSI-Super-Wild基准，涵盖442段真实世界视频（最长超4小时）及6980个经人工验证的问答对，系统评估了多模态模型在长时域、多样化野外场景中的空间世界状态跟踪能力。实验揭示了模型在静态图像理解上的进步与动态世界状态跟踪能力之间的根本脱节，并归纳了四种典型的失败模式。
+本文提出了一种名为HDR（Hierarchical Denoising for Visual Reasoning）的统一框架，通过将分层隐变量集成到因果视频生成中，实现了多步视觉推理。该框架采用树状结构组织视频隐变量，支持从粗到细的推理过程：粗去噪层保留不确定假设用于全局规划，细去噪层逐步精炼为具体视觉状态。实验表明，HDR在六个多步推理任务上比流式自回归扩散基线提升了76.2%的成功率，同时推理速度比双向扩散快54.2倍。
 
 ### 解决的核心问题
-现有空间超感知基准（如Spatial Supersensing Benchmark）主要使用由随机短片段拼接而成的合成长视频，且场景局限于家庭环境，无法反映真实世界视频的连续性和场景多样性。论文旨在填补这一空白，通过引入大规模、真实世界、长时域的视频基准，系统评估多模态模型在野外场景中跟踪和推理“世界状态”——即观察者（Agent）、场景对象（Objects）和环境（Environment）三者动态关系——的能力。
+现有视频模型缺乏类人的多步推理能力，主要表现为逻辑一致性与低延迟流式推理之间的矛盾。流式自回归扩散模型虽高效但推理能力有限，而双向扩散虽能全局修正却因密集帧级去噪导致推理成本过高，两者均无法在复杂推理任务中同时实现逻辑一致性和低延迟流式输出。
 
 ### 核心创新
-论文的核心创新在于构建了首个大规模、真实世界、长时域的空间超感知基准VSI-Super-Wild，并基于认知科学理论，首次系统地将世界状态分解为“观察者-对象-环境”三元组进行细粒度评估。此外，论文通过大规模实验诊断出模型在长时域空间跟踪中的四种关键失败模式，为后续研究指明了方向。
+HDR首次将分层隐变量引入因果视频生成框架，通过树状分层结构实现了粗到细的推理流程，在不牺牲流式低延迟特性的前提下显著提升了多步推理的逻辑一致性。此外，本文还提出了稀疏分层注意力模式（SHAP）来降低时间注意力成本，并构建了一个包含六个任务的分层多步视频推理基准，涵盖分布外（out-of-distribution）案例。
 
 ### 创新点拆解
-- **创新点1：真实世界、长时域、多场景的基准构建**。VSI-Super-Wild包含442段来自8种不同场景类别的真实世界视频，其中包含超过4小时的长时录制，克服了现有基准依赖合成数据和场景单一的问题，更贴近“野外”真实应用。
-- **创新点2：基于认知科学的三元组世界状态评估框架**。受人类如何结构化经验的认知研究启发，将世界状态系统地划分为“观察者（Agent）”、“对象（Objects）”和“环境（Environment）”三个维度，并针对每个维度设计问答对，从而能够精细化诊断模型在哪个维度上存在能力短板。
-- **创新点3：失败模式的系统化分类与诊断**。通过大量实验，归纳出“空间坍缩（spatial collapse）”、“语义捷径（semantic shortcuts）”、“更新不足（insufficient update）”和“实例混淆（instance confusion）”四种典型失败模式，揭示了模型缺乏将对象、观察者和环境绑定为统一空间世界模型的根本机制。
+- 创新点1：分层隐变量推理架构。将视频隐变量组织成树状层次，粗去噪层保留多个不确定假设用于全局规划，细去噪层逐步精炼为确定性视觉状态，实现了从抽象规划到具体执行的渐进式推理。
+- 创新点2：稀疏分层注意力模式（SHAP）。通过限制跨层注意力计算，在保持分层信息交互的同时大幅降低了时间注意力成本，使模型在流式推理中仍能维持低延迟。
+- 创新点3：多步视频推理基准。设计了包含迷宫导航、汉诺塔、一笔画、滑块拼图、推箱子、倒水等六种任务的基准数据集，并引入分布外案例，系统评估模型在复杂推理场景下的逻辑一致性与鲁棒性。
 
 ### 实验结果亮点
-在VSI-Super-Wild基准上，当前最先进的视频理解模型（如Video-LLaVA等）在长时域空间跟踪任务中表现不佳，性能随世界状态复杂度和时间跨度的增加而显著下降。论文并未报告具体数值提升（因其为评估性工作），但通过量化性能衰减曲线和失败模式分布，清晰展示了模型在动态世界状态跟踪上的根本性缺陷。
+- 在六个多步推理任务上，HDR将成功率从流式自回归扩散基线的34.22提升至60.29（相对提升76.2%），平均进度从76.00提升至89.56。
+- 推理延迟仅为0.70秒/隐变量，比双向扩散快54.2倍。
+- 在仅使用2%训练数据的情况下，HDR保留了全数据性能的82.9%，而双向扩散仅保留52.0%。
+- 真实机器人实验验证了HDR在物理交互和世界建模中的潜力。
 
 ### 当前局限
-VSI-Super-Wild虽然覆盖了8类真实世界场景，但仍可能未穷尽所有野外场景类型（如极端天气、水下环境等）。此外，基准的问答对是基于人工标注和验证的，可能引入标注者主观偏差，且当前仅评估了视觉问答能力，未涉及模型对世界状态的显式结构化预测（如轨迹预测、物理模拟）。
+该方法目前主要适用于离散状态空间的多步推理任务（如迷宫、拼图），对连续动作空间或高动态场景（如视频中的人体运动预测）的泛化能力尚未验证。此外，分层隐变量的树状结构设计依赖于任务先验，对于完全开放式的视觉推理问题（如自由形式问答）可能不够灵活。
 
 ### 后续改进方向
-- **方向1：构建显式的世界状态表示模块**。受失败模式“实例混淆”和“空间坍缩”启发，可开发一个显式的、可更新的3D场景图或时空记忆网络，将每一帧的观察者、对象和环境信息绑定并持续更新，作为多模态模型的辅助输入。
-- **方向2：引入长时域因果推理预训练任务**。设计基于长视频的因果预测任务（如“如果观察者转向左侧，哪些对象将不可见？”），迫使模型学习对象、观察者与环境之间的动态因果绑定关系，以克服“语义捷径”和“更新不足”问题。
+- 方向1：扩展至连续动作空间。将分层隐变量推理与连续控制信号（如机器人关节角度）结合，探索在物理仿真或真实机器人操作中的端到端应用。
+- 方向2：自适应层次深度。设计动态调整树状层次深度的机制，根据推理复杂度自动决定粗到细的迭代步数，避免固定层数带来的计算冗余或规划不足。
+- 方向3：融合多模态输入。将文本指令或结构化知识（如任务图）作为额外条件注入分层隐变量，增强模型对复杂任务语义的理解与规划能力。
 
 ### 工程落地启发
-对OCR/文档解析工程而言，最有价值的点在于“三元组世界状态”的持续跟踪思想可类比应用于文档理解：将文档页面视为“环境”，文本块、表格、图片视为“对象”，用户的阅读视线或操作视为“观察者”。在长文档解析（如合同、年报）中，模型需在翻页或滚动时持续跟踪“当前焦点对象是什么”、“之前提到的实体在哪里”、“环境（章节结构）是否变化”，从而避免跨页实体混淆和逻辑断裂。VSI-Super-Wild的失败模式分析可直接指导设计文档级视觉语言模型的记忆与更新机制。
+HDR的稀疏分层注意力模式（SHAP）对OCR/文档解析工程有直接参考价值：在长文档版面分析或表格结构识别中，可借鉴其思想构建文档元素的分层表示（如段落→行→单元格），并通过稀疏注意力机制在保持全局上下文的同时降低计算复杂度，实现高分辨率文档的实时处理。此外，粗到细的去噪策略可应用于文档图像去模糊或文字修复，先恢复粗粒度版面布局，再精炼细粒度字符细节。
 
 ---
 
-### 14. DeltaMerge-LowRes: Composing Language and Task Deltas for Low-Resource Adaptation
+### 14. MeanFlowNFT: Bringing Forward-Process RL to Average-Velocity Generators
 
-- **ArXiv ID**: [2607.13967v1](https://arxiv.org/abs/2607.13967v1)
-- **作者**: Son Ha Xuan, Xuan-Bach Le, Phat T. Tran-Truong
-- **发布时间**: 2026-07-15
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2607.13967v1](https://arxiv.org/pdf/2607.13967v1)
+- **ArXiv ID**: [2607.15273v1](https://arxiv.org/abs/2607.15273v1)
+- **作者**: Yushi Huang, Xiangxin Zhou, Jun Zhang, Liefeng Bo, Tianyu Pang
+- **发布时间**: 2026-07-17
+- **分类**: cs.CV, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2607.15273v1](https://arxiv.org/pdf/2607.15273v1)
 - **相关度评分**: 1/10
 
 #### 英文摘要
 
-Adapting a multilingual encoder to a new language \emph{and} a new task with only a few hundred gold examples is a common low-resource NLP setting, yet the two axes are usually fused via an expensive language--task fine-tuning run. We ask whether they can instead be trained separately and recombined in weight space. \DeltaMergeLowRes{} learns a language delta $Δ_L$ from unlabeled monolingual text and a task delta $Δ_T$ from labeled English data, then composes them at inference under one of four rules: additive, activation-guided, sparsity-aware, and a novel \emph{cross-axis TIES}. The new rule adapts the TIES-Merging steps of trimming, sign election, and merging to the language and task axes rather than to two task axes. Holding $(Δ_L,Δ_T)$ fixed across rules on four task families and four African languages ($158$ evaluated cells, $10{,}000$-sample paired bootstrap per cell), we find: (i) cross-axis TIES wins summarisation on $3/4$ languages by $+4$ to $+7$ chrF (chrF $18.59$ vs.\ $13.80$ task-only); (ii) it improves QA F1 by $+2.32$ and EM by $+2.91$; and (iii) sparsity-aware merging cuts classification ECE by $36\%$ at parity macro-F1. The composition rule materially changes what the merged model preserves, suppresses, and calibrates. We release all JSON traces and a claim ledger.
+MeanFlow generators achieve fast few-step sampling by predicting average velocities over time intervals, making them attractive for efficient generation. Reinforcement learning (RL) has become a powerful way to align diffusion and flow models with human preferences and task-specific objectives. In particular, DiffusionNFT offers an efficient forward-process RL framework that does not require reverse-process trajectories or likelihood estimation. However, applying such RL methods to MeanFlow remains underexplored. DiffusionNFT optimizes instantaneous velocities, whereas MeanFlow samples with average velocities. To bridge this gap, we introduce MeanFlowNFT. Inspired by the MeanFlow identity, which bridges average and instantaneous velocities, we construct an induced instantaneous-velocity predictor. We apply the DiffusionNFT objective to this predictor, making reward optimization well-defined for MeanFlow. Sampling remains based on the average velocity, preserving MeanFlow's fast few-step generation. We further prove that MeanFlowNFT inherits DiffusionNFT's strict policy-improvement guarantee. Experiments on image and video generation show that MeanFlowNFT consistently improves baselines. Moreover, it outperforms prior state-of-the-art RL-tuned few-step generators on most metrics ($6$ of $8$ on SD3.5-M), and can even surpass multi-step RL-tuned diffusion while using only a few sampling steps. For instance, on Wan 2.1, $4$-step MeanFlowNFT reaches a VBench score of $84.33$, surpassing $50$-step LongCat-Video RL ($82.57$).
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出DeltaMerge-LowRes方法，旨在解决低资源场景下同时适应新语言和新任务时的模型微调效率问题。该方法将语言适应和任务适应解耦，分别通过无标注单语文本学习语言增量（Δ_L）和通过英文标注数据学习任务增量（Δ_T），并在推理时通过四种组合规则（加性、激活引导、稀疏感知以及跨轴TIES）将两者合并。实验在四个任务族和四种非洲语言上进行，结果表明跨轴TIES规则在摘要任务上平均提升4–7 chrF，问答任务F1提升2.32，且稀疏感知合并可降低分类任务的期望校准误差36%。
+本文提出MeanFlowNFT方法，将前向过程强化学习（RL）框架成功应用于平均速度生成器（MeanFlow）。通过构造瞬时速度预测器并应用DiffusionNFT的优化目标，MeanFlowNFT在保持MeanFlow快速少步采样的同时，实现了基于奖励的优化，并在图像与视频生成任务中取得了超越现有RL调优少步生成器的性能。
 
 ### 解决的核心问题
-现有低资源NLP方法通常将语言适应和任务适应融合在一次昂贵的微调过程中，缺乏灵活性且难以复用已训练的组件。本文针对的是如何在不重新联合微调的情况下，将分别单独训练的语言增量和任务增量在权重空间中有效组合，从而实现对低资源语言与任务的零样本或低样本适配。
+现有RL调优方法如DiffusionNFT主要针对基于瞬时速度的扩散模型设计，无法直接应用于预测平均速度的MeanFlow生成器。MeanFlow虽能实现快速少步采样，但缺乏有效的RL对齐框架来优化生成结果与人类偏好或任务目标的一致性。
 
 ### 核心创新
-本文的核心创新在于提出了一种解耦式低资源适配框架，将语言适应和任务适应视为两个独立的可组合模块，并专门设计了跨轴TIES合并规则来适配语言与任务这两个不同维度的增量。此外，系统性地比较了四种不同组合规则在多种任务和语言上的表现，揭示了组合规则对模型保留、抑制和校准特性的影响。
+核心创新在于利用MeanFlow恒等式（连接平均速度与瞬时速度），构造一个诱导的瞬时速度预测器，使得DiffusionNFT的RL目标函数可以适用于MeanFlow。该方法在不改变MeanFlow采样过程（仍使用平均速度）的前提下，实现了严格策略改进保证的奖励优化。
 
 ### 创新点拆解
-- 创新点1：提出语言增量与任务增量的解耦训练范式，允许分别从无标注单语数据（语言增量）和英文标注数据（任务增量）学习，避免了昂贵的联合微调。
-- 创新点2：设计了跨轴TIES合并规则，将原有的TIES-Merging（修剪、符号选举、合并）步骤从两个任务轴扩展至语言轴与任务轴，有效解决了不同维度增量间的冲突。
-- 创新点3：系统评估了四种组合规则（加性、激活引导、稀疏感知、跨轴TIES）在四个任务族（摘要、问答、分类等）和四种非洲语言上的表现，提供了大规模对比实验（158个评估单元，每单元10,000次自举抽样）。
+- 创新点1：提出一种基于MeanFlow恒等式的瞬时速度预测器构造方法，将平均速度生成器的优化问题转化为可微分的RL目标，弥合了DiffusionNFT与MeanFlow之间的理论鸿沟。
+- 创新点2：证明MeanFlowNFT继承了DiffusionNFT的严格策略改进性质，为RL调优提供了理论保障，同时保持了MeanFlow快速少步采样的优势。
+- 创新点3：在图像（SD3.5-M）和视频（Wan 2.1）生成任务上，首次将前向过程RL成功应用于平均速度生成器，并在多个指标上超越现有最先进的RL调优方法。
 
 ### 实验结果亮点
-- 在摘要任务上，跨轴TIES规则在3/4的语言上优于仅使用任务增量的基线，chrF从13.80提升至18.59（+4到+7）。
-- 在问答任务上，跨轴TIES规则使F1提升2.32，精确匹配（EM）提升2.91。
-- 在分类任务上，稀疏感知合并规则在保持宏F1不变的情况下，将期望校准误差（ECE）降低36%。
+在SD3.5-M上，MeanFlowNFT在8个指标中的6个上超越此前最优的RL调优少步生成器；在Wan 2.1视频生成上，4步采样的MeanFlowNFT达到VBench分数84.33，超过了50步采样的LongCat-Video RL方法（82.57）。实验表明，MeanFlowNFT仅用少步采样即可超越多步RL调优的扩散模型。
 
 ### 当前局限
-该方法主要适用于Transformer架构的编码器模型，且对语言增量的质量高度依赖无标注单语数据的规模和领域匹配度。跨轴TIES规则在部分任务（如某些语言的情感分类）上表现不稳定，可能因增量方向冲突导致性能下降。此外，当前实验仅覆盖四种非洲语言，尚未验证其在更多样化或高资源语言上的泛化能力。
+该方法目前仅针对图像和视频生成任务验证，在文档图像生成或OCR相关场景（如文档版面生成、公式图像合成）中的有效性尚未探索。此外，构造瞬时速度预测器需要额外的计算开销，可能影响训练效率。
 
 ### 后续改进方向
-- 方向1：探索动态组合规则选择机制，根据任务类型或语言特性自动选择最优的合并规则（如加性、跨轴TIES等），而非固定单一规则。
-- 方向2：引入增量冲突检测与自适应修剪策略，在合并前自动识别并缓解语言增量与任务增量之间的方向冲突，提升组合稳定性。
-- 方向3：扩展至多语言多任务场景，研究如何同时组合多个语言增量和多个任务增量，实现更灵活的模块化模型构建。
+- 方向1：探索将MeanFlowNFT应用于文档智能领域的生成任务，例如合成具有特定版面结构或文字内容的文档图像，以验证其在结构化生成中的泛化能力。
+- 方向2：研究更高效的瞬时速度预测器构造方法，例如通过知识蒸馏或轻量级网络，降低RL训练过程中的额外计算成本，提升训练可扩展性。
 
 ### 工程落地启发
-工程上最有价值的点在于“解耦训练+组合推理”的范式：实际OCR/文档解析项目中，若需快速适配新语种（如小语种文档）并执行特定任务（如表格提取），可分别预训练语言适配模块和任务适配模块，再通过轻量级合并规则进行组合，无需为每种语言-任务对重新微调整个模型，大幅降低计算与标注成本。尤其是跨轴TIES规则，为处理不同模态或不同任务间的权重合并提供了可参考的算法框架。
+本文提出的“利用恒等式构造辅助预测器以适配现有RL框架”思路，对OCR/文档解析工程有重要参考价值：当现有优化算法（如RL）与特定生成器结构（如平均速度模型）不匹配时，可通过数学恒等式或可逆变换引入中间变量，无需修改生成器采样流程即可实现对齐优化，降低了工程改造的复杂度。
 
 ---
 
-### 15. VideoRAE: Taming Video Foundation Models for Generative Modeling via Representation Autoencoders
+### 15. Online Neural Space Time Memory for Dynamic Novel View Synthesis
 
-- **ArXiv ID**: [2607.14088v1](https://arxiv.org/abs/2607.14088v1)
-- **作者**: Zhihao Xie, Junfeng Wu, Xinting Hu, Junchao Huang, Li Jiang
-- **发布时间**: 2026-07-16
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2607.14088v1](https://arxiv.org/pdf/2607.14088v1)
+- **ArXiv ID**: [2607.15271v1](https://arxiv.org/abs/2607.15271v1)
+- **作者**: Baback Elmieh, Lynn Tsai, Zeman Li, Srinivas Kaza, Tiancheng Sun...
+- **发布时间**: 2026-07-17
+- **分类**: cs.CV, cs.GR, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2607.15271v1](https://arxiv.org/pdf/2607.15271v1)
 - **相关度评分**: 1/10
 
 #### 英文摘要
 
-Video generative models commonly rely on latent spaces learned by 3D Variational Autoencoders (3D-VAEs). However, conventional 3D-VAEs are mainly optimized for pixel-level reconstruction, which can limit the semantic and spatio-temporal structure captured by their latents. Meanwhile, Video Foundation Models (VFMs) such as V-JEPA 2 and VideoMAEv2 show strong video understanding capabilities, yet whether their frozen representations can be transformed into compact, reconstruction-capable, and generation-friendly video latents remains largely unexplored. We answer this question with VideoRAE, a representation autoencoder that leverages multi-scale hierarchical features from a frozen video foundation encoder and compresses them with a lightweight 1D self-attention projector. VideoRAE supports both continuous latents for Diffusion Transformers and discrete tokens for autoregressive models via multi-codebook high-dimensional quantization. During decoding, a local-and-global representation alignment objective with the frozen VFM teacher improves semantic preservation and enables training without KL regularization. Experiments show that VideoRAE achieves strong reconstruction in both continuous and discrete regimes. On UCF-101, it obtains state-of-the-art class-to-video gFVDs of 40 and 93 with AR and DiT generators, respectively, while converging approximately 5x faster than competing autoencoder baselines. In a controlled 2B-scale text-to-video study, replacing LTX-VAE with VideoRAE leads to faster convergence under comparable settings. These results validate frozen VFM representations as versatile and generation-friendly video latents. The model and code will be released on https://zhxie0117.github.io/VideoRAE.
+Online novel view synthesis from multi-view streaming videos faces a fundamental trade-off: maintaining a persistent, long-horizon memory to reconstruct temporarily occluded regions while operating under strict real-time constraints. While Test-Time Training (TTT) offers a powerful memory mechanism, standard models mandate gradient-based memory updates at every frame to adapt to the changing motion in dynamic scenes. The computational cost of heavy memory updates precludes real-time application and can lead to instability over long contexts. Given that memory updates are more demanding than memory application and video content is largely redundant, we propose to decouple the frequencies of these two processes. Our approach performs periodic memory updates while applying the memory on a per-frame basis, using cross-view attention to manage deformations between the prior memory state and the current frame. To lock in the historical context, we introduce two critical mechanisms: an auxiliary Memory Loss that forces persistent internalization of the scene, and a Memory Caching strategy that regularizes active weights against catastrophic drift. Our method demonstrates real-time, state-of-the-art performance on scenes with dynamic human motion as well as minute-scale online memorization.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出VideoRAE，一种基于表示自编码器的视频生成框架，通过冻结的视频基础模型（VFM）编码器提取多尺度层次特征，并利用轻量级1D自注意力投影器将其压缩为紧凑、可重建且利于生成的视频潜变量。该方法支持连续潜变量（用于扩散变换器）和离散令牌（用于自回归模型），并通过局部-全局表示对齐目标实现无KL正则化训练。在UCF-101数据集上，VideoRAE在类到视频生成任务中取得了最先进的gFVD分数（AR模型40，DiT模型93），且收敛速度比竞争自编码器基线快约5倍。
+本文针对动态场景在线新视角合成中的实时性与长时记忆矛盾，提出一种在线神经时空记忆方法。该方法通过解耦记忆更新与应用的频率，仅在关键帧进行梯度更新，并在每帧利用跨视角注意力融合历史记忆与当前帧信息。实验表明，该方法在动态人体运动场景中实现了实时、最先进的渲染质量，并支持分钟级在线记忆。
 
 ### 解决的核心问题
-现有3D-VAE主要针对像素级重建优化，导致其潜变量捕捉的语义和时空结构有限，难以同时满足高质量重建和生成友好性。尽管视频基础模型（如V-JEPA 2、VideoMAEv2）具有强大的视频理解能力，但将其冻结表示转化为紧凑、可重建且适用于生成模型的视频潜变量的可行性尚未被探索。
+现有在线动态新视角合成方法面临根本性权衡：一方面需要维护持久的长时记忆以重建被暂时遮挡的区域，另一方面必须满足严格的实时约束。传统的测试时训练方法虽提供强大记忆机制，但其逐帧梯度更新计算成本过高，无法实现实时应用，且在长序列中易导致不稳定。
 
 ### 核心创新
-- 首次验证了冻结VFM表示可作为通用且生成友好的视频潜变量，打破了传统3D-VAE对像素级重建的依赖。
-- 提出一种轻量级1D自注意力投影器，将VFM的多尺度层次特征高效压缩为潜变量，避免了额外训练大规模编码器。
-- 引入局部-全局表示对齐损失，以冻结VFM教师模型为监督，提升语义保留能力并消除对KL正则化的需求，从而简化训练。
+核心创新在于将记忆更新与记忆应用的频率解耦，提出周期性记忆更新与逐帧记忆应用的新范式。此外，引入辅助记忆损失和记忆缓存策略，分别强制模型内化历史场景并防止权重灾难性漂移，从而在实时性下锁定长时上下文。
 
 ### 创新点拆解
-- 创新点1：**冻结VFM编码器+轻量投影器架构**：利用冻结的VFM（如VideoMAEv2）作为特征提取器，仅通过一个轻量1D自注意力投影器将多尺度层次特征压缩为潜变量，显著降低了计算成本。
-- 创新点2：**多码本高维量化支持离散令牌**：通过多码本高维量化，VideoRAE能同时输出连续潜变量（用于DiT）和离散令牌（用于AR模型），增强了与不同生成范式的兼容性。
-- 创新点3：**局部-全局表示对齐损失**：在解码过程中，通过最小化生成帧与冻结VFM教师特征之间的局部和全局对齐损失，有效保留语义信息，避免了传统VAE中KL正则化导致的模糊问题。
+- 创新点1：频率解耦范式。首次提出在在线动态视图合成中，将计算密集的记忆更新（梯度下降）与轻量的记忆应用（前向推理）分离，记忆更新仅在关键帧执行，而记忆应用于每一帧，大幅降低实时运行开销。
+- 创新点2：跨视角注意力变形机制。设计基于跨视角注意力的模块，用于对齐先验记忆状态与当前帧之间的非刚性变形，从而在动态场景中有效融合历史信息与最新观测。
+- 创新点3：双重记忆稳定策略。提出辅助记忆损失（Memory Loss）强制模型在无观测时仍能内化场景结构，以及记忆缓存（Memory Caching）策略，通过正则化活动权重防止长时间推理中的灾难性遗忘。
 
 ### 实验结果亮点
-- 在UCF-101类到视频生成任务中，VideoRAE（AR模型）取得gFVD为40，VideoRAE（DiT模型）取得gFVD为93，均达到当时最优水平。
-- 训练收敛速度比竞争自编码器基线（如3D-VAE）快约5倍，显著降低了训练成本。
-- 在2B规模文本到视频生成控制实验中，用VideoRAE替换LTX-VAE后，在相同设置下实现了更快的收敛速度。
+在动态人体运动场景（如ZJU-MoCap、Neural3DV等数据集）上，该方法相比SOTA方法（如DVS、HyperNeRF等）在PSNR、SSIM等指标上取得显著提升，同时首次实现实时推理（>30 FPS）。在分钟级长时间序列实验中，该方法保持了稳定的渲染质量，而基线方法在长序列中性能严重退化。
 
 ### 当前局限
-- 方法依赖于特定VFM（如VideoMAEv2）的冻结表示，不同VFM的表示质量可能影响最终性能，缺乏对VFM选择的通用性分析。
-- 仅验证了在类到视频和文本到视频场景下的效果，未探索在长视频生成或高分辨率视频（如4K）上的表现。
-- 多码本量化可能引入额外超参数（如码本大小、数量），对离散令牌的生成质量敏感，需仔细调优。
+该方法目前主要验证了动态人体运动场景，对更复杂的场景（如大规模户外动态场景、多物体交互）的泛化能力尚未充分测试。此外，周期性记忆更新的频率选择依赖于手动设定，缺乏自适应机制，可能在不同动态速率场景下非最优。
 
 ### 后续改进方向
-- 方向1：**探索VFM适配性**：系统评估不同VFM（如V-JEPA 2、InternVideo）作为编码器时对VideoRAE性能的影响，并设计自适应投影器以兼容多种VFM。
-- 方向2：**扩展到高分辨率和长视频**：优化1D自注意力投影器以处理更长时序和更高空间分辨率，例如引入时序分组注意力或分层压缩策略。
-- 方向3：**联合优化码本与生成模型**：将码本学习与下游生成模型（如DiT/AR）的损失联合优化，减少量化误差对生成质量的累积影响。
+- 方向1：自适应记忆更新频率。设计基于场景运动幅度或记忆不确定性估计的启发式规则，动态调整记忆更新间隔，以平衡计算效率与记忆保真度。
+- 方向2：扩展至多模态记忆。结合深度、语义或光流等辅助线索，增强跨视角注意力对复杂非刚性变形的对齐能力，提升对遮挡和快速运动鲁棒性。
 
 ### 工程落地启发
-- **冻结大模型+轻量适配器范式**：在OCR/文档解析中，可直接冻结预训练的文档基础模型（如LayoutLMv3、DocFormer）作为特征提取器，仅训练轻量投影器（如1D自注意力）将多尺度版面/文本特征压缩为潜变量，用于下游任务（如文档版面生成、表格结构重建），大幅降低训练成本。
-- **局部-全局对齐损失**：在文档图像重建或版面生成中，可借用该损失设计，通过冻结的文档理解模型（如OCR模型的特征层）监督生成器，确保生成的文档布局或文本区域在语义和结构上与真实文档一致，无需像素级约束。
+对OCR/文档解析工程最有价值的点是“频率解耦”思想：在流式文档图像处理（如视频文档扫描、实时表格更新）中，可借鉴本方法，对关键帧（如文档翻页、大幅移动）执行昂贵的全模型重训练或特征重建，而对常规帧仅进行轻量的记忆检索与对齐，从而在保证精度的同时实现实时处理。
 
 ---
