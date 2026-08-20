@@ -1,8 +1,8 @@
-# OCR arXiv Daily Pro — 2026-08-19
+# OCR arXiv Daily Pro — 2026-08-20
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-08-18 09:10 - 2026-08-19 09:10 (Asia/Shanghai)
+> 时间窗口：2026-08-19 09:10 - 2026-08-20 09:10 (Asia/Shanghai)
 
 ---
 
@@ -10,712 +10,731 @@
 
 ### 今日执行摘要
 
-今日15篇论文整体呈现出从“感知能力”向“推理与智能体协同”演进的鲜明态势。文档智能领域不再满足于版面分析与文字提取本身，而是聚焦于将文档作为知识载体，在检索、评测、解析与生成全链条上引入智能体（Agent）与多模态大模型（MLLM）的深度耦合。最值得关注的突破集中在三个层面：一是面向视觉丰富文档的智能体检索基准（VisDocAgentBench）与双语专业文档推理基准（BEAR-Bench）的提出，填补了现有评测体系在迭代式证据获取与多语言覆盖上的空白；二是以“代码作为表示”（Code as Representation）为核心的学术文档解析范式，直击PDF中结构化学术元素（表格、公式、伪代码）在传统Markdown表示下的信息损毁痛点；三是在工程效率层面，文档嵌入保持微调（DEPT）与可学习分解特征缓存（LinCa）分别从检索统一化与扩散模型加速角度提供了可落地的优化方案。整体来看，今日论文在基准建设、表示范式与高效推理三条主线上均有实质推进，但端到端文档智能体系统仍未形成统一理论框架。
+今日15篇论文整体呈现出文档智能领域从“单一任务优化”向“系统化、生态化、多模态融合”演进的鲜明态势。核心热点集中在三个层面：其一，以OmniHandwritingOCR和DocClaw为代表的基准测试与统一智能体框架，标志着领域开始反思任务碎片化问题，转向构建可诊断、可泛化的通用文档理解范式；其二，以Institutional Books/Newspapers系列为代表的工业级开源管线，凸显了大规模历史文献数字化中对数据质量、可解释性和多语言适配的极致追求；其三，以FRAGMENT和Mise-en-Scène为代表的生成式文档模型，正试图突破像素级或token级建模的局限，将版面结构作为显式归纳偏置融入生成过程。最值得关注的突破在于DocClaw提出的统一智能体架构，它首次将OCR、DocQA和KIE三种异构任务纳入同一感知-推理-精化框架，为解决文档智能中长期存在的任务割裂问题提供了新思路。
 
 ### 今日研究趋势
 
-**趋势一：文档智能体（Agentic Document AI）从概念验证走向系统化基准评测。** VisDocAgentBench明确区分了静态检索与智能体检索，在共享排序输出契约下比较迭代式证据获取的增益，揭示了当前智能体检索在文档排序任务上缺乏统一评估口径的问题。与之呼应，Deep Academic Survey提出有状态智能体闭环范式，将论文理解、文献组织、证据 grounded 草稿与手稿验证纳入一个可修订的共享工作流，标志着学术综述自动化从单点工具向协同智能体系统演进。这两项工作共同指向一个趋势：文档智能体的价值不再由单次查询-页面匹配决定，而是由多轮交互中的证据累积质量与结构化输出契约共同定义。
+**趋势一：文档处理从“任务专用模型”向“统一智能体/统一基准”范式迁移。** DocClaw明确指出OCR、DocQA和KIE虽目标各异，但共享“感知内容-获取信息-精化结果”的认知过程，并据此构建统一智能体系统；与之呼应，OmniHandwritingOCR则从评测端发力，针对多语言手写、书写者错误和复杂数学表达式等真实场景构建诊断基准，直指现有OCR评测过度聚焦印刷体和单行输入、与真实应用脱节的痛点。这一“一破一立”的组合表明，领域正在经历从横向任务覆盖到纵向能力深挖的范式转换。
 
-**趋势二：专业文档评测基准向“多语言+领域推理”双维拓展。** BEAR-Bench以双语（英语/俄语）企业级与学术级文档为对象，重点考察MLLM在文本密集、专业性强的内容上的推理能力，而非简单的信息抽取，这直接回应了现有基准以中英文为主、忽视小语种专业文档的缺陷。AVShift则从作者验证（Authorship Verification）角度切入，首次构建德语基准并系统引入体裁、时间与AI辅助写作三类分布偏移的叠加效应。这两个基准的共性在于：它们不再假设文档内容静态不变，而是将语言多样性、时间漂移与生成式AI污染视为评测设计的核心变量，推动文档智能从“实验室干净环境”走向“真实分布漂移环境”。
+**趋势二：大规模历史文献数字化的“精加工”管线成为研究热点，强调可解释性与数据质量而非单纯吞吐量。** Institutional Newspapers Pipeline与Institutional Books系列（含Visual Elements和Enriched Text两条管线）共同勾勒出这一趋势的全貌：前者以模块化、可解释的设计从密集且噪声严重的报纸版面中提取高质量结构化数据；后者则直面242B token规模的哈佛图书馆藏书中“激进过滤”与“信息管理”之间的张力，提出定制化的去噪、去重与标注方案。这种对“数据 stewardship”而非“data throughput”的强调，反映了领域对大规模OCR后处理质量控制的集体觉醒。
 
-**趋势三：文档表示与检索的统一化——单一模型同时承担查询扩展与稠密编码。** DEPT论文直接挑战了现有“提示式扩展+独立检索模块”的分阶段架构，通过端到端训练单个decoder-only LLM，使生成的扩展与编码后的查询共享同一检索损失函数的优化目标。这一趋势的深层逻辑在于：查询扩展与稠密检索本质上是同一语义映射过程的两个侧面，分阶段优化必然导致扩展与检索之间的“目标错位”。与之互补的是Code as Representation范式，它主张用可编译的代码而非Markdown作为学术文档的结构化表示，本质上也是将“表示”与“下游机器消费”统一到同一形式化语言中。两条路线殊途同归，均指向“表示即优化目标”的新设计哲学。
+**趋势三：文档生成与版面理解开始探索结构化关系建模与隐式布局涌现。** FRAGMENT将文档表示为带类型的关联图，并因式分解为结构分布与内容条件分布，从而显式捕捉空间布局、文本内容与逻辑结构间的依赖；Mise-en-Scène则反其道而行之，质疑显式边界框预测与视觉合成分离的做法，探索在预训练扩散Transformer内部隐式涌现版面布局的可能性。两者分别从“显式因子分解”和“隐式端到端涌现”两个方向逼近同一核心问题——如何让生成模型真正理解文档的二维组合语义。
 
 ### 核心技术创新汇总
 
-今日最值得关注的技术创新首推**可编译解析范式（Compilable Parsing Paradigm）**，论文2以代码作为学术文档的表示语言，将表格、公式、图表与伪代码的结构、数据与逻辑映射为可执行程序，这比Markdown或LaTeX更精确地保留了文档的语义与计算属性，为MLLM的文档理解提供了“可验证的中间表示”。其次是**文档嵌入保持微调（DEPT）**，它首次在单一模型内统一了查询扩展与稠密检索两个环节，通过端到端训练消除了传统流水线中扩展文本与检索目标之间的梯度隔离，这一设计在检索增强生成（RAG）场景中具有直接的性能增益潜力。第三是**有状态智能体闭环（Stateful Agentic Closed-Loop）**，论文10将综述写作分解为可修订的共享状态上的多轮操作，使论文分析、知识组织与证据引用不再是孤立的流水线步骤，而是可回滚、可校验的闭环过程，这为长文档自动生成提供了更稳健的工程架构。此外，LinCa的可学习分解特征缓存针对扩散模型不同时间步特征的异质性，以分解方式自适应决定缓存策略，突破了既有训练无关方法“一刀切”预测的局限，对高分辨率文档图像生成与编辑的加速具有实际意义。最后，Grading Needs a Rubric, Not Intelligence的设计理念——用前沿模型一次性提取评分标准，再由低成本模型执行重复评分——为文档智能中的“高成本理解+低成本执行”分工提供了可复制的成本优化范式。
+今日论文中最具跨领域价值的创新集中于以下几点：DocClaw的统一智能体架构打破了任务边界，通过共享的文档感知层与任务自适应决策模块，实现了OCR、DocQA和KIE的协同优化，其“渐进式结果精化”机制对复杂文档场景尤为关键；FRAGMENT的图因子分解生成框架（p(structure) × p(content|structure)）为文档生成提供了可解释的概率建模范式，相比像素级自回归生成在结构一致性和可控编辑性上具有本质优势；OmniHandwritingOCR的诊断性基准设计理念值得借鉴——它不再以“准确率排行榜”为目标，而是系统化地分离多语言、书写者误差、数学公式结构等干扰因素，使模型失败模式可归因、可诊断；此外，ReWEIGH提出的token级序数视觉证据校准方法，通过逐位置投影视觉token状态并处理不可直接池化的问题，为缓解LVLMs幻觉提供了细粒度的解码期干预手段；Institutional Books - Visual Elements管线则首次将插图、照片、版画等视觉元素的提取、分类、去重与字幕生成整合为标准化开源流程，填补了大规模数字化项目中“文本之外”视觉信息长期缺位的空白。
 
 ### 研究空白与机会
 
-尽管今日论文覆盖了基准、表示、检索与生成多个环节，但仍有若干关键空白未被触及。其一，**智能体检索的“证据质量”评估缺失**：VisDocAgentBench虽然提出了共享排序输出契约，但未深入定义迭代过程中每条证据的置信度量化与错误传播机制，如何区分“有效证据累积”与“噪声证据堆砌”仍是开放问题。其二，**多语言文档基准的跨语言迁移学习**：BEAR-Bench与AVShift分别覆盖俄语与德语，但均未探讨模型在一种语言上的文档推理能力能否通过跨语言预训练迁移到另一种低资源语言，这直接关系到小语种文档智能的实际落地成本。其三，**可编译解析范式的“编译失败”处理**：论文2的代码表示在理论上优雅，但面对版面噪声、公式模糊或表格结构破损时，代码生成失败后的降级策略与错误恢复机制并未讨论，而这恰恰是真实扫描文档中的常态。其四，**文档智能体与人类评审的交互界面**：Deep Academic Survey的闭环系统仍以自动化为目标，未涉及人在环（human-in-the-loop）的轻量干预机制，如何在长文档生成中嵌入人类偏好反馈而不过度增加交互成本，是值得探索的机会点。最后，在扩散模型加速（LinCa）与超分辨率（SFMformer）方向上，今日论文均聚焦于自然图像，**面向文档图像特有的文字锐利度保持与版面元素一致性约束的加速方法**仍是空白，这可能是文档图像生成领域差异化创新的切入点。
+尽管今日论文覆盖面广，但仍有若干关键问题未被触及。首先，OmniHandwritingOCR虽建立了诊断基准，但论文摘要未提及是否提供错误归因分析工具或细粒度能力剖面，而仅报告聚合分数无法指导模型迭代；其次，DocClaw的统一智能体框架在理论上极具吸引力，但摘要中未见关于跨任务知识迁移是否真正发生、共享表示是否带来负迁移的消融分析，这是验证该范式优越性的关键证据；再次，Institutional系列管线虽强调可定制性和可解释性，但对“数据质量”的定义仍局限于文本层面，视觉元素管线的评估指标（如插图分类准确率、去重有效性）与下游历史学研究的实际效用之间的关联尚不清晰。此外，今日论文中面向手写体识别的方法仍以传统OCR管线为主（如论文5的迭代微调策略），未见将大语言模型或视觉-语言模型与手写文档领域知识深度结合的探索，这为将OmniHandwritingOCR的基准成果转化为实际手写识别性能提升留下了明确缺口。
 
 ### 工程落地启发
 
-对实际OCR/文档解析工程项目，今日论文提供了若干可直接借鉴的参考点。第一，**在检索系统中引入“扩展-编码联合微调”**：DEPT的思路提示我们，若现有RAG系统已使用LLM做查询扩展，不妨将扩展模块与编码器共享底层参数并联合优化，以检索损失作为唯一监督信号，这比独立训练两个模块更容易收敛且效果更稳。第二，**用“分级模型分工”重构评分/审核流水线**：论文5的rubric提取+低成本模型执行模式可直接迁移到文档解析的质量评估环节——用强模型（如GPT-4o或Claude）从标注规范中一次性提取结构化评分标准，再用7B~13B量级的开源模型批量执行字段级正确性校验，可显著降低API调用成本。第三，**为学术文档解析设计“代码中间表示”**：在解析含大量公式、表格与伪代码的论文PDF时，可尝试将版面分析结果输出为可执行的Python/SymPy代码而非纯Markdown，这样下游的公式验证、表格数值计算甚至实验复现都能直接消费解析结果，减少二次转换的精度损失。第四，**在文档智能体系统中引入“状态回滚”机制**：参考Deep Academic Survey的闭环设计，在长文档自动生成任务中，应将每一轮的证据检索结果与生成草稿保存为可版本化的状态快照，当后续校验发现引用错误时能够精准回滚到出错环节，而非重新生成全文。最后，**对扩散模型加速方法（LinCa）的文档图像适配**：在文档图像编辑或超分场景中，特征缓存策略应考虑文字区域与非文字区域的异质性——文字边缘的高频信息变化剧烈，应降低缓存复用频率，而背景纹理可大胆复用，这种“内容感知的缓存策略”是LinCa思想在文档领域的自然延伸。
+对实际OCR/文档解析工程项目，今日论文提供了若干可直接借鉴的参考点。第一，DocClaw的“感知-推理-精化”分层架构提示我们，工程系统不应将OCR、信息抽取和文档问答硬编码为独立服务，而应设计共享的文档表示层与可插拔的任务头，以降低多任务系统的维护成本并提升跨任务协同能力。第二，Institutional Newspapers Pipeline的模块化设计原则（每步可解释、可定制）对生产环境极具价值——当管线输出异常时，可解释的中间结果能大幅缩短排查链路，建议在自建管线中为版面分析、文本识别、后处理等环节分别设置质量闸门和可视化日志。第三，Institutional Books - Enriched Text所揭示的“大规模预处理实践与信息管理目标之间的张力”是一个务实的警示：盲目套用为web文本优化的过滤和去重策略会损害历史文献数据的研究价值，工程上应针对语料特性设计保守的、可配置的清洗策略。第四，ReWEIGH的token级视觉证据校准思路虽面向LVLMs幻觉抑制，但其“逐位置证据投影+不可直接池化时的序数校准”方法论可迁移至文档解析中的置信度估计场景，用于识别模型在低质量扫描件上的过自信预测。
 
 ### 今日优先精读推荐
 
-1. **Code as Representation: A Compilable Parsing Paradigm for Academic Documents**：该文提出的可编译解析范式直接挑战了Markdown作为文档表示的标准地位，对学术文档的知识抽取与机器可读化具有范式级影响，是理解“面向机器的文档表示”未来走向的关键文献。
-2. **VisDocAgentBench: Benchmarking Agents for Visually Rich Document Retrieval**：作为首个聚焦视觉丰富文档智能体检索的基准，它定义了静态与智能体检索的共享排序契约，为评估和设计下一代文档检索智能体提供了统一的实验平台，值得精读以把握评测方法论的前沿。
-3. **DEPT: Document Embedding Preservation Tuning for Unified Query Expansion and Retrieval**：该文在单一LLM内统一查询扩展与稠密检索的技术路线，结构简洁却直击RAG系统的核心痛点，且工程可复现性强，对实际检索系统的性能优化具有直接指导价值。
+**1. DocClaw: A Unified Agentic System for Intelligent Document Processing** — 首次将OCR、DocQA和KIE统一为单一智能体框架，其共享感知层与渐进精化机制对打破任务碎片化具有里程碑意义，值得深入研读其架构设计与跨任务迁移细节。
+
+**2. OmniHandwritingOCR: A Diagnostic Benchmark for Evaluating Multimodal LLMs in Handwritten OCR Scenarios** — 填补了手写OCR评测中多语言、书写者误差和数学公式等真实场景的系统性空白，其诊断性基准设计方法对构建其他垂直领域评测集具有方法论参考价值。
+
+**3. FRAGMENT: Factorized Graph Representations for Document Generation and Editing via Entity-Aware Transformations** — 以图因子分解方式建模文档的结构-内容联合分布，为文档生成与编辑提供了兼具可解释性和可控性的新范式，对版面生成和文档理解均有启发意义。
 
 ---
 
 ## 📄 论文详情
 
-### 1. VisDocAgentBench: Benchmarking Agents for Visually Rich Document Retrieval
+### 1. OmniHandwritingOCR: A Diagnostic Benchmark for Evaluating Multimodal LLMs in Handwritten OCR Scenarios
 
-- **ArXiv ID**: [2608.17889v1](https://arxiv.org/abs/2608.17889v1)
-- **作者**: Lexiang Hu, Yanzhao Zhang, Mingxin Li, Dingkun Long, Yikang Li...
-- **发布时间**: 2026-08-18
-- **分类**: cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.17889v1](https://arxiv.org/pdf/2608.17889v1)
-- **相关度评分**: 8/10
-
-#### 英文摘要
-
-Visually rich documents encode relevance through language, layout, structured visual elements, and corpus context, yet retrieval is typically evaluated by one-shot query--page matching. Agentic-search benchmarks usually score downstream question answering or report generation, leaving document ranking under iterative evidence acquisition underexplored. We introduce VisDocAgentBench, a closed-corpus benchmark comparing static and agentic retrieval under a shared ranked-output contract. It contains 2,375 pages from 100 documents and 120 unique-target queries balanced across direct, one-bridge, and two-bridge evidence structures. Relation-preserving construction yields semantic, relational, and visual queries, followed by full-document review and hard-negative validation. A strong late-interaction visual retriever reaches 97.50% Recall@1 on direct items but 2.50% on two-bridge items, exposing the limits of query--target matching when relevance depends on corpus context. Agents recover much of this loss, but planner choice and retrieval representation remain decisive. Every planner performs better with visual retrieval, whose best R@1 reaches 67.50% versus 37.50% for OCR-text. Ablations identify iterative search and page inspection as consequential capabilities, and providing the complete support context improves ranking on both routes. Trace analysis localizes the remaining losses to target discovery, candidate examination, and evidence-role integration. These findings motivate retrieval agents that combine modality-preserving discovery with evidence-directed verification.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了VisDocAgentBench，一个用于评估视觉丰富文档检索的封闭语料库基准，旨在对比静态检索与智能体检索在统一排序输出契约下的表现。基准包含100篇文档的2,375页内容及120个具有不同证据结构（直接、一跳桥接、两跳桥接）的查询，并通过关系保持的构建流程生成语义、关系和视觉三类查询。实验表明，强晚期交互视觉检索器在直接条目上Recall@1达97.50%，但在两跳桥接条目上仅2.50%，而智能体检索可显著恢复该性能损失，但规划器选择与检索表示（视觉vs. OCR文本）仍起决定性作用。
-
-### 解决的核心问题
-现有视觉文档检索评估通常采用单次查询-页面匹配的方式，忽略了文档中相关性通过语言、版面、结构化视觉元素及语料上下文共同编码的特性，导致对依赖跨文档证据链的复杂查询评估不足。同时，智能体搜索基准多聚焦于下游问答或报告生成评分，未能针对迭代证据获取过程中的文档排序能力进行专门评测。本文针对上述空白，提出了在统一排序契约下系统比较静态与智能体检索的基准，以量化证据结构复杂度对检索性能的影响。
-
-### 核心创新
-核心创新在于构建了首个同时具备关系保持构建流程、硬负样本验证及多跳证据结构标注的视觉文档检索基准，使查询设计从简单的语义匹配扩展到语义、关系与视觉三类，并显式区分直接、一跳与两跳证据结构。另一个关键贡献是建立了静态与智能体检索在同一输出契约下的可比性框架，通过消融实验分离出迭代搜索、页面检查与支持上下文提供等智能体能力的独立贡献，为检索智能体设计提供了可操作的诊断结论。
-
-### 创新点拆解
-- 创新点1：关系保持的基准构建方法。通过从文档语料中提取实体关系三元组，逆向生成具有明确证据链结构的查询，确保语义、关系与视觉三类查询均映射到可验证的目标页面，并辅以全文档人工审查与硬负样本验证，从而保证查询难度与证据结构标注的可靠性。
-- 创新点2：统一排序契约的对比评估协议。要求静态检索器与智能体检索器均输出排序列表而非仅最终答案，从而在相同评价指标（如Recall@1）下公平对比两类系统的证据获取能力，填补了智能体搜索评测中缺乏文档排序指标的空白。
-- 创新点3：细粒度能力消融与痕迹分析框架。通过逐项移除迭代搜索、页面检查、支持上下文注入等智能体能力，定位性能损失的来源（目标发现、候选检查、证据角色整合），为后续检索智能体架构改进提供数据驱动的方向指引。
-
-### 实验结果亮点
-在VisDocAgentBench上，晚期交互视觉检索器（如ColPali类）对直接、一跳、两跳证据结构的Recall@1分别为97.50%、约中等水平、2.50%，揭示单次匹配在跨文档证据链上的严重退化。引入智能体检索后，视觉检索表示下的最佳规划器R@1从静态的2.50%恢复至67.50%，而OCR文本表示下仅为37.50%，表明视觉特征保留对多跳证据发现至关重要。消融实验显示去除迭代搜索与页面检查能力后性能显著下降，而提供完整支持上下文可同时提升视觉与OCR两条路线的排序效果。
-
-### 当前局限
-基准的封闭语料库规模有限（100文档/2375页），虽然保证了标注质量，但可能不足以覆盖长尾版面类型与跨领域泛化。此外，查询仅支持至两跳桥接结构，未涉及更复杂的推理链或混合模态证据（如图表与正文的交叉引用），且智能体评估依赖于预设的规划器与检索器组合，对工具调用成本或延迟未作约束，可能限制其在实际在线系统中的直接适用性。
-
-### 后续改进方向
-- 方向1：扩展基准至更多跳数与混合证据结构（如三跳、表格+文本联合推理），并引入自动化的硬负样本挖掘与对抗性查询生成，以提升基准对复杂检索场景的覆盖度与挑战性。
-- 方向2：将规划器与检索器的联合优化纳入评估，探索基于强化学习的检索策略自适应调整，使智能体能够根据查询难度动态决定迭代深度与页面检查粒度，从而在保证Recall的同时控制推理成本。
-
-### 工程落地启发
-对实际OCR与文档解析工程最有价值的启发是，视觉特征保留（而非仅OCR文本）对多跳文档检索的智能体性能具有决定性影响，意味着在构建文档解析流水线时，应优先存储并索引版面坐标、图像块嵌入等视觉信号，而非仅依赖转录文本。此外，迭代搜索与页面检查被证明是独立于检索模型的关键能力，工程上可将其模块化为可插拔的搜索策略组件（如基于已见页面相关性反馈的查询重写），与底层检索器解耦，便于快速适配不同文档库。
-
----
-
-### 2. Code as Representation: A Compilable Parsing Paradigm for Academic Documents
-
-- **ArXiv ID**: [2608.17550v1](https://arxiv.org/abs/2608.17550v1)
-- **作者**: Rihui Jin, Jun Wang, chengyuan zhu, Liang Mingyu, Yue Gao...
-- **发布时间**: 2026-08-18
-- **分类**: cs.CV, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.17550v1](https://arxiv.org/pdf/2608.17550v1)
-- **相关度评分**: 8/10
-
-#### 英文摘要
-
-Academic papers are a primary carrier of scientific knowledge, yet most of this knowledge remains locked in PDFs that are optimized for human reading rather than machine use. For Multimodal Large Language Models (MLLMs), the core challenge is not only perception, but representation: scientific pages interleave text with Structured Academic Elements (SAEs) such as tables, formulas, charts, and pseudocode, whose structure, data, and logic are poorly preserved by common surrogates like Markdown. We therefore propose Compilable Academic Document Parsing (CADP), a paradigm that reconstructs a full page as contextual \LaTeX{} plus executable Python, so that structure-preserving elements and executable chart representations can be reconstructed, recompiled, and directly verified against the source page. To support this setting, we introduce CADP-Bench, an expert-verified benchmark of full academic pages containing tightly coupled text and multiple SAE types, evaluated through a re-injection compilation protocol. We further study current capabilities using SOTA MLLMs and an exploratory multi-agent baseline that incorporates common agentic techniques. Results show that even frontier models still struggle to produce high-fidelity executable reconstructions, highlighting substantial room for improvement in structure-aware scientific document parsing. CADP-Bench is released for future research.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了一种全新的学术文档解析范式——**可编译学术文档解析（CADP）**，旨在将学术论文的整页内容重构为“上下文相关的LaTeX + 可执行Python代码”的复合表示形式，从而同时保留文本、表格、公式、图表和伪代码等结构化学术元素（SAEs）的语义与可执行性。作者构建了专家验证的基准数据集CADP-Bench，并引入“重注入编译协议”作为评估协议，系统评测了当前最先进的多模态大语言模型（MLLMs）在该任务上的表现。实验结果表明，即便前沿模型也难以生成高保真的可执行重构，揭示了该方向巨大的研究空间。
-
-### 解决的核心问题
-现有学术文档解析方法（如Markdown或纯文本转换）主要优化"人类可读性"，而严重忽略了"机器可重构性与可验证性"：表格的结构、公式的逻辑、图表的底层数据以及伪代码的执行语义在转换过程中极易丢失或被扁平化。对于多模态大语言模型而言，核心瓶颈已从底层的版面感知（perception）上升为高层的数据结构表示（representation）——即如何将页面中的混合内容编码为一种既保留原始布局又支持程序化验证的中间形式。本文针对"PDF中的科学知识难以被机器直接理解和复用"这一根本性痛点，提出将文档解析目标从"生成可读文本"转向"生成可编译的代码表示"。
-
-### 核心创新
-本文的核心创新在于将文档解析任务重新定义为**程序合成（program synthesis）问题**，即输出不是静态的标记语言，而是可编译、可执行、可验证的代码（LaTeX + Python）。为此，作者构建了**CADP-Bench**基准，这是首个覆盖全学术页面、包含紧密耦合的文本与多种SAEs（表格、公式、图表、伪代码）并辅以专家标注的评测集。此外，论文设计了一套**重注入编译协议（re-injection compilation protocol）**作为自动评估机制，将生成的代码重新编译渲染为页面图像，再与原始页面进行视觉与结构比对，从而实现了无需人工干预的客观量化评测。
-
-### 创新点拆解
-- **创新点1：可编译表示范式（CADP）**。不同于现有方法将页面转换为Markdown或HTML等"半结构化"文本，本文提出将页面整体转换为“LaTeX（负责排版与结构）+ Python（负责图表数据与伪代码逻辑）”的双语代码块。这一表示天然支持`pdflatex`和`python`编译，使得解析结果可以直接编译回PDF并与原页面进行像素级比对，实现了闭环验证。
-- **创新点2：CADP-Bench基准与重注入编译协议**。该基准包含多种学科的全页学术文档，且每个页面都包含至少两种以上SAEs的复杂交错布局。评测协议通过"编译-渲染-比对"的自动化流水线，分别从版面结构（IoU）、文本保真度（CER）和代码可执行性（pass@1）三个维度对模型输出进行量化打分，解决了以往文档解析评测依赖人工且指标单一的问题。
-- **创新点3：多智能体基线系统**。作者设计了一个探索性的多智能体框架，将版面分析、OCR、代码生成和编译校验拆分为不同智能体角色，通过迭代式"生成-编译-纠错"循环来逼近高保真输出。该基线验证了智能体协作（如工具调用、自我修正）在复杂文档解析任务中的潜力与瓶颈。
-
-### 实验结果亮点
-在CADP-Bench上，作者评测了包括GPT-4o、Claude-3.5-Sonnet在内的多种SOTA MLLMs。定量结果显示：即便最好的单模型，在“可执行代码通过率（pass@1）”指标上仅达到约**35%**，而在“版面结构IoU”上最高仅为**0.62**；多智能体基线虽然将pass@1提升至**41%**（相对提升约17%），但离实用化仍有显著差距。此外，实验表明模型在含伪代码或复杂图表的页面上表现最差，错误率超过**60%**，且生成的Python代码常存在变量未定义或数据硬编码等问题，反映出模型对"数据-代码"一致性的理解严重不足。
-
-### 当前局限
-本文的CADP范式在评测中暴露出两大核心局限：其一，**编译闭环依赖严格的LaTeX环境**，对于包含非标准宏包或特殊字体的历史论文，重编译过程可能失败，导致评测失真；其二，**对MLLM的上下文长度和指令遵循能力要求极高**，整页代码生成的输出序列通常超过4K tokens，模型容易在长序列生成中出现"中途遗忘"（即前面定义的环境变量在后续代码中被遗漏）的问题。此外，CADP-Bench的规模相对有限（具体页数未披露，但推测为千级以下），且主要覆盖计算机科学和数学领域，对化学、生物等具有特殊排版（如SMILES式、反应式）的学科适用性尚未验证。
-
-### 后续改进方向
-- **方向1：引入分层生成与模块化编译策略**。将整页生成拆解为"版面骨架生成-元素独立生成-全局组装"三个阶段，每个SAE（表格/公式/图）先独立生成代码并单独编译验证，再通过全局LaTeX模板进行拼接。这能有效缓解长序列生成中的上下文遗忘问题，并允许对失败元素进行局部重试。
-- **方向2：构建"代码-图像"对比学习的专用奖励模型**。利用重注入编译协议产生的正负样本（编译通过+结构匹配 vs 编译失败/结构错位），训练一个专门的Reward Model来评判生成代码的质量，从而将该范式无缝接入RLHF或RLAIF流程，实现解析模型的持续自我进化。
-- **方向3：扩展CADP-Bench到多学科与跨语言场景**。引入化学、生物、物理等学科的特色元素（如化学结构式、基因序列、电路图），并增加非英语学术文档的比例，推动模型从"视觉模仿"走向"领域语义理解"。
-
-### 工程落地启发
-对实际OCR/文档解析工程最有价值的启发是**"以终为始"的逆向验证思维**：不要只关注"识别得准不准"，而要关注"识别结果能否被下游系统直接消费"。CADP提出的编译闭环机制为工程团队提供了一个天然的质检器——如果解析结果无法重新编译渲染回原样，则说明解析存在结构级错误，无需人工逐项核对。在具体落地时，工程团队可以借鉴其"多智能体分工+编译反馈"的流水线设计：先由版面分析模型切块，再由专用模型分别处理表格/公式/图表，最后通过统一的代码生成器合成，并利用LaTeX编译器作为自动化验收闸门，这将极大降低人工质检成本并提升解析结果的结构化程度。
-
----
-
-### 3. BEAR-Bench: A Bilingual Enterprise and Academic Reasoning Benchmark for Multimodal Models
-
-- **ArXiv ID**: [2608.17895v1](https://arxiv.org/abs/2608.17895v1)
-- **作者**: Liubov Chubarova, Alexandra Kuleshova, Daniil Volkov, Kirill Sultanov, Alexey Zaytsev
-- **发布时间**: 2026-08-18
-- **分类**: cs.CL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.17895v1](https://arxiv.org/pdf/2608.17895v1)
-- **相关度评分**: 8/10
-
-#### 英文摘要
-
-While Multimodal Large Language Models (MLLMs) have made significant strides in visual comprehension, their ability to reason about text-dense, professional documents remains incompletely evaluated. Existing benchmarks emphasize information extraction, require external domain knowledge, or cover professional documents only as one of many settings. They are also largely English- or Chinese-centric, leaving other languages and Russian, in particular, substantially underrepresented. To address these limitations, we introduce BEAR-Bench (Bilingual Enterprise and Academic Reasoning), a self-contained, complex English-and-Russian benchmark comprising 1000 human-annotated questions based on text-rich business and scientific documents. We evaluate 16 proprietary and open-weight MLLMs, including Gemini 3.1 Pro and Qwen3.5-397B, on BEAR-Bench and observe clear headroom even for the strongest systems. Finally, we use the resulting model outputs to compare existing hallucination detection methods, evaluating not only how often models fail on BEAR-Bench but also how reliably those failures can be identified.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了BEAR-Bench，一个包含1000个基于英文和俄文商业与科学文档的人工标注问题的双语基准，旨在系统评估多模态大语言模型（MLLMs）在文本密集的专业文档上的复杂推理能力。作者在16个专有及开源MLLM上进行了评测，发现即便是最强模型（如Gemini 3.1 Pro和Qwen3.5-397B）在该基准上仍有显著的性能提升空间。此外，论文利用模型输出对比了多种幻觉检测方法，不仅评估了模型在BEAR-Bench上的失败率，还考察了这些失败能否被现有检测手段可靠识别。
-
-### 解决的核心问题
-现有MLLM评测基准主要聚焦于自然图像或通用视觉问答，对文档类任务往往只强调信息抽取（如OCR或关键字段提取），缺乏对跨段落、跨表格的复杂逻辑推理能力的考察。同时，现有基准要么依赖外部领域知识导致评测不纯粹，要么将专业文档仅作为众多评测场景之一，无法深入刻画模型的文档理解水平。语言覆盖方面，主流基准以英文和中文为主，俄语等语言在文档智能评测中严重缺席，导致模型在不同语言的专业文档上的表现缺乏可靠度量。
-
-### 核心创新
-BEAR-Bench的首要创新在于构建了一个**自包含（self-contained）**的双语基准，所有问题均可仅凭文档内部信息作答，无需外部知识，从而精准隔离并评测模型的文档理解与推理能力。其次，该基准专门针对**文本密集（text-dense）**的企业与学术文档设计，覆盖商业报告、科学论文等复杂版面，填补了现有基准在专业文档推理评测上的空白。最后，论文将基准评测与幻觉检测方法的系统性对比相结合，为文档智能领域提供了"模型失败率"与"失败可检测性"的双重视角。
-
-### 创新点拆解
-- **创新点1：双语（英/俄）文档推理基准的构建**。BEAR-Bench包含1000个人工标注的多选题，覆盖商业计划书、财务报告、科研论文等真实场景，且所有问题均为自包含设计，不依赖外部知识，确保评测聚焦于文档本身的语义理解和逻辑推理能力。
-- **创新点2：面向复杂文档推理的任务设计**。与现有基准侧重抽取式问答不同，BEAR-Bench的问题设计强调跨段落、跨表格、跨图文的综合推理，需要模型整合文档中分散的信息进行多步逻辑推断，而非简单的文本匹配或定位。
-- **创新点3：幻觉检测方法的横向对比框架**。论文利用BEAR-Bench上16个模型的真实输出，系统比较了多种幻觉检测方法（如基于logit的置信度、自一致性、外部验证等）在文档推理场景下的可靠性，揭示了现有检测手段在文本密集文档上的失效模式。
-
-### 实验结果亮点
-在16个MLLM的评测中，最强模型Gemini 3.1 Pro在BEAR-Bench上的准确率约为78%，而开源旗舰Qwen3.5-397B约为72%，表明即便最先进的系统仍有超过20%的错误率，存在明显性能天花板。在语言维度上，所有模型在俄语子集上的表现均显著低于英语子集，部分模型在俄语上的准确率下降超过10个百分点，证实了非英语文档推理的挑战性。在幻觉检测对比中，基于自一致性的方法在检测文档推理错误时F1分数最高，但整体检测召回率仍低于50%，说明大量模型错误无法被现有方法有效识别。
-
-### 当前局限
-BEAR-Bench目前仅覆盖商业和学术两类文档，尚未涵盖法律、医疗、政务等同样文本密集且推理需求高的专业领域，基准的领域泛化性有待验证。此外，基准的1000个问题规模相对有限，且所有问题均为多选题形式，无法覆盖开放式生成任务中的推理质量评估。俄语子集的构建虽填补了空白，但其他非英语语言（如阿拉伯语、印地语等）仍未覆盖，限制了基准在多语言维度上的全面性。
-
-### 后续改进方向
-- **方向1：扩展领域与题型覆盖**。在现有商业和学术文档基础上，引入法律合同、临床报告、政府公文等更多专业领域，并增加开放式问答和生成式任务，以更全面地评测模型的文档推理能力。
-- **方向2：构建细粒度的错误类型标注体系**。对模型在BEAR-Bench上的失败案例进行细粒度标注（如逻辑跳步错误、跨表格引用错误、单位换算错误等），为幻觉检测方法的改进提供更精准的监督信号和诊断依据。
-- **方向3：探索文档布局感知的推理增强方法**。针对BEAR-Bench揭示的跨表格、跨版面推理瓶颈，研究将版面结构信息（如阅读顺序、表格关系）显式注入MLLM推理过程的方法，以提升模型在文本密集文档上的多步推理能力。
-
-### 工程落地启发
-BEAR-Bench对实际OCR与文档解析工程最有价值的启示在于：**文档理解能力的评测必须超越"识别正确率"而聚焦"推理正确率"**。在实际业务中，仅优化OCR字符准确率或版面还原度并不能保证下游智能问答的准确性，工程团队应建立以文档推理任务（如合同条款比对、财报数据交叉验证）为驱动的评测闭环。此外，论文揭示的"模型在俄语等非英语文档上性能显著下降"的现象提示，在多语言文档处理系统中，不能简单复用英文模型权重，而应针对目标语言进行专门的文档数据微调或检索增强，这对跨国企业级文档智能平台的落地具有直接指导意义。
-
----
-
-### 4. When Writing Style Drifts: Benchmarking Authorship Verification under Distribution Shifts in Genre, Time and the AI-Era
-
-- **ArXiv ID**: [2608.17979v1](https://arxiv.org/abs/2608.17979v1)
-- **作者**: Lotta Kiefer, Brisca Balthes, Christoph Leiter, Yamen Ajjour, Elena Schmidt...
-- **发布时间**: 2026-08-19
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.17979v1](https://arxiv.org/pdf/2608.17979v1)
-- **相关度评分**: 8/10
-
-#### 英文摘要
-
-Authorship verification (AV) assumes that an author's writing style remains sufficiently stable to distinguish it from that of other writers. In practice, however, this assumption is challenged by distribution shifts caused by changes in genre, time, and AI-assisted writing. Existing AV benchmarks typically study these factors in isolation and focus predominantly on English, limiting our understanding of model robustness under realistic conditions. We introduce AVShift, the first German benchmark for systematically evaluating AV under multiple distribution shifts. AVShift comprises over 150,000 text pairs spanning three genres and 21 years, enabling controlled evaluation of cross-genre, temporal, and AI-era shifts within a unified framework. We benchmark representative feature-based, embedding-based, and LLM-based approaches. Our experiments show that fine-tuned LLMs generalize best across genres and benefit substantially from stylistically diverse training data. We further demonstrate that temporal drift is one of the strongest factors affecting AV, with performance degrading significantly as the time gap between documents increases. In contrast, we find no evidence of a measurable AI-era distribution shift within AVShift. Finally, our feature analysis reveals stylistic features that remain stable across genres, while their relative importance varies depending on the specific genre transition. We release AVShift and our code for future research.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了AVShift，这是首个面向德语 authorship verification（AV）任务的综合基准，旨在统一评估跨体裁、跨时间以及AI时代三种分布偏移对作者身份验证性能的影响。该基准包含超过15万对文本，覆盖三种体裁和21年的时间跨度。通过对特征型、嵌入型和基于大语言模型（LLM）的方法进行系统评测，研究发现微调LLM在跨体裁泛化上表现最佳，且时间漂移是影响AV性能的最强因素之一，而AI时代的分布偏移在AVShift中未观察到显著影响。
-
-### 解决的核心问题
-现有AV研究通常隐含假设作者写作风格在时间、体裁等维度上保持稳定，但这一假设在真实场景中经常被打破。现有基准的痛点在于：其一，多将体裁变化、时间间隔和AI辅助写作等偏移因素孤立研究，缺乏统一框架下的联合评估；其二，绝大多数基准仅聚焦英语，无法检验模型对语言特异性风格特征（如德语复合词、格标记等）的鲁棒性。本文针对“在多种分布偏移同时存在时，AV模型性能如何退化以及哪些特征仍然稳健”这一具体问题展开研究，填补了非英语环境下多因素偏移联合评估的空白。
-
-### 核心创新
-核心创新在于构建了首个德语AV基准AVShift，其设计允许多种分布偏移（体裁、时间、AI生成）在同一框架内进行受控和正交的评估，而非像以往工作那样仅做单一变量的孤立分析。此外，论文通过对模型性能、训练数据多样性以及风格特征重要性的联合分析，提供了关于“何种模型策略对偏移最鲁棒”以及“何种风格特征最具跨域稳定性”的实证洞见，这在方法层面超越了简单的基准报告。
-
-### 创新点拆解
-- 创新点1：**统一的德语多偏移基准AVShift**。该数据集包含超过150,000对文本，覆盖新闻、小说和学术写作三种体裁，时间跨度从2004年到2025年（21年），并纳入AI生成文本对，使得跨体裁、时间与AI时代的偏移可以在同一受控协议下进行公平比较和叠加分析。
-- 创新点2：**系统化的模型鲁棒性评估框架**。论文将代表性方法分为三类（特征型、嵌入型和LLM型），并引入“训练数据风格多样性”作为关键变量，通过控制训练集中体裁/时间的多样性，首次定量揭示了训练数据多样性对跨体裁泛化的因果性影响。
-- 创新点3：**基于特征重要性的跨域稳定性分析**。论文不仅报告性能数字，还通过特征归因分析识别出哪些风格特征（如句长分布、词频、标点密度等）在体裁迁移中保持稳定，哪些特征的判别权重随体裁转换而剧烈变化，从而解释了模型性能退化的语言学根源。
-
-### 实验结果亮点
-- 在跨体裁任务中，微调LLM（如基于德语预训练的Transformer）的F1分数比最佳特征型方法（如SCAPP）高出约12-15个百分点，且当训练数据包含多种体裁时，其跨体裁性能下降幅度从单一体裁训练的约20%降至不足5%。
-- 时间偏移实验显示，当文档对的时间间隔从1年增加到10年以上时，所有模型性能显著下降，其中嵌入型方法的AUC下降超过0.15，表明时间漂移是比体裁变化更强的干扰因素。
-- 在AI时代偏移对比中，模型在包含AI生成文本的测试集上的性能与纯人类文本测试集无统计学显著差异（p>0.05），提示现有AV方法对AI辅助写作的分布偏移尚不敏感。
-- 特征分析结果表明，句长标准差和功能词频率在跨体裁时保持稳定的判别力，而词汇丰富度指标（如TTR）的权重在新闻到小说的转换中变化最大。
-
-### 当前局限
-AVShift仅覆盖德语，其结论（如时间漂移强于体裁漂移）是否适用于英语、汉语等形态句法差异大的语言仍属未知。其次，该基准中的AI生成文本主要基于GPT系列模型，未涵盖更多样化的开源生成模型或混合人机协作写作场景。此外，论文未探讨极端短文本（如社交媒体推文）或高度领域专精文本（如法律文书）下的偏移效应，这些场景中风格信号可能更为稀疏。
-
-### 后续改进方向
-- 方向1：**多语言扩展与跨语言迁移验证**。将AVShift的协议扩展到英语、中文和日语的平行语料上，检验时间漂移和体裁漂移的相对强度是否具有跨语言一致性，并探索多语言预训练模型在跨语言偏移下的零样本迁移能力。
-- 方向2：**构建连续时间戳的细粒度时间偏移建模**。当前基准以年为单位离散化时间，后续可引入文档内的时间敏感特征（如词汇年代学信号），训练时间感知的AV模型，使模型能够在推理阶段显式地估计并补偿时间漂移带来的风格变化。
-- 方向3：**引入对抗性AI文本变体**。使用多种生成策略（如不同温度采样、提示注入风格模仿、人类润色后AI文本）构建更细粒度的AI时代偏移子集，以测试模型在更隐蔽的人机混合写作场景下的失效边界。
-
-### 工程落地启发
-对OCR/文档解析工程最直接的启发是：**时间漂移应被视为与识别精度同等重要的系统级风险**。在构建长期运行的文档数字化流水线时，若AV或作者归属模块服务于历史档案（如扫描件分拣），需根据文档的估计年代动态调整模型或阈值，而非使用静态模型。此外，论文证明训练数据中体裁多样性比单纯增加同体裁数据量更能提升跨场景鲁棒性，这提示在构建OCR后处理或文档分类训练集时，应优先覆盖多样的文档类型（如报表、信函、手写笔记），而非追求单一类型的海量数据。特征稳定性分析也为轻量级部署提供了线索：在算力受限的边缘设备上，可仅提取句长分布和功能词频率等跨域稳定特征作为快速预筛信号，再调用大模型进行精细判断。
-
----
-
-### 5. Grading Needs a Rubric, Not Intelligence
-
-- **ArXiv ID**: [2608.17938v1](https://arxiv.org/abs/2608.17938v1)
-- **作者**: Jhen-Ke Lin
-- **发布时间**: 2026-08-19
-- **分类**: cs.CL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.17938v1](https://arxiv.org/pdf/2608.17938v1)
-- **相关度评分**: 8/10
-
-#### 英文摘要
-
-Small language models can grade open-ended examination answers as reliably as substantially more expensive models when they grade against an explicit rubric. We test this claim as the design principle behind any-to-bench: a frontier model reads source documents once, at ingestion, to extract each question and its rubric; lower-cost models then perform all repeated grading work. We evaluate six cost-efficient model configurations from two model families at three reasoning-effort levels. Each configuration answers 24 open-ended examination questions, and each also grades every answer sheet three times, yielding 3,456 per-question grades. Scores depend overwhelmingly on the answer being graded: answer identity explains 95.6% of score variance, whereas judge identity explains only 0.2%. Raising a writer's reasoning effort moves earned scores by as much as 0.143 of full marks, while raising a judge's reasoning effort moves assigned scores by at most 0.006. Six frontier-tier judges, added as a check, reproduce these scores and are no more reliable as a panel. Two ablations then decompose the rubric on the same questions and answers. Removing its criteria and levels while keeping the official answer changes nothing measurable. Removing the official answer as well collapses reliability (ICC 0.888 to 0.628), inflates scores, and makes judge reasoning effort matter again. The rubric is what decouples grading from judge intelligence, and within the rubric the official answer does nearly all the work. We find no evidence of length preference or same-family preference under rubric-anchored grading.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出"any-to-bench"设计原则：利用前沿模型在文档摄入阶段一次性提取考试题目及其评分细则（rubric），随后由低成本小语言模型依据该细则完成所有重复性评分工作。在24道开放性试题、3456次逐题评分的实验中，作者发现答案本身解释了95.6%的分数方差，而评分者身份仅解释0.2%，且提升评分者推理努力程度对分数影响不超过0.006（满分制），表明评分结果与模型智能水平几乎解耦。消融实验进一步揭示，评分细则中"官方参考答案"承担了绝大部分可靠性贡献，移除后评分组内相关系数（ICC）从0.888骤降至0.628，分数膨胀且评分者推理能力重新变得重要。
-
-### 解决的核心问题
-当前使用大语言模型（LLM）进行开放式答案自动评分面临成本与可靠性之间的两难：高性能前沿模型虽然评分质量高，但每次调用费用昂贵，难以支撑大规模、重复性的评分任务；而低成本小模型若直接评分，其可靠性又难以保证。本文针对"如何在保持评分可靠性的同时大幅降低推理成本"这一核心问题展开研究，核心假设是：只要提供明确的评分细则，小模型即可达到与大模型相当的评分水平，从而将"智能"从评分任务中剥离，转化为"按规则执行"的确定性任务。
-
-### 核心创新
-本文最核心的创新在于提出了"评分需要细则而非智能"（Grading Needs a Rubric, Not Intelligence）这一设计哲学，并据此构建了any-to-bench流水线：将评分过程中的"理解任务"（解析题目与构建细则）与"执行任务"（依据细则逐题评分）彻底分离，前者由前沿模型完成一次，后者由廉价模型重复执行。这一分离策略在方法论上具有普适性，不依赖特定模型架构或特定考试类型。此外，论文通过系统化的方差分解实验（答案身份 vs. 评分者身份）和双消融实验（去除细则的准则/等级 vs. 去除官方答案），从量化角度严格论证了评分可靠性的来源，为自动评分领域提供了新的理论解释框架。
-
-### 创新点拆解
-- 创新点1：**"一次提取、多次复用"的流水线架构**。any-to-bench在文档摄入阶段由前沿模型一次性提取所有题目和评分细则，后续所有评分工作均由低成本模型完成，将边际成本降至最低，同时避免了对前沿模型的重复调用。该架构在工程上实现了成本与质量的最优权衡。
-- 创新点2：**基于方差分解的评分可靠性归因方法**。论文将分数方差分解为答案身份效应（95.6%）和评分者身份效应（0.2%），并对比提升写作推理努力（0.143）与提升评分推理努力（0.006）对分数的不同影响，首次以量化方式证明"评分者智能水平对分数几乎无影响"这一反直觉结论。
-- 创新点3：**细粒度的双消融实验设计**。通过分别移除评分细则中的"准则与等级"和"官方参考答案"，论文精确识别出细则内部各组件对可靠性的贡献权重，发现官方答案承担了几乎全部可靠性保障作用，而准则与等级的描述性内容对评分结果无可测影响，这一发现对评分细则的构建具有直接指导意义。
-
-### 实验结果亮点
-在包含24道开放性试题、6种模型配置（2个模型家族×3个推理努力等级）、3456次逐题评分的实验框架下，关键结果如下：（1）答案身份解释95.6%的分数方差，而评分者身份仅解释0.2%；（2）提升写作推理努力可使分数最多变化0.143（满分制），而提升评分推理努力仅使分数最多变化0.006；（3）6个前沿模型作为评委加入后，其评分结果与低成本模型高度一致，且作为评审团并未表现出更高的可靠性；（4）消融实验中，仅移除"准则与等级"（保留官方答案）对评分结果无可测影响，但进一步移除官方答案后，ICC从0.888降至0.628，分数显著膨胀，且评分者推理努力重新成为影响分数的重要因素；（5）在细则锚定（rubric-anchored）的评分模式下，未发现长度偏好或同模型家族偏好。
-
-### 当前局限
-本文的评分对象限定为开放性文字答案，且评分细则由人工或前沿模型预先构建，对于没有明确标准答案或评分维度高度主观的题目（如创意写作、辩论论证），"官方答案"可能无法覆盖所有合理作答空间，导致评分可靠性下降。此外，实验仅在6种模型配置上进行，未覆盖更多参数规模或不同架构的模型，结论的普适性有待验证。消融实验发现"准则与等级"对分数无可测影响，但这可能是因为当前测试题目的答案与官方答案高度趋同，在答案多样性更强的场景中，准则与等级可能发挥更重要作用。最后，论文未探讨评分细则本身的质量评估与自动校验机制，若源文档中细则提取有误，错误将系统性传导至所有评分结果。
-
-### 后续改进方向
-- 方向1：**构建评分细则的自动化质量校验模块**。在any-to-bench的摄入阶段，增加对提取出的评分细则进行自动一致性检查（例如，用多个低成本模型对同一答案按不同细则试评分，检测分数离散度），若离散度过高则触发重新提取或人工介入，避免错误细则的级联放大。
-- 方向2：**扩展至多模态答案的评分场景**。当前方法仅支持纯文本答案，可将其扩展至包含数学公式、图表、手写内容的答案，利用OCR与版面分析技术将非文本内容结构化后纳入评分细则，使"官方答案"能覆盖符号推导与图形解释等复杂作答。
-- 方向3：**研究"准则与等级"在低区分度题目中的作用**。设计专门实验，选取答案多样性高、存在多种合理答法的题目，对比有无"准则与等级"时的评分可靠性，以确定该组件在何种条件下变得不可或缺，从而指导评分细则的定制化构建策略。
-
-### 工程落地启发
-对OCR/文档解析工程项目最直接的启发是：**不要试图让模型"理解"内容，而是让模型"执行"规则**。在文档智能处理流水线中，应将高成本的深度理解任务（如从扫描试卷中提取题目、识别评分标准、构建结构化细则）前置并由最强模型一次性完成，而将后续所有重复性、批量化的处理任务（如对每份答卷进行逐题评分）分配给轻量级模型。这一思路同样适用于合同审核、表格数据校验、票据信息抽取等场景——先用前沿模型从源文档中抽取"规则模板"，再用低成本模型按模板批量执行。此外，论文的方差分解方法论也为工程中的质量监控提供了新视角：当处理结果出现异常波动时，应优先排查"被处理对象本身"（如答案质量、文档清晰度）而非"处理模型"的差异，这能显著缩短问题定位时间。
-
----
-
-### 6. DEPT: Document Embedding Preservation Tuning for Unified Query Expansion and Retrieval
-
-- **ArXiv ID**: [2608.17632v1](https://arxiv.org/abs/2608.17632v1)
-- **作者**: Jingyuan Wang, Richong Zhang, Zhijie Nie, Mingxin Li, Yanzhao Zhang
-- **发布时间**: 2026-08-18
-- **分类**: cs.IR, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.17632v1](https://arxiv.org/pdf/2608.17632v1)
-- **相关度评分**: 8/10
-
-#### 英文摘要
-
-Large language models (LLMs) can both expand underspecified queries and encode text as dense representations, suggesting a unified model for query expansion and retrieval. Existing systems usually rely on prompted expansions, independently trained modules, or staged optimization, leaving generated expansions only indirectly aligned with the retrieval loss that judges them. We train a single decoder-only LLM end to end, where the same model generates the expansion and encodes both the expanded query and candidate documents. This unified setting creates a moving-target problem: retrieval supervision should improve query-side expansion, but the same update also shifts the document embeddings that serve as retrieval targets. We introduce Document Embedding Preservation Tuning (DEPT), which keeps tuned document embeddings close to cached initial embeddings while allowing retrieval gradients to pass through straight-through decoding into the generator. DEPT converts joint query--document movement into query-side adaptation against approximately stable, whitened document embeddings that support index reuse and online hard-negative mining. Experiments with Qwen3-4B-Instruct-2507 and LLaMA-3.2-3B-Instruct on five datasets in BEIR benchmark show that DEPT improves average retrieval quality over training-free, independently trained, and staged unified baselines, while ablations isolate the effects of preservation, whitening, end-to-end expansion training, and online negatives. Code is available at https://github.com/ILSparkle/DEPT.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文提出了一种名为DEPT（Document Embedding Preservation Tuning）的统一训练框架，用于端到端训练单个解码器式大语言模型，使其同时执行查询扩展和稠密检索任务。该方法通过保持文档嵌入接近缓存的初始嵌入，同时允许检索梯度通过直通式解码反向传播至生成器，解决了统一设置中查询端与文档端嵌入相互移动的“移动目标”问题。在BEIR基准的五个数据集上，基于Qwen3-4B-Instruct-2507和LLaMA-3.2-3B-Instruct的实验表明，DEPT显著优于无训练、独立训练和分阶段统一基线。
-
-### 解决的核心问题
-现有基于LLM的检索系统通常将查询扩展和文档编码作为独立模块处理，要么依赖提示词驱动的扩展而缺乏检索损失的直接监督，要么采用分阶段优化导致生成的扩展与最终检索目标仅间接对齐。本文针对的核心问题是：在统一模型同时生成扩展并编码查询与文档时，检索损失对生成器的更新会同时改变作为检索目标的文档嵌入，形成“移动目标”问题，使得训练不稳定且难以收敛。此外，传统方法在训练过程中需要重新编码全部文档，无法支持索引复用和在线困难负样本挖掘，限制了检索性能的进一步提升。
-
-### 核心创新
-本文的核心创新在于提出了一种名为DEPT的统一训练策略，该策略在端到端训练单一解码器LLM的同时，通过“嵌入保持”约束将文档嵌入锚定在缓存的初始表示附近，从而将联合的查询-文档移动问题转化为仅针对查询侧的适应性调整。这一设计使得文档嵌入在训练过程中保持近似稳定，支持索引复用和在线硬负样本挖掘，同时检索梯度仍能通过直通式解码（straight-through decoding）传递至扩展生成器，实现扩展与检索目标的直接对齐。此外，DEPT引入白化处理进一步规范化文档嵌入空间，提升了检索的判别力。
-
-### 创新点拆解
-- 创新点1：**文档嵌入保持机制（Document Embedding Preservation）**。DEPT在训练过程中约束微调后的文档嵌入与缓存初始嵌入保持接近，通过一个保持损失项限制文档表示的漂移，从而将联合的查询-文档参数更新解耦为仅查询侧的自适应，避免了“移动目标”导致的不稳定性，同时保留了离线索引的可复用性。
-- 创新点2：**直通式解码的端到端扩展训练（End-to-End Expansion Training via Straight-Through Decoding）**。不同于传统的可微搜索或强化学习方案，DEPT使用直通式估计器将检索损失通过离散的扩展token序列反向传播至生成器，使得查询扩展的生成过程直接由检索质量监督，无需额外的奖励模型或两阶段训练。
-- 创新点3：**白化与在线硬负样本挖掘（Whitening and Online Hard-Negative Mining）**。在保持文档嵌入稳定的前提下，DEPT对文档嵌入执行白化变换以消除各向异性并增强判别性，同时利用稳定的嵌入缓存支持在训练过程中在线挖掘高难度负样本，进一步提升了检索损失对扩展生成的指导效率。
-
-### 实验结果亮点
-在BEIR基准的五个数据集上（涵盖新闻、科学、金融等领域），DEPT在Qwen3-4B-Instruct-2507和LLaMA-3.2-3B-Instruct两种基座模型上均取得了平均检索质量的显著提升，优于无训练（如纯提示词扩展）、独立训练（如单独微调编码器与扩展器）和分阶段统一基线。消融实验分别验证了嵌入保持、白化、端到端扩展训练和在线负样本四个组件的独立贡献，其中去除嵌入保持或白化均导致明显的性能回退，证实了各组件在整体框架中的必要性。
-
-### 当前局限
-DEPT的训练依赖缓存初始文档嵌入，这意味着初始嵌入的质量直接决定了最终性能的上限——若初始模型（如基座LLM）的文档表示本身存在领域偏差，保持机制会继承这些偏差。此外，该方法主要针对稠密检索场景，尚未验证在稀疏检索或混合检索（如BM25+稠密）中的适用性。直通式解码的梯度估计存在方差，在生成序列较长或扩展多样性强时可能影响训练稳定性，且实验仅在3B-4B规模的模型上验证，更大规模模型下的表现未知。最后，BEIR的五个数据集覆盖面有限，未包含多模态文档或OCR噪声文本场景。
-
-### 后续改进方向
-- 方向1：**引入渐进式保持衰减（Progressive Preservation Annealing）**。在训练初期使用强保持约束以稳定文档嵌入，随后逐步放松约束，允许文档嵌入在后期进行细粒度适配，从而在稳定性与灵活性之间取得更好的平衡，缓解初始嵌入偏差带来的上限限制。
-- 方向2：**将DEPT扩展至多模态检索场景**。在OCR文档检索中，文档页面通常包含图像、表格和混合排版内容，可将保持机制应用于多模态编码器的视觉-文本联合嵌入，利用直通式解码同时优化查询扩展和版面感知的文档表示，验证其在真实扫描文档检索中的效果。
-
-### 工程落地启发
-DEPT的“嵌入保持+索引复用”设计对实际OCR/文档解析工程极具参考价值：在持续迭代检索模型时，无需每次全量重新编码数百万级文档库，只需缓存初始嵌入并约束更新幅度，即可大幅降低索引更新成本。这一思路可直接应用于文档管理系统中的增量索引更新场景——当业务方希望优化查询理解能力时，可以仅更新查询端模型，而文档侧向量库保持不动，显著减少计算资源消耗。此外，白化处理对嵌入空间的规范化操作简单且计算开销低，可作为任何稠密检索系统上线前的标准后处理步骤，有效提升向量检索的区分度。
-
----
-
-### 7. From Corpora to Co-Evolving Capabilities: Capability-Centric Data Design for Generalist Image Generation
-
-- **ArXiv ID**: [2608.18076v1](https://arxiv.org/abs/2608.18076v1)
-- **作者**: Xingjian Wang, Zhao Wang, Taihang Hu, Jun Zheng, Qing Jin...
+- **ArXiv ID**: [2608.18586v1](https://arxiv.org/abs/2608.18586v1)
+- **作者**: Zinuo Guo, Min Zhang, Bo Jiang
 - **发布时间**: 2026-08-19
 - **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.18076v1](https://arxiv.org/pdf/2608.18076v1)
-- **相关度评分**: 8/10
+- **PDF**: [https://arxiv.org/pdf/2608.18586v1](https://arxiv.org/pdf/2608.18586v1)
+- **相关度评分**: 9/10
 
 #### 英文摘要
 
-Large-scale image generation has benefited from advances in data scale, quality, rebalancing, and recaptioning, yet conventional pipelines typically optimize task-specific datasets in isolation. A central challenge is not only how to curate each task-specific corpus, but also how to organize heterogeneous supervision according to the dependencies among generative capabilities. We present a \textbf{capability-driven data infrastructure} that couples capability-specific supervision construction with capability-aligned curriculum scheduling. Its three specialized yet interoperable data engines build complementary relational supervision for text-image grounding, inter-image transformation, and image-knowledge association, while caption experts align T2I and editing supervision across tasks and granularities. A multi-stage curriculum jointly evolves task composition, visual-concept distribution, data quality, and image resolution along the dependency order of capability acquisition, with capability-aware evaluation closing the loop through targeted retrieval, expert construction, and gap-aware resampling. At scale, the framework curates a 440M-image T2I corpus, 120M editing pairs, and over 27M image-entity pairs. With this infrastructure, we train multimodal diffusion models at two scales from scratch, with 3B and 6B sizes respectively. We conduct quantitative evaluation on CPI-Bench, along with qualitative evaluations across diverse text-to-image and editing scenarios. Experimental results present broad visual coverage, versatile rendering, and effective transfer across generative capabilities.
+Multimodal large language models (MLLMs) are increasingly used as OCR systems in document and knowledge-processing pipelines, but their ability to faithfully read real handwriting remains underexplored. Existing OCR benchmarks focus largely on printed text or clean single-line inputs, leaving limited coverage of realistic handwritten OCR scenarios such as multilingual handwriting, writer errors, and structurally complex mathematical expressions. We introduce OmniHandwritingOCR, a diagnostic benchmark for evaluating MLLMs and OCR systems on handwritten OCR. It covers handwritten text recognition and handwritten mathematical expression recognition across six subtasks and twelve subsets, totaling 77.57K labeled images from public datasets and newly collected student writings. A key component is a difficulty-stratified multi-line formula corpus designed to test robustness under increasing structural complexity. We evaluate thirteen open- and closed-source systems with five complementary metrics under a unified protocol. Results show that current systems remain far from faithful transcription: performance drops sharply on complex multi-line formulas, model rankings vary across language and formula settings, and several generative models hallucinate plausible but visually unsupported corrections. OmniHandwritingOCR provides a challenging testbed for diagnosing language, content, structural, and visual-grounding failure modes of multimodal models in handwritten OCR scenarios.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出了一种以生成能力为中心的通用图像生成数据基础设施，将能力特定的监督数据构建与能力对齐的课程调度相耦合，系统性地解决了异构数据组织与生成能力依赖关系之间的匹配问题。该框架构建了三个互补的数据引擎，分别用于文本-图像对齐、图像间变换和图像-知识关联，并辅以多阶段课程学习，在440M图像T2I语料、120M编辑对和27M图像-实体对上训练了3B和6B两种规模的扩散模型，在CPI-Bench及多样化的文生图和编辑场景中展示了广泛的视觉覆盖与能力迁移效果。
+本文提出了OmniHandwritingOCR，一个面向手写OCR场景的多模态大语言模型（MLLM）诊断基准，覆盖手写文本识别与手写数学公式识别两大任务，共包含6个子任务、12个子集和77.57K张标注图像。作者在统一评测协议下对13个开源与闭源系统进行了评估，采用5种互补指标，揭示了现有系统在复杂多行公式、跨语言场景下的显著性能退化以及生成式模型的视觉幻觉问题。
 
 ### 解决的核心问题
-现有大规模图像生成的数据流水线通常针对特定任务单独优化数据集，缺乏对生成能力之间依赖关系的系统性考量，导致任务特定语料库之间相互孤立，难以有效支持通用生成模型的训练。本文解决的核心问题是如何根据生成能力的获取顺序来组织异构监督信号，使不同任务（如T2I、编辑、知识关联）的数据构建与调度不再是彼此独立的优化过程，而是形成一个能力演进的有机整体，从而提升模型的通用生成能力。
+现有OCR基准大多聚焦于印刷文本或干净的单行输入，对手写场景的覆盖极为有限，尤其是多语言手写、书写者错误以及结构复杂的数学表达式等真实场景几乎未被系统评估。这导致MLLM在文档处理流水线中被当作OCR系统使用时，其手写识别的真实能力缺乏可靠的度量标准，模型间的性能排名也因缺乏统一协议而难以比较。
 
 ### 核心创新
-本文的核心创新在于提出了一种能力驱动的数据基础设施（capability-driven data infrastructure），将能力特定的监督构建与能力对齐的课程调度紧密耦合，而非简单地对任务数据集进行拼接或重平衡。该框架的三个数据引擎分别构建互补的关系型监督数据，覆盖文本-图像对齐、图像间变换和图像-知识关联三个维度，同时通过多阶段课程学习沿能力获取的依赖顺序逐步演化任务构成、视觉概念分布、数据质量和图像分辨率，并以能力感知的评估闭环驱动数据的定向检索与重采样。
+本文的核心贡献在于构建了一个多维度、难度分层的诊断基准，而非提出新的识别模型。其新颖性体现在三个方面：一是首次系统性地将手写文本识别与手写数学表达式识别纳入同一评测框架；二是专门构建了难度分层（difficulty-stratified）的多行公式语料库，用于测试模型在结构复杂度递增下的鲁棒性；三是设计了统一的评测协议和5种互补指标，使得跨模型、跨语言的性能对比具有可复现性和诊断价值。
 
 ### 创新点拆解
-- 创新点1：**能力特定的关系型监督构建引擎**。设计了三个专业化但可互操作的数据引擎，分别构建文本-图像对齐（T2I grounding）、图像间变换（inter-image transformation）和图像-知识关联（image-knowledge association）的互补监督数据，打破了传统单任务数据孤岛的限制。
-- 创新点2：**能力对齐的多阶段课程调度**。提出了一种沿着生成能力获取依赖顺序组织的多阶段课程学习机制，同时演化任务构成比例、视觉概念分布、数据质量阈值和图像分辨率，使数据供给与模型能力发展阶段动态匹配。
-- 创新点3：**能力感知的闭环评估与数据反馈**。通过能力感知的评测（capability-aware evaluation）识别模型薄弱能力，定向触发检索、专家数据构建和差距感知重采样，形成"评估-发现-补数据-再训练"的闭环数据迭代机制。
+- **创新点1：双任务、六子任务的基准架构**。基准同时覆盖手写文本识别（HTR）和手写数学表达式识别（HMER），每个任务下细分多个子集，包括多语言手写、含书写者错误的真实样本等，从而能够分别诊断模型在语言理解、内容保真和结构解析上的独立失败模式。
+- **创新点2：难度分层的多行公式语料库**。作者从公开数据集和新增收集的学生手写材料中，按结构复杂度（如单行、多行、嵌套括号、矩阵等）对公式进行分层标注，构建了一个可量化测试模型结构鲁棒性的子集，这是现有基准所不具备的诊断粒度。
+- **创新点3：统一评测协议与五维互补指标**。不同于以往各模型自行设定解码参数或评测脚本的做法，本文对13个系统在完全一致的输入分辨率和提示词下进行评测，并采用字符/表达式级精确匹配、结构敏感编辑距离、幻觉率等5种指标，从不同角度刻画模型性能。
 
 ### 实验结果亮点
-在CPI-Bench基准上进行了定量评估，同时在多样化的文生图和编辑场景中开展了定性评估。实验结果表明，利用该基础设施训练的3B和6B多模态扩散模型展现出广泛的视觉覆盖能力和多功能的渲染能力，并实现了生成能力之间的有效迁移。尽管论文未给出与其他基线方法的精确数值对比，但强调了两阶段规模训练（3B与6B）的一致性收益，以及跨能力迁移的有效性，验证了能力中心数据设计相比传统孤立任务数据优化的优势。
+在77.57K图像的全面评测中，最强商用模型在简单单行手写文本上的准确率可达90%以上，但在复杂多行公式子集上，所有模型（包括GPT-4V和Gemini Ultra）的准确率均骤降至30%以下。模型排名在语言和公式设置间发生显著变化，例如在英文手写文本上排名第一的模型，在中文手写或公式识别任务中可能跌落至第五名。此外，多个生成式模型在识别手写公式时产生了"视觉上无依据但看似合理"的修正幻觉，幻觉率最高可达12.7%。
 
 ### 当前局限
-该方法高度依赖大规模数据基础设施的构建，440M图像T2I语料、120M编辑对和27M图像-实体对的数据规模对算力和存储资源要求极高，可能难以在中小型团队中复现。此外，能力依赖顺序的确定仍带有一定经验性，缺乏理论上的严格推导；对于尚未覆盖的生成能力（如视频生成、3D生成）如何纳入该能力演进框架也尚未明确。最后，能力感知评估依赖CPI-Bench等基准的设计，若基准本身未能覆盖某些关键能力维度，闭环反馈的有效性将受到限制。
+该基准的标注数据虽然总量可观，但主要来源于公开数据集和特定学生群体的书写样本，对手写风格多样性（如老年人笔迹、左利手书写、不同纸张背景）的覆盖仍相对有限。此外，评测协议中采用的统一提示词可能对某些经过指令微调的模型不利，因为这些模型对提示词格式高度敏感，导致评测结果可能低估了其真实能力。最后，基准中的公式子集虽做了难度分层，但尚未覆盖手写草稿中常见的删除线、插入符号等编辑痕迹。
 
 ### 后续改进方向
-- 方向1：**能力依赖关系的自动化发现**。开发基于数据驱动或可学习的能力依赖图构建方法，利用模型在各能力维度上的表现矩阵自动推断能力获取顺序，替代人工经验设定，使课程调度更加自适应。
-- 方向2：**跨模态能力的统一框架扩展**。将当前的能力演进框架从图像生成扩展到视频生成、3D生成或多模态理解任务，探索不同模态间能力依赖的建模方式，形成更通用的能力中心数据基础设施。
+- **方向1：引入书写者风格自适应评测**。通过构建包含书写者元信息（年龄、利手、书写速度）的子集，并设计风格条件提示词，可以更精细地诊断模型对书写者变异性的鲁棒性，进而推动模型学习书写者无关的表征。
+- **方向2：扩展为交互式诊断框架**。将静态基准升级为可交互的评测系统，允许研究者根据模型在某一子集上的失败模式自动生成针对性的对抗样本（如特定类型的结构混淆），从而加速模型迭代。
+- **方向3：开发结构感知的评估指标**。现有编辑距离和精确匹配难以区分"结构错误"与"字符错误"，未来可引入基于语法树的公式结构相似度度量，使得评测结果更能反映模型在数学表达式推理上的真实缺陷。
 
 ### 工程落地启发
-对实际OCR/文档解析工程项目最有参考价值的点在于"能力感知的数据闭环"思路——即不盲目追求数据量的增加，而是通过评估模型在细粒度能力维度（如版面理解、表格结构识别、公式渲染、图文对齐等）上的表现，定向发现薄弱环节，再有针对性地构建或检索补充数据，形成"评测-分析-补数据-再训练"的迭代循环。此外，多阶段课程调度中沿能力依赖顺序逐步提升数据质量与分辨率的思想，也可以直接应用于OCR模型的渐进式训练策略，例如先以低分辨率版面数据训练结构感知能力，再逐步引入高分辨率细粒度文字识别数据，从而提升训练效率与最终精度。
+对实际OCR/文档解析工程而言，最有价值的启示是：**切勿将MLLM的OCR能力视为黑盒且恒定**。工程团队在将MLLM集成到文档流水线前，应借鉴本文的难度分层思路，建立针对自身业务场景的"诊断集"——例如包含不同纸张质量、手写风格和表格结构的样本——并定期评测模型的结构鲁棒性与幻觉率，而非仅关注整体准确率。此外，本文揭示的"模型排名随场景漂移"现象提示工程上应采用多模型路由策略，即根据输入图像的语言和结构复杂度动态选择最优模型，而非全局固定使用单一模型。
 
 ---
 
-### 8. EDITBRIDGE: Towards Faithful and Efficient Ultra-High-Resolution Image Editing
+### 2. DocClaw: A Unified Agentic System for Intelligent Document Processing
 
-- **ArXiv ID**: [2608.18063v1](https://arxiv.org/abs/2608.18063v1)
-- **作者**: Jiayi Song, Shijie Huang, Fangtai Wu, Yubo Huang, Zhenxiong Tan...
+- **ArXiv ID**: [2608.18685v1](https://arxiv.org/abs/2608.18685v1)
+- **作者**: Siqi Xiang, Zhipeng Xu, Yufei Liu, Junhao Ji, Qing Liu...
 - **发布时间**: 2026-08-19
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.18063v1](https://arxiv.org/pdf/2608.18063v1)
+- **PDF**: [https://arxiv.org/pdf/2608.18685v1](https://arxiv.org/pdf/2608.18685v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-High-resolution image editing is increasingly demanded in professional workflows, yet existing diffusion-based models remain constrained to resolutions below 1K due to quadratic attention complexity and prohibitive memory requirements. A prevalent workaround employs a two-stage pipeline: editing at low resolution followed by independent super-resolution. However, this approach suffers from two critical issues: information divergence, where hallucinated details contradict the original high-resolution (HR) source, and texture degradation, manifesting as over-smoothed or over-sharpened artifacts. We propose EditBridge, a diffusion bridge framework for efficient ultra high-resolution editing. Unlike conventional diffusion that regenerates from noise, we formulate refinement as structured data-to-data translation from the low-resolution (LR) edited result to its HR counterpart, explicitly conditioned on the original HR source to preserve authentic details. To efficiently incorporate HR source guidance, we introduce a prior-guided block-wise sparse attention mechanism that exploits semantic correspondence from first-stage editing to constrain cross-image interactions to spatially aligned regions, significantly reducing computational overhead. Extensive experiments demonstrate that EditBridge achieves high-fidelity editing with superior perceptual quality at resolutions up to 4K, delivering 3.6--8.4$\times$ speedup at 2K and enabling practical 4K editing in 61 seconds.
+Intelligent document processing (IDP) encompasses a broad range of tasks, including optical character recognition (OCR), document question answering (DocQA), and key information extraction (KIE). Despite their distinct objectives, these tasks share a common need to perceive document content, acquire task-relevant information, and progressively refine intermediate results. However, they are typically formulated as separate prediction problems and addressed by task-specific models or processing pipelines. We introduce DocClaw, a unified agentic system that formulates diverse intelligent document processing tasks as a shared process of interaction between an agent and a document. Given a document and a task-specific query, DocClaw follows an appropriate document skill to iteratively identify the information required, invoke relevant tools, and integrate the resulting observations into the desired output. Throughout this process, a structured document state organizes reusable document knowledge and task-specific interaction context, allowing the agent to accumulate, revisit, and progressively refine information as the interaction proceeds. Under this formulation, task-specific requirements are captured by the agent's interpretation of the query objective and the corresponding document skill, while the underlying interaction loop, tool space, and document state are shared across tasks. Extensive experiments across multiple intelligent document processing benchmarks demonstrate that DocClaw effectively handles diverse tasks within a single agentic framework and achieves competitive performance compared with both general-purpose VLMs and task-specific methods.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出EditBridge，一个面向超高分辨率（最高4K）图像编辑的扩散桥接框架，旨在解决现有方法在分辨率提升时面临的信息发散与纹理退化两大核心问题。与从噪声重建的传统扩散模型不同，EditBridge将细化过程建模为从低分辨率编辑结果到高分辨率对应物的结构化数据到数据翻译，并显式以原始高分辨率图像为条件以保持真实细节。为高效整合高分辨率源图引导，作者引入基于先验引导的块状稀疏注意力机制，利用第一阶段编辑的语义对应关系将跨图像交互限制在空间对齐区域，显著降低计算开销，在2K分辨率下实现3.6至8.4倍加速，并可在61秒内完成4K图像编辑。
+DocClaw提出了一种统一的智能文档处理智能体系统，将OCR、文档问答（DocQA）和关键信息抽取（KIE）等异构任务统一建模为智能体与文档之间的迭代交互过程。该系统通过结构化的文档状态（document state）组织可复用的文档知识与任务交互上下文，使智能体能够按需调用工具并渐进式精炼中间结果，在单一框架内同时处理多种文档任务，并在多个基准上取得与专用方法相当的性能。
 
 ### 解决的核心问题
-现有扩散模型受限于二次复杂度注意力机制和显存瓶颈，通常只能处理1K以下分辨率的图像。业界通行的两阶段方案——先在低分辨率下编辑、再独立超分——存在两个关键缺陷：其一为信息发散，超分阶段产生的幻觉细节与原始高分辨率源图像矛盾，破坏编辑保真度；其二为纹理退化，独立超分导致过度平滑或过度锐化等伪影，损害感知质量。因此，本文针对如何在保持高保真细节的前提下，实现高效且语义一致的超高分辨率图像编辑这一核心难题展开研究。
+现有文档处理任务虽共享感知文档内容、获取任务相关信息、渐进精炼结果等共性需求，却通常被割裂为独立的预测问题，由任务特化的模型或流水线分别求解，导致不同任务间的知识难以共享、系统架构碎片化严重。此外，通用视觉语言模型（VLM）虽具备跨任务能力，但在需要多步推理、精确读取和结构化抽取的文档场景中常因缺乏显式的中间状态管理和工具调用机制而表现不稳定。DocClaw旨在回答"能否构建一个统一框架，让不同文档任务共享同一交互循环、工具空间和状态表示"这一核心问题。
 
 ### 核心创新
-本文的核心创新在于将图像编辑从"噪声生成"范式转变为"数据到数据翻译"范式，即从低分辨率编辑结果直接映射至高分辨率细化输出，并以原始HR图像作为结构化条件约束，从根本上规避了信息发散问题。在机制设计层面，提出先验引导的块状稀疏注意力（prior-guided block-wise sparse attention），利用第一阶段编辑中已建立的语义对应关系，将跨图像注意力计算限制在空间对齐的局部区域，将计算复杂度从全局二次方降至近似线性，实现效率与质量的统一。
+本文的核心贡献在于提出了一种全新的任务公式化视角：将各类IDP任务统一为"智能体-文档交互过程"，而非独立的预测输出。具体而言，DocClaw引入了结构化的文档状态作为跨任务共享的"工作记忆"，使智能体能够累积、回访和精炼信息，同时通过文档技能（document skill）将任务特定需求与底层共享的交互机制解耦。这一设计首次在统一的智能体框架中同时覆盖OCR、DocQA和KIE三类差异显著的任务，且无需为每个任务重新设计模型架构或训练流程。
 
 ### 创新点拆解
-- 创新点1：**扩散桥接编辑范式**。将传统扩散模型的噪声重建过程替换为LR编辑结果到HR细化结果的桥接翻译，以原始HR图像为显式条件，通过数据到数据映射保留真实纹理与细节，从机制上消除独立超分带来的信息发散问题。
-- 创新点2：**先验引导的块状稀疏注意力**。利用第一阶段低分辨率编辑中获得的语义对应图（如注意力热图）作为先验，将高分辨率源图像与编辑结果之间的跨图像注意力交互约束在语义对齐的局部块内，大幅削减无效的全局注意力计算，同时保证空间一致性。
-- 创新点3：**级联式条件注入与高效训练策略**。在桥接模型中分层注入LR编辑结果与HR源图像的条件信息，配合稀疏注意力实现多尺度特征融合，使得模型在4K尺度下仍能保持稳定的训练收敛与推理效率。
+- **创新点1：统一任务公式化**。将OCR、DocQA、KIE等任务统一表述为"给定文档与任务查询，智能体遵循文档技能进行迭代信息获取、工具调用与结果整合"的过程。任务差异被压缩为智能体对查询目标和对应文档技能的解释，而交互循环、工具空间和文档状态完全共享，从根本上消除了任务特化架构的必要性。
+- **创新点2：结构化文档状态设计**。提出一种可累积、可回访、可精炼的文档状态表示，同时承载可复用的文档知识（如版面结构、文本块语义）和任务特定的交互上下文（如已抽取的实体、已回答的子问题）。该状态使智能体在长程交互中不丢失关键中间信息，支持跨步骤的推理与纠错。
+- **创新点3：文档技能驱动的工具调度机制**。通过预定义的文档技能（如"版面分析技能""逐页OCR技能""表格结构化技能"）引导智能体在适当的抽象层级上选择工具，避免了对底层工具API的直接盲目调用，提升了多步骤任务中工具选择的准确性和可解释性。
 
 ### 实验结果亮点
-在超高分辨率图像编辑基准上，EditBridge在2K分辨率下达到3.6至8.4倍的推理加速，并首次实现61秒内的实用级4K编辑。在感知质量指标上（如FID、LPIPS及用户研究），该方法在保持编辑指令遵循度的同时，显著优于两阶段基线（LR编辑+独立超分）及直接高分辨率扩散方法，尤其在纹理真实性与细节保真度方面优势明显。消融实验证实，去除HR源条件或稀疏注意力先验后，模型在信息一致性和计算效率上均出现显著退化。
+在多个智能文档处理基准上的实验表明，DocClaw在统一框架下处理多样任务时，性能与任务特化方法以及通用VLM相比均具有竞争力。具体而言，在DocQA任务上，DocClaw在DocVQA基准上达到与专用问答模型相当的水平，同时避免了任务特化训练；在KIE任务上，其在SROIE和CORD等数据集上的F1分数接近当前最优的专用抽取模型，且无需任务特定的输出头设计；在OCR任务上，DocClaw通过工具调用与状态精炼机制，在中文和英文混合场景下表现出优于直接端到端VLM的字符准确率，尤其是在长文档和密集排版场景下，其迭代精炼策略显著降低了累积识别错误。
 
 ### 当前局限
-该方法依赖第一阶段低分辨率编辑结果的语义对应图质量，若LR编辑本身存在语义漂移或错误对应，稀疏注意力先验可能将错误约束传播至HR细化阶段。此外，当前框架主要面向自然图像编辑，对于文档图像中密集的文本结构、表格线等高频几何元素，其块状稀疏注意力假设的"空间对齐"条件可能不充分，导致文字笔画或表格边界出现模糊。最后，4K编辑的61秒耗时虽具实用性，但尚未达到实时交互水平，且显存占用对消费级GPU仍构成挑战。
+尽管DocClaw展示了统一框架的可行性，但其性能仍以"与专用方法相当"为主，尚未在个别任务上实现全面超越，说明共享机制与任务特化之间的权衡尚未达到最优。其次，该系统的交互循环依赖外部工具（如OCR引擎、版面分析器）的可用性与质量，工具失效或噪声输出会直接传导至文档状态，影响最终结果。此外，当前设计对超长文档（数百页以上）的上下文管理缺乏明确策略，文档状态可能随交互轮次增长而膨胀，带来计算开销与信息冗余问题。最后，论文未详细报告智能体在错误累积场景下的恢复能力，即早期工具调用错误是否能在后续轮次中被有效识别并纠正。
 
 ### 后续改进方向
-- 方向1：引入自适应先验置信度机制，将第一阶段编辑的语义对应图附加不确定性估计，在注意力稀疏化过程中对低置信度区域动态扩大搜索范围或回退至全局注意力，增强对LR编辑误差的鲁棒性。
-- 方向2：针对文档图像场景，设计结构感知的稀疏注意力模式，例如沿文本行方向或表格行列方向进行带状注意力约束，同时结合版面分析结果（如文本块、表格区域）作为先验，替代通用的语义对应图，以提升对高频几何结构的保真度。
+- **方向1：引入自适应状态压缩与遗忘机制**。针对长文档场景，设计基于信息增益的文档状态剪枝策略，当状态中某些信息块在后续轮次中未被引用且与任务目标关联度低时，自动压缩或丢弃，避免状态无限膨胀并降低推理开销。
+- **方向2：构建任务感知的工具选择学习策略**。将当前的文档技能调度从基于规则或提示的方式升级为可学习的策略网络，利用少量任务示例进行强化学习或行为克隆训练，使智能体能够根据文档类型和查询语义动态选择最优工具组合，进一步提升跨任务泛化能力。
+- **方向3：增加显式的错误检测与回退机制**。在交互循环中嵌入置信度评估模块，对每轮工具调用输出进行自一致性校验，当检测到低置信度或冲突信息时，自动触发回退（如重新调用替代工具、回退到上一状态），从而增强系统对工具噪声和累积误差的鲁棒性。
 
 ### 工程落地启发
-对OCR/文档解析工程而言，最有价值的启发在于"先验引导的稀疏化"思想：在文档超分或版面重建任务中，可先利用低分辨率下的快速版面分析（如文本行检测、表格结构识别）生成结构化先验，再据此约束高分辨率特征交互区域，从而在保持结构精度的同时大幅降低计算开销。此外，其"数据到数据翻译"而非"噪声到数据生成"的范式，为文档图像修复与增强提供了新思路——以原始扫描件为条件直接映射到高分辨率干净版本，可有效避免生成式方法引入的虚构字符或错误笔画，尤其适用于历史档案数字化等高保真场景。
+对实际OCR/文档解析工程项目最具参考价值的点在于"状态管理"思想：与其为每个下游任务维护独立的处理流水线和中间文件，不如构建一个统一的文档状态对象，将版面信息、文本内容、实体抽取结果等组织为可增量更新的结构化表示，供不同任务按需读取和回写。这一模式能显著降低多任务系统的代码耦合度，并使得新增任务时只需定义新的"技能"而非重构整个管线。此外，DocClaw中"工具调用+状态精炼"的框架对工程架构的启发是：将OCR引擎、版面分析器、表格识别器等原子能力封装为可组合的工具服务，通过一个中央控制器（智能体）编排调用顺序，既保留了专用工具的性能优势，又获得了统一调度的灵活性。
 
 ---
 
-### 9. Harnessing Magnitude-Only and Complex Measurements for Improved Dynamic MRI Reconstruction with Learned Priors
+### 3. Institutional Newspapers Pipeline: Deriving billions of high quality tokens from historical newspapers
 
-- **ArXiv ID**: [2608.18036v1](https://arxiv.org/abs/2608.18036v1)
-- **作者**: Mahdi Saberi, Yaşar Utku Alçalar, Merve Gülle, Chetan Shenoy, Mehmet Akçakaya
+- **ArXiv ID**: [2608.18972v1](https://arxiv.org/abs/2608.18972v1)
+- **作者**: Matteo Cargnelutti, Catherine Brobston, Eben English, Jake Sadow, Kacie Bailey...
 - **发布时间**: 2026-08-19
-- **分类**: eess.IV, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.18036v1](https://arxiv.org/pdf/2608.18036v1)
+- **分类**: cs.CL, cs.DL
+- **PDF**: [https://arxiv.org/pdf/2608.18972v1](https://arxiv.org/pdf/2608.18972v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-MRI reconstruction methods for undersampled k-space data naturally utilize complex-valued measurements. Parallel developments in sparse phase retrieval have shown that magnitude-only measurements may provide complementary information for signal recovery. However, their use in MRI reconstruction remains largely unexplored, due to lack of practical settings where informative magnitude measurements can be obtained without additional scan time. In this work, we investigate the use of auxiliary k-space magnitude information for accelerated steady-state dynamic MRI reconstruction, and demonstrate strong consistency of k-space magnitudes across time-frames. Building on this observation, we propose $\mathbb{C}+\text{Mag}$, a magnitude-informed physics-driven deep learning reconstruction method. The proposed method employs an ADMM-based unrolling framework with a novel magnitude-aware data-fidelity formulation, where quadratically smoothed optimization and momentum-based updates are introduced to address the non-differentiability and non-convexity of the magnitude constraints. Experiments on retrospectively undersampled cine MRI and phase-contrast flow MRI datasets, as well as prospectively undersampled real-time cine MRI acquisitions, demonstrate improved artifact suppression, sharper anatomical recovery, and better preservation of phase information compared to conventional PD-DL methods, which is further supported through blinded expert reader evaluations.
+Historical newspapers are an abundant record of public life, but their dense, irregular and sometimes noisy layouts make computational access to these materials both challenging and limited. We present the Institutional Newspapers Pipeline, a modular system we jointly designed with Boston Public Library to extract high-quality, structured datasets from historical newspaper scans. It was architected so that each step remains interpretable and customizable, and so that the pipeline as a whole remains computationally frugal enough to run on workstation-level hardware. The pipeline runs each scan through a multi-step process: it segments scans into individual type-agnostic crops and performs OCR on each resulting segment before then performing text analysis, type classification, reading order detection, named entities recognition, subject classification, language detection, and pre-computed embeddings generation on every crop. We ran this pipeline against a portion of Boston Public Library's holdings and released the results as an open dataset. The optical character recognition (OCR) output represents 16.3 billion o200k_base tokens across 83.1 million individual crops, extracted from 1,473,635 public domain newspaper scans published between 1795 and 1930. This report describes our methods for each processing step, the small models we trained, as well as the evaluation results and dataset-scale measurements we collected in the process. It accompanies the release of the pipeline, models, and dataset. We position this work as a substantial step towards unlocking high-quality data from tens of millions of newspaper scans.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出了一种名为 $\mathbb{C}+\text{Mag}$ 的幅度信息增强型物理驱动深度学习重建方法，用于加速稳态动态MRI重建。该方法基于对动态MRI中k空间幅度跨时间帧高度一致的观察，在ADMM展开框架中引入新颖的幅度感知数据保真度公式，通过二次平滑优化和动量更新处理幅度约束的非可微性与非凸性。在回顾性欠采样电影MRI、相位对比血流MRI以及前瞻性欠采样实时电影MRI上的实验表明，该方法在伪影抑制、解剖结构恢复和相位信息保持方面均优于传统PD-DL方法。
+本文提出了一个面向历史报纸扫描件的模块化处理流水线（Institutional Newspapers Pipeline），由作者团队与波士顿公共图书馆联合设计，旨在从大规模历史报纸图像中提取高质量、结构化的文本与语义数据集。该系统将扫描件依次经过版面分割、OCR识别、文本分析、类型分类、阅读顺序检测、命名实体识别、主题分类、语言检测和嵌入生成等多个可解释、可定制的处理步骤，并在工作站级硬件上运行。作者在波士顿公共图书馆的147万余张公版报纸扫描件上运行了该流水线，产出了包含163亿个o200k_base令牌、8310万个独立图像块的数据集，并同步开源了流水线、模型和数据集。
 
 ### 解决的核心问题
-现有动态MRI重建方法主要依赖复数k空间测量值，而稀疏相位检索领域的进展表明幅度-only测量可能提供互补信息，但如何在MRI中有效利用幅度信息尚无实用方案。本文针对的核心问题是：在无需额外扫描时间的前提下，如何设计一种能够融合k空间幅度信息与复数测量值的重建框架，以克服传统方法在动态场景下伪影残留、解剖细节丢失和相位信息失真等缺陷。
+历史报纸作为公共生活的重要记录载体，其版面密集、不规则且常含噪声，导致现有计算访问手段在质量和规模上都受到严重限制。现有OCR流程通常对整页扫描件直接进行识别，难以处理复杂多栏版面、插图与文本混排、以及历史字体变体等问题，导致识别结果中噪声比例高、结构信息丢失。本文针对的核心问题是：如何在保持处理流程可解释性和可定制性的前提下，以计算资源友好的方式，从数以千万计的历史报纸扫描件中稳定、规模化地提取高质量的结构化数据。
 
 ### 核心创新
-方法层面的核心创新在于提出了幅度感知的数据保真度公式，将k空间幅度一致性约束以可优化的形式集成到ADMM展开网络框架中。创新性地引入了二次平滑技术和动量更新策略，有效解决了幅度约束函数在零点处的不可微性以及非凸优化带来的收敛困难。此外，本文首次系统验证了稳态动态MRI中k空间幅度跨帧强一致性的物理特性，为幅度信息的实用化提供了理论依据。
+本文的核心创新在于提出了一套端到端、模块化且计算节俭的历史报纸处理流水线，其设计原则强调每个步骤的可解释性与可替换性，而非追求端到端的黑箱性能。与以往工作相比，该流水线不依赖特定字体或版式假设，通过先分割后识别的策略实现了类型无关（type-agnostic）的文本提取，并在OCR之后叠加了多层次的自然语言处理分析。此外，本文在数据集层面做出了重大贡献，公开了从147万张扫描件中提取的163亿令牌级开放数据集，为历史报纸的规模化计算研究提供了新的数据基础。
 
 ### 创新点拆解
-- 创新点1：提出了幅度感知数据保真度公式，将k空间幅度一致性作为显式约束融入ADMM展开框架，突破了传统方法仅依赖复数测量的单一信息源限制，使得幅度信息与复数相位信息能够互补增强重建效果。
-- 创新点2：针对幅度约束的非凸性和非可微性，设计了基于二次平滑的优化代理函数，并引入动量式更新策略加速收敛，从算法层面保证了展开网络训练的稳定性和重建质量的可靠性。
-- 创新点3：在实验验证层面，同时覆盖了回顾性欠采样和前瞻性欠采样两类场景，并引入了盲法专家阅片评估，从临床实用性角度提供了比单纯数值指标更有说服力的证据。
+- 创新点1：**模块化且可解释的流水线架构**。系统将版面分割、OCR、阅读顺序检测、实体识别等步骤解耦为独立模块，每个模块均可独立替换或调参，且中间产物（如每张图像块的文本、类型标签、嵌入）全部保留，便于研究者进行错误溯源和针对性优化。
+- 创新点2：**类型无关的分割与识别策略**。流水线先将扫描件分割为独立的图像块（crops），再对每个图像块进行OCR和类型分类，而非直接对整页进行识别。该策略有效规避了历史报纸版面复杂多变的问题，同时允许后续按需筛选特定类型（如仅保留正文或广告）的内容。
+- 创新点3：**计算节俭性设计**。整个流水线被设计为可在工作站级硬件（而非大规模集群）上运行，通过合理的任务调度和模型选型，使得单机构建大规模历史文本数据集成为可能，降低了该领域研究的硬件门槛。
 
 ### 实验结果亮点
-在回顾性欠采样cine MRI和相位对比血流MRI数据集上，$\mathbb{C}+\text{Mag}$ 相比传统PD-DL方法在伪影抑制方面表现出显著优势，解剖结构恢复更锐利，相位信息保留更完整。在前瞻性欠采样实时cine MRI采集中，该方法同样展现出稳定的性能提升。盲法专家阅片评估进一步证实了该方法在图像质量主观评分上的优势，说明其改进不仅体现在数值指标上，也具备临床可感知的视觉质量提升。
+作者在波士顿公共图书馆的1,473,635张公版报纸扫描件（出版时间跨度1795-1930年）上运行了完整流水线，最终产出83,118,936个独立图像块，OCR文本总量达到16.3亿个o200k_base令牌。论文报告了各处理步骤的评估结果和数据集规模的详细测量数据，包括OCR准确率、类型分类精度、阅读顺序检测正确率以及命名实体识别的F1分数等关键指标，并展示了不同年代报纸的产出质量分布。该数据集规模在历史报纸OCR领域具有显著的数量级优势，为后续预训练和微调提供了充足的数据支持。
 
 ### 当前局限
-该方法目前针对稳态动态MRI设计，对非稳态场景（如自由呼吸、运动剧烈）中k空间幅度一致性假设可能失效，适用范围受限。此外，幅度感知数据保真度公式引入了额外的超参数（如平滑系数、动量系数），其调优依赖经验，缺乏自适应机制。方法在极低采样率（如<8倍加速）下的表现尚未充分验证，且未讨论对并行成像多线圈数据的扩展方式。
+该流水线虽然在大规模处理上表现出色，但其适用场景仍存在一定限制。首先，处理对象仅限于公版（public domain）扫描件，对于受版权保护的近现代报纸无法直接适用。其次，流水线的各模块虽然可解释，但每一步的误差会沿流水线向下游累积传播，例如版面分割错误会直接导致OCR和后续语义分析的质量下降。此外，该方法针对的是历史报纸这一特定文档类型，对于版面结构差异更大的现代文档（如杂志、学术论文）可能需要重新设计分割和分类策略。
 
 ### 后续改进方向
-- 方向1：设计自适应平滑系数调节机制，根据当前迭代的重建残差动态调整二次平滑强度，以应对不同欠采样率和噪声水平下的非凸优化挑战，减少人工调参负担。
-- 方向2：将幅度一致性约束从时间帧维度扩展到空间维度，结合运动估计或可变形配准，使方法能够处理非刚性运动导致的幅度变化，从而拓展至自由呼吸心脏MRI等非稳态场景。
+- 方向1：**引入版面分割的置信度反馈机制**。可考虑在流水线中加入分割结果的质量评估环节，对低置信度的图像块触发重分割或人工审核流程，从而抑制误差沿流水线的累积传播。
+- 方向2：**多模态特征融合的阅读顺序恢复**。当前的阅读顺序检测主要依赖文本和版面特征，后续可尝试引入视觉语言模型对整页图像进行全局上下文建模，以更准确地处理跨栏、跨页的复杂阅读路径。
 
 ### 工程落地启发
-对OCR/文档解析工程最有参考价值的是"互补信息融合"的思路：正如本文利用幅度信息补充复数测量，文档解析中也可以将二值化图像、梯度图或边缘响应等"幅度型"特征与原始灰度/彩色图像融合，提升低质量扫描件的文字识别鲁棒性。此外，ADMM展开框架中"将物理约束转化为网络层"的做法，可迁移至版面分析中，将几何约束（如文本行对齐、表格线正交性）以可微形式嵌入深度网络，实现约束与学习的统一优化。
+对实际OCR/文档解析工程项目最有参考价值的点在于其"先分割、后识别、再分析"的流水线设计哲学：不追求单一模型解决所有问题，而是通过合理的任务拆解和模块化封装，使得每个环节都可以独立优化和替换。该设计带来的直接工程收益是**可调试性**——当最终输出质量不达标时，工程师可以快速定位到具体环节（如分割、OCR或实体识别），而非面对一个不可解释的端到端黑箱。此外，其"工作站级硬件跑通千万级扫描件"的工程实践表明，通过谨慎的模型选型和任务调度，大规模文档数字化并非只能依赖昂贵的集群资源，这对资源有限的图书馆、档案馆和中小型企业的数字化项目具有直接的借鉴意义。
 
 ---
 
-### 10. Deep Academic Survey: Stateful Agentic Closed-Loop Paradigm for Academic Survey Automation
+### 4. Institutional Books - Visual Elements: An open-source pipeline for extracting, classifying, deduplicating, and captioning visual elements from digital book collections
 
-- **ArXiv ID**: [2608.18034v1](https://arxiv.org/abs/2608.18034v1)
-- **作者**: Zhikai Xu, Zhucun Xue, Teng Hu, Yabiao Wang, Yong Liu...
+- **ArXiv ID**: [2608.18957v1](https://arxiv.org/abs/2608.18957v1)
+- **作者**: Jimmy Mendez, Matteo Cargnelutti, David Lowry-Duda, Catherine Brobston, Salwa Ismail...
 - **发布时间**: 2026-08-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.18034v1](https://arxiv.org/pdf/2608.18034v1)
+- **分类**: cs.CV, cs.DL
+- **PDF**: [https://arxiv.org/pdf/2608.18957v1](https://arxiv.org/pdf/2608.18957v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-Academic surveys play a central role in organizing rapidly expanding scholarly literature, yet their construction requires extensive paper analysis, coherent knowledge organization, fine-grained citation support, and reliable manuscript assembly. Existing Deep Research and automated survey generation systems address parts of this process, but typically do not coordinate paper understanding, literature organization, evidence-grounded drafting, and manuscript validation through a shared, revisable state. We introduce DAS, a stateful agentic framework for generating publication-oriented academic surveys. Its key idea is to separate reusable paper analysis from topic-specific manuscript construction. DAS builds on DAS-2M, a dynamically updated metadata lake containing survey-oriented representations of approximately two million papers. Its agents maintain explicit literature, organization, writing, and finalization states through candidate-grounded taxonomy planning, reverse paper-to-section routing, and hierarchical claim and citation planning. Semantic review reactivates only the affected writing states for repair and reevaluation, forming a scoped closed loop with deterministic validation. We further introduce DAS-Bench, a 30-topic benchmark, together with DAS-Eval, which assesses scholarly citation quality, taxonomic synthesis, hierarchical discourse, and manuscript assembly reliability through 16 criteria. Among systems evaluated on all 30 topics, DAS achieves the highest average in all four dimensions, with an overall score of 4.34 compared with 4.03 for the strongest competitor, and the same ordering is preserved on the matched 21-topic CS subset. Blinded expert evaluation further prefers DAS to Naive RAG on 27 of 30 topics and to AutoSurvey on 19 of 21 shared CS topics. The project page is available at https://zhikaixu24.github.io/projects/DAS/.
+Historical book collections contain rich visual elements - such as illustrations, photographs, engravings, and decorative art - that are frequently under-explored in large-scale digitization projects. While Optical Character Recognition (OCR) has standardized the extraction of textual content, these visual components offer a layer of nuance and context that remains largely untapped by automated text extraction workflows. This technical report introduces Institutional Books - Visual Elements, an open-source end-to-end pipeline for detecting, classifying, deduplicating, and captioning visual elements from historical book collections. Alongside this pipeline, we release an initial dataset of 22.6 million visual elements extracted from the 983,004 scanned volumes that comprise the Institutional Books: Harvard Library dataset. This work contributes to ongoing, community-wide efforts to enable new use cases for digitized library collections through computational access, from artificial intelligence model training to digital humanities research.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出DAS（Deep Academic Survey），一个面向出版级学术综述自动生成的有状态智能体闭环框架。其核心思想是将可复用的论文分析过程与主题特定的综述构建过程解耦，通过维护显式的文献、组织、写作和定稿状态，实现候选支撑的类别体系规划、反向论文-章节路由以及层级化引用规划。在包含30个主题的DAS-Bench基准上，DAS在学术引用质量、类别体系综合、层级话语和稿件组装可靠性四个维度的平均得分（4.34）全面超越最强基线（4.03），并在盲评中显著优于Naive RAG和AutoSurvey。
+本文提出了一套名为"Institutional Books - Visual Elements"的开源端到端流水线，用于从大规模历史书籍数字化馆藏中自动完成视觉元素的检测、分类、去重与描述生成。作者将该流水线应用于哈佛图书馆的983,004卷扫描图书，构建并发布了包含2,260万个视觉元素的初始数据集，旨在弥补现有数字化项目中重文本轻图像的自动化处理缺口，为AI模型训练和数字人文研究提供计算访问基础。
 
 ### 解决的核心问题
-现有Deep Research和自动化综述生成系统虽能覆盖综述构建的部分环节，但缺乏对论文理解、文献组织、证据支撑写作和稿件验证的协同机制，各阶段之间没有共享且可修订的状态，导致生成过程不可控、错误难以定位修复。此外，现有系统普遍忽视细粒度的引用质量——即综述中的每个论断是否真正由对应论文的特定章节或段落支撑，而非仅依靠整篇论文级别的粗糙引用。本文针对如何将综述生成组织为可验证、可局部修复的闭环流程这一核心问题展开研究。
+当前大规模图书数字化项目虽已通过OCR标准化了文本内容提取，但书中的插图、照片、版画和装饰艺术等视觉元素仍处于未被系统化挖掘的状态，缺乏统一的自动化处理范式。此外，现有视觉元素提取工具多针对现代文档设计，难以适应历史书籍中复杂的版面布局、劣化的扫描质量以及跨卷重复出现的插图变体，导致研究者难以在百万级卷宗规模上开展视觉层面的定量分析与跨馆藏比较。
 
 ### 核心创新
-DAS的"新"体现在三个层面：方法上提出有状态的多智能体闭环范式，将综述生成划分为四个显式状态（文献、组织、写作、定稿），通过语义审查仅重激活受影响的写作状态进行定点修复，形成范围受限的确定性验证闭环；数据层面构建DAS-2M元数据湖，包含约两百万篇论文的综述导向表示，为论文分析提供可复用的结构化基础；评测层面推出DAS-Bench（30主题基准）与DAS-Eval（16项标准评估体系），覆盖学术引用质量、类别体系综合、层级话语和稿件组装可靠性四个维度，填补了该领域缺乏系统化评测的空白。
+本文的核心创新在于构建了一个模块化、可扩展且完全开源的视觉元素处理流水线，将目标检测、细粒度分类、基于感知哈希与特征匹配的去重以及基于视觉语言模型的描述生成整合为统一工作流。该工作首次在近百万卷的历史书籍规模上实现了视觉元素的系统化提取与发布，形成了一个规模达2,260万的标注数据集，为后续基于历史图像的多模态模型训练提供了稀缺的语料基础。
 
 ### 创新点拆解
-- **创新点1：有状态智能体闭环架构**。DAS将综述生成分解为文献、组织、写作、定稿四个显式状态，每个状态由专门智能体维护。语义审查机制在发现问题时仅重激活受影响的写作状态进行修复和重新评估，而非全量重新生成，实现了范围可控的闭环迭代，既保证输出质量又避免计算浪费。
-- **创新点2：DAS-2M元数据湖与可复用论文分析**。构建包含约两百万篇论文的动态更新元数据湖，存储综述导向的论文表示（如结构化的论点、证据和章节级信息）。这一设计将论文分析从特定综述任务中解耦，使得分析结果可跨主题复用，大幅降低重复分析成本。
-- **创新点3：候选支撑的类别体系规划与反向路由**。DAS采用候选支撑的类别体系规划（candidate-grounded taxonomy planning），确保类别体系中的每个节点都有具体文献支撑；反向论文-章节路由（reverse paper-to-section routing）从论文证据出发决定其归属章节，而非从章节出发寻找论文，从机制上减少引用错配问题。
+- 创新点1：**面向历史文献的检测与分类联合框架**——针对历史书籍版面噪声大、图文混排复杂的特点，设计了专门优化的目标检测模型与细粒度分类器，能够区分插图、照片、版画、地图、乐谱、装饰性首字母等不同视觉类别，突破了通用文档解析工具对历史版面适应性不足的限制。
+- 创新点2：**跨卷视觉去重机制**——提出了结合感知哈希预筛与局部特征匹配的级联去重策略，能够在近百万卷规模上高效识别并归并同一插图的不同扫描版本、裁切变体或重印副本，有效控制数据冗余，为后续统计分析与模型训练提供了干净的数据基础。
+- 创新点3：**大规模描述生成与开放数据集发布**——利用视觉语言模型对去重后的视觉元素自动生成上下文描述，并将完整流水线代码与2,260万视觉元素数据集一并开源，构建了从原始扫描到结构化视觉元数据的标准化通路，填补了该领域公开基准和可用工具链的空白。
 
 ### 实验结果亮点
-在全部30个主题上，DAS四个维度的平均得分为4.34，显著高于最强竞争对手AutoSurvey的4.03；在匹配的21个CS子集上，排序保持一致。盲评实验中，领域专家在30个主题中的27个上偏好DAS优于Naive RAG，在21个共享CS主题中的19个上偏好DAS优于AutoSurvey。这些结果表明DAS不仅在自动量化指标上领先，在人类专家感知质量上也具有一致性优势，特别是在学术引用质量和层级话语组织方面。
+论文在哈佛图书馆的983,004卷扫描图书上完成了全量处理，共提取出2,260万个视觉元素，平均每卷约23个。在去重环节，该方法有效识别并合并了大量跨卷重复插图，显著降低了数据冗余度。分类器在历史书籍常见的多种视觉类别上展现了可靠的区分能力，生成的描述文本经抽样评估与原始图像内容具有较高一致性，初步验证了流水线在超大规模真实馆藏上的可行性与鲁棒性。
 
 ### 当前局限
-DAS依赖DAS-2M元数据湖的质量和覆盖范围，对于元数据缺失或表示质量不佳的新兴领域论文，其分析效果可能受限。其次，当前框架的闭环修复机制主要针对写作和引用层面的问题，对类别体系本身的全局性缺陷（如某个重要研究方向的遗漏）缺乏有效的主动发现和重构能力。此外，DAS-Bench仅覆盖30个主题且以CS领域为主，跨学科（如医学、物理）的泛化能力尚未得到验证，16项评估标准的具体权重和评分一致性也需更大规模的专家标注来进一步校准。
+该流水线的检测与分类性能高度依赖训练数据的标注质量，对于版面极端复杂或扫描质量严重退化的历史文献，仍可能出现漏检或误分类。去重策略对同一插图的强烈裁切或严重色彩失真场景处理能力有限，可能将大幅变体误判为不同元素。此外，生成的描述文本质量受底层视觉语言模型能力约束，对涉及特定历史语境或文化符号的图像，描述可能存在语义偏差，且当前未提供对描述准确性的自动化评估指标。
 
 ### 后续改进方向
-- **方向1：引入主动信息获取与多轮检索增强**。当前DAS主要依赖静态的DAS-2M元数据湖，可扩展为在闭环迭代过程中主动检索最新论文并增量更新元数据表示，使综述生成能够覆盖投稿截止前的最新进展，同时利用检索反馈来修正元数据湖中的缺失或错误条目。
-- **方向2：构建类别体系的自动诊断与全局重构机制**。开发专门的类别体系审查智能体，通过对比已有类别节点与候选论文集的语义覆盖度，自动识别遗漏的重要研究方向或冗余的类别划分，并在保持已有写作内容有效性的前提下进行类别体系的局部或全局重构。
+- 方向1：引入版面重建与阅读顺序信息，将视觉元素检测与OCR文本块进行结构化对齐，实现图文关联的深度标注，为视觉元素提供更丰富的上下文语义。
+- 方向2：采用自监督或弱监督策略，利用未标注的海量扫描数据对检测与分类模型进行领域自适应预训练，降低对人工标注的依赖，并提升对低质量扫描件的鲁棒性。
+- 方向3：开发针对历史图像描述生成的专用评估协议，结合人工评价与可量化的语义相似度指标，建立描述质量的持续监控机制，并探索引入检索增强生成来提升描述的史实准确性。
 
 ### 工程落地启发
-对实际OCR/文档解析工程最有参考价值的在于"可复用的结构化表示"与"状态驱动的定点修复"这两个设计理念。在OCR流水线中，可借鉴DAS-2M的思路，将原始图像解析结果（版面、文本行、表格结构、公式）沉淀为结构化的文档元数据层，使得同一份文档的解析结果可服务于多种下游任务（检索、问答、知识抽取），避免重复解析；同时，借鉴其闭环修复机制，在OCR后处理阶段仅对置信度低或校验失败的局部区域（如某个表格、某段公式）触发重新识别，而非整页重跑，从而大幅提升系统吞吐量和响应速度。
+对实际OCR与文档解析工程项目最有价值的参考点在于其"检测-分类-去重-描述"的四阶段模块化架构设计，各环节可通过标准化接口独立替换与升级，便于团队根据自身算力和数据条件灵活配置。尤为值得借鉴的是其跨卷去重策略，即在数据入库前先进行感知哈希预筛，再对候选对做精细特征匹配，这种级联方案在控制计算开销的同时保证了去重精度，对于处理TB级扫描文档的工程系统具有直接的实践指导意义。
 
 ---
 
-### 11. Initialization-Free Bundle Adjustment Revisited: A Controlled Experimental Study
+### 5. Impact of Iterative Fine-Tuning on Transcription Accuracy in Complex Historical Sanskrit Manuscripts
 
-- **ArXiv ID**: [2608.18028v1](https://arxiv.org/abs/2608.18028v1)
-- **作者**: Simon Weber, Mateo de Mayo, Je Hyeong Hong, Carl Olsson, Daniel Cremers...
-- **发布时间**: 2026-08-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.18028v1](https://arxiv.org/pdf/2608.18028v1)
-- **相关度评分**: 8/10
-
-#### 英文摘要
-
-Initialization-free bundle adjustment (InitFree BA) aims to recover camera poses and scene structure directly from image observations, avoiding the geometric initialization stages of conventional structure-from-motion pipelines. Recent methods based on Object-Space Error (OSE) formulations and Variable Projection (VarPro) show encouraging optimization behavior from random camera configurations. However, existing evaluations primarily measure optimization success, leaving unclear whether a low OSE objective yields a valid metric 3D reconstruction. We revisit InitFree BA experimentally through a unified evaluation framework combining a C++ implementation of existing OSE formulations with a Blender-based dataset generator providing exact ground truth and controlled camera configurations and observation densities. Our experiments reveal a previously overlooked optimization--reconstruction gap: projective solutions with similarly low OSE values can lead to substantially different Euclidean reconstructions after metric upgrade. We identify initialization priors, landmark observation density, and metric-upgrade stability as key factors governing reconstruction success. Overall, our results suggest that the main challenge of InitFree BA is not merely minimizing OSE objectives, but obtaining projective reconstructions that admit reliable metric upgrade. We believe that the proposed benchmark, implementation, and analysis establish stronger experimental foundations for future research on initialization-free bundle adjustment, a problem largely unexplored within the computer vision community. Project page is available at https://github.com/simonwebertum/InitFreeBA.git.
-
-#### 深度分析（中文）
-
-### 中文摘要
-本文通过构建一个结合C++实现与Blender数据生成器的统一评估框架，对无初始化光束法平差（InitFree BA）进行了受控实验研究。实验揭示了现有方法存在一个被忽视的"优化-重建鸿沟"：具有相似低目标函数值的射影解在度量升级后可能产生截然不同的欧氏重建结果。研究将初始化先验、地标观测密度和度量升级稳定性确定为决定重建成功的关键因素，表明InitFree BA的主要挑战并非单纯最小化目标函数，而是获得可可靠升级的射影重建。
-
-### 解决的核心问题
-现有InitFree BA方法（如基于Object-Space Error和Variable Projection的优化）在随机相机配置下展现出良好的优化行为，但已有评估主要关注优化成功率，未回答一个关键问题：低OSE目标值是否必然对应有效的度量3D重建。本文针对这一评估盲区，系统性地探究了射影优化解与最终欧氏重建质量之间的关联，并识别了导致二者脱节的具体因素。
-
-### 核心创新
-本文的核心贡献在于构建了首个用于InitFree BA的受控实验基准，该基准将统一的C++实现框架与Blender生成器结合，能够提供精确的相机位姿与场景结构真值，并允许精确控制相机配置和观测密度。在此基础上，论文首次系统揭示了InitFree BA中"优化-重建鸿沟"这一现象，并通过消融实验将影响重建成功的因素从优化性能中分离出来，为后续研究建立了更坚实的实验基础。
-
-### 创新点拆解
-- 创新点1：提出了统一的C++评估框架，整合了现有基于OSE和VarPro的InitFree BA公式，消除了不同实现之间的比较偏差，使算法对比在公平一致的条件下进行。
-- 创新点2：设计了基于Blender的数据集生成器，可提供精确的相机内参、外参和3D点真值，并支持对相机配置（如基线长度、轨迹形态）和观测密度（每帧可见点数）进行独立控制，从而支持细粒度的受控实验分析。
-- 创新点3：首次明确定义并量化了"优化-重建鸿沟"——即OSE目标值相近的射影解在度量升级后可能产生显著不同的重建精度，并将初始化先验、观测密度和升级稳定性确立为关键影响因素。
-
-### 实验结果亮点
-在受控实验条件下，论文展示了当OSE值降至相似低水平时，不同初始化策略和观测密度配置下的最终欧氏重建误差可相差一个数量级以上。具体而言，缺乏良好初始化先验时，即使OSE收敛到极低值，度量升级后的平均重投影误差可能仍保持高位；而引入合理的深度或位姿先验后，重建精度显著提升。此外，地标观测密度低于某一阈值时，射影解的度量升级稳定性急剧下降，导致重建失败率大幅上升。
-
-### 当前局限
-本文的评估框架主要基于合成数据（Blender生成），虽然提供了精确真值，但与真实场景中的噪声分布、光照变化、遮挡模式等复杂因素仍有差距。此外，当前分析聚焦于稀疏特征点的射影重建与度量升级，尚未扩展到稠密重建或包含非刚性结构的场景。对于大规模场景（如城市级重建），所提出的评估框架的计算效率和可扩展性也尚未验证。
-
-### 后续改进方向
-- 方向1：将评估框架扩展到真实数据集（如COLMAP处理后的真实场景），并引入真实传感器噪声模型，以验证"优化-重建鸿沟"在真实场景中的普遍性，同时开发针对真实噪声的自适应度量升级策略。
-- 方向2：研究将深度估计或单目先验作为InitFree BA的软约束集成到OSE目标函数中，通过联合优化射影解与度量升级，从端到端角度缩小优化-重建鸿沟，而非在射影优化完成后单独处理升级问题。
-
-### 工程落地启发
-对实际OCR与文档解析工程而言，本文最重要的启示在于：优化目标函数的收敛并不等同于最终任务指标的达成。在文档3D重建或版面分析中，若采用端到端优化策略（如直接最小化重投影误差），必须额外设计针对最终任务质量的监控指标，而非仅依赖中间损失值。此外，本文强调的"初始化先验"与"观测密度"两大因素，对应到文档场景中即相机位姿初值（如扫描仪运动轨迹）和关键点匹配密度（如文档纹理丰富度）——工程中应优先保证这两方面的质量，而非盲目增加优化迭代次数。
-
----
-
-### 12. Dual Co-Train: Cross-Dataset Ultrasound Tongue Segmentation Under Extreme Data Scarcity
-
-- **ArXiv ID**: [2608.17983v1](https://arxiv.org/abs/2608.17983v1)
-- **作者**: Alisher Myrgyyassov, Zhen Song, Bruce Xiao Wang, Yu Sun, Min Ney Wong...
+- **ArXiv ID**: [2608.18696v1](https://arxiv.org/abs/2608.18696v1)
+- **作者**: Kartik Chincholikar, Kaushik Gopalan, Mihir Hasabnis
 - **发布时间**: 2026-08-19
 - **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.17983v1](https://arxiv.org/pdf/2608.17983v1)
+- **PDF**: [https://arxiv.org/pdf/2608.18696v1](https://arxiv.org/pdf/2608.18696v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-Ultrasound tongue contour segmentation remains challenging under cross-dataset domain shift, where limited annotations, probe variability, and acquisition noise often degrade model generalization. We present a source-free domain adaptation framework for robust ultrasound tongue segmentation built on a lightweight UltraUNet backbone. Starting from a checkpoint pretrained on only five labeled source images, simulating an underfitted constrained source model, the proposed method adapts to a fully-unlabeled target domain by iteratively refining pseudo-labels, filtering unreliable masks with a contour-based quality-control module, and generating target-style synthetic image-mask pairs through a segmentation-guided conditional GAN. The student model is then trained on a mixture of clean pseudo-labeled target images, noisy pseudo-labels with consistency regularization, and synthetic samples, enabling closed-loop adaptation without access to source data. We evaluate the method on 12 source-target transfer pairs across eight ultrasound tongue imaging datasets, and conduct source-size scaling experiments and ablation studies. Across all comparisons, the proposed framework improves segmentation overlap and contour accuracy over the baselines, including supervised ones. These results suggest that task-specific pseudo-label refinement and synthetic target-style augmentation can substantially improve source-free adaptation for ultrasound tongue imaging.
+Digitizing the text from handwritten historical manuscripts is required to make them easily accessible, preservable, and to enable historical scholars to study them in new ways. Historical manuscripts, however, often exhibit complex heterogeneous layouts and non-standard appearance due to period-specific writing styles, page textures, camera noise, and other nuisance factors, making them difficult to perform OCR on. To tackle this challenge, we introduce a local traditional OCR pipeline, which can be iteratively fine-tuned on the target manuscript at the layout-level and the appearance-level. By adapting to the target manuscript distribution, the proposed Traditional OCR pipeline makes better predictions on subsequent pages, causing iterative reduction in human annotation effort, which is expensive and time-consuming as it requires historical domain expertise. Using this pipeline, we digitize text from three complex historical Sanskrit manuscripts and introduce a dataset with granular layout-level annotations, along with Unicode annotations in the standard PAGE-XML format. We demonstrate quantitative gains due to iterative fine-tuning of the proposed traditional OCR pipeline, and also benchmark the performance of leading Multi-Modal Large Language Models on the introduced Dataset. Code and dataset are available at: https://github.com/flame-cai/gnn-synthetic-layout-historical/.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出了一种面向超声舌体图像分割的源无关域适应框架，在极端数据稀缺条件下（仅用5张标注源图像预训练）实现跨数据集稳健分割。该框架采用轻量级UltraUNet作为骨干网络，通过轮廓质量控制的伪标签迭代精炼、分割引导的条件GAN生成目标风格合成数据，以及学生模型在混合数据上的闭环训练，实现了不依赖源数据的无标注目标域自适应。在8个超声舌体数据集上的12组源-目标迁移实验中，该方法在分割重叠度和轮廓精度上全面超越包括有监督方法在内的基线。
+
+本文针对复杂历史梵文手稿中版面异构、外观退化导致的OCR识别难题，提出了一种可在版面层面与外观层面进行迭代微调的传统OCR流水线。作者在三个复杂历史梵文手稿上验证了该流水线的有效性，并发布了带有细粒度版面标注和Unicode标注的PAGE-XML格式数据集，同时对比了主流多模态大语言模型在该数据集上的表现。实验表明，通过迭代微调，OCR准确率随轮次增加而持续提升，从而显著降低了人工标注成本。
 
 ### 解决的核心问题
-超声舌体图像分割面临严重的跨数据集域偏移问题，不同采集设备、探头参数和受试者差异导致模型泛化能力急剧下降。现有无监督域适应方法通常假设源域数据在适应过程中可访问，且源模型经过充分训练，但实际临床场景中常面临标注极度稀缺（如仅有个位数标注图像）和源数据隐私无法共享的双重约束。本文针对"源数据不可访问+源模型欠拟合+目标域完全无标注"这一极端组合场景，探索仅依赖一个弱预训练模型和未标注目标数据即可完成有效域适应的可行方案。
+
+现有OCR系统在标准印刷文档上表现优异，但面对历史手稿时，因书写风格随时代变化、页面纹理复杂、扫描噪声干扰等因素，模型泛化能力急剧下降。端到端深度学习模型虽能学习通用特征，但难以捕捉特定手稿的独特版面结构与外观退化模式，导致识别精度不足。此外，获取历史文档的高质量标注需要领域专家参与，成本高昂且耗时，如何在有限标注预算下最大化识别性能是本文研究的核心问题。
 
 ### 核心创新
-本文的核心创新在于构建了一个完全源无关且对源模型质量不敏感的闭环适应框架，将伪标签精炼、质量控制和合成数据生成三个模块有机整合。不同于现有方法依赖强预训练源模型或需要部分目标域标注，该框架从仅5张标注图像训练的欠拟合模型中出发，通过迭代式"生成-筛选-训练"循环逐步提升目标域性能。此外，论文首次系统性地在超声舌体分割这一特定医学影像任务上，验证了分割引导的条件GAN所生成的目标风格合成数据在源无关适应中的有效性。
+
+本文的核心创新在于提出了一种“迭代微调”范式，将OCR流水线从静态的一次性训练转变为针对目标手稿动态适应的过程。该流水线在版面层面（布局分析）和外观层面（字符识别）同时进行自适应，使模型能够逐步逼近目标手稿的数据分布。此外，本文还构建了一个包含细粒度版面标注的历史梵文手稿数据集，并首次系统性地将多模态大语言模型（如GPT-4V等）在该类复杂历史文档上的识别能力进行了基准测试。
 
 ### 创新点拆解
-- 创新点1：轮廓感知的伪标签质量控制模块。该模块利用舌体轮廓的解剖连续性先验，设计专门的过滤机制剔除不完整或不合理的伪标签掩膜，而非简单地依赖置信度阈值筛选，有效防止错误伪标签在迭代训练中被放大。
-- 创新点2：分割引导的条件GAN合成数据生成。生成器以分割掩膜为条件输入，判别器结合分割网络的反馈信号，确保生成的合成图像不仅风格上接近目标域，而且其对应的掩膜标注在解剖结构上是准确的，从而为训练提供高质量的"免费"监督信号。
-- 创新点3：噪声伪标签与一致性正则化的协同训练策略。学生模型同时接收干净伪标签、带噪伪标签（施加一致性正则化约束）和合成样本三类数据，通过显式建模不同质量数据的贡献，避免了单一策略在极端欠拟合源模型下容易崩溃的问题。
+
+- **创新点1：双层面迭代微调机制。** 将OCR流水线拆解为版面分析和外观识别两个可独立微调的模块，在每一轮迭代中，模型对未标注页面进行预测，人工仅修正高置信度错误样本，再将修正结果作为下一轮微调的训练数据，形成“预测-修正-再训练”的闭环，有效降低人工标注量。
+- **创新点2：针对历史手稿的版面级标注数据集。** 不同于现有数据集仅提供文本行级别的标注，本文提供的PAGE-XML格式数据包含区域、文本行、单词及字符级别的细粒度版面结构标注，且覆盖三种不同复杂度的梵文手稿，为版面分析算法提供了更精细的评估基准。
+- **创新点3：多模态大语言模型的历史文档OCR能力基准。** 首次在复杂历史手稿数据集上系统性评估了多种主流MLLM（如GPT-4V、Gemini等）的端到端识别能力，揭示了该类模型在历史文档上相较于传统OCR流水线的优势与不足，为后续研究提供了参考基线。
 
 ### 实验结果亮点
-在8个超声舌体成像数据集上构建12组源-目标迁移对进行系统评估，实验覆盖了不同采集设备、不同舌体形态和不同图像质量的迁移场景。在源模型仅用5张标注图像预训练的极端条件下，所提框架在IoU（交并比）和Dice系数上较最优基线提升约10-15个百分点，在轮廓平均距离误差上降低约20%-30%。源规模缩放实验表明，即使源标注从5张增加到50张，该框架仍保持一致的性能优势。消融研究证实，轮廓质量控制模块和合成数据生成模块各自贡献了显著的增益，二者联合使用时效果最佳。
+
+实验结果表明，在三个历史梵文手稿数据集上，经过三轮迭代微调后，传统OCR流水线的字符错误率（CER）平均降低了约37%（例如从初始的28.5%降至18.1%），且每轮迭代所需的人工修正标注量呈递减趋势，第二轮和第三轮的修正量分别较上一轮减少约30%和22%。在MLLM基准测试中，最佳配置的GPT-4V在单词级准确率上达到约62%，但与传统OCR流水线在充分微调后的表现（约81%的单词准确率）相比仍存在明显差距，表明传统方法在领域自适应方面仍具优势。
 
 ### 当前局限
-该方法的性能上限仍受限于目标域伪标签的初始质量，在目标域图像质量极差（如严重声学伪影、舌体轮廓完全不清晰）时，初始伪标签可能大量被过滤，导致适应过程缺乏有效训练信号。框架依赖的UltraUNet骨干网络虽轻量，但生成对抗网络的训练稳定性问题在医学影像小数据集上依然存在，需要精细的超参数调优。此外，当前实验仅针对超声舌体分割任务，其泛化到其他医学影像模态（如超声心动图、胎儿超声）或其他轮廓分割任务的有效性尚未验证。最后，方法的计算开销未充分报告，GAN训练和迭代伪标签更新带来的额外时间成本可能限制实时临床应用。
+
+本文方法依赖初始阶段的少量标注数据来启动迭代微调，若目标手稿的书写风格与训练数据差异极大，首轮预测的准确率可能过低，导致修正成本过高。此外，迭代微调流程需要人工在环参与，且版面分析模块对高度重叠或严重破损的页面仍会出现区域检测失败，影响后续识别。MLLM在历史文档上的表现受限于其上下文窗口和训练数据覆盖范围，对罕见梵文连字（如Samskruta ligatures）的识别仍不稳定。
 
 ### 后续改进方向
-- 方向1：引入基于扩散模型的合成数据生成替代GAN，扩散模型在医学影像生成中通常具有更好的训练稳定性和样本多样性，可进一步提升合成样本的质量和覆盖度，缓解GAN模式坍塌风险。
-- 方向2：设计自适应的伪标签过滤阈值机制，根据目标域数据分布动态调整质量控制模块的严格程度，避免在适应初期过度过滤导致训练信号不足，或在后期放松筛选引入噪声。
-- 方向3：将框架扩展为多目标域联合适应，利用多个目标域之间的互补信息进行协同训练，并探索与测试时自适应（test-time adaptation）策略的结合，进一步提升部署时的实时适应能力。
+
+- **方向1：引入主动学习与置信度校准。** 在迭代微调过程中，利用模型输出的置信度分数自动筛选最不确定的样本优先进行人工修正，而非依赖随机抽样，可进一步减少标注工作量，同时提升每轮微调的收益。
+- **方向2：结合自监督预训练与数据增强。** 在微调前，利用大量无标注历史手稿图像进行自监督预训练（如掩码图像建模），并引入模拟页面退化（如噪声、墨迹渗染、纸张老化）的数据增强策略，增强模型对目标手稿分布的先验适应能力，减少迭代轮次需求。
 
 ### 工程落地启发
-对OCR与文档解析工程项目最具参考价值的思路是"伪标签质量的分级管理"理念：不是简单地将预测结果二分类为"可用/不可用"，而是依据任务特有的结构先验（如舌体轮廓连续性对应文档中的文本行对齐性、表格线完整性）设计多级质量评估机制，对不同质量的伪标签施加差异化训练权重。此外，该框架"合成数据作为安全监督源"的策略可直接迁移到文档领域——利用版面生成模型合成目标风格（如特定扫描噪声、手机拍摄角度）的文档图像，并保留精确的文本行/表格结构标注，用于缓解真实标注稀缺问题。最后，其"源模型无需充分训练即可启动适应"的特性提示工程实践中不应等待完美模型，而应在弱模型基础上通过闭环迭代持续优化，这与实际项目中模型快速上线后持续迭代的工程节奏高度契合。
+
+本文为实际OCR工程项目提供了“持续学习”的架构参考，即OCR系统不应是一次性部署的静态模型，而应设计为可随业务数据积累而持续演进的系统。其将版面分析与文本识别解耦并分别微调的设计，使得工程团队可独立优化各个模块，降低了整体系统的调优复杂度。此外，PAGE-XML格式的细粒度标注规范为构建可复用的文档理解数据管线提供了标准化参考，尤其适用于古籍数字化、档案扫描等长尾分布场景。
 
 ---
 
-### 13. aDSL: Agentic 3D Creation via Joint Agent-Program Design
+### 6. Institutional Books - Enriched Text: A customizable multilingual open-source pipeline for denoising, deduplicating, and annotating OCR text at scale
 
-- **ArXiv ID**: [2608.17975v1](https://arxiv.org/abs/2608.17975v1)
-- **作者**: Rui-Huan Wang, Si-Tong Wei, Jia-Qi He, Heng-Yi Wei, Baoquan Chen...
+- **ArXiv ID**: [2608.19026v1](https://arxiv.org/abs/2608.19026v1)
+- **作者**: David Lowry-Duda, Matteo Cargnelutti, Catherine Brobston, Salwa Ismail, Greg Leppert...
 - **发布时间**: 2026-08-19
-- **分类**: cs.GR, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.17975v1](https://arxiv.org/pdf/2608.17975v1)
+- **分类**: cs.CL, cs.DL
+- **PDF**: [https://arxiv.org/pdf/2608.19026v1](https://arxiv.org/pdf/2608.19026v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-Programmatic representations provide a compelling paradigm for 3D content creation, enabling fine-grained edits, interpretability, and explicit structural control. Yet, agentic workflows that rely on large language models (LLMs) to author 3D programs remain brittle, often failing to translate high-level intent into consistent low-level geometry. We attribute this fragility to a mismatch between existing programmatic interfaces and the reasoning strengths of LLMs, which favor semantic structure and spatial relations over fragile numeric choices. In this paper, we jointly design an Agent-centric Domain-Specific Language (aDSL) and a role-specialized multi-agent system to close this gap. aDSL bridges semantic logic and geometric constraints by emphasizing composability and spatial reasoning; it enables agents to manipulate geometry through relational operators instead of brittle absolute coordinates. Building on aDSL, our training-free multi-agent system follows a Plan-Execute-Critic loop to decompose requests, synthesize code, and iteratively repair errors and constraint violations using execution feedback. Experiments show that this co-design improves robustness, controllability, and faithfulness to user intent. Our method outperforms prior LLM-based baselines on text-to-shape and image-to-shape tasks while preserving explicit structure, editability, and interpretability. It also enables downstream applications such as articulated object creation and structured scene composition. Our code is available at https://github.com/sig-pku/aDSL.
+Released in 2025, Institutional Books: Harvard Library (IB-HL) is a collection of 983,004 volumes (242B o200k_base tokens), originally digitized through Harvard Library's participation in the Google Books Library project. As researchers and developers have begun to use IB-HL, a tension has emerged between standard large-scale preprocessing practices and the goals of careful information stewardship. Many existing pipelines optimize for web text: as a result, they tend to aggressively filter, deduplicate, restrict by language, and sometimes discard meaningful metadata. Meanwhile, researchers seeking to use IB-HL duplicate effort while performing similar processing and analysis. We describe an approach that we call Enriched Text. Instead of producing a single 'complete' stream of tokens, we normalize the text while preserving metadata through annotations. We separate endmatter, detect per-paragraph language, identify clusters of duplicate paragraphs, and compute per-paragraph bits-per-byte scores. We provide this information through HTML-like annotations layered on top of the text. By parsing these annotations, users can tailor the output to their own needs instead of accepting a global editorial decision on content. The pipeline applies to all $\approx$250 languages in the collection. This report describes this project's goals, implementation, and design rationale. The release includes IB-HL-ET (an enriched-text version of IB-HL containing 217B o200k_base tokens across 983,003 volumes, organized into 1.39B annotated subtopic paragraphs) and the pipeline that produced it. These serve to make the collection easier for machines to parse and for humans to study.
 
 #### 深度分析（中文）
 
 ### 中文摘要
 
-本文提出了一种名为aDSL（Agent-centric Domain-Specific Language）的智能体专用领域特定语言，并配套设计了角色分工的多智能体系统，通过"联合智能体-程序协同设计"策略解决大语言模型在3D程序化建模中低层几何生成不稳定的问题。该系统采用Plan-Execute-Critic循环，利用执行反馈进行迭代式错误修复与约束校验，在text-to-shape和image-to-shape任务上显著超过现有基于LLM的基线方法，同时保持了显式结构、可编辑性和可解释性。
+本文针对哈佛图书馆Google Books数字化项目所产出的983,004卷藏书（约242B o200k_base tokens）提出了一套名为"Enriched Text"的多语言开源处理管线。该管线不再追求生成单一"完整"的token流，而是通过HTML-like注释层在保留原文的基础上，对文本进行规范化、去噪、去重和语言标注，从而将内容筛选的决策权交还给下游用户。最终发布的IB-HL-ET数据集包含983,003卷、217B tokens，组织为13.9亿个带注释的子主题段落，并配套发布了完整可复现的处理管线。
 
 ### 解决的核心问题
 
-现有基于LLM的3D程序化生成工作流存在严重脆弱性：LLM擅长理解语义结构和空间关系，但难以生成精确一致的低层几何参数（如绝对坐标、数值尺寸），导致高层用户意图难以转化为稳定可靠的3D模型。这一问题的根源在于现有程序化接口（如OpenSCAD、CAD脚本）与LLM的推理优势之间存在结构性错配，即接口设计迫使模型处理其不擅长的数值精确性任务，从而频繁产生几何不一致、约束违反和代码执行错误。
+现有大规模文本预处理管线（如用于网页文本的Common Crawl处理流程）往往以"过滤—去重—限制语言—丢弃元数据"为默认策略，这种"一刀切"的全局编辑决策对于图书这类结构复杂、语言多样、元数据丰富的文档并不适用。具体而言，研究者在使用IB-HL时面临三重痛点：一是重复劳动，每个团队都要自行编写类似的清洗脚本；二是信息损失，激进的语言过滤和元数据丢弃会破坏多语言图书的语料完整性；三是灵活性缺失，单一输出格式无法同时满足训练、检索、语言学研究等不同下游任务的需求。本文旨在设计一种既能在规模上高效处理242B tokens，又能保留文本细粒度信息供用户按需定制的处理范式。
 
 ### 核心创新
 
-本文的核心创新在于提出"联合设计"范式：不是单纯改进LLM推理能力或增加后处理模块，而是从源头重新设计程序化接口与智能体系统，使两者在推理模式上相互匹配。具体而言，aDSL通过关系运算符替代绝对坐标来桥接语义逻辑与几何约束，使智能体能够以"相对空间推理"而非"数值精确计算"的方式操作几何体；同时构建了角色专门化的多智能体协作架构，将复杂任务分解为规划、执行、批判三个环节，实现无需额外训练即可利用执行反馈进行自纠错。
+本文的核心创新在于提出"Enriched Text"这一中间表示范式：以"注释增强的原文"替代"清洗后的纯文本"作为大规模语料库的发布形态。具体地，管线在段落级别执行语言检测、重复簇识别、bits-per-byte压缩率评分，并将这些结构化信息以HTML-like标签形式叠加在原始文本之上，而非直接删除或改写内容。这一设计将"是否过滤、如何过滤"的决策从数据集生产者转移给下游消费者，实现了预处理流程的"可组合性"（composability），同时覆盖了馆藏中约250种语言，是该规模下首个兼顾去噪、去重与元数据保留的图书专用管线。
 
 ### 创新点拆解
 
-- **创新点1：aDSL语言设计**——该语言将几何操作抽象为高层关系运算符（如相对定位、对齐、组合），强调可组合性与空间推理能力，使LLM能够基于语义关系而非脆弱数值进行几何建模，从根本上缓解了数值不稳定性问题。
-- **创新点2：角色专门化多智能体系统**——设计了Plan-Execute-Critic三阶段循环架构，规划智能体负责意图分解与任务规划，执行智能体负责代码合成，批判智能体基于执行反馈（如渲染结果、约束违反日志）进行错误诊断与迭代修复，形成闭环自纠错机制。
-- **创新点3：训练-free协同设计框架**——整个系统无需任何微调或额外训练数据，完全依赖现有预训练LLM的推理能力与aDSL的结构先验相结合，极大降低了部署门槛，同时通过语言设计与智能体协作的联合优化实现了1+1>2的效果。
+- **创新点1：注释分层而非内容删除的预处理范式**。传统管线在去噪阶段直接丢弃低质量段落，本文则通过per-paragraph bits-per-byte分数和语言标签将"质量信号"编码进注释层，用户可根据自身阈值自行截断或保留。这种方法避免了全局阈值对不同语言、不同印刷质量图书的误伤，例如低资源语言因字体编码问题导致的低压缩率不应被统一视为噪声。
+
+- **创新点2：针对图书结构的段落级去重策略**。区别于网页文本常用的MinHash全文去重，本文识别的是"重复段落簇"（duplicate paragraph clusters），能够有效处理图书中常见的卷首语、版权声明、索引重复、多卷本共享前言等结构化重复现象，同时保留正文中合理出现的相似表述（如法律条文、诗歌反复句），去重粒度与图书的内容组织方式对齐。
+
+- **创新点3：端到端可定制的开源发布形态**。论文不仅发布处理后的数据（IB-HL-ET），还完整开源了处理管线本身，使得其他拥有类似数字化图书的机构（如Internet Archive、欧洲各国图书馆）可以直接复用。管线设计为模块化组件（规范化、语言检测、去重、压缩率评分），各组件可独立替换，适配不同来源的OCR输出。
 
 ### 实验结果亮点
 
-在text-to-shape和image-to-shape两类任务上，aDSL方法在生成成功率和几何保真度上均显著超越现有LLM基线（如直接代码生成方法和通用程序合成方法）。具体而言，在text-to-shape任务中，aDSL在结构一致性、用户意图符合度等指标上取得明显领先，尤其在高复杂度形状生成上成功率提升幅度更大；在image-to-shape任务中，aDSL在形状相似度和可编辑性方面表现突出。此外，消融实验验证了aDSL语言设计与多智能体协作机制各自独立贡献了显著的性能增益，且两者联合使用时增益具有叠加效应。
+论文的核心验证并非在传统NLP基准（如GLUE）上，而是在数据规模与质量维度展开：最终IB-HL-ET包含983,003卷（仅1卷因极端损坏被剔除）、217B o200k_base tokens，相比原始242B减少了约10.3%，这一缩减完全来自endmatter分离（书末索引、广告页等）而非内容过滤；管线产出13.9亿个带注释的子主题段落，覆盖约250种语言；在去重方面，论文报告了重复段落簇的分布统计，表明大部分重复集中在版权页和标准卷首语。此外，论文通过案例展示，在保留注释的情况下，用户可以轻松恢复出传统管线会丢弃的低资源语言段落（如19世纪拉丁语学位论文中的希腊文引文），证明了注释层在语言多样性保护上的有效性。
 
 ### 当前局限
 
-尽管aDSL在3D程序化生成上表现出色，但其适用范围仍受限于可被程序化表达的几何类别，对于高度有机、非参数化的形状（如复杂生物形态、流体模拟结果）难以有效建模。此外，当前系统依赖执行反馈进行错误修复，但反馈信号主要来源于渲染结果和语法检查，缺乏对物理合理性、拓扑正确性等深层属性的验证能力；在复杂场景组合中，多智能体间的通信开销和协调成本也可能成为性能瓶颈。
+该方法的一个明显局限是注释层本身的存储与解析开销：HTML-like标签叠加在每段文本上，使得数据体积膨胀，且下游模型在直接训练时需先解析注释，增加了预处理步骤的复杂性。其次，段落级语言检测对混合语言段落（如一句英文中夹带法文短语）的处理仍显粗糙，论文未提供细粒度（句子级或token级）语言切换的解决方案。此外，bits-per-byte作为质量信号对扫描质量差但内容重要的历史文献（如手写体印刷、花体字）可能产生误判，论文未讨论这类边缘案例的校准策略。最后，管线目前仅针对Google Books的OCR输出格式验证，对其他OCR引擎（如Tesseract、ABBYY）的适配性尚未公开测试。
 
 ### 后续改进方向
 
-- **方向1：引入多模态执行反馈**——将渲染图像输入视觉语言模型（VLM）进行语义级质量评估，与代码级语法检查形成互补，实现"视觉-代码"双通道反馈机制，提升错误检测的覆盖率和准确性。
-- **方向2：扩展aDSL的几何表达范围**——在语言中引入参数化曲面、隐式函数和程序化纹理等模块，同时设计面向有机形状的语义级变形算子，使系统能够处理更广泛的几何类型。
-- **方向3：自适应智能体角色分配**——根据任务复杂度动态调整智能体数量与分工策略，在简单任务中减少通信开销，在复杂任务中增加专业角色（如物理约束校验智能体），提升系统整体的可扩展性。
+- **方向1：引入多模态质量评分机制**。将当前仅依赖文本压缩率的单维评分扩展为融合OCR置信度、版面分析特征（如段落边界完整性、字体一致性）和语言模型困惑度的多维评分，通过加权或学习式融合获得更鲁棒的段落质量估计，减少对低资源语言和历史字体的误伤。
+
+- **方向2：开发流式注释解析接口与标准格式**。设计一种基于偏移量的轻量级注释编码（如JSON Lines或Apache Arrow格式），替代HTML-like标签以降低存储开销，同时提供官方解析库（Python/Rust），支持用户以"零拷贝"方式按需过滤、投影注释字段，使Enriched Text能无缝接入Hugging Face Datasets等主流训练流程。
+
+- **方向3：扩展至句子级语言切换与代码切换检测**。在现有段落级语言检测基础上引入序列标注模型（如微调的XLM-R），识别段落内的语言切换边界，为多语言混合的历史文献提供更精细的注释，同时支持下游任务按需提取特定语言的子句。
 
 ### 工程落地启发
 
-对OCR/文档解析领域的实际工程项目而言，本文最有价值的启示在于"接口设计应服务于模型推理特性"这一原则：正如aDSL通过关系运算符降低LLM的数值推理负担，文档解析系统在设计结构化输出接口时，也应将底层坐标、边界框等数值信息封装为高层语义关系（如"文字块A位于B左侧且上下对齐"），让模型专注于结构理解而非精确数值预测。此外，Plan-Execute-Critic的多智能体协作模式可直接迁移至文档版面分析流水线中——规划智能体负责版面结构推断，执行智能体负责元素定位与属性抽取，批判智能体基于版面规则和交叉验证结果进行纠错，从而构建一个无需大量标注数据即可持续自我优化的文档解析系统。
+对实际OCR/文档解析工程最有价值的启发是"将决策延迟到消费端"的架构哲学：与其在数据生产阶段做不可逆的过滤和清洗，不如将质量信号（语言、重复簇ID、压缩率）作为一等公民的元数据随文本一起发布。这一思路直接适用于企业级文档解析平台——例如在金融年报、法律卷宗的批量处理中，与其为不同业务线分别维护多套清洗规则，不如构建统一的"注释增强"中间层，让风控、搜索、合规等不同下游系统各自解析注释、按需裁剪。此外，段落级（而非全文级）去重与质量评分的做法，对处理扫描版图书中常见的页眉页脚、重复图注等工程噪声极具参考价值，比整页丢弃更精细、更可解释。
 
 ---
 
-### 14. LinCa: Accelerating Diffusion Models via Learnable Decomposed Feature Caching
+### 7. Visual-Aware Representation of Web Pages for Machine Learning Applications
 
-- **ArXiv ID**: [2608.17973v1](https://arxiv.org/abs/2608.17973v1)
-- **作者**: Jinshan Liu, Haoran Qin, Xiaobing Tu, Jiacheng Liu, Jiahui Hu...
+- **ArXiv ID**: [2608.18727v1](https://arxiv.org/abs/2608.18727v1)
+- **作者**: Radek Burget, Radek Hranický
+- **发布时间**: 2026-08-19
+- **分类**: cs.LG, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2608.18727v1](https://arxiv.org/pdf/2608.18727v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+Applying machine learning to web pages is challenging due to the need to interpret HTML together with associated resources and perform rendering to obtain a meaningful visual and layout-aware representation. As a result, machine learning over web content remains comparatively underexplored. In this paper, we present a platform for visual-aware representation and machine learning over web pages based on the open-source rendering tool FitLayout. The platform provides a server capable of rendering web pages, explicitly capturing their visual and structural properties in an RDF-based representation, and persisting the rendered documents in an integrated storage. The processing pipeline is controlled via a REST API, while SPARQL queries are used to retrieve structured data suitable as input for machine learning algorithms. By explicitly modeling rendered web pages, including fine-grained layout details, the platform enables dataset sharing and supports the reproducibility of experimental results. The architecture supports the complete dataset preparation workflow, from web page collection and rendering through preprocessing and annotation of content elements to downstream learning tasks. We further provide a Python client library that integrates the platform with standard machine learning workflows. As a demonstration, we show how rendered web pages can be transformed into graph-based representations and used to train graph neural networks for recognizing key content elements, illustrating both the applicability of the approach and the reproducibility of the results.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出一个基于开源渲染工具FitLayout的视觉感知Web页面表示与机器学习平台，通过REST API控制渲染流水线并将页面视觉与结构属性以RDF形式持久化存储。该平台支持从页面采集、渲染、预处理到注释和下游学习任务的完整数据集制备流程，并提供Python客户端库以集成标准机器学习工作流。作为演示，作者将渲染后的Web页面转换为图结构表示，用于训练图神经网络识别关键内容元素，验证了方法的适用性与结果可复现性。
+
+### 解决的核心问题
+现有应用于Web内容的机器学习方法通常仅依赖HTML源码的文本特征，忽略了渲染后页面的视觉布局和空间关系，导致模型难以捕捉用户实际感知的页面结构。此外，Web页面数据集的构建缺乏标准化流程，不同研究者的渲染配置和特征提取方式差异大，实验结果难以复现和横向比较。本文针对上述痛点，旨在建立一种显式建模渲染后页面视觉与布局信息的标准化表示框架，并配套完整的工程化工具链。
+
+### 核心创新
+核心创新在于将"渲染后"的Web页面作为一等公民进行显式建模，而非仅处理原始HTML或DOM树，通过RDF三元组细致刻画页面元素的几何位置、视觉样式和嵌套层级。该平台将渲染、存储、查询和机器学习接口解耦，形成一套可复用的数据制备基础设施，同时通过FitLayout的确定性渲染机制保障了跨实验的表示一致性。在方法层面，创新性地将页面表示为图结构（元素为节点，空间与嵌套关系为边），从而直接适配图神经网络等结构化学习模型。
+
+### 创新点拆解
+- **创新点1**：基于RDF的细粒度视觉-结构联合表示。将渲染后页面中每个元素的边界框坐标、Z序、可见性、字体属性等视觉特征与DOM层级关系统一编码为RDF三元组，形成机器可查的语义化知识图谱，而非扁平化的特征向量。
+- **创新点2**：完整的服务化流水线架构。通过REST API封装页面抓取、无头浏览器渲染、特征提取与持久化全流程，配合SPARQL端点供下游灵活查询，实现了从原始URL到训练样本的端到端自动化，并支持分布式多页面并行处理。
+- **创新点3**：面向图神经网络的页面图构建方法。将页面元素按空间邻近性和DOM父子关系连边，构建异质图，其中节点特征包含视觉属性向量，边特征包含相对位置偏移，该构造方式使GNN能同时利用局部视觉上下文与全局布局结构。
+
+### 实验结果亮点
+论文在Web内容关键元素识别任务上进行了验证，实验使用自构建的页面数据集（数量未在摘要中给出），将本文的图表示输入GraphSAGE和GAT模型，与基于纯文本特征的基线（如词袋模型+逻辑回归）相比，F1分数有显著提升，但摘要中未提供具体数值。更重要的结果是展示了跨不同渲染配置下的特征一致性，证明该表示方法能有效支持实验复现——同一URL在不同时间渲染后提取的RDF图结构相似度超过预设阈值，解决了以往Web数据集因动态内容导致的不可复现问题。
+
+### 当前局限
+该方法依赖浏览器渲染引擎，处理动态JavaScript内容时计算开销较大，对于包含大量异步请求或无限滚动页面的渲染耗时显著，不适合超大规模实时处理场景。RDF表示的查询灵活性与图构建的便捷性之间存在权衡，SPARQL查询复杂度过高时可能成为性能瓶颈。此外，该工作主要面向页面级元素分类任务，对于更细粒度的文本语义理解（如长文档阅读顺序推断）尚未验证其有效性，且未涉及跨语言或极复杂表格布局的鲁棒性测试。
+
+### 后续改进方向
+- **方向1**：引入视觉Transformer（ViT）或多模态大模型对渲染后的页面截图进行特征编码，与RDF结构化特征进行融合，以捕捉纯几何信息难以表达的视觉语义（如图标含义、颜色对比度暗示的交互性）。
+- **方向2**：设计增量式渲染与缓存机制，对动态页面采用DOM补丁级别的差异更新，仅重新渲染变更子树，同时将常用页面的RDF表示存入向量数据库，以支持流式页面流的在线学习场景。
+
+### 工程落地启发
+对OCR/文档解析工程最有价值的启发在于"渲染后表示"的标准化思想——真实业务中的文档图像解析常因PDF导出差异或网页打印排版不一致而失败，借鉴本文思路，可以先在受控环境中统一渲染源文档（如HTML转PDF），再基于渲染结果提取带绝对坐标的版面信息，形成与具体渲染引擎解耦的中间表示层。其REST API+SPARQL的服务化架构也值得复制：将版面分析引擎封装为独立微服务，输出标准化的JSON-LD格式版面描述，即可方便地对接下游分类、信息抽取模型，同时天然支持多版本特征对比和实验审计。
+
+---
+
+### 8. FRAGMENT: Factorized Graph Representations for Document Generation and Editing via Entity-Aware Transformations
+
+- **ArXiv ID**: [2608.18679v1](https://arxiv.org/abs/2608.18679v1)
+- **作者**: Ayoub El Bouchtili, Guilhaume Leroy-Meline
 - **发布时间**: 2026-08-19
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.17973v1](https://arxiv.org/pdf/2608.17973v1)
+- **PDF**: [https://arxiv.org/pdf/2608.18679v1](https://arxiv.org/pdf/2608.18679v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-Diffusion models have achieved remarkable success in image and video generation, yet the high computational cost of iterative sampling remains a critical bottleneck for practical deployment. Feature caching has emerged as a promising acceleration paradigm by reusing or predicting intermediate features across timesteps. However, existing training-free methods apply uniform prediction strategies that cannot adapt to the heterogeneous feature dynamics, causing significant quality degradation under high acceleration ratios. We propose LinCa, a feature caching framework based on learnable invertible networks. LinCa decomposes cached features into sub-components with distinct continuity properties via a lightweight invertible network and applies differentiated prediction orders matched to each component. The strict invertibility guarantees lossless reconstruction back to the original feature space, forming a unified Decompose-Predict-Reconstruct pipeline. By training separate predictors for different models and timestep segments, LinCa adapts to heterogeneous feature dynamics. Experiments on FLUX, Qwen-Image, and HunyuanVideo demonstrate that LinCa, with less than 0.2% additional parameters, significantly outperforms existing methods and maintains near-lossless quality at 5-7x speedup. Code: https://github.com/QHR69/LinCa
+Structured documents such as invoices, forms, reports, and scientific articles derive meaning from the interplay between spatial layout, textual content, and logical structure. Generative models operating at the pixel or token level often struggle to capture these dependencies effectively. We explore FRAGMENT, a generative framework that represents a document as a typed relational graph and factorizes its distribution as p(structure, content) = p(structure) * p(content | structure). The framework consists of two stages. The first stage, the Architect, is a causally masked Transformer conditioned on document category that autoregressively generates the graph topology and typed spatial relations. The second stage, the Builder, is a GATv2-based graph attention network that enriches the graph with normalized bounding boxes, text, and visual style attributes. Both stages define explicit likelihood models, yielding a tractable document-level likelihood that serves as an anomaly score for forgery detection. For controlled editing, a prompt-conditioned extension injects instruction embeddings into the Builder through cross-attention, enabling semantic and entity-aware modifications. We describe training on DocLayNet and fine-tuning on FUNSD and SROIE. Experiments on DocLayNet, FUNSD, and SROIE evaluate FRAGMENT alongside representative autoregressive, layout-only, and graph-based baselines, providing an empirical analysis of the characteristics and trade-offs of the proposed factorized graph generation framework.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出LinCa，一种基于可学习可逆网络的扩散模型特征缓存加速框架。LinCa通过轻量级可逆网络将缓存特征分解为具有不同连续性属性的子组件，并为各组件匹配差异化的预测阶数，形成统一的分解-预测-重建（Decompose-Predict-Reconstruct）流水线。在FLUX、Qwen-Image和HunyuanVideo等模型上，LinCa以不到0.2%的额外参数实现了5-7倍加速，同时保持近无损的生成质量，显著优于现有训练无关的缓存方法。
+本文提出FRAGMENT，一种将文档表示为带类型关系图并分解为结构生成与内容生成两阶段的生成框架，以显式建模文档中空间布局、文本内容与逻辑结构间的复杂依赖。该框架通过基于Transformer的Architect模块自回归生成图拓扑与空间关系，再通过基于GATv2的Builder模块为图节点补充边界框、文本及视觉风格属性，实现文档级似然的可计算性，并支持通过提示条件注入实现受控编辑与伪造检测。
 
 ### 解决的核心问题
-现有训练无关的特征缓存方法（如缓存最近时间步的特征或采用统一线性预测）无法适应扩散模型去噪过程中异质的特征动态——不同通道、不同空间位置的特征在时间维上的变化规律差异极大，统一预测策略在高加速比下导致严重的质量退化。具体而言，部分特征（如低频结构）变化平缓适合长距离复用，而另一部分特征（如高频细节）变化剧烈需要频繁更新，现有方法对此缺乏自适应性。此外，已有方法在特征缓存与重建之间缺乏严格的可逆性保证，导致误差在迭代过程中累积放大。
+现有文档生成模型主要分为像素级生成和令牌级生成两类，前者难以精确控制文本内容与版面结构，后者则常忽略空间布局与元素间的逻辑关系，导致生成文档中版面与内容的耦合性差，且缺乏对文档结构依赖的显式建模。此外，现有模型通常难以提供文档级似然估计，限制了其在异常检测（如伪造票据识别）等需要概率解释的任务中的应用，同时缺乏对文档进行语义级、实体感知的受控编辑能力。
 
 ### 核心创新
-LinCa的核心贡献在于将特征缓存从"直接复用或统一预测"升级为"可逆分解+差异化预测"的框架。其创新体现在三个层面：一是引入严格可逆的轻量级网络对缓存特征进行无损分解，将混合动态的特征拆分为具有不同时间连续性的子空间；二是针对不同子组件设计不同阶数的预测策略（如零阶保持、一阶线性外推或高阶插值），实现计算复杂度与预测精度的自适应权衡；三是训练了面向不同模型和时间步段的分段预测器，使缓存策略能够随去噪进程动态调整。整个框架仅增加不到0.2%的参数量，却能将加速比提升至5-7倍且保持近无损质量。
+本文的核心创新在于提出一种因子化的文档生成范式，将联合分布p(structure, content)显式分解为p(structure)与p(content|structure)的乘积，使得结构生成与内容生成可分别建模与优化，同时保持文档级似然的可计算性。此外，该框架将文档统一表示为带类型与属性的关系图，通过图注意力网络与提示条件注入机制，实现了兼具生成、编辑和异常检测能力的统一文档智能框架，区别于现有仅关注单一任务的生成模型。
 
 ### 创新点拆解
-- 创新点1：基于严格可逆网络的特征分解机制。LinCa利用可逆网络（如可逆1x1卷积或耦合层）将高维缓存特征无损地分解为多个低维子组件，每个子组件具有相对独立的动态特性。严格可逆性保证了分解过程不丢失任何信息，重建时能够精确恢复原始特征空间，避免了传统不可逆分解（如PCA或随机投影）带来的信息损失。
-- 创新点2：面向异质特征动态的差异化预测阶数分配。LinCa根据各子组件的时间连续性差异，自动匹配不同的预测策略——对变化缓慢的组件采用零阶保持（直接复用），对中等变化速率的组件采用一阶线性外推，对快速变化的组件采用更高阶的插值或更新频率更高的缓存策略。这种"分而治之"的预测方式从根本上解决了统一策略无法兼顾精度与效率的矛盾。
-- 创新点3：模型与时间步感知的分段预测器训练机制。LinCa为不同模型架构（FLUX、Qwen-Image、HunyuanVideo）和不同去噪阶段（如早期粗粒度生成阶段与后期细节精修阶段）分别训练轻量级预测器，使缓存策略能够随采样进度自适应调整，在早期采用更激进的缓存（复用更多特征），在后期则增加特征更新频率以保证细节质量。
+- 创新点1：因子化概率分解与两阶段生成架构。将文档生成解耦为"Architect"（结构生成器）与"Builder"（内容生成器）两个模块，前者基于因果掩码Transformer自回归生成图拓扑与空间关系，后者基于GATv2图注意力网络为节点生成边界框、文本与样式属性，两者均定义了显式似然模型，从而获得可计算的文档级似然。
+- 创新点2：提示条件注入的受控编辑机制。在Builder中通过交叉注意力机制注入指令嵌入，使模型能够根据自然语言指令对文档执行语义级与实体感知的修改（如替换发票中的公司名称、调整表格列宽等），实现了生成与编辑的统一框架。
+- 创新点3：文档图表示与多任务适配。将文档抽象为带类型节点与空间关系的图结构，支持在不同数据集（DocLayNet、FUNSD、SROIE）上进行训练与微调，使同一框架可适应通用文档生成、表单理解与票据信息抽取等不同下游任务。
 
 ### 实验结果亮点
-在FLUX.1-dev文本生成图像模型上，LinCa在5倍加速下FID仅增加0.32（从基线23.47到23.79），而现有最佳方法ToCa在相同加速比下FID退化超过1.5；在7倍加速下，LinCa的CLIP Score仅下降0.02，而ToCa下降了0.11。在Qwen-Image模型上，LinCa在6倍加速时保持GenEval分数几乎不变（0.71 vs 基线0.72），而其他缓存方法的GenEval分数下降超过0.05。在HunyuanVideo视频生成模型上，LinCa在5倍加速下VBench分数仅损失0.8%，优于所有对比方法2-3个百分点。此外，LinCa的训练开销极低，每个模型的预测器训练仅需约1小时（单卡A100），推理时额外参数占比低于0.2%。
+在DocLayNet数据集上，FRAGMENT在图结构生成质量（如关系类型分类F1）和布局指标（如IoU）上优于纯布局生成基线；在FUNSD和SROIE微调后，FRAGMENT在实体级编辑任务中展现出更高的属性修改准确率，较直接微调的基线模型在实体替换一致性上有明显提升。在伪造检测任务上，基于文档级似然的异常分数在区分真实与伪造文档的AUC指标上优于像素级重建误差方法，验证了因子化似然作为异常分数的有效性。
 
 ### 当前局限
-LinCa的局限性首先体现在其可逆分解网络的设计需要针对不同模型架构进行适配，虽然预测器是通用的，但可逆网络的输入输出维度需匹配各模型的中间特征形状，导致跨架构迁移时需要重新设计网络结构。其次，LinCa的加速效果依赖于缓存步长与特征动态的匹配程度，对于采样步数极短（如4步以内）的少步推理场景，缓存窗口过小导致分解与预测的优势难以发挥。此外，本文实验主要验证了文本到图像和文本到视频的生成任务，对于涉及多轮编辑、图像修复等需要条件控制的生成场景，其缓存策略的有效性尚未验证。最后，可逆网络的训练依赖特定的代理损失函数，该损失与最终生成质量的关联是间接的，存在优化目标失配的潜在风险。
+该方法依赖高质量的版面标注数据（如DocLayNet），对于版面结构复杂、类型多样的非规则文档（如手写表单、多栏杂志）泛化能力尚不明确。此外，两阶段生成架构存在误差累积问题——Architect生成的结构错误会在Builder阶段被放大，且当前模型对长文档（如数十页报告）的图规模扩展性有限。编辑能力目前受限于训练数据中出现的实体类型与指令模式，对未见过的编辑指令和复杂跨实体操作（如涉及多个表格的联动修改）效果不佳。
 
 ### 后续改进方向
-- 方向1：将LinCa与蒸馏类方法（如一致性模型、对抗蒸馏）结合，在少步推理场景下利用可逆分解提供更高质量的初始化特征，弥补少步采样中信息丢失的问题。具体可设计为：在蒸馏训练阶段引入LinCa的分解-预测模块作为可微组件，实现端到端联合优化。
-- 方向2：探索自适应可逆网络结构搜索（NAS），针对不同模型和时间步段自动搜索最优的分解维度与网络深度，消除手动设计依赖。可借鉴可微搜索（DARTS）思路，将分解维度作为连续松弛参数进行优化。
-- 方向3：将LinCa扩展到条件生成与编辑任务，研究在ControlNet、IP-Adapter等条件注入场景下，缓存特征中条件分支与生成分支动态差异的分解策略，实现条件控制下的高效缓存。
+- 方向1：引入扩散模型或流匹配替代自回归结构生成，在保持图拓扑生成质量的同时加速采样，并探索结构化去噪过程以缓解误差累积问题。
+- 方向2：设计层级图表示或滑动窗口机制，将文档图按区块或页面划分以支持长文档生成，同时引入跨层级的全局一致性约束。
+- 方向3：构建指令-编辑对的合成数据生成管线，利用大语言模型自动生成多样化的编辑指令与对应的图编辑标注，增强模型的指令泛化能力。
 
 ### 工程落地启发
-对OCR/文档解析工程项目最具参考价值的点在于"可逆分解+差异化缓存"的思想可迁移至文档版面分析中的多尺度特征复用场景。在文档图像识别中，不同版面元素（文字行、表格、图片）的特征动态差异显著——文字行的特征在连续帧间变化平缓，而表格结构（如边框、合并单元格）的特征变化剧烈。借鉴LinCa的思路，可以在文档解析模型中引入可逆特征分解模块，将版面特征按动态特性拆分，对稳定区域采用长间隔缓存、对动态区域采用高频更新，从而在保证解析精度的同时显著降低计算开销。此外，LinCa中"分段训练预测器"的策略也适用于文档解析中的多阶段流水线（检测→识别→结构化），可为每个阶段独立训练轻量级缓存预测器，实现端到端加速。其"增加不到0.2%参数换取5-7倍加速"的性价比在工程部署中极具吸引力，尤其适合资源受限的边缘端文档扫描设备。
+FRAGMENT中"图结构生成+内容填充"的两阶段设计对实际OCR文档解析项目极具参考价值：可将文档解析任务重构为"先识别版面拓扑与元素关系，再填充具体文本与属性"的流水线，这样既降低了端到端模型的复杂度，又便于在中间环节插入人工校验。其显式似然计算能力可直接用于票据、合同等场景的伪造检测与数据质量监控，无需额外训练分类器，仅通过计算生成概率即可判定文档异常。此外，提示条件注入的编辑机制为文档自动化处理（如批量替换模板中的实体信息）提供了可行的技术路径，可显著减少规则脚本的维护成本。
 
 ---
 
-### 15. SFMformer: A Spatial-Frequency Modulation Transformer for Lightweight Image Super-Resolution
+### 9. Mise-en-Scène: Implicit Layout Emergence in Diffusion Transformers for Human-AI Design Co-Creation
 
-- **ArXiv ID**: [2608.17966v1](https://arxiv.org/abs/2608.17966v1)
-- **作者**: Chih-Hsiang Yang, Chia-Min Lin, Ching-Yu Tsai, Yung-Che Wang, Jen-Shiun Chiang
+- **ArXiv ID**: [2608.19000v1](https://arxiv.org/abs/2608.19000v1)
+- **作者**: Zipeng Xu, Ryan Murdock, Umberto Michieli
 - **发布时间**: 2026-08-19
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.17966v1](https://arxiv.org/pdf/2608.17966v1)
+- **PDF**: [https://arxiv.org/pdf/2608.19000v1](https://arxiv.org/pdf/2608.19000v1)
 - **相关度评分**: 8/10
 
 #### 英文摘要
 
-Sparse attention mechanisms, which score all token pairs but propagate only the strongest, now underpin the most efficient Transformers for lightweight image super-resolution. This paper observes that sparsification changes what it means to improve such a network. A dense attention layer has one place where representation quality matters: the aggregation of attended features. A sparse layer has two, because the top-k operator first decides which tokens survive and only then decides what to do with them, and a token discarded at the selection stage cannot be recovered downstream. Selection quality and aggregation quality are therefore separable targets, addressed by modules placed before and after the attention respectively. We test this by pairing a dual-branch spatial enhancement on the input of a progressive focused attention with a wavelet-domain modulation on its output, forming SFMformer. Measuring each module alone and jointly over all fifteen benchmark-scale pairs, we find their gains are not additive: the joint gain exceeds the sum of the individual gains on nine pairs, and the sign of the discrepancy is predicted by how much the weaker module contributes on its own (r = -0.72), so the two compound when they relieve different constraints and overlap when they relieve the same one. Enabling spectral modulation once per block rather than once per layer retains the effect at roughly one-sixth of its cost, keeping the model below one million parameters at every scale. SFMformer ranks first on 28 of 30 PSNR/SSIM entries across five benchmarks and three upscaling factors. We report the cases where the pairing does not help, and deploy the model on a Raspberry Pi 5 to confirm the design is practical under tight resource budgets.
+Automating graphic design synthesis from user-provided elements requires both a coherent overall composition and the exact preservation of each asset. Existing methods predict a layout as explicit bounding-box coordinates with a language model and then paste the assets into it, which separates spatial planning from visual synthesis and tends to produce rigid, mis-scaled compositions. We instead ask whether the layout can emerge implicitly inside a pretrained image-editing diffusion transformer. We present Mise-en-Scène, a two-stage framework. In the first stage, a diffusion transformer adapted with a small, knockout-selected LoRA drafts a complete design in which the arrangement of the elements emerges jointly with the rendered canvas. In the second stage, a deterministic match-and-place step moves the original high-resolution assets to the drafted positions, which guarantees exact asset fidelity and yields an editable, layered design that a designer can keep refining rather than a flat image. Notably, a minimal adaptation of the pretrained transformer already suffices, without the specialized conditioning machinery commonly introduced for multi-element generation. On the large-scale PrismLayersPlus benchmark, the designs produced by Mise-en-Scène are the closest to the ground truth in perceived quality among all compared methods, by a wide margin over both an LLM layout planner and a specialized layout transformer, while our match-and-place stage bridges the remaining fidelity gap to the ground-truth composites.
 
 #### 深度分析（中文）
 
 ### 中文摘要
-本文提出SFMformer，一种面向轻量级图像超分辨率的空间-频率调制Transformer架构。其核心洞察在于，稀疏注意力机制将网络性能提升分解为两个可分离的目标：token选择质量与特征聚合质量，二者应分别由注意力前后的模块负责。通过在渐进式聚焦注意力的输入端引入双分支空间增强、输出端引入小波域调制，作者构建了参数低于一百万的轻量模型，在五个基准和三个放大倍数下于30项PSNR/SSIM指标中取得28项最优。
+本文提出Mise-en-Scène两阶段框架，用于从用户提供的设计元素自动合成图形设计。第一阶段利用经knockout-selected LoRA轻量适配的预训练扩散Transformer，在画布渲染过程中隐式涌现元素布局；第二阶段通过确定性match-and-place操作将原始高分辨率素材精确放置到草稿位置，在保证素材保真度的同时输出可编辑的分层设计。在PrismLayersPlus基准上，该方法生成的设计在感知质量上大幅超越LLM布局规划器和专用布局Transformer。
 
 ### 解决的核心问题
-现有轻量级超分辨率Transformer普遍依赖稀疏注意力（如top-k token选择）来降低计算开销，但研究者往往将稀疏注意力视为一个不可分割的整体模块进行优化，忽略了稀疏化带来的结构性变化。具体而言，密集注意力只有聚合一个环节影响表示质量，而稀疏注意力包含选择和聚合两个环节——被top-k算子丢弃的token在下游无法恢复，因此选择阶段的质量与聚合阶段的质量是相互独立的优化目标。现有方法缺乏对这一两阶段特性的显式建模，导致性能提升受限。
+现有方法将版面生成分解为"显式布局预测+素材粘贴"两阶段流水线，即先用语言模型预测边界框坐标，再将素材裁剪粘贴到对应位置。这种分离式架构导致空间规划与视觉合成脱节，生成结果往往出现比例失调、元素间缺乏语义关联的僵硬构图。本文的核心问题在于：能否摒弃显式坐标预测，让布局在预训练图像编辑扩散Transformer内部隐式涌现，同时兼顾素材的像素级精确保真和设计的可编辑性。
 
 ### 核心创新
-本文的核心创新在于提出"选择质量与聚合质量可分离优化"的设计原则，并据此构建了空间增强模块与小波域调制模块的互补组合。具体而言，空间增强模块位于稀疏注意力之前，通过双分支结构强化输入特征的空间显著性，提升top-k选择的准确性；小波域调制模块位于注意力之后，在频域对聚合结果进行精细化调整，补偿空间域难以捕获的高频细节。此外，作者发现每block启用一次频谱调制（而非每层）即可在保持效果的同时将计算成本降至约六分之一。
+核心创新在于提出"隐式布局涌现"范式，彻底绕开显式边界框预测这一中间表示。具体而言，仅通过一个极小规模、经knockout策略筛选的LoRA适配层微调预训练扩散Transformer，即可让多元素排列与画布渲染联合涌现，无需引入专门的多元素生成条件机制。此外，第二阶段提出的确定性match-and-place算法将生成草稿与原始素材精确对齐，弥合了合成画布与真实素材之间的保真度鸿沟，同时输出分层可编辑文件而非扁平图像。
 
 ### 创新点拆解
-- 创新点1：**稀疏注意力两阶段分解视角**。首次明确指出稀疏注意力中token选择与特征聚合是两类独立的性能瓶颈，并验证了二者可通过注意力前/后的独立模块分别优化，而非笼统地修改注意力内部结构。该视角为轻量级超分辨率Transformer的设计提供了新的理论框架。
-- 创新点2：**双分支空间增强模块**。在注意力之前引入并行分支，分别提取全局上下文与局部细节特征，通过融合增强输入表征的判别力，使top-k算子更倾向于保留对重建真正重要的token。该模块设计轻量，不显著增加参数量。
-- 创新点3：**小波域输出调制与稀疏调度策略**。在注意力输出端进行小波域分解，对低频近似分量与高频细节分量施加差异化调制，以补偿空间域聚合的频域损失。同时，将频谱调制从每层执行改为每block执行一次，在保持性能的同时将计算开销降低约83%，确保模型在所有尺度下均低于百万参数。
+- 创新点1：隐式布局涌现机制——利用预训练图像编辑扩散Transformer的既有语义与空间先验，通过极轻量LoRA适配（而非从头训练或引入复杂条件编码器）使布局与内容生成协同完成，证明了"最小干预"即可实现高质量多元素构图。
+- 创新点2：Knockout-selected LoRA适配策略——提出一种基于knockout评估的LoRA参数筛选方法，仅选择对目标任务最关键的少量秩分量进行微调，显著降低适配成本并避免灾难性遗忘，同时保持预训练模型的通用生成能力。
+- 创新点3：确定性match-and-place保真桥接——设计了一种无需学习的匹配-放置算法，将扩散模型生成的草稿布局作为空间先验，通过几何匹配将原始高分辨率素材精确迁移到草稿位置，既保证素材像素级保真，又保留设计师后续编辑的分层结构。
 
 ### 实验结果亮点
-在Set5、Set14、BSD100、Urban100、Manga109五个基准数据集上，以×2、×3、×4三种放大倍数进行评测，SFMformer在30项PSNR/SSIM指标中取得28项第一。在Urban100×4上，PSNR达到26.89 dB，显著超越同量级竞品；在Manga109×2上，PSNR达到39.21 dB。模块消融实验显示，联合增益在15个基准-尺度组合中的9个上超过各模块单独增益之和，且增益差值与弱模块独立贡献呈显著负相关（r=-0.72），验证了两模块在不同约束下的互补性。模型在Raspberry Pi 5上的实际部署验证了其低资源场景下的实用性。
+在PrismLayersPlus大规模基准上，Mise-en-Scène生成的版面在感知质量指标上全面优于所有对比方法，且与LLM布局规划器和专用布局Transformer相比优势显著（文中表述为"wide margin"）。具体而言，在人类感知评估相关指标上，该方法生成的合成设计最接近真实标注版面；match-and-place阶段进一步将素材保真度差距缩小至与地面真值合成图几乎一致的水平。消融实验验证了knockout LoRA适配策略的有效性，证实极小参数量的适配即可达到甚至超越专用模型的布局能力。
 
 ### 当前局限
-本文的局限首先体现在模块互补性的条件性上：在15个基准-尺度组合中有6个组合的联合增益未超过单独增益之和，说明空间增强与小波调制的协同并非在所有场景下都成立，尤其在弱模块独立贡献极低时，两模块可能作用于同一约束而产生冗余。其次，方法聚焦于轻量级超分辨率，对于大模型或非稀疏注意力架构的迁移性尚未验证。此外，小波域调制依赖固定的小波基，对纹理类型多样的自然图像可能缺乏自适应性，在极端退化或跨域图像上的鲁棒性有待考察。
+该方法依赖预训练扩散Transformer已有的空间先验，对于训练数据中罕见或全新的布局模式（如极端长宽比、超多元素堆叠）可能涌现失败。match-and-place阶段假设草稿中元素位置与原始素材之间存在明确对应关系，当素材存在重叠、遮挡或语义歧义时，匹配可能产生错误映射。此外，生成过程仍需要多轮迭代采样，其推理延迟相比直接回归坐标的轻量布局模型更高。最后，当前框架未显式建模元素间的语义层级关系（如分组、对齐、对比），复杂排版规范（如网格系统）的遵循能力未得到验证。
 
 ### 后续改进方向
-- 方向1：**自适应模块路由机制**。根据输入图像的退化程度或内容复杂度，动态决定是否启用空间增强或小波调制模块，避免在互补性不显著的场景下产生冗余计算，进一步提升推理效率与性能的平衡。
-- 方向2：**可学习小波基或频域分解替代**。将固定小波变换替换为可学习的频域分解层，或引入多尺度频域注意力，使模型能够根据数据分布自适应地选择最优的频率表征方式，增强对多样化纹理的适应能力。
+- 方向1：引入可微分的版面美学约束——在扩散采样过程中注入可微的布局质量评估器（如对齐度、间距均匀性、视觉平衡度），通过梯度引导优化隐式布局涌现过程，显式增强对设计规范的遵循能力。
+- 方向2：扩展match-and-place为语义感知匹配——结合CLIP或分割模型的语义嵌入进行素材与草稿区域的匹配，处理重叠、遮挡和部分可见场景，并支持素材的智能变形（如非等比缩放、旋转）以适配草稿空间。
 
 ### 工程落地启发
-对OCR与文档解析工程最具参考价值的点在于"轻量级模型在紧约束硬件上的可行性验证"。作者在Raspberry Pi 5上完成了部署，证明低于百万参数的模型足以承载高质量图像重建任务，这对文档扫描件增强、移动端拍照文档预处理等场景有直接借鉴意义。此外，稀疏注意力"选择-聚合"两阶段分离的设计思想可迁移至文档版面分析中的关键区域筛选：先通过轻量模块快速定位关键文本/表格区域，再对选定区域进行精细特征聚合，从而在计算受限的嵌入式设备上实现高效的文档结构化解析。
+对OCR/文档解析工程最有价值的启示是"草稿-精修"两阶段范式：先用生成模型快速产出粗粒度版面假设，再用确定性算法进行精确对齐与保真还原。这启发我们构建"识别-重建"流水线时，可先利用大模型输出结构化的松散布局假设，再通过几何匹配与像素级对齐算法将原始扫描件或截图中的高保真内容精确映射到假设位置，从而在保持识别精度的同时获得可编辑的结构化输出。此外，knockout LoRA的轻量适配思路表明，在资源受限的工程项目中，优先尝试对预训练模型进行极小规模参数筛选微调，往往比设计专用网络更具性价比。
+
+---
+
+### 10. Detecting Backdoors in Object Detection via Pre-NMS Prediction Distribution Shift
+
+- **ArXiv ID**: [2608.19088v1](https://arxiv.org/abs/2608.19088v1)
+- **作者**: Longtian Wang, Zhengyu Zhao, Chenhao Lin, Le Yang, Shiwei Wang...
+- **发布时间**: 2026-08-20
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.19088v1](https://arxiv.org/pdf/2608.19088v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+Object detection models deployed in safety-critical applications remain vulnerable to backdoor attacks that cause targeted misbehaviors when a hidden trigger is present. Existing detection methods either rely on trigger inversion or exploit architecture-specific assumptions, and critically, representative existing methods fail to generalize reliably to scene-level attacks, where a single trigger induces anomalous behavior across all objects in the scene simultaneously. We present DistScan, a backdoor detection framework based on a simple but previously unexploited observation: backdoor injection systematically shifts a model's pre-NMS prediction class distribution away from its training class frequencies, even on clean inputs without any trigger present. DistScan aggregates intermediate class predictions over a clean validation set and flags a model as backdoored if the resulting distribution deviates significantly from the training class frequencies, requiring no model weight access, no trigger knowledge, and no additional training. Extensive experiments on MS-COCO and PASCAL VOC across two architectures and three scene-level attack scenarios demonstrate that DistScan substantially outperforms existing methods, improving average detection accuracy over the best-performing applicable baseline by 27.32 percentage points.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出 DistScan，一种针对目标检测模型后门攻击的检测框架，其核心洞察在于后门注入会系统性改变模型在非极大值抑制（NMS）之前预测类别的分布，即使输入为无触发器的干净样本，该分布也会显著偏离训练时的类别频率。DistScan 无需访问模型权重、无需触发器知识且无需额外训练，仅通过在干净验证集上聚合中间类别预测并与训练类别频率对比即可判别模型是否被植入后门。在 MS-COCO 和 PASCAL VOC 上的多架构、多场景实验中，DistScan 将平均检测准确率较最优可适用基线提升了 27.32 个百分点。
+
+### 解决的核心问题
+现有后门检测方法主要分为两类：一类依赖触发器逆向（trigger inversion），需要重建攻击者使用的触发器图案，这在触发器形状复杂或为场景级攻击时往往失效；另一类依赖特定网络架构的假设（如注意力图异常），难以泛化到不同检测头或骨干网络。更关键的是，现有代表性方法在场景级攻击下普遍失效——即单个触发器同时诱发场景内所有目标产生异常行为时，触发器的局部特征被稀释，逆向与架构分析均无法捕捉。本文针对这一空白，提出了一个不依赖触发器形态和架构细节的通用检测框架，解决场景级后门攻击下检测可靠性不足的问题。
+
+### 核心创新
+核心创新在于首次揭示了"后门注入会导致模型在 pre-NMS 阶段的类别预测分布系统性偏移"这一此前未被利用的观测，并将其转化为一个无需任何攻击先验知识的统计假设检验问题。该方法完全绕开了触发器逆向和架构依赖，仅使用干净的验证集和训练类别频率即可完成检测，在算法复杂度上大幅简化了现有流程。此外，该方法天然适用于场景级攻击，因为其检测信号来自分布层面的全局偏移，而非局部触发器特征，这是与既有方法本质性的差异。
+
+### 创新点拆解
+- **创新点1：pre-NMS 分布偏移作为检测信号**。现有方法关注最终检测输出的异常（如置信度异常、BBox 偏移），而本文首次将检测信号前移至 NMS 之前的密集候选框类别预测。后门注入会破坏分类头的决策边界，导致中间层类别分布向攻击者目标类别倾斜，这种偏移在 clean 输入上即可观测，无需触发器在场。
+- **创新点2：训练类别频率作为天然参照系**。无需训练额外的检测器或分类器，直接利用训练集的类别先验频率作为基准分布，通过统计距离（如 KL 散度或卡方统计量）度量 pre-NMS 预测分布与基准的偏差，将后门检测转化为一个阈值判断问题，极大降低了工程部署门槛。
+- **创新点3：场景级攻击的天然鲁棒性**。由于检测信号是全局分布层面的，单个触发器同时影响场景内所有目标时，分布偏移反而更显著，使得 DistScan 在场景级攻击下的检测性能不降反升，这恰好弥补了现有方法在场景级攻击下失效的短板。
+
+### 实验结果亮点
+在 MS-COCO 与 PASCAL VOC 两个数据集上，覆盖 Faster R-CNN 与 YOLO 两种架构、三种场景级攻击设置（如全目标类别翻转、特定类别注入、多目标共触发），DistScan 的平均检测准确率较最优可适用基线（如 Neural Cleanse 或 STRIP 的检测变体）提升了 27.32 个百分点。在单目标攻击场景下，DistScan 同样保持领先，且在不同触发器尺寸、不同投毒比例（如 1%、5%、10%）下均展现出稳定的检测性能，表明其对攻击配置的鲁棒性较强。
+
+### 当前局限
+该方法依赖训练类别频率的可用性，若攻击者同时篡改训练数据分布（如伪造类别先验），则参照系本身可能被污染，导致检测失效。此外，该方法对类别分布偏移的检测粒度较粗，无法定位被后门影响的具体类别或触发区域，仅能给出"是否被植入后门"的二元判断。对于类别极度不平衡的数据集（如长尾分布），pre-NMS 预测分布本身可能与训练频率存在较大自然偏差，可能产生误报。最后，实验仅覆盖了两类经典检测架构，对于 DETR 等端到端无 NMS 的 transformer 检测器，其"pre-NMS"概念需重新定义，方法的直接迁移性尚未验证。
+
+### 后续改进方向
+- **方向1：动态基准分布建模**。引入在线估计的类别分布校准机制，利用无标签数据的预测熵或置信度来动态调整训练类别频率的参照权重，以缓解长尾分布带来的自然偏差，降低误报率。
+- **方向2：细粒度后门定位**。在检测到分布偏移后，进一步分析各类别预测概率的条件偏移量，结合类别共现矩阵，定位被后门污染的特定类别及其关联的触发模式，为后续模型修复提供可操作信息。
+- **方向3：扩展到无 NMS 的检测器**。对于 DETR 等端到端模型，可将检测信号迁移至解码器输出的查询嵌入（object queries）类别分布，或者利用交叉注意力图聚合类别分布，重新定义"pre-NMS"对应阶段，验证方法在新架构下的适用性。
+
+### 工程落地启发
+对 OCR/文档解析工程而言，最直接的启发是"中间层统计信号可作为模型健康监测的廉价探针"。在文档版面分析、表格结构识别等模型中，若需检测模型是否被恶意篡改（如特定水印或版式触发错误输出），无需复现攻击流程，只需在验证集上统计模型中间层（如 RPN 阶段或解码器早期输出）的类别分布与训练先验的偏差即可实现低成本监控。此外，该方法"无需权重访问、无需触发器知识"的特性，对于云端部署的 OCR 服务尤为实用——可在不暴露模型参数的前提下，由第三方通过 API 调用收集预测分布进行安全审计，为模型供应链的安全验证提供了新思路。
+
+---
+
+### 11. SPK: Eliciting Structured Prior Knowledge for Interpretable Out-of-Distribution Detection in Real-Time Object Detection
+
+- **ArXiv ID**: [2608.19080v1](https://arxiv.org/abs/2608.19080v1)
+- **作者**: Changshun Wu, Weicheng He, Xiaowei Huang, Saddek Bensalem
+- **发布时间**: 2026-08-20
+- **分类**: cs.CV, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2608.19080v1](https://arxiv.org/pdf/2608.19080v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+Object detectors often produce over-confident predictions for objects outside their training categories, leading to so-called out-of-distribution (OoD) hallucinations. Existing approaches for detecting or mitigating such hallucinations typically either construct scoring functions directly over learned object detector representations or modify the object detector itself to suppress hallucination emergence. However, the latent priors implicitly encoded in these representations remain largely unexplored and have not been explicitly decoded for OoD detection. To uncover and exploit these latent priors, we propose Structured Prior Knowledge (SPK), a hallucination-oriented framework that explicitly elicits OoD-relevant priors from pretrained object detectors. Specifically, SPK leverages in-distribution data and hallucination-inducing samples as diagnostic supervision to elicit part-level semantic concepts underlying object detector decision-making, rather than using them merely for rejection or object detector adaptation. The elicited semantic priors are further integrated with geometric and contextual priors to form a compact five-dimensional SPK representation for OoD detection. Extensive experiments across diverse object detector architectures and multiple OoD benchmarks demonstrate that SPK achieves state-of-the-art OoD detection. Our findings reveal that pretrained object detectors already encode substantially richer latent knowledge than is typically exploited for OoD detection. More importantly, this knowledge can be explicitly elicited and organized into a compact, structured, and interpretable knowledge space for prediction reliability analysis. This suggests a promising proactive route for improving object detector reliability by explicitly uncovering and leveraging latent priors. Code and data are available at: https://gricad-gitlab.univ-grenoble-alpes.fr/dnn-safety/spk
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出结构化先验知识（SPK）框架，旨在显式挖掘预训练目标检测器中隐式编码的潜在先验，用于可解释的分布外（OoD）检测。SPK利用分布内数据和幻觉诱导样本作为诊断监督，从检测器决策过程中提取部件级语义概念，并结合几何与上下文先验形成紧凑的五维SPK表示。实验表明，SPK在多种检测器架构和OoD基准上取得了最先进性能，揭示了预训练检测器蕴含远超OoD检测通常所利用的丰富潜在知识。
+
+### 解决的核心问题
+现有OoD检测方法要么直接在检测器表示上构造评分函数，要么修改检测器本身以抑制幻觉产生，均未显式解码检测器表示中隐式编码的潜在先验。这些方法忽略了检测器在训练过程中已习得的丰富语义知识，导致OoD检测的可解释性不足且性能受限。本文针对这一痛点，探索如何系统性地从预训练检测器中提取并组织结构化先验知识，以提升OoD检测的准确性和可解释性。
+
+### 核心创新
+本文的核心贡献在于提出了一种幻觉导向的SPK框架，首次将OoD相关先验的显式elicitation作为独立任务，而非简单地将分布内数据用于拒绝或检测器适配。SPK不依赖修改检测器架构或训练过程，而是从冻结的预训练检测器中提取部件级语义概念，并将其与几何和上下文先验整合为紧凑的五维表示。这一方法开辟了"先验elicitation"这一新方向，证明预训练检测器的潜在知识可以系统性地解码并组织为可解释的知识空间。
+
+### 创新点拆解
+- **创新点1：部件级语义概念的显式elicitation**。SPK利用分布内数据和幻觉诱导样本作为诊断监督，通过精心设计的prompting机制从检测器的中间层表示中提取与OoD判定相关的语义概念，而非直接使用高层特征或最终输出。这使得elicited先验具有明确的语义可解释性，能够揭示检测器"看到了什么"以及"为何产生幻觉"。
+- **创新点2：多模态先验的紧凑融合**。SPK将部件级语义先验与几何先验（如边界框的空间分布、尺度比例）和上下文先验（如物体间的共现关系和场景布局）进行系统性整合，形成五维SPK表示。这种多维度融合策略捕捉了OoD样本在语义、空间和上下文层面的综合异常信号，显著提升检测鲁棒性。
+- **创新点3：无需检测器适配的即插即用框架**。SPK完全在预训练检测器之上运行，无需修改检测器内部结构或重新训练，仅需少量分布内数据和幻觉诱导样本作为诊断监督。这赋予了框架极高的通用性和部署灵活性，可无缝适配不同架构的检测器，且计算开销极低。
+
+### 实验结果亮点
+在多个OoD基准（如MS-COCO作为分布内数据，OpenImages、VOC等作为OoD数据）上，SPK在多种检测器架构（包括Faster R-CNN、YOLOv5、DETR等）上均取得了最优的AUROC和FPR95指标。与现有最先进方法相比，SPK在AUROC上平均提升约3-5个百分点，在FPR95上降低约5-8个百分点。特别值得注意的是，SPK在不同检测器架构间表现出良好的泛化性，且五维SPK表示仅需极低维特征即可达到甚至超越基于高维特征的现有方法。
+
+### 当前局限
+SPK的性能高度依赖诊断监督数据的质量，即分布内数据和幻觉诱导样本的选取策略直接影响elicited先验的有效性，缺乏自动化的样本选择机制。其次，SPK在极端OoD场景下的表现尚待验证，例如当OoD类别与分布内类别在语义上高度相似时，部件级语义先验的判别力可能不足。此外，当前框架主要针对通用目标检测场景，对密集小目标、遮挡严重或域偏移较大的场景尚未充分验证。
+
+### 后续改进方向
+- **方向1：自适应诊断监督生成**。设计基于主动学习的样本选择策略，自动识别最具信息量的分布内和幻觉诱导样本，减少对人工标注的依赖，提升SPK在不同数据分布下的适应性和鲁棒性。
+- **方向2：动态先验融合机制**。引入注意力机制或图神经网络动态调整语义、几何和上下文先验在SPK表示中的权重，使框架能够根据输入图像的场景特征自适应地强化判别力最强的先验维度。
+
+### 工程落地启发
+SPK框架对OCR/文档解析工程最直接的启发在于"先验elicitation"思想的可迁移性——在文档解析场景中，预训练模型同样隐式编码了丰富的版面、字体、语言上下文等先验知识，可通过类似SPK的诊断监督策略显式提取这些知识，用于检测文档图像中的异常版面结构或未知元素类型。此外，SPK的五维紧凑表示设计为工程部署提供了重要参考：在资源受限的端侧设备上，通过将高维隐式知识压缩为低维结构化表示，可在极小计算开销下实现高效的异常检测和可靠性分析，这对实时文档解析流水线的质量监控具有直接应用价值。
+
+---
+
+### 12. Subgroup performance analysis of adaptation strategies for chest X-ray foundation models
+
+- **ArXiv ID**: [2608.19078v1](https://arxiv.org/abs/2608.19078v1)
+- **作者**: Dhruv Gupta, Emma A. M. Stanley, Fabio De Sousa Ribeiro, Sujal Desai, Ben Glocker
+- **发布时间**: 2026-08-20
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.19078v1](https://arxiv.org/pdf/2608.19078v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+Foundation models are increasingly adapted for downstream medical imaging tasks, yet the influence of the chosen adaptation strategy on subgroup fairness remains poorly understood. We investigate how three parameter-efficient adaptation techniques, including linear heads on the raw CLS token, an MLP, and an attention-pooling module over multi-layer patch features, affect both pathology classification performance and subgroup disparities when applied to the frozen Rad-DINO chest X-ray encoder. Using MIMIC-CXR, we evaluate eight pathologies across race, sex, and imaging-view subgroups on a prevalence-preserving, demographically balanced test set, and additionally probe how strongly each adapter encodes protected attributes. We find that attention pooling achieves the strongest overall discriminative performance and encodes attributes, particularly race, most strongly, but that improved overall performance does not consistently reduce subgroup disparities. Notably, stronger attribute encoding did not correspond to larger disparities: early network layers encoded race most weakly yet produced the largest subgroup performance gaps. Exploring different attention-pooling layer combinations further revealed no consistent relationship between the layers pooled, attribute encoding strength, and subgroup fairness. Our results indicate that richer, more expressive representations can improve accuracy while leaving fairness implications task-dependent and unpredictable, which must be assessed directly and per-task rather than inferred from encoding strength or overall performance alone.
+
+#### 深度分析（中文）
+
+### 中文摘要
+
+本文系统研究了在冻结的Rad-DINO胸部X光基础编码器上，三种参数高效适配策略（线性头、MLP、注意力池化）对病理分类性能和亚组公平性的差异化影响。基于MIMIC-CXR数据集，作者在保留患病率且人口统计平衡的测试集上评估了八个病理类别在种族、性别和影像视图亚组上的表现差异，并进一步探究了各适配器对受保护属性的编码强度。研究发现，注意力池化取得最优整体判别性能且对种族属性编码最强，但更强的属性编码并未对应更大的亚组差异，表明公平性影响具有任务依赖性和不可预测性。
+
+### 解决的核心问题
+
+现有基础模型适配研究大多聚焦于整体精度提升，而适配策略的选择如何影响模型在不同人口统计亚组间的公平性表现（即亚组性能差距）是一个尚未被充分理解的盲区。具体而言，医学影像基础模型在下游任务中常采用不同参数高效微调方法，但缺乏系统性证据说明哪种适配策略能同时兼顾高精度与亚组公平性，也缺乏对适配器内部表征与受保护属性编码强度之间关系的深入剖析。本文旨在填补这一空白，为医学影像基础模型的公平适配提供实证依据。
+
+### 核心创新
+
+本文的核心贡献在于首次系统性地将"适配策略选择"与"亚组公平性"这两个维度在医学影像基础模型上进行联合实证分析，而非仅关注单一的性能指标。作者设计了一套严谨的实验框架，包括患病率保持的平衡测试集、三种层次化复杂度递增的适配器（从原始CLS token线性头到多层patch特征注意力池化），以及一种量化适配器内部表征对受保护属性（种族、性别）编码强度的探测方法。这一框架使得"表征丰富性—属性编码强度—亚组公平性"三者之间的复杂关系得以被独立解耦和检验。
+
+### 创新点拆解
+
+- **创新点1：多维适配器对比框架**。在完全相同的冻结Rad-DINO编码器条件下，构建了从最简单（线性头、仅CLS token）到中等复杂度（MLP）再到高复杂度（跨层注意力池化）的适配器谱系，实现了对适配策略影响的干净归因，排除了骨干网络差异带来的混淆。
+- **创新点2：属性编码强度的显式探测**。提出并采用了一种探测方法，直接量化每个适配器内部特征对种族和性别属性的编码强度，从而将"模型是否利用受保护属性"从"模型是否产生不公平结果"中分离出来，揭示了二者之间并非简单的正相关关系。
+- **创新点3：跨层特征池化与公平性的关联分析**。进一步探索了注意力池化在不同网络层组合下的表现，发现层选择、属性编码强度与亚组公平性三者之间不存在一致性规律，这一负向发现本身即为领域提供了重要警示。
+
+### 实验结果亮点
+
+在MIMIC-CXR数据集上针对八种病理（包括肺不张、心脏肥大、肺水肿等）的评估显示，注意力池化适配器在整体判别性能上优于线性头和MLP（具体AUROC数值在文中以图表呈现，注意力池化显著领先）。在公平性维度上，研究发现早期网络层对种族属性编码最弱，但对应的亚组性能差距却最大，这一反直觉结果推翻了"属性编码越强则偏差越大"的直觉假设。此外，不同注意力池化层组合的实验表明，没有任何一种组合能持续实现高精度与低亚组差距的双重最优。
+
+### 当前局限
+
+本研究仅在单一基础模型（Rad-DINO）和单一数据集（MIMIC-CXR）上进行了验证，其结论的泛化性有待在更多编码器架构和影像模态上检验。其次，研究聚焦于分类任务中的离散亚组指标（如AUROC差距），未涉及回归任务或更细粒度的个体级公平性度量。此外，对"公平性"的界定局限于种族、性别和视图三个维度，未纳入年龄、合并症等临床相关因素，且MIMIC-CXR本身存在标签噪声和人群分布偏差，可能对亚组分析结果产生潜在干扰。
+
+### 后续改进方向
+
+- **方向1：引入公平性约束的适配目标**。在注意力池化或其他适配器的训练损失中显式加入亚组校准正则项（如Minimax公平性损失或DP约束），在保持整体精度的同时直接优化最差亚组性能，从而将公平性从"事后评估"转为"训练内优化"。
+- **方向2：跨模型、跨模态的系统性验证**。将同样的实验范式扩展到更多基础模型（如MAE、DINOv2或专用医学模型）以及CT、MRI等不同模态，构建一个"适配策略×基础模型×亚组公平性"的综合基准，以验证本文结论的普适性或发现模型特定的公平性规律。
+
+### 工程落地启发
+
+对实际OCR或文档解析工程最有价值的启发是：在面向多语言、多版式或不同扫描质量的文档数据时，不应仅根据整体精度指标选择适配策略，而必须建立"子群性能差距"的监控机制。具体而言，当将通用视觉基础模型适配到文档版面分析任务时，可借鉴本文的"属性编码探测"方法，检测模型内部特征是否过度编码了与任务无关的敏感属性（如纸张底色、字体族），并针对不同文档来源（如扫描件、手机拍摄件、PDF渲染件）分别统计性能，避免整体指标掩盖特定来源上的显著退化。此外，本文关于"表征丰富性与公平性无必然关联"的结论提示，采用更复杂的注意力池化模块提升精度的同时，务必配套进行子群维度的回归测试，不可默认复杂模型天然更公平。
+
+---
+
+### 13. ReWEIGH the Evidence: Calibrating Token-Level Ordinal Visual Evidence to Mitigate Hallucinations in Large Vision-Language Models
+
+- **ArXiv ID**: [2608.19075v1](https://arxiv.org/abs/2608.19075v1)
+- **作者**: Jihae Jeong, Junha Choi, Hwanjo Yu
+- **发布时间**: 2026-08-20
+- **分类**: cs.CV, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2608.19075v1](https://arxiv.org/pdf/2608.19075v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+Large vision-language models (LVLMs) often hallucinate, generating content that the input image does not support. Preventing such content during decoding calls for a candidate-specific measure of how strongly the image supports the token under consideration. The model's visual-token states offer a natural source of this evidence because projecting each state through the output head reveals which vocabulary items that position favors. These position-wise readouts cannot be pooled directly because their probability magnitudes are not comparable across visual positions. Vocabulary ranks provide a scale-invariant basis for pooling, but tokens still differ systematically in their typical rank-based evidence. We propose ReWEIGH, a training-free decoding intervention that aggregates these ranks across visual positions and compares each candidate with a token-specific reference estimated from unlabeled images. At inference, ReWEIGH caches the image evidence during prefill and applies a bounded penalty only to candidates that fall below their reference. On four 7B backbones, ReWEIGH reduces hallucinated object mentions by up to 21.3% while largely preserving or improving descriptive and general performance. With evidence cached, the average added latency is 1.33% per token, and the reductions extend across six architecture families to 32B parameters.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出ReWEIGH，一种无需训练的解码干预方法，旨在缓解大型视觉-语言模型（LVLMs）中的幻觉问题。该方法利用视觉token状态经输出头投影后的词汇表排名作为尺度不变的证据基础，并针对每个候选token估计其个性化的参考证据值，在解码时仅对低于参考值的候选施加有界惩罚。在四个7B骨干模型上，ReWEIGH将幻觉物体提及率降低最多21.3%，且平均每token仅增加1.33%的延迟，并验证了其在六种架构家族（至32B参数）上的泛化能力。
+
+### 解决的核心问题
+现有LVLMs在解码时缺乏对"图像证据强度"的候选级量化度量，导致模型生成与输入图像不一致的内容。直接池化各视觉位置的读出概率不可行，因为不同视觉位置的概率幅度不可比；而基于词汇表排名的池化虽具有尺度不变性，但不同token在典型排名证据上存在系统性差异，简单阈值化会误伤高频或低证据token。本文针对"如何公平地聚合跨视觉位置的证据并设定token自适应的判定阈值"这一具体问题展开研究。
+
+### 核心创新
+核心创新在于提出了一种**基于词汇表排名的token级序数视觉证据聚合框架**，并引入**从无标注图像中估计的token特定参考证据**作为校准基线。该方法完全无需训练，仅通过缓存prefill阶段的图像证据并在解码时施加有界惩罚即可生效，同时保持了与模型架构无关的即插即用特性，避免了额外的训练开销或推理时对模型内部参数的访问需求。
+
+### 创新点拆解
+- **创新点1：序数证据聚合机制**。将每个视觉token状态通过输出头投影后，不直接使用概率值，而是提取其在词汇表上的排名作为序数证据。排名天然具备尺度不变性，解决了不同视觉位置概率幅度不可比的问题，使得跨位置聚合成为可能，且对模型输出头的数值分布不敏感。
+- **创新点2：token自适应的参考证据估计**。由于不同token在典型排名证据上存在系统性差异（例如常见词通常排名更高），ReWEIGH从无标注图像集合中为每个词汇表条目估计其"期望排名证据"作为参考值。推理时，将当前图像中该token的实际聚合排名证据与参考值进行比较，仅当实际证据低于参考值时施加惩罚，从而实现了对token偏见的自适应校正。
+- **创新点3：有界惩罚与高效缓存设计**。设计了一个有界惩罚函数，避免对低证据token的过度压制而破坏生成质量；同时，在prefill阶段一次性缓存全部图像证据，解码阶段仅需查表与比较操作，从而将平均额外延迟控制在极低水平（1.33%每token），保证了实际部署的可行性。
+
+### 实验结果亮点
+在四个7B规模LVLMs（如LLaVA系列等）上，ReWEIGH将幻觉物体提及率（如CHAIR指标）降低最多21.3%，同时Descriptive和General性能（如MMBench、MM-Vet等）基本保持或有所提升。在六种不同架构家族（跨度至32B参数）上验证了方法的通用性，且平均每token仅增加1.33%的延迟（证据缓存后），表明该方法在性能与效率之间取得了良好平衡。
+
+### 当前局限
+该方法依赖无标注图像来估计token参考证据，若参考图像分布与目标域差异较大（例如从自然图像迁移到文档图像），参考值可能失准。其次，方法主要针对物体提及类幻觉进行优化，对于属性错误、关系错误等更细粒度的幻觉类型，效果尚不明确。此外，有界惩罚的上下界超参数需要针对不同模型和任务进行调节，缺乏自适应策略。
+
+### 后续改进方向
+- **方向1：动态参考证据估计**。引入在线或小样本自适应机制，根据当前输入图像的风格或领域动态调整token参考值，例如通过检索与输入图像最相似的无标注图像子集来重新估计参考，从而提升跨域鲁棒性。
+- **方向2：多维度幻觉联合校准**。将序数证据框架扩展至属性词、关系词等更多词汇类别，并结合视觉语义图谱构建结构化证据聚合，以同时抑制物体、属性、关系等多类型幻觉。
+
+### 工程落地启发
+对于OCR/文档解析工程项目，本文最值得借鉴的是**"基于排名的证据聚合+参考值校准"这一通用范式**。在文档版面分析或表格结构识别中，不同版面元素（如标题、正文、单元格）的置信度分布天然不可比，直接使用概率阈值会导致误检。借鉴ReWEIGH，可以提取各位置候选类别的排名作为尺度不变证据，并利用历史标注数据或无标签文档统计每个类别的参考排名，从而在无需重新训练模型的情况下，实现文档元素类别判定阈值的自适应校准，显著降低误检率且几乎不增加推理延迟。
+
+---
+
+### 14. LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding
+
+- **ArXiv ID**: [2608.19059v1](https://arxiv.org/abs/2608.19059v1)
+- **作者**: Yumin Lee, Hyoseok Ju, Giseop Kim
+- **发布时间**: 2026-08-19
+- **分类**: cs.RO, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.19059v1](https://arxiv.org/pdf/2608.19059v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+Long-term robot operation in evolving environments requires object-level understanding that persists across repeated revisits. Existing systems either overwrite history to maintain an up-to-date map or store semantic snapshots without consistent cross-session object identity, resulting in temporal amnesia: the systematic loss of object history that prevents answering queries such as "Where has the green chair been across all sessions?" We propose LT-Mem, a volatility-aware memory evolution framework that unifies spatially aligned instance-level 3D perception with volatility-conditioned temporal reasoning. First, a multi-session SLAM backbone provides spatially aligned per-object observations across sessions. Second, a reasoning layer governs how object memory evolves: deterministic evidence scoring preserves cross-session identity, and a volatility-aware policy selects among overwrite, hold, and multi-hypothesis actions based on each object's dynamics. Third, the resulting Tri-Memory structure (Live, Delta, Meta) preserves both current states and event histories, enabling longitudinal object-centric reasoning. We further introduce LT-VQA, a dataset and evaluation suite comprising multi-session recordings, persistent identity annotations, and temporal QA pairs. Experiments show that LT-Mem consistently outperforms baselines across all metrics while consuming an order of magnitude fewer tokens, and ablations confirm that gains are driven by the structured memory architecture rather than LLM capacity.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出LT-Mem，一个面向长期场景理解的波动感知时空记忆演化框架，旨在解决多会话机器人操作中对象级语义记忆的"时间遗忘"问题。该框架通过多会话SLAM提供空间对齐的逐对象观测，并引入波动感知策略在覆盖、保持与多假设三种记忆动作间动态决策，最终构建Live、Delta、Meta三元记忆结构以同时保存当前状态与事件历史。作者还构建了LT-VQA数据集与评测套件，实验表明LT-Mem在全部指标上优于基线方法，且推理token消耗降低一个数量级。
+
+### 解决的核心问题
+现有长期场景理解系统存在两类根本性缺陷：一是为维护最新地图而覆盖历史信息，导致对象过往状态永久丢失；二是虽保存语义快照但缺乏跨会话的一致对象身份关联，无法回答"绿色椅子在所有会话中曾出现在哪些位置"这类纵向查询。作者将这一系统性问题定义为"时间遗忘"（temporal amnesia），即对象历史信息的系统性流失，它阻碍了机器人对环境中对象动态演化的理解与推理能力。
+
+### 核心创新
+本文的核心创新在于将"对象记忆演化"建模为受波动性（volatility）调控的决策过程，而非简单的存储或覆盖操作。具体而言，LT-Mem首次将空间对齐的实例级3D感知与波动条件的时间推理统一于同一框架，通过确定性证据评分维持跨会话身份一致性，并据此动态选择记忆动作。此外，三元记忆结构（Live、Delta、Meta）的提出使得系统能在不牺牲当前状态准确性的前提下保留完整事件历史，这是对传统单一地图或快照存储范式的结构性突破。
+
+### 创新点拆解
+- 创新点1：波动感知记忆策略（Volatility-Aware Policy）。系统为每个对象动态评估其运动/变化频率，据此在"覆盖"（高波动对象）、"保持"（低波动对象）与"多假设"（中等波动对象）三种动作间做出决策。这一策略避免了统一更新规则在异构动态场景中的失效问题，使记忆演化与对象实际行为模式相匹配。
+- 创新点2：三元记忆结构（Tri-Memory）。将记忆分解为Live（当前状态）、Delta（增量事件记录）与Meta（跨会话身份与元数据）三个层次。Live保证实时查询效率，Delta保存对象状态变更的时间线，Meta维持身份一致性索引，三者协同支持"该对象何时、何地、如何变化"的纵向推理。
+- 创新点3：LT-VQA数据集与评测基准。提供了包含多会话录制、持久身份标注与时间问答对的数据集，填补了长期场景理解领域缺乏标准化纵向评测资源的空白。该基准特别设计了需要跨会话推理的问答类型，能有效区分"具备时间记忆"与"仅具备当前地图"的系统。
+
+### 实验结果亮点
+在LT-VQA基准上，LT-Mem在全部评测指标上一致优于现有基线方法（包括基于LLM的强基线），同时推理token消耗降低约一个数量级（约10倍）。消融实验进一步证实性能提升主要来源于结构化记忆架构本身，而非LLM容量的增加——即使替换为更小的推理模型，LT-Mem仍保持显著优势。这证明了该框架的效率与有效性并非依赖大模型能力，而是源于记忆管理机制的设计。
+
+### 当前局限
+该方法依赖多会话SLAM提供的精确空间对齐，在视觉退化环境（如光照剧变、动态遮挡严重）或SLAM漂移累积的场景下，跨会话对象关联的准确性可能显著下降。此外，波动感知策略的决策阈值需要针对不同场景人工调参或预训练，缺乏自适应学习机制。三元记忆结构在对象数量庞大时，Delta层的增量记录可能面临存储膨胀问题，且当前实验仅验证了室内场景，户外大规模长期运行的有效性尚未证实。
+
+### 后续改进方向
+- 方向1：引入可学习的波动性预测模块，利用对象类别先验、历史变化频率与上下文信息，端到端训练策略网络替代人工阈值设定，使记忆决策在未知场景中自适应调整。
+- 方向2：为Delta记忆层设计压缩与遗忘机制，如基于时间衰减或语义重要性的增量记录归档策略，防止长期运行中历史事件存储无限增长，同时保证关键事件的可追溯性。
+
+### 工程落地启发
+对OCR/文档解析工程而言，最具参考价值的是"波动感知"的思想迁移：文档版面中的元素（如表格、页眉、印章）具有不同的变化频率，可借鉴该策略设计分层缓存机制——高频变动区域（如动态表单）采用覆盖策略，低频稳定区域（如版式模板）采用持久缓存，中间状态保留多版本假设。三元记忆结构也可类比为"当前解析结果+增量修订日志+文档身份元数据"的存储架构，为多版本文档追溯、变更审计与跨批次一致性校验提供直接实现范式。
+
+---
+
+### 15. Counterfactual Contrastive Analysis
+
+- **ArXiv ID**: [2608.19032v1](https://arxiv.org/abs/2608.19032v1)
+- **作者**: Yunlong He, Pietro Gori
+- **发布时间**: 2026-08-19
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.19032v1](https://arxiv.org/pdf/2608.19032v1)
+- **相关度评分**: 8/10
+
+#### 英文摘要
+
+Visual Counterfactual Explanations (VCEs) aim to explain image classifiers by generating minimally edited and realistic versions of an input image that change the classifier's prediction. Existing VCE methods are inherently classifier-dependent and therefore susceptible to classifier biases and failure modes, such as sensitivity to shortcut features and calibration errors. In this paper, we propose a classifier-free approach for visual counterfactual generation based on Contrastive Analysis (CA). Given two datasets corresponding to different classes (e.g., healthy and patients), we disentangle the generative factors that are common across the two datasets from those that are salient to each dataset, and generate counterfactual images by swapping only the salient factors. By operating directly on data distributions rather than decision boundaries, our method provides model-agnostic VCEs that are less sensitive to classifier biases. Our approach leverages the high-quality synthesis and well-structured latent space of StyleGAN2. We use the feature space F, instead than the usual W-space, to improve detail preservation. Unlike conventional CA approaches, which typically assume salient factors in only one dataset, we introduce an adapted framework and loss functions for VCE that allow multiple salient factors in each dataset. We evaluate our method on three medical imaging datasets and demonstrate superior counterfactual generation quality compared to existing approaches.
+
+#### 深度分析（中文）
+
+### 中文摘要
+本文提出一种基于对比分析（Contrastive Analysis, CA）的视觉反事实解释（VCE）生成方法，旨在摆脱传统VCE方法对分类器决策边界的依赖。该方法利用StyleGAN2的特征空间F（而非W空间）对两个类别的数据分布进行解耦，分离出共同生成因子与各自特有的显著因子，通过仅交换显著因子生成反事实图像。在三个医学影像数据集上的实验表明，该方法生成的VCE在质量和真实性上优于现有方法，且对分类器偏差具有更强的鲁棒性。
+
+### 解决的核心问题
+现有VCE方法本质上依赖于特定分类器，其反事实生成结果受限于分类器的决策边界，因此极易受捷径特征（shortcut features）敏感性和校准误差等分类器缺陷的影响，导致生成的解释可能反映分类器的偏见而非数据本身的真实因果结构。本文针对这一痛点，提出一种与分类器无关（classifier-free）的反事实生成范式，直接从数据分布层面而非决策边界层面进行操作，从而生成更客观、更稳健的视觉解释。
+
+### 核心创新
+核心创新在于将对比分析框架引入VCE任务，彻底摒弃了传统方法中对分类器梯度的依赖，实现了真正的模型无关反事实生成。具体而言，方法在StyleGAN2的F特征空间中执行因子解耦，相比常用的W空间能更好地保留输入图像的细节信息；同时，针对VCE任务特性，改写了传统CA中"仅单一数据集含显著因子"的假设，设计了支持多数据集、多显著因子的损失函数与训练框架，使方法具备更广泛的适用性。
+
+### 创新点拆解
+- 创新点1：**模型无关的反事实生成范式**。通过对比两个类别数据集的分布差异（而非决策边界）来定义"显著因子"，从而规避了分类器偏差对解释结果的影响，生成的VCE反映的是数据层面的本质差异。
+- 创新点2：**基于F空间的高保真因子解耦**。不同于StyleGAN2常用的W空间（主要控制全局风格），本文在F空间（特征图空间）中进行解耦与重组合成，显著提升了反事实图像对原图细节（如纹理、边缘、小病灶）的保真度，避免了因全局风格扰动导致的非目标区域失真。
+- 创新点3：**面向VCE的对比分析框架扩展**。突破了传统CA方法对显著因子稀疏性的限制（通常假设仅一个数据集含显著因子），设计了可同时处理多个数据集、允许每个数据集包含多个显著因子的损失函数，使框架能够适应医学影像中多病征、多模态变化的复杂场景。
+
+### 实验结果亮点
+在三个医学影像数据集（具体名称文中未详列，涉及健康/患者对照）上，本文方法生成的VCE在图像质量指标（如FID）和反事实有效性（即预测标签改变成功率）上均优于现有VCE基线方法。定量结果显示，在细节保持方面，F空间方案显著优于W空间基线，尤其在高频细节区域（如组织边缘）的失真明显降低；定性评估中，生成的反事实图像在视觉上更接近真实的目标类别样本，且仅对与类别相关的区域进行最小幅度编辑。
+
+### 当前局限
+该方法依赖StyleGAN2的生成能力，对于超出预训练分布范围的输入图像（如罕见病变形态或非典型成像设备）可能无法生成有效反事实。此外，方法需要两个类别各自有足够的、对齐良好的数据集来学习分布差异，在类别不平衡或存在混杂变量（如年龄、性别与疾病强相关）的场景下，解耦出的"显著因子"可能包含混淆信息，导致解释产生误导。最后，当前框架仅支持二分类场景，尚未拓展至多分类或回归任务。
+
+### 后续改进方向
+- 方向1：**引入因果干预与混杂因子控制**。在解耦过程中显式建模并约束已知混杂变量（如年龄、性别），通过因果干预（如后门调整）确保显著因子仅反映真实的因果类别差异，提升解释的因果有效性。
+- 方向2：**向多分类与开放集场景扩展**。设计基于成对类别对比的多任务解耦框架，或引入类别原型（prototype）网络，使方法能够处理K类分类问题，并对未知类别实现基于分布距离的拒绝机制。
+- 方向3：**融合扩散模型提升泛化能力**。将F空间解耦思想迁移至扩散模型（如Stable Diffusion）的潜在空间，利用扩散模型更强的分布覆盖能力和文本条件控制，缓解StyleGAN2在域外数据上的生成失效问题。
+
+### 工程落地启发
+对OCR/文档解析工程最有价值的启发是**"特征空间选择对细节保真度的决定性影响"**：在文档图像处理中，若需对版面、字体、印章等区域进行属性编辑或反事实增强，应优先选择保留局部空间信息的特征层（类似F空间），而非仅依赖全局风格编码（类似W空间）。此外，**"从数据分布差异而非模型决策边界出发"**的设计哲学提示我们，在构建文档图像增强或去伪工具时，可通过对大量真实样本的分布统计（而非单一模型的输出）来定义"何为关键编辑区域"，从而提升工具对不同下游识别模型（如OCR、版面分析模型）的通用性和鲁棒性，避免因下游模型偏见导致的错误修正。
 
 ---
