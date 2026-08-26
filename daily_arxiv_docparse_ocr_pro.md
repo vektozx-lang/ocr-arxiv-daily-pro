@@ -1,8 +1,8 @@
-# OCR arXiv Daily Pro — 2026-08-25
+# OCR arXiv Daily Pro — 2026-08-26
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-08-24 09:10 - 2026-08-25 09:10 (Asia/Shanghai)
+> 时间窗口：2026-08-25 09:10 - 2026-08-26 09:10 (Asia/Shanghai)
 
 ---
 
@@ -14,170 +14,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ## 📄 论文详情
 
-### 1. WildHandBench: A Benchmark for Handwritten Text Understanding that Challenges MLLMs and Humans
+### 1. SAGE: From Direct Answering to Evidence-Grounded Inference for Chinese Ancient Document Understanding
 
-- **ArXiv ID**: [2608.22959v1](https://arxiv.org/abs/2608.22959v1)
-- **作者**: Jun Zhang, Qiao Zhao, Cheng Cui, Jianying Qu, Zhongkai Sun...
-- **发布时间**: 2026-08-24
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.22959v1](https://arxiv.org/pdf/2608.22959v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-While the top model on OmniDocBench now reaches 96.34% overall on printed-document parsing, the ability of current models to handle challenging handwritten documents remains largely uncharacterized. Existing benchmarks focus on isolated text or formulas, overlook handwritten tables and real-world degradation, and report aggregate accuracy without explaining why models fail. We present WildHandBench, a benchmark containing 500 handwritten documents across three structures (free text, tables, formulas), four languages, and nine real-world scenarios. We introduce a Prior-Driven Error (PDE) metric that quantifies whether errors originate from language priors rather than visual evidence. Evaluating 18 state-of-the-art models together with calibrated human baselines, we find: (1) the best model achieves only 71.85% overall; (2) humans outperform all models yet the gap is narrow (77.09% vs. 71.85%); and (3) model errors are qualitatively different from human errors -- 63-91% of model errors are prior-driven versus only 49% for humans, exposing systematic reliance on language priors that conventional accuracy metrics cannot capture.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 2. FinixDoc: Rethinking Financial Document Parsing Beyond Saturated Benchmarks
-
-- **ArXiv ID**: [2608.22842v1](https://arxiv.org/abs/2608.22842v1)
-- **作者**: Hang Wang, Jin Zhang, Guoliang Xu, Pengyue Lu, Yao Li...
-- **发布时间**: 2026-08-24
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.22842v1](https://arxiv.org/pdf/2608.22842v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Financial document parsing requires accuracy, structural consistency, and verifiability that current benchmarks often fail to reflect. We present FinixDoc, an end-to-end agentic parsing system for real-world financial documents, with FinixDoc-VL, a 4B-scale vision-language model built on Qwen3-VL-4B, as its core parser. To characterize the gap between benchmark and deployment performance, we introduce a Document Parsing Capability Matrix organized along two practical axes: visual quality and document scale. Guided by this matrix, FinixDoc-VL is trained with a domain-adapted recipe combining homoglyph-aware contrastive learning and multi-stage reinforcement learning with composite domain-specific rewards. To better leverage our accumulated advantage in low-quality financial-document data and support large-scale, high-quality data production, we further build a human-in-the-loop Data Factory pipeline with confidence-aware expert review. For evaluation, we construct FinixDocBench, a financial-domain evaluation suite covering digital-native, camera-captured, ultra-large-page, and internal-workflow scenarios, with a compliance-reviewed subset released alongside this technical report. On its main subsets, FinixDoc-VL achieves the highest overall score (81.43) among evaluated baselines, outperforming the next-best open-source model by 5.13 points, with the largest gains on internal financial workflows (FinixInner: 84.08 vs. 78.73).
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 3. Industrial-Instruction: An End-to-End Framework for Building Instruction-Tuning and Benchmark Datasets from Industrial Technical Reports
-
-- **ArXiv ID**: [2608.22817v1](https://arxiv.org/abs/2608.22817v1)
-- **作者**: Parsa Bakhtiari, Hassan Bashiri, Alireza Khalilipour, Masoud Nasiripour, Moharram Challenger
-- **发布时间**: 2026-08-24
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.22817v1](https://arxiv.org/pdf/2608.22817v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Industrial technical reports contain high-value knowledge for maintenance, troubleshooting, and product engineering, but their heterogeneous structure (dense prose, specifications, tables) makes them difficult to index and reason over with standard retrieval and QA pipelines, and no public instruction-tuning or benchmark datasets are built from such documents. We address this gap with Industrial-Instruction, contributing (i) two open QA datasets built from real industrial technical reports and (ii) the end-to-end pipeline that produces them. Using 906 public Panasonic documents (7,525 pages), we apply layout-aware extraction, build a semantic retrieval index, and synthesize multiple-choice QA grounded in retrieved evidence under five query-document relationships (irrelevant retrieval, single-/multi-document support, single-/multi-document answer). After filtering an initial 23.9k generated samples, each dataset provides approximately 13.6k QA pairs with source documents and a held-out benchmark split. Fine-tuning small open LLMs (under 10B parameters) improves Set-Match Accuracy from 28.5% to 42.0% and F1 from 46.6% to 63.5% on the Panasonic benchmark. We release two parallel versions built by the same pipeline: one generated with the open-weight Qwen3-30B-A3B-Instruct model and one with the closed, API-based Claude-Opus-4.6 model, enabling a direct comparison of open- versus frontier-model data generation. The Claude-Opus-4.6 dataset yields a cleaner raw corpus and larger fine-tuning gains, at roughly two orders of magnitude higher cost. MMLU evaluation shows models trained on the Claude-Opus-4.6 data retain essentially all general knowledge, versus a small but measurable forgetting effect for the Qwen-generated data. Together, these datasets and pipeline offer a practical, reproducible path toward scalable industrial benchmarks and training data from real-world documentation.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 4. A Scalable Cross-Domain Event Extraction System via a Unified Generative Training Framework
-
-- **ArXiv ID**: [2608.23261v1](https://arxiv.org/abs/2608.23261v1)
-- **作者**: Siting Liang, Omar Adjali, Omair Shahzad Bhatti, Daniel Sonntag
-- **发布时间**: 2026-08-24
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.23261v1](https://arxiv.org/pdf/2608.23261v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Event extraction is fundamental to information extraction. Prior approaches often separate event detection and argument extraction or depend on dataset-specific designs, limiting scalability and cross-domain generalization. We propose a unified generative sequence-to-sequence framework that performs event extraction subtasks jointly and supports both pipeline and end-to-end configurations. We fine-tune pretrained language models on multiple event datasets across diverse domains, enabling a single model to retain domain-specific semantics while generalizing over large and evolving label spaces. We demonstrate these capabilities through a web-based application tailored for researchers and practitioners. The platform supports document upload, schema-aware event extraction, visualization of triggers and arguments, and comparison of different extraction configurations across domains.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 5. EarthVerse: Benchmarking Scientific Agents Across Dynamic Earth Systems and Natural Hazards
-
-- **ArXiv ID**: [2608.23525v1](https://arxiv.org/abs/2608.23525v1)
-- **作者**: Zhiqing Cui, Xinxiang Yin, Yihong Tang, Xinglang Zhang, Yuanzhe Hu...
+- **ArXiv ID**: [2608.24011v1](https://arxiv.org/abs/2608.24011v1)
+- **作者**: Yuchuan Wu, Xuan Luo, Yinglian Zhu, Meng Fang, Xiangyang Xue...
 - **发布时间**: 2026-08-25
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.23525v1](https://arxiv.org/pdf/2608.23525v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Earth-system analysis reconstructs changing physical processes from observations that differ in source, scale, timing, and modality. Natural hazards make this work consequential because incomplete evidence can change estimates of severity, exposure, and mechanism. We introduce EarthVerse, a benchmark that evaluates scientific agents through package-scoped investigations. Its 405 reproducible tasks are grounded in 199 documented events and 19 hazard families. Agents inspect heterogeneous event packages, choose compatible evidence, execute transparent calculations, reconcile source differences, and preserve provenance in the final answer. We provide executable ground truth that decomposes each task into fine-grained answer units, together with task-specific rubrics that assess the supporting research process while allowing multiple valid paths. We evaluate 25 model and agent systems under a controlled tool-using protocol, then use controlled studies to locate failures in evidence access, tool selection, memory, reasoning, interaction, and scientific execution. Across systems, the best mean answer-unit accuracy is 84.65%, while the highest Strict@95 is only 34.81%. The gap shows that current agents often complete individual steps without maintaining a consistent chain across evidence, scales, units, calculations, and physical interpretation. EarthVerse provides a reproducible basis for measuring end-to-end scientific reliability in dynamic Earth systems.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 6. Robustness of IR Models to Collection Growth
-
-- **ArXiv ID**: [2608.23419v1](https://arxiv.org/abs/2608.23419v1)
-- **作者**: Emmanouil Georgios Lionis, Debasis Ganguly, Sean MacAvaney
-- **发布时间**: 2026-08-25
-- **分类**: cs.IR, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.23419v1](https://arxiv.org/pdf/2608.23419v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Information Retrieval (IR) systems seek to identify relevant documents within a collection. In practical applications, collections are dynamic, with documents frequently added. We argue that ideally, a retriever's effectiveness should not decrease when non-relevant documents are added to a collection. This study formalises this concept and empirically evaluates it by merging two collections with negligible topic overlap. We hypothesise that the way an IR model conditions its ranking on other documents in a collection (e.g., the IDF component in BM25 or contextual documents in listwise rerankers) plays an important role in its robustness to the addition of non-relevant documents. We broadly classify models as those that do not depend on other documents (Multi-Document-Agnostic, MDA) and those that do (Multi-Document-Dependent, MDD). Our results show that neither MDD nor MDA models are fully robust to the addition of non-relevant documents, as all models exhibit some performance degradation. Interestingly, among the models we test, MDA is more effective than MDD for retrieval, whereas MDD and MDA rerankers are equally effective.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 7. The Emergence of Relevance Through Axiomatic Attention Patterns During LoRA Fine-Tuning
-
-- **ArXiv ID**: [2608.23338v1](https://arxiv.org/abs/2608.23338v1)
-- **作者**: Matthew Perlman, Atharva Nijasure, James Allan
-- **发布时间**: 2026-08-24
-- **分类**: cs.CL, cs.AI, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.23338v1](https://arxiv.org/pdf/2608.23338v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-LoRA fine-tuning is standard for adapting LLMs to reranking, but it remains unclear where in the network task-specific relevance behavior is learned and what attention-level changes accompany that learning. Through ablation and attention experiments, we identify where LoRA attention updates to RankLLaMA improve performance and whether those gains coincide with interpretable relevance-oriented attention patterns such as lexical matching, rarity sensitivity, and query-document interaction. We find that given LoRA fine-tuned MLPs throughout the network, restricting LoRA attention updates to a compact mid-network region is sufficient for recovering over half of the performance gained by applying LoRA to all attention layers, and that omitting attention fine-tuning in this region hurts performance more than elsewhere in the network. Additionally, we show that regions where applying LoRA affects performance the most overlap with regions where fine-tuning increased attention to axiomatic IR features. Rarity sensitivity, document-query interaction, and several compositional features are highly correlated with gains in ranking performance. Our results support an interpretable, correlational account of how relevance-oriented behavior emerges during LoRA fine-tuning and point toward improved strategies for adapting rerankers.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 8. Flesch-Kincaid Readability Depends Only on the Topic Distribution in Long Texts under Topic Models
-
-- **ArXiv ID**: [2608.23327v1](https://arxiv.org/abs/2608.23327v1)
-- **作者**: Yo Ehara
-- **发布时间**: 2026-08-24
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.23327v1](https://arxiv.org/pdf/2608.23327v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Flesch Reading Ease (FRE) and the Flesch-Kincaid Grade Level (FKGL) are widely used readability scores for English computed from the same two document statistics, yet their stability on long documents need not imply invariance to lexical composition. Surprisingly, under a topic model with an explicit sentence-boundary token, both scores converge almost surely to deterministic functions of the document topic distribution through just two scalar rates: in the long-text limit, all score variation is mediated by topical composition rather than any residual readability signal. The theory covers both formulae, while the experiments evaluate FKGL. In a fixed admixture with rank[1, q, s] = 3, fibres through interior topic vectors are locally (K-3)-dimensional, whereas regular iso-score level sets are locally (K-2)-dimensional and curved. In out-of-fold evaluation on two balanced corpora, Brown and the written BNC, a topic vector inferred from one document half's content words predicts the other half's FKGL at r = 0.779 and 0.884, respectively. On Brown, adding the topic prediction to genre and mean content-word syllable count yields $ΔR^2$ = 0.002, with a confidence interval spanning zero; on the BNC, the corresponding split-half increment is 0.024, positive in four of five K = 100 fits (median 0.021). Because inferred topics may also absorb genre, register, and style, we do not interpret these results as evidence about human readability or causal effects.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 9. Future Querying: Can LLMs Serve as Implicit Medical World Models?
-
-- **ArXiv ID**: [2608.23248v1](https://arxiv.org/abs/2608.23248v1)
-- **作者**: Siri Willems, James Butterworth, Lore Goetschalckx, Peter Vrancx, Philippe Modard...
-- **发布时间**: 2026-08-24
 - **分类**: cs.CL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.23248v1](https://arxiv.org/pdf/2608.23248v1)
+- **PDF**: [https://arxiv.org/pdf/2608.24011v1](https://arxiv.org/pdf/2608.24011v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Traditional clinical prediction models rely on task-specific pipelines and curated, structured data, which scale poorly and underutilize unstructured text. To address this, we introduce future querying, a paradigm that probes whether large language models (LLMs) can function as implicit medical world models by evaluating their ability to answer time-indexed clinical queries about a patient's future. Our framework operates on unstructured clinical documentation using endpoint-agnostic training, enabling a single model to answer diverse clinical queries over patient trajectories without manual feature engineering or task-specific retraining. We show that small, locally fine-tuned open-weight models can match or approach larger proprietary systems, making the framework suitable for privacy-preserving, on-premise deployment. Evaluated on a new synthetic medical reports dataset and real ICU notes from the MIMIC-IV dataset, our results provide encouraging evidence that LLMs can capture aspects of clinical dynamics.
+Chinese ancient document understanding demands complex visual, linguistic, and historical reasoning. Current Large Vision-Language Models (LVLMs) typically rely on an opaque, single-pass generation paradigm, often producing overconfident and weakly grounded responses. To address this, we propose SAGE, an evidence-grounded multi-agent framework that reformulates Chinese ancient document understanding as evidence-grounded inference rather than direct answer generation. SAGE coordinates specialized agents for task-aware planning, tool-mediated evidence acquisition, claim-level verification, and bounded replanning under a constrained shared-state runtime. This design supports bounded evidence seeking, answer revision, and abstention when grounding is insufficient. Experiments on the AncientDoc benchmark show that SAGE consistently outperforms matched direct-answering baselines across three LVLM backbones. Remarkably, SAGE with Qwen3.5-9B surpasses much larger monolithic LVLMs on most evaluated metrics, highlighting the importance of structured, evidence-grounded inference beyond model scaling.
 
 #### 深度分析（中文）
 
@@ -185,18 +33,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 10. Retrieval-Augmented Classification of Environmental Mitigations in Hydropower Licensing Documents
+### 2. Automatic Model Card Generation Using an LLM
 
-- **ArXiv ID**: [2608.23241v1](https://arxiv.org/abs/2608.23241v1)
-- **作者**: Hong-Jun Yoon, Tom Ruggles, Joanna Lee, Debjani Singh
-- **发布时间**: 2026-08-24
-- **分类**: cs.IR, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.23241v1](https://arxiv.org/pdf/2608.23241v1)
+- **ArXiv ID**: [2608.24807v1](https://arxiv.org/abs/2608.24807v1)
+- **作者**: Tajkia Rahman Toma, Balreet Grewal, Cor-Paul Bezemer
+- **发布时间**: 2026-08-26
+- **分类**: cs.SE, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.24807v1](https://arxiv.org/pdf/2608.24807v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Identifying and classifying environmental mitigation obligations in Federal Energy Regulatory Commission hydropower licensing documents is a labor-intensive task requiring deep domain expertise. We formulate this as a multi-label classification problem over a structured 135-category taxonomy and address the central challenge of severe label scarcity: 40 of 135 categories have no training examples, and 26 have fewer than five. A supervised Bidirectional Encoder Representations from Transformers (BERT)-based pipeline, while effective on well-represented categories, achieves F1 of zero on unseen classes regardless of augmentation strategy. We introduce a Retrieval-Augmented Generation (RAG) pipeline that conditions classification on retrieved category definitions, enabling zero-shot generalization across the full label space. We further propose a hybrid system that combines BERT detection with RAG classification, exploiting the high recall of fine-tuned detection and the zero-shot coverage of retrieval-augmented reasoning. Evaluated on the full set of 2017 license documents (5,860 paragraphs, 135 categories), the hybrid achieves a Micro F1 of 0.524, outperforming the BERT-only pipeline (0.477) and the RAG-only pipeline (0.416) across all training-support buckets.
+Model cards are structured documents that summarize key information about machine learning models to improve transparency, usability, and accountability. However, they often lack a consistent structure, and many models provide no model cards, making comparison and interpretation difficult. This paper presents two contributions. First, we propose MCTidy, an LLM-based approach that reorganizes existing model cards into a standardized template to improve clarity and comparability. Second, we introduce MCGenie, an LLM-based system that generates model cards directly from model repository data. We apply MCTidy to 48 Hugging Face model cards and evaluate information retention, section alignment, hallucination, and stability. Our findings show high information retention with minimal textual loss, accurate section assignment, rare hallucinations primarily in descriptive sections, and strong stability across runs. We assess MCGenie by generating model cards for the same 48 models and assessing semantic similarity, factual correctness, and sensitivity to input resources. The generated model cards achieved high semantic similarity (mean around 0.9); over half were fully correct, and most remaining errors were minor. Generation quality depended strongly on the availability of supporting resources, particularly associated papers. Overall, our findings demonstrate the potential of LLM-based methods to enable scalable, standardized model card documentation.
 
 #### 深度分析（中文）
 
@@ -204,18 +52,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 11. Think Only When Needed: Prompt-Authority Control for Selective Slow-Path Intervention in Vision-Language-Action Manipulation
+### 3. SPO++: Stream-Aligned Policy Optimization for Asynchronous Agentic RL
 
-- **ArXiv ID**: [2608.23224v1](https://arxiv.org/abs/2608.23224v1)
-- **作者**: Zhiruo Zhou, Zelin Li, Xiwen Chen, Jiazhuo Li, Chenwei Wang...
-- **发布时间**: 2026-08-24
-- **分类**: cs.RO, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.23224v1](https://arxiv.org/pdf/2608.23224v1)
+- **ArXiv ID**: [2608.24870v1](https://arxiv.org/abs/2608.24870v1)
+- **作者**: Kai Ruan, Jinghao Lin, Qianshan Wei, Ziqi Zhou, Zihe Huang
+- **发布时间**: 2026-08-26
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.24870v1](https://arxiv.org/pdf/2608.24870v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Retrieval can efficiently and effectively augment a frozen vision--language--action (VLA) policy without retraining, yet retrieved text becomes a control intervention once it enters the executed prompt. In a matched audit, raw appended text reduces mean success from 92.47\% to 3.00\%, while meaningful and length-matched meaningless appends both fail on all 500 states. This result identifies \emph{prompt-form collapse}: changing the instruction form, rather than adding useful semantics, can dominate execution. We introduce TOWN-VLA (Think Only When Needed), a prompt-authority interface that separates candidate generation from permission to alter the policy input. A fixed compatibility rule authorizes a canonical compact instruction; otherwise, the interface restores the original Base prompt exactly. Across 900 audited routes, every route follows this contract: 525 routes recover Base with matching hashes, and all 375 authorized prompts preserve the task signature. On a matched $4\times7$ LIBERO-Plus evaluation with 10{,}030 episodes per method, success rises from 69.5\% to 73.1\% ($+362$ episodes; 95\% CI 1.89--5.45 points), improving on six perturbation axes and all four suites. On a physical PiPER arm with a frozen \pizerofive{} checkpoint, success rises from 52.7\% to 78.7\% over 150 trials per method ($p=3.16\times10^{-6}$). Prompt authority is enforceable for a frozen controller; oracle-free admission calibration is the next deployment target.
+Group-relative reinforcement learning waits for sibling rollouts of the same prompt, which is costly for long and variable tool-use trajectories. Single-stream Policy Optimization (SPO) removes this dependency with a persistent prompt-level value estimate, but its recipe whitens one advantage per trajectory before optimizing a token-mean actor loss. We show that trajectory centering generally does not center the token-weighted quantity consumed by the actor, and fix the mismatch by standardizing terminal-outcome advantages under the action-token measure. We additionally organize prompt evidence by the policy event that generated it rather than learner receipt order. Across matched runs on ALFWorld at two model scales and on Math-TIR, SPO++ improves online learning efficiency over SPO. A paired ablation identifies action-token-measure normalization as the strongest tested component.
 
 #### 深度分析（中文）
 
@@ -223,37 +71,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 12. Aligning Biomedical Texts and Knowledge Graphs: A Systematic Comparison of Lightweight Alignment Strategies
+### 4. When "Must" Becomes "Maybe": Constraint Weakening in LLM Agent Workflows
 
-- **ArXiv ID**: [2608.23214v1](https://arxiv.org/abs/2608.23214v1)
-- **作者**: Artem Bisliouk, Elizaveta Nosova, Heiko Paulheim, Andreea Iana, Rita T. Sousa
-- **发布时间**: 2026-08-24
-- **分类**: cs.CL, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.23214v1](https://arxiv.org/pdf/2608.23214v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Biomedical knowledge exists in two complementary but distinct forms: unstructured scientific literature and structured knowledge graphs (KGs). Aligning them is essential for knowledge grounding, evidence retrieval, and KG completion, yet existing methods do not explicitly align free-text evidence with KG triples. We present a unified framework for systematically studying design choices for aligning biomedical text and KGs. With a text encoder and a KG embedding model both frozen, we learn only a lightweight projection between their spaces via a contrastive objective. This enables a fair comparison across six design dimensions: text encoder, KG embedding model, projection head, triple composition, training direction, and hard-negatives sampling. We construct CTD-Align, a corpus of over 22K one-to-one tripledocument pairs linking chemical-gene interactions from the Comparative Toxicogenomics Database to supporting PubMed passages. We evaluate alignment on it in two retrieval settings: document-to-triple and triple-to-document. We find that the triple composition and the training direction (i.e., shared retrieval space) have the greatest impact, whereas the text encoder and hard-negatives sampling matter little. Overall, simple choices win: projecting text into the KG space with a linear head over concatenated subject, predicate, and object embeddings performs best. These findings establish lightweight contrastive alignment as an effective, practical foundation for bridging biomedical text and KGs.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 13. EG-ARSA: An Expert-Grounded Open Model for Visual Road Safety Auditing in Low-Resource Settings
-
-- **ArXiv ID**: [2608.23563v1](https://arxiv.org/abs/2608.23563v1)
-- **作者**: Md Thamed Bin Zaman Chowdhury, Moazzem Hossain
+- **ArXiv ID**: [2608.24569v1](https://arxiv.org/abs/2608.24569v1)
+- **作者**: Yiheng Sun, Huifei Wang, Yancheng Zhu, Zhenyu Li, Zebin Zhao...
 - **发布时间**: 2026-08-25
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.23563v1](https://arxiv.org/pdf/2608.23563v1)
+- **分类**: cs.AI, cs.MA
+- **PDF**: [https://arxiv.org/pdf/2608.24569v1](https://arxiv.org/pdf/2608.24569v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Road traffic injuries remain a major challenge in low- and middle-income countries, where proactive road safety auditing is limited by incomplete crash records, shortages of qualified auditors, and the high cost of large-scale field inspections. To address this problem, we propose Expert-Grounded Distillation (EGD), a novel artificial intelligence framework that transfers institutional road safety expertise into a compact vision-language model for scalable visual road safety auditing. The key innovation is a quantified expert-grounding stage in which the teacher vision-language model is calibrated against authoritative field audits. Large-scale annotation is permitted only after the teacher reaches substantial agreement with expert risk assessments (Cohen's kappa = 0.74). The calibrated teacher then generates structured supervision that is distilled into an 8-billion-parameter student vision-language model using Low-Rank Adaptation and a single leakage-free prompt. We also introduce Bangladesh Road Safety Audit (BD-ARSA), the first open, expert-grounded Bangladeshi visual road safety audit dataset containing 21,947 image-audit records with near-national coverage, and Expert-Grounded Road Safety Auditor (EG-ARSA), the first vision-language model developed specifically for this task. Experimental results show that grounded fine-tuning substantially improves ordinal risk assessment over the zero-shot baseline, while blind expert evaluation demonstrates that the compact student outperforms both its 31 billion-parameter teacher and Gemini-2.5-Flash. These findings demonstrate that EGD provides an effective and scalable engineering solution for proactive road safety auditing in resource-constrained environments.
+Large language model (LLM) agents coordinate complex tasks through multi-role and multi-stage workflows. Upstream state is repeatedly transformed into intermediate language artifacts, such as summaries, plans, tickets, memories, and handoff notes, from which downstream components act. For action-constraining state, topical retention is insufficient: an artifact may mention an unresolved condition while changing it from a requirement that must be resolved before execution into information that may merely inform the next action. We study this action-binding role as operational state preservation. Safety blockers provide a controlled instance because each source state has an explicit prerequisite, authority, fallback, and execution consequence. We condition on correct upstream identification, vary the handoff transformation, and evaluate an executor restricted to the resulting artifact. Across 1,296 controlled synthetic episodes, direct-handoff controls preserve every blocker, whereas compression, plan assimilation, convergence, ownership deferral, and precedent substitution repeatedly turn binding state into caveats or non-binding considerations. Normal handoff compression produces 100.0% deactivation and 54.2% forbidden action. Restoring all four state fields raises preservation to 100.0% and reduces forbidden action to 0.0%. Fixed-artifact interventions further separate preservation from containment: downstream verification eliminates forbidden action while artifact deactivation remains 95.3%. These results identify a state-transmission failure between information extraction and action. Handoff transformations can retain state content while weakening its constraints on downstream action. Semantic availability does not guarantee operational preservation.
 
 #### 深度分析（中文）
 
@@ -261,18 +90,170 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 14. FixAnything: 3D-Consistent Rendering Refinement via Video Generative Priors
+### 5. Right Diagnoses, Decorative Reasoning:A Perturbation Audit of Medical Chain-of-Thought
 
-- **ArXiv ID**: [2608.23549v1](https://arxiv.org/abs/2608.23549v1)
-- **作者**: Khiem Vuong, Deva Ramanan, Srinivasa Narasimhan
+- **ArXiv ID**: [2608.24790v1](https://arxiv.org/abs/2608.24790v1)
+- **作者**: Mengzhu Xu, Jifan Gao, Xia Jiang, Yaoxin Wu, Xi Long
+- **发布时间**: 2026-08-26
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.24790v1](https://arxiv.org/pdf/2608.24790v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Clinicians read chain-of-thought (CoT) rationales as evidence of medical reasoning, but whether the visible chain plays that role is rarely tested. General-domain CoT-faithfulness probes ignore clinical cost, and medical LLM evaluations treat the chain as a black box. We close this gap with a medical perturbation audit: a 30-operator battery edits both the chain and the question with clinically motivated operators (severity reversal, negation flip, demographic swap, evidence ablation), paired with a chain-update times answer-flip joint analysis that classifies each model by its failure mode. Applied to 14 LLMs on four medical QA benchmarks, three independent tests converge: the Chain-Decoupling Rate (CDR; chain does not register the edit and the answer does not flip) is 72.9% panel-wide on clinically meaningful destructive edits, chain corruption leaves accuracy unchanged, and removing CoT prompting does not reduce accuracy. Two board-certified clinicians re-annotate N=197 perturbed questions; 98.5% leave the gold defensible. The pattern holds across medical and reasoning fine-tuning and scale; on the closed-source tier, where the chain text is unavailable, the answer-side signals are consistent with the same decoupling. Our framework and CDR provide a reusable yardstick for auditing whether medical CoT is faithful or merely documentation.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 6. Evidence Blindness in Direct Corpus Interaction: Persistent Navigation with AtlasNav
+
+- **ArXiv ID**: [2608.24764v1](https://arxiv.org/abs/2608.24764v1)
+- **作者**: Hongyu Guo, Zhiyu Zheng, Zhao Cao
+- **发布时间**: 2026-08-26
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.24764v1](https://arxiv.org/pdf/2608.24764v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Large language model agents are moving beyond conventional retrieval-augmented generation toward direct interaction with external corpora. Direct Corpus Interaction (DCI) keeps the full corpus accessible, yet reachable evidence can remain unusable under finite interaction budgets. Required evidence may fail to surface, a surfaced supporting document may remain unopened, or an opened document may fail to expose its decisive fragment. We call this progressive silent loss Evidence Blindness and quantify it through stage-wise evidence realization. Within the DCI paradigm, raw interaction adds little reusable corpus organization, while dynamic-workspace methods reconstruct a query-conditioned interaction space from each query and trajectory. In both cases, useful structure is recovered largely online. We instead formulate large-scale agentic search as finite-budget navigation over reusable corpus structure. We introduce AtlasNav, a persistent multi-view corpus-navigation framework that retains direct corpus interaction but organizes the corpus once into a Corpus Atlas, allowing each query to navigate adaptively rather than reconstruct shared structure. On BrowseComp-Plus, AtlasNav achieves 92.05% strict accuracy while reducing recorded online inference cost by 30.21% relative to the prior dynamic-workspace state of the art. Under matched budgets, it realizes the complete required evidence earlier and approaches the same model's evidence-supplied empirical reference more rapidly. The same representation principle remains effective under PhantomWiki's distinct corpus organization and controlled 10K-1M scaling, and transfers competitively to heterogeneous enterprise knowledge. These results show that agentic search depends not only on accessible evidence, but also on how the corpus is represented so that limited interaction becomes effective navigation.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 7. The Annotation Bottleneck in Persian Text NLP: Persian as an Annotation-Scarce Language
+
+- **ArXiv ID**: [2608.24698v1](https://arxiv.org/abs/2608.24698v1)
+- **作者**: MohammadHossein Mortazavi, Mostafa Salehi, Hadi Veisi
 - **发布时间**: 2026-08-25
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2608.24698v1](https://arxiv.org/pdf/2608.24698v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Persian (Farsi) is often described as a low-resource language in natural language processing, but that label collapses distinct shortages into a single category. This paper argues that Persian is more precisely described as annotation-scarce, provided that the term is understood as a property of its NLP resource ecology rather than an intrinsic property of the language. The review covers 34 representative Persian text resources available by July 2026 and adds three quantitative cross-checks. First, independent web measurements place Persian among roughly the twenty most visible content languages: W3Techs reports Persian on about 0.9% of websites with a known content language, while Common Crawl CC-MAIN-2026-30 identifies Persian as the primary language of 0.7039% of HTML pages. Second, a selective speech review shows a long resource trajectory from FARSDAT to recent corpora containing hundreds or thousands of hours of speech. Third, a matched Persian-English comparison normalizes task-specific annotation volumes by relative Common Crawl web presence. The resulting ratios vary sharply: Persian syntax and news NER are comparatively dense, whereas natural-language inference falls below the web-proportional baseline. The evidence therefore does not support a simple claim that Persian is globally deficient in labeled volume. Instead, annotation scarcity is expressed through uneven task and domain coverage, incompatible schemes, access and documentation friction, and limited supervision for specialist domains, preference data, and varieties beyond standard Iranian Persian.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 8. COCI: Conference Organisers and Content Identifier
+
+- **ArXiv ID**: [2608.24559v1](https://arxiv.org/abs/2608.24559v1)
+- **作者**: Angelo Salatino, Francesco Osborne, Alexis Vizcaino, Aliaksandr Birukou, Enrico Motta
+- **发布时间**: 2026-08-25
+- **分类**: cs.DL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.24559v1](https://arxiv.org/pdf/2608.24559v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Despite the critical role of grey literature in scholarly communication, artefacts such as Calls for Papers (CfPs) remain largely isolated from modern Scholarly Knowledge Graphs. The unstructured and highly heterogeneous nature of these documents has traditionally hindered their large-scale processing. In this demo paper, we present the Conference Organisers and Content Identifier (COCI), an AI-based framework designed to extract fine-grained, structured metadata from raw CfP texts. COCI employs a multi-stage pipeline that combines Large Language Models (LLMs) with semantic mapping techniques to integrate extracted entities with established knowledge bases, including OpenAlex, DBLP, TIB ConfIDent, and the AIDA Dashboard. By disambiguating authors and semantically aligning topics and conference series, COCI bridges the gap between informal scholarly dissemination and structured Semantic Web resources, laying the foundation for systematic analysis of non-publisher-based academic events.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 9. When Do Supervised UQ Ensembles Improve LLM Hallucination Detection? A Robustness Study
+
+- **ArXiv ID**: [2608.24492v1](https://arxiv.org/abs/2608.24492v1)
+- **作者**: Mohit Singh Chauhan, Vipin Gyanchandani, Dylan Bouchard
+- **发布时间**: 2026-08-25
+- **分类**: cs.LG, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2608.24492v1](https://arxiv.org/pdf/2608.24492v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Uncertainty quantification (UQ) methods are widely used for hallucination detection in large language models (LLMs) in closed-book settings where ground-truth evidence is unavailable at inference time. Prior work has proposed combining UQ signals via learned ensembles, but empirical investigations into the robustness of these ensembles are limited. We study a supervised ensembling framework that trains a classifier over heterogeneous UQ-based scorer outputs on a small, domain-specific dataset of labeled LLM responses, then applies it to out-of-sample hallucination classification without retrieval, tools, or reference documents. Across four LLMs, nine datasets, and three generation regimes (short-form QA, long-form generation, and code generation), we provide a systematic robustness analysis along three axes: sample efficiency, in-domain dataset transfer, and generation regime dependence. We find that supervised ensembles outperform the best individual scorer in 30 of 32 settings, with gains realized from as few as 100 labeled instances. Ensembles retain most of their advantage in cases of in-domain transfer under distribution shift, outperforming the best non-ensemble scorer in 23 of 28 transfer settings. Sampling-based black-box ensembles are nearly as effective as full ensembles, while single-generation white-box ensembles offer limited benefit.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 10. Shortcut Before Circuit: Document Statistics Time In-Context Conflict Resolution
+
+- **ArXiv ID**: [2608.24460v1](https://arxiv.org/abs/2608.24460v1)
+- **作者**: Yijun Liao, Fanwei Liang
+- **发布时间**: 2026-08-25
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2608.24460v1](https://arxiv.org/pdf/2608.24460v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+When a context asserts two values for one fact, a model commits to a cue -- recency, repetition, position -- but natural data rarely makes these disagree, so behavior cannot reveal which. We train 26M-parameter transformers on a synthetic language where recency and rarity are exactly coextensive, and separate them with a minimal causal edit that inverts one cue while holding the truth, token count and answer position fixed. All 75 runs reach accuracy >= 0.999, including where the trivial heuristic fails, so no held-in evaluation distinguishes them. Under intervention the per-cell readout does not replicate: 13 of 25 cells differ by more than 0.3 in sign fraction across three seeds, the largest by 0.879 against a standard error of 0.025. The construction predicts this -- coextensive rules leave the objective indifferent between them -- and the variance is ordered by how much of the optimization each comparison releases. What replicates is timing: escape from a positional shortcut with a closed-form ceiling, monotone in redundancy. Probed before that escape, attribution reverses sign in 32 of 75 runs at unchanged accuracy, and gating on circuit formation is necessary but not sufficient. The corpus fixes when a mechanism appears, not which one -- a criterion for when mechanistic attribution to data is available at all, and our construction makes the unavailable case exact.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 11. Dataset Scarcity Limits Robust Evaluation of Multilingual Embedding Models: A Case Study of Slavic Languages
+
+- **ArXiv ID**: [2608.24477v1](https://arxiv.org/abs/2608.24477v1)
+- **作者**: Ana Gjorgjevikj, Barbara Koroušić Seljak, Tome Eftimov
+- **发布时间**: 2026-08-25
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2608.24477v1](https://arxiv.org/pdf/2608.24477v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Multilingual text embedding models enable cross-lingual transfer of knowledge across a wide range of NLP tasks, but their evaluation remains highly uneven across high-, mid- and low-resource languages. In this paper, we propose a two-dimensional framework, specifically tailored for analyzing multilingual embedding benchmarks under dataset scarcity, and apply it on the Slavic-language subset of the MTEB benchmark. The framework distinguishes between task-specific and cross-task evaluation, while jointly analyzing three complementary aspects: (1) ranking robustness, (2) model consistency, and (3) evidence strength. At the task-specific level, we evaluate the stability of model rankings under changes in ranking methodology and benchmark dataset composition. At the cross-task level, we assess the ability of models to generalize across diverse tasks within a language. To quantify the reliability of benchmark conclusions, we introduce an Evidence Strength Score that accounts for dataset availability, diversity, and robustness assessability. Our analysis reveals severe benchmark sparsity, with many Slavic language-task pairs relying on a single dataset or highly correlated benchmark collections, limiting the ability to draw robust conclusions. The cross-task analysis reveals a small group of highly transferable models, most notably llama-embed-nemotron-8b, multilingual-e5-large-instruct, and Qwen3-Embedding variants, that consistently perform well across Slavic languages and tasks. Overall, the results demonstrate that benchmark rankings and robustness conclusions must be interpreted jointly with certain notation of their evidence strength and highlight benchmark scarcity as a major obstacle to trustworthy multilingual evaluation.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 12. Do Robotic World Models Really Follow Actions? Diagnosing and Aligning Action-Conditioned Generation for Policy Learning
+
+- **ArXiv ID**: [2608.24885v1](https://arxiv.org/abs/2608.24885v1)
+- **作者**: Sixiang Chen, Jiaming Liu, Jixian Wu, Yichen Guo, Tinghao Wang...
+- **发布时间**: 2026-08-26
+- **分类**: cs.RO, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.24885v1](https://arxiv.org/pdf/2608.24885v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Action-conditioned world models are increasingly used as learned simulators for policy evaluation and improvement, yet their effectiveness rests on an unverified assumption: generated futures faithfully reflect arbitrary valid actions. Existing benchmarks are typically confined to expert demonstrations, leaving off-expert action following inadequately evaluated. To address this gap, we introduce WorldEcho, which probes action following over a broader action distribution using visual integrity and SE(3) trajectory alignment. Our diagnosis shows that current world models reasonably execute expert actions but struggle with diverse off-expert trajectories, either ignoring the commanded actions or producing visually invalid rollouts. We further propose WorldSync, which strengthens action following along three complementary axes: distributional coverage, representational grounding, and intervention-effect alignment. It broadens the training distribution over action consequences, grounds intermediate video representations in action-induced robot dynamics through an Action-Forcing Expert, and aligns predicted changes under action interventions with the corresponding changes in ground-truth futures. Experiments on RoboTwin benchmarks and real-robot tasks show that WorldSync improves WorldEcho metrics and serves as a more reliable simulator for iterative policy improvement, enabling policies to achieve higher success rates.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 13. From Seeing to Acting: Smart Glasses as First-Person Intelligence Platforms
+
+- **ArXiv ID**: [2608.24877v1](https://arxiv.org/abs/2608.24877v1)
+- **作者**: Jiangning Zhang, Haojun Chen, Yong Liu
+- **发布时间**: 2026-08-26
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.23549v1](https://arxiv.org/pdf/2608.23549v1)
+- **PDF**: [https://arxiv.org/pdf/2608.24877v1](https://arxiv.org/pdf/2608.24877v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Rendering views using 3D scene representations such as Gaussian Splatting (3DGS), Neural Radiance Fields (NeRF), meshes, or even point clouds produces artifacts when input views are sparse or target views lie far from the input. Recent work mitigates these artifacts using diffusion-based generative priors, but is specialized to individual representations and require custom architectures or extensive retraining. We present FixAnything, a single model for fixing a wide range of rendering artifacts. It does so by repurposing a pretrained video generative model, leveraging its implicit multi-view priors with only minimal modification and lightweight finetuning. Our key insight is that even noisily-rendered sequences preserve camera motion and coarse scene structure, allowing cleanup to be formulated as video-to-video translation. To control what scene structure should be preserved, we introduce a binary mask denoting the clean pixels, enabling the model to anchor its output to high-quality inputs (e.g. training views) while refining the rest. To encourage FixAnything to produce 3D-consistent renderings that support downstream reconstruction, we use camera pose accuracy (recovered via structure-from-motion) as a reward signal for direct preference optimization (DPO). Across four distinct 3D representations, FixAnything consistently improves rendering quality with lightweight finetuning, demonstrating that a single generalist video prior can replace multiple specialist refinement pipelines. The simplicity of the framework enables immediate adoption of stronger future video models without architectural redesign.
+Smart glasses are evolving from capture and display accessories into first-person intelligence platforms that connect human perception, persistent context, and digital or physical action. Their on-body viewpoint aligns with the wearer's vision, audition, motion, and hand-object interaction, but must operate under tight energy, thermal, privacy, and feedback constraints. Despite rapid progress in augmented reality, egocentric vision, multimodal models, human-computer interaction, and embodied intelligence, the literature remains fragmented across devices, tasks, and benchmarks. \textit{The key challenge is not whether a model can recognize, answer, remember, or act in isolation, but whether a complete system can sustain a reliable, temporally valid, correctable, and governable perception-state-interaction-action loop.} This survey is \textit{the \textbf{first} to systematically study smart glasses through such a unified framework}. We formalize first-person data flow and constrained task utility, characterize devices along eight verifiable hardware capability axes, organize the literature around seven interdependent foundational capabilities, and introduce an L0-L5 framework spanning capture, reactive perception, contextual assistance, persistent state, governed action, and embodied coupling. Across nine application scenes, we connect tasks with datasets, systems, products, stakeholders, failure consequences, and evidence gaps. We further present a nine-dimensional deployment framework, a claim-conditioned evaluation protocol, and an evidence ladder from controlled measurement to longitudinal field validation and audit. Together, these elements make smart glasses more comparable, deployable, and reproducibly evaluated, while outlining a roadmap toward trustworthy first-person intelligence.
 
 #### 深度分析（中文）
 
@@ -280,18 +261,37 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 15. Adapter-Based Few-Shot Continual Learning for Malicious Packet Recognition
+### 14. LeFlow: Generative Latent Flow Planning for World Models
 
-- **ArXiv ID**: [2608.23536v1](https://arxiv.org/abs/2608.23536v1)
-- **作者**: Kyle Stein, Guillermo Francia, III Eman El-Sheikh, Andrew Arash Mahyari
-- **发布时间**: 2026-08-25
-- **分类**: cs.CR, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.23536v1](https://arxiv.org/pdf/2608.23536v1)
+- **ArXiv ID**: [2608.24855v1](https://arxiv.org/abs/2608.24855v1)
+- **作者**: Hsiang-Wei Huang, Jianxu Shangguan, Junbin Lu, Jenq-Neng Hwang
+- **发布时间**: 2026-08-26
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.24855v1](https://arxiv.org/pdf/2608.24855v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-The continual evolution of malware variants necessitates detection systems that can adapt to new threats without retraining from scratch. However, continually updating models on new data often leads to catastrophic forgetting, where previously learned knowledge is overwritten. While continual learning has been increasingly explored for malware detection, the specific setting of Few-Shot Class-Incremental Learning (FSCIL), where new malware classes must be learned from only a small number of labeled examples, remains comparatively underexplored. Therefore, this work investigates the FSCIL setting for malware classification. To address the stability-plasticity dilemma, we propose a hybrid framework that leverages a Self-Supervised Learning (SSL) backbone initialized through domain-specific pre-training on malware packets. Our method incorporates Low-Rank Adaptation (LoRA) to efficiently adapt the model during the base session while freezing the core backbone to preserve previously learned representations, alongside a prototype-based classification head for incremental sessions to establish robust decision boundaries from limited samples. Extensive experiments across several datasets demonstrate that our approach consistently outperforms prior malware FSCIL baselines and achieves state-of-the-art performance.
+Latent world models are inherently strong encoders that transform image pixel to latent embedding, yet existing world models still rely on online trajectory optimization for action planning: for every state-goal pair, an iterative optimizer is run from scratch to search for optimal action sequences, treating the world model as a black-box simulator. This approach pays the full iterative optimization cost anew at every replanning step and reuses no planning experience across queries. In this work, we ask whether planning itself can be amortized once a latent world model has been learned. We present LeFlow, which learns a reusable latent trajectory prior operating directly in the latent dynamics space from the world model. LeFlow recasts planning as conditional latent trajectory generation: a rectified-flow model imagines a future latent path between the current and goal embeddings, an inverse dynamics decoder turns latent transitions into action chunks, and the frozen world model verifies each candidate by autoregressive rollout. Across four major goal-conditioned pixel-control benchmarks, LeFlow replaces iterative action-space optimization with amortized latent planning and fixed-budget rollout selection, achieving consistent success-rate gains with an order-of-magnitude reduction in planning time. Our results argue that latent world models should support not only prediction but reusable planning priors. Our code is available at https://github.com/hsiangwei0903/LeFlow.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 15. EMFE: A lightweight, explainable machine learning framework for malaria cell classification
+
+- **ArXiv ID**: [2608.24793v1](https://arxiv.org/abs/2608.24793v1)
+- **作者**: Md Abdullah Al Kafi, Walayat Hussain, Mousumi Karmakar, Sumit Kumar Banshal, Ahmed Al Marouf
+- **发布时间**: 2026-08-26
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.24793v1](https://arxiv.org/pdf/2608.24793v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Automated malaria diagnosis from stained blood-smear microscopy is dominated by deep convolutional neural networks that are accurate but computationally expensive, poorly interpretable, and rarely validated with patient-level rigor. We present EMFE (Efficient Mathematical Feature Extraction), a five-feature framework for classifying single red-blood-cell images as parasitized or uninfected using Gray World color normalization, adaptive green-channel thresholding, morphological spot detection, and classical machine learning. Using the NIH LHNCBC malaria dataset (27,558 images from 200 patients), we evaluate Random Forest, Histogram Gradient Boosting, and Support Vector Machine classifiers under patient-grouped nested cross-validation (K_outer=20, K_inner=3), ensuring that cells from each patient remain within a single fold. The optimized Random Forest achieves 94.6% pooled out-of-fold accuracy (95% CI [93.6, 95.7]), corroborated by an untouched 40-patient holdout test (94.3%) and a patient-level permutation test (p<0.001, 1,000 permutations). Ablation experiments quantify the contribution of individual features and pipeline stages. Hardware-matched comparisons with retrained DenseNet121, ResNet50, and MobileNetV2 models assess the accuracy-efficiency trade-off. Synthetic perturbations characterize three failure modes, while explainability analysis identifies spot saturation as the dominant discriminative feature. Patient-level aggregation further quantifies sensitivity-specificity trade-offs and false-positive accumulation. These results demonstrate a statistically rigorous, interpretable, and computationally lightweight alternative to deep learning, while explicitly quantifying its limitations.
 
 #### 深度分析（中文）
 
