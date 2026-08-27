@@ -1,8 +1,8 @@
-# OCR arXiv Daily Pro — 2026-08-26
+# OCR arXiv Daily Pro — 2026-08-27
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-08-25 09:10 - 2026-08-26 09:10 (Asia/Shanghai)
+> 时间窗口：2026-08-26 09:10 - 2026-08-27 09:10 (Asia/Shanghai)
 
 ---
 
@@ -14,18 +14,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ## 📄 论文详情
 
-### 1. SAGE: From Direct Answering to Evidence-Grounded Inference for Chinese Ancient Document Understanding
+### 1. PlanSightRAG: A Visual-First Multimodal RAG for Automating Question Answering and Compliance Checking for Civil Standard Plans
 
-- **ArXiv ID**: [2608.24011v1](https://arxiv.org/abs/2608.24011v1)
-- **作者**: Yuchuan Wu, Xuan Luo, Yinglian Zhu, Meng Fang, Xiangyang Xue...
-- **发布时间**: 2026-08-25
-- **分类**: cs.CL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.24011v1](https://arxiv.org/pdf/2608.24011v1)
+- **ArXiv ID**: [2608.26091v1](https://arxiv.org/abs/2608.26091v1)
+- **作者**: Nabaraj Subedi, Shuvo Dip Datta, Ahmed Abdelaty, Shivanand Venkanna Sheshappanavar
+- **发布时间**: 2026-08-27
+- **分类**: cs.IR, cs.CL, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.26091v1](https://arxiv.org/pdf/2608.26091v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Chinese ancient document understanding demands complex visual, linguistic, and historical reasoning. Current Large Vision-Language Models (LVLMs) typically rely on an opaque, single-pass generation paradigm, often producing overconfident and weakly grounded responses. To address this, we propose SAGE, an evidence-grounded multi-agent framework that reformulates Chinese ancient document understanding as evidence-grounded inference rather than direct answer generation. SAGE coordinates specialized agents for task-aware planning, tool-mediated evidence acquisition, claim-level verification, and bounded replanning under a constrained shared-state runtime. This design supports bounded evidence seeking, answer revision, and abstention when grounding is insufficient. Experiments on the AncientDoc benchmark show that SAGE consistently outperforms matched direct-answering baselines across three LVLM backbones. Remarkably, SAGE with Qwen3.5-9B surpasses much larger monolithic LVLMs on most evaluated metrics, highlighting the importance of structured, evidence-grounded inference beyond model scaling.
+Civil infrastructure compliance checking has long relied on engineers manually reading legacy 2D plans; however, OCR-based automation strips away the geometry and layout essential for interpreting these plans. We present a Visual-First Multimodal Retrieval-Augmented Generation (RAG) framework called PlanSightRAG. It indexes and reasons directly over plan imagery, integrates a ColNomic-3B multi-vector retrieval, an agentic Planner-Retriever-Auditor-Synthesizer, and MaxSim heatmaps as an evidence trail. We introduce a 4,056-pair benchmark from five state Departments of Transportation (DOT) standard plans (1,898 pages). PlanSightRAG achieves 91.47% Recall@5 on zero-shot retrieval, while on a held-out Michigan DOT corpus, it achieves 91.40%. On synthetic, parametrically-generated compliance drawings, our Qwen2.5-VL-72B pipeline reaches 100% verdict accuracy only when supplied a pre-resolved rule threshold, a controlled ceiling that a non-VLM OCR baseline already reaches at 76.4%. Finally, we demonstrate autonomous visual rule-grounding by extracting numeric limits directly from a specification corpus without any human-supplied rules.
 
 #### 深度分析（中文）
 
@@ -33,18 +33,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 2. Automatic Model Card Generation Using an LLM
+### 2. DocPC: Document-Level Visual Retrieval via Representative Page Composition
 
-- **ArXiv ID**: [2608.24807v1](https://arxiv.org/abs/2608.24807v1)
-- **作者**: Tajkia Rahman Toma, Balreet Grewal, Cor-Paul Bezemer
+- **ArXiv ID**: [2608.25434v1](https://arxiv.org/abs/2608.25434v1)
+- **作者**: Chengsong You, Junwei Zhou, Nan Du
 - **发布时间**: 2026-08-26
-- **分类**: cs.SE, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.24807v1](https://arxiv.org/pdf/2608.24807v1)
+- **分类**: cs.IR
+- **PDF**: [https://arxiv.org/pdf/2608.25434v1](https://arxiv.org/pdf/2608.25434v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Model cards are structured documents that summarize key information about machine learning models to improve transparency, usability, and accountability. However, they often lack a consistent structure, and many models provide no model cards, making comparison and interpretation difficult. This paper presents two contributions. First, we propose MCTidy, an LLM-based approach that reorganizes existing model cards into a standardized template to improve clarity and comparability. Second, we introduce MCGenie, an LLM-based system that generates model cards directly from model repository data. We apply MCTidy to 48 Hugging Face model cards and evaluate information retention, section alignment, hallucination, and stability. Our findings show high information retention with minimal textual loss, accurate section assignment, rare hallucinations primarily in descriptive sections, and strong stability across runs. We assess MCGenie by generating model cards for the same 48 models and assessing semantic similarity, factual correctness, and sensitivity to input resources. The generated model cards achieved high semantic similarity (mean around 0.9); over half were fully correct, and most remaining errors were minor. Generation quality depended strongly on the availability of supporting resources, particularly associated papers. Overall, our findings demonstrate the potential of LLM-based methods to enable scalable, standardized model card documentation.
+Visual document retrieval has advanced by encoding page screenshots with vision-language models, bypassing OCR pipelines. However, existing methods remain page-centric, misaligned with real-world scenarios requiring complete document retrieval. A naive page-then-document aggregation suffers from linear indexing cost and degraded retrieval when relevance spans multiple pages. We propose DocPC, a document-level visual retrieval framework based on Representative Page Composition: selecting representative pages and composing them into a single grid image for document-level indexing, reducing indexed images, vectors, and storage by 10.1x and end-to-end indexing time by roughly 7.7x. To handle multi-positive supervision prevalent at the document level, we combine multi-positive contrastive learning with sparsely scheduled listwise optimization. We also introduce DocViRe, a benchmark with multi-positive relevance annotations. DocPC-ColQwen achieves NDCG@5 of 44.09 on DocViRe, outperforming the strongest page-level baseline at 38.91 while reducing storage by 10.1x. Code is available at https://anonymous.4open.science/r/DocPC-Document-Level-Visual-Retrieval-via-Representative-Page-Composition-1D52. Data is available at https://huggingface.co/datasets/anonymous-7219/docpc.
 
 #### 深度分析（中文）
 
@@ -52,94 +52,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 3. SPO++: Stream-Aligned Policy Optimization for Asynchronous Agentic RL
+### 3. Unveiling Spectral Mechanisms in Training-Free LLM Text Detection
 
-- **ArXiv ID**: [2608.24870v1](https://arxiv.org/abs/2608.24870v1)
-- **作者**: Kai Ruan, Jinghao Lin, Qianshan Wei, Ziqi Zhou, Zihe Huang
-- **发布时间**: 2026-08-26
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.24870v1](https://arxiv.org/pdf/2608.24870v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Group-relative reinforcement learning waits for sibling rollouts of the same prompt, which is costly for long and variable tool-use trajectories. Single-stream Policy Optimization (SPO) removes this dependency with a persistent prompt-level value estimate, but its recipe whitens one advantage per trajectory before optimizing a token-mean actor loss. We show that trajectory centering generally does not center the token-weighted quantity consumed by the actor, and fix the mismatch by standardizing terminal-outcome advantages under the action-token measure. We additionally organize prompt evidence by the policy event that generated it rather than learner receipt order. Across matched runs on ALFWorld at two model scales and on Math-TIR, SPO++ improves online learning efficiency over SPO. A paired ablation identifies action-token-measure normalization as the strongest tested component.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 4. When "Must" Becomes "Maybe": Constraint Weakening in LLM Agent Workflows
-
-- **ArXiv ID**: [2608.24569v1](https://arxiv.org/abs/2608.24569v1)
-- **作者**: Yiheng Sun, Huifei Wang, Yancheng Zhu, Zhenyu Li, Zebin Zhao...
-- **发布时间**: 2026-08-25
-- **分类**: cs.AI, cs.MA
-- **PDF**: [https://arxiv.org/pdf/2608.24569v1](https://arxiv.org/pdf/2608.24569v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Large language model (LLM) agents coordinate complex tasks through multi-role and multi-stage workflows. Upstream state is repeatedly transformed into intermediate language artifacts, such as summaries, plans, tickets, memories, and handoff notes, from which downstream components act. For action-constraining state, topical retention is insufficient: an artifact may mention an unresolved condition while changing it from a requirement that must be resolved before execution into information that may merely inform the next action. We study this action-binding role as operational state preservation. Safety blockers provide a controlled instance because each source state has an explicit prerequisite, authority, fallback, and execution consequence. We condition on correct upstream identification, vary the handoff transformation, and evaluate an executor restricted to the resulting artifact. Across 1,296 controlled synthetic episodes, direct-handoff controls preserve every blocker, whereas compression, plan assimilation, convergence, ownership deferral, and precedent substitution repeatedly turn binding state into caveats or non-binding considerations. Normal handoff compression produces 100.0% deactivation and 54.2% forbidden action. Restoring all four state fields raises preservation to 100.0% and reduces forbidden action to 0.0%. Fixed-artifact interventions further separate preservation from containment: downstream verification eliminates forbidden action while artifact deactivation remains 95.3%. These results identify a state-transmission failure between information extraction and action. Handoff transformations can retain state content while weakening its constraints on downstream action. Semantic availability does not guarantee operational preservation.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 5. Right Diagnoses, Decorative Reasoning:A Perturbation Audit of Medical Chain-of-Thought
-
-- **ArXiv ID**: [2608.24790v1](https://arxiv.org/abs/2608.24790v1)
-- **作者**: Mengzhu Xu, Jifan Gao, Xia Jiang, Yaoxin Wu, Xi Long
-- **发布时间**: 2026-08-26
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.24790v1](https://arxiv.org/pdf/2608.24790v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Clinicians read chain-of-thought (CoT) rationales as evidence of medical reasoning, but whether the visible chain plays that role is rarely tested. General-domain CoT-faithfulness probes ignore clinical cost, and medical LLM evaluations treat the chain as a black box. We close this gap with a medical perturbation audit: a 30-operator battery edits both the chain and the question with clinically motivated operators (severity reversal, negation flip, demographic swap, evidence ablation), paired with a chain-update times answer-flip joint analysis that classifies each model by its failure mode. Applied to 14 LLMs on four medical QA benchmarks, three independent tests converge: the Chain-Decoupling Rate (CDR; chain does not register the edit and the answer does not flip) is 72.9% panel-wide on clinically meaningful destructive edits, chain corruption leaves accuracy unchanged, and removing CoT prompting does not reduce accuracy. Two board-certified clinicians re-annotate N=197 perturbed questions; 98.5% leave the gold defensible. The pattern holds across medical and reasoning fine-tuning and scale; on the closed-source tier, where the chain text is unavailable, the answer-side signals are consistent with the same decoupling. Our framework and CDR provide a reusable yardstick for auditing whether medical CoT is faithful or merely documentation.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 6. Evidence Blindness in Direct Corpus Interaction: Persistent Navigation with AtlasNav
-
-- **ArXiv ID**: [2608.24764v1](https://arxiv.org/abs/2608.24764v1)
-- **作者**: Hongyu Guo, Zhiyu Zheng, Zhao Cao
-- **发布时间**: 2026-08-26
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.24764v1](https://arxiv.org/pdf/2608.24764v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Large language model agents are moving beyond conventional retrieval-augmented generation toward direct interaction with external corpora. Direct Corpus Interaction (DCI) keeps the full corpus accessible, yet reachable evidence can remain unusable under finite interaction budgets. Required evidence may fail to surface, a surfaced supporting document may remain unopened, or an opened document may fail to expose its decisive fragment. We call this progressive silent loss Evidence Blindness and quantify it through stage-wise evidence realization. Within the DCI paradigm, raw interaction adds little reusable corpus organization, while dynamic-workspace methods reconstruct a query-conditioned interaction space from each query and trajectory. In both cases, useful structure is recovered largely online. We instead formulate large-scale agentic search as finite-budget navigation over reusable corpus structure. We introduce AtlasNav, a persistent multi-view corpus-navigation framework that retains direct corpus interaction but organizes the corpus once into a Corpus Atlas, allowing each query to navigate adaptively rather than reconstruct shared structure. On BrowseComp-Plus, AtlasNav achieves 92.05% strict accuracy while reducing recorded online inference cost by 30.21% relative to the prior dynamic-workspace state of the art. Under matched budgets, it realizes the complete required evidence earlier and approaches the same model's evidence-supplied empirical reference more rapidly. The same representation principle remains effective under PhantomWiki's distinct corpus organization and controlled 10K-1M scaling, and transfers competitively to heterogeneous enterprise knowledge. These results show that agentic search depends not only on accessible evidence, but also on how the corpus is represented so that limited interaction becomes effective navigation.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 7. The Annotation Bottleneck in Persian Text NLP: Persian as an Annotation-Scarce Language
-
-- **ArXiv ID**: [2608.24698v1](https://arxiv.org/abs/2608.24698v1)
-- **作者**: MohammadHossein Mortazavi, Mostafa Salehi, Hadi Veisi
-- **发布时间**: 2026-08-25
+- **ArXiv ID**: [2608.25944v1](https://arxiv.org/abs/2608.25944v1)
+- **作者**: Haitong Luo, Xuying Meng, Weiyao Zhang, Wenji Zou, Shengfeng Lou...
+- **发布时间**: 2026-08-27
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.24698v1](https://arxiv.org/pdf/2608.24698v1)
+- **PDF**: [https://arxiv.org/pdf/2608.25944v1](https://arxiv.org/pdf/2608.25944v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Persian (Farsi) is often described as a low-resource language in natural language processing, but that label collapses distinct shortages into a single category. This paper argues that Persian is more precisely described as annotation-scarce, provided that the term is understood as a property of its NLP resource ecology rather than an intrinsic property of the language. The review covers 34 representative Persian text resources available by July 2026 and adds three quantitative cross-checks. First, independent web measurements place Persian among roughly the twenty most visible content languages: W3Techs reports Persian on about 0.9% of websites with a known content language, while Common Crawl CC-MAIN-2026-30 identifies Persian as the primary language of 0.7039% of HTML pages. Second, a selective speech review shows a long resource trajectory from FARSDAT to recent corpora containing hundreds or thousands of hours of speech. Third, a matched Persian-English comparison normalizes task-specific annotation volumes by relative Common Crawl web presence. The resulting ratios vary sharply: Persian syntax and news NER are comparatively dense, whereas natural-language inference falls below the web-proportional baseline. The evidence therefore does not support a simple claim that Persian is globally deficient in labeled volume. Instead, annotation scarcity is expressed through uneven task and domain coverage, incompatible schemes, access and documentation friction, and limited supervision for specialist domains, preference data, and varieties beyond standard Iranian Persian.
+The rapid advancement of Large Language Models (LLMs) makes it increasingly difficult to distinguish human writing from machine-generated text. Training-free detection offers a scalable solution, yet common confidence-based metrics mainly measure average token probabilities and often miss the signal fluctuations that characterize human writing, which we call "generative vitality". Spectral analysis offers a way to capture this vitality, but its mechanism and practical boundaries remain underexplored. In this paper, we analyze spectral detection from both theoretical and empirical perspectives. We connect spectral energy to variance in proxy log-probability trajectories and explain how broader human token choices create the fluctuations used by frequency-domain indicators. We further show that the strength of this signal depends on text length and sampling range: spectral evidence is clearest for long, continuous, constrained generation, while short, fragmented, mixed, and edited settings require complementary confidence and fluctuation views. These findings clarify when frequency-domain detection works and provide guidance for future multi-dimensional detector design.
 
 #### 深度分析（中文）
 
@@ -147,18 +71,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 8. COCI: Conference Organisers and Content Identifier
+### 4. PANDA - Prototype-Anchored Alignment for Partially Unpaired Multimodal Learning, with Applications to Alzheimers MRI and TCGA Pathology
 
-- **ArXiv ID**: [2608.24559v1](https://arxiv.org/abs/2608.24559v1)
-- **作者**: Angelo Salatino, Francesco Osborne, Alexis Vizcaino, Aliaksandr Birukou, Enrico Motta
-- **发布时间**: 2026-08-25
-- **分类**: cs.DL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.24559v1](https://arxiv.org/pdf/2608.24559v1)
+- **ArXiv ID**: [2608.25970v1](https://arxiv.org/abs/2608.25970v1)
+- **作者**: Sheethal Bhat, Mahfuzur Rahman Chowdhury, Paula Andrea Perez-Toro, Stephan Wunderlich, Rose Dawn Bharat...
+- **发布时间**: 2026-08-27
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.25970v1](https://arxiv.org/pdf/2608.25970v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Despite the critical role of grey literature in scholarly communication, artefacts such as Calls for Papers (CfPs) remain largely isolated from modern Scholarly Knowledge Graphs. The unstructured and highly heterogeneous nature of these documents has traditionally hindered their large-scale processing. In this demo paper, we present the Conference Organisers and Content Identifier (COCI), an AI-based framework designed to extract fine-grained, structured metadata from raw CfP texts. COCI employs a multi-stage pipeline that combines Large Language Models (LLMs) with semantic mapping techniques to integrate extracted entities with established knowledge bases, including OpenAlex, DBLP, TIB ConfIDent, and the AIDA Dashboard. By disambiguating authors and semantically aligning topics and conference series, COCI bridges the gap between informal scholarly dissemination and structured Semantic Web resources, laying the foundation for systematic analysis of non-publisher-based academic events.
+Multimodal medical prediction often faces incomplete pairing: auxiliary modalities with complementary signal are available for only a subset of subjects (or none) and cannot be assumed at deployment. We introduce PANDA (Prototype Anchored Data Alignment), a two-stage framework that transfers auxiliary information to a primary-modality model without auxiliary inputs at inference. Stage 1 learns a shared embedding from the paired subset and estimates class prototypes from auxiliary modalities; Stage 2 trains the primary encoder on all subjects using cross-entropy plus alignment to the frozen prototypes. Because supervision is defined at the class-prototype level, PANDA accommodates arbitrary pairing rates, including zero subject overlap. We evaluate PANDA on two applications. On a 1,021-subject multi-scanner ADNI cohort, we perform AD/CN classification with three auxiliary modalities at distinct pairing rates: tabular scores (44.8%), FDG-PET (18.7%), and external handwriting kinematics (0% overlap). Relative to the same-backbone MRI-only baseline, PANDA attains AUC 0.868 +-0.020 (+7.9pp) and reduces 1.5T CN false positives by 24.3pp; on a fully trainable Conv5-FC3 backbone it reaches AUC 0.893 (best overall). A pairing-rate ablation shows that the joint anchor remains within seed noise from 75% to 5% pairing. On TCGA-Lung survival prediction from whole-slide images with RNA-seq as auxiliary data, PANDA improves over WSI-only on 2-year OS (AUC +3.5pp) and Cox PH (C-index +9.0pts) and outperforms full-fusion training, which underperforms WSI-only, while requiring no RNA at inference; wide confidence intervals on this smaller cohort keep the gains below conventional significance. Overall, PANDA provides a deployment-oriented mechanism for leveraging incomplete auxiliary modalities to improve primary-modality prediction.
 
 #### 深度分析（中文）
 
@@ -166,18 +90,37 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 9. When Do Supervised UQ Ensembles Improve LLM Hallucination Detection? A Robustness Study
+### 5. Multi-Granularity Context-Enhanced RAG over Multimodal Knowledge Graphs
 
-- **ArXiv ID**: [2608.24492v1](https://arxiv.org/abs/2608.24492v1)
-- **作者**: Mohit Singh Chauhan, Vipin Gyanchandani, Dylan Bouchard
-- **发布时间**: 2026-08-25
+- **ArXiv ID**: [2608.25986v1](https://arxiv.org/abs/2608.25986v1)
+- **作者**: Zongyu Wu, Yilong Wang, Xiaochen Wang, Minhua Lin, Zhichao Xu...
+- **发布时间**: 2026-08-27
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.25986v1](https://arxiv.org/pdf/2608.25986v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Retrieval-augmented generation (RAG) is widely used to mitigate hallucination issues in large language models (LLMs) and multimodal large language models (MLLMs). In particular, knowledge graph (KG)-based RAG leverages structured knowledge to provide (M)LLMs with high-quality external information. Building on these works, recent studies have explored multimodal knowledge graphs (MMKGs) as knowledge bases for GraphRAG. This enables Graph RAG to integrate knowledge across multiple modalities, thereby further enhancing its performance. However, existing MMKG-based RAG methods generally follow a common pipeline in which different modalities are largely processed independently before being fusion. As a result, textual context is only used to a limited extent during visual information extraction and subsequent multimodal knowledge fusion. This brings a semantic gap between images and text which limits the multimodal GraphRAG performance. To address this issue, we propose a novel framework for constructing a Context-Enhanced MMKG (CEMMKG) to better support multimodal GraphRAG. The proposed CEMMKG enriches each image with complementary textual context at both local and global scopes. Local context goes beyond the surrounding text by incorporating sentences that are semantically related to the image, while global context provides a summary of the entire passage. We further introduce a multi-granularity design for the local context, allowing it to capture semantically relevant information at different levels of detail. Extensive experiments on the selected vision-centric dataset validate that CEMMKG is effective in leveraging contextual information to improve MMKG-based RAG performance. Moreover, its effectiveness across different MMKG-based RAG methods demonstrates its broad applicability.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 6. One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation
+
+- **ArXiv ID**: [2608.25936v1](https://arxiv.org/abs/2608.25936v1)
+- **作者**: Justin Robert, Raheel Qader
+- **发布时间**: 2026-08-26
 - **分类**: cs.LG, cs.AI, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.24492v1](https://arxiv.org/pdf/2608.24492v1)
+- **PDF**: [https://arxiv.org/pdf/2608.25936v1](https://arxiv.org/pdf/2608.25936v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Uncertainty quantification (UQ) methods are widely used for hallucination detection in large language models (LLMs) in closed-book settings where ground-truth evidence is unavailable at inference time. Prior work has proposed combining UQ signals via learned ensembles, but empirical investigations into the robustness of these ensembles are limited. We study a supervised ensembling framework that trains a classifier over heterogeneous UQ-based scorer outputs on a small, domain-specific dataset of labeled LLM responses, then applies it to out-of-sample hallucination classification without retrieval, tools, or reference documents. Across four LLMs, nine datasets, and three generation regimes (short-form QA, long-form generation, and code generation), we provide a systematic robustness analysis along three axes: sample efficiency, in-domain dataset transfer, and generation regime dependence. We find that supervised ensembles outperform the best individual scorer in 30 of 32 settings, with gains realized from as few as 100 labeled instances. Ensembles retain most of their advantage in cases of in-domain transfer under distribution shift, outperforming the best non-ensemble scorer in 23 of 28 transfer settings. Sampling-based black-box ensembles are nearly as effective as full ensembles, while single-generation white-box ensembles offer limited benefit.
+On-policy distillation trains a language model on its own generations while a teacher scores them token by token. It combines the dense supervision of imitation learning with the on-policy sampling of reinforcement learning. But it requires a second, larger model to act as teacher. On-Policy Self-Distillation (OPSD) removes that cost. The teacher is the model itself, conditioned on privileged information the student will not have at test time, such as a reference solution, a plan, or environment feedback. The teacher is no stronger than the student, only better informed. Early results were promising, with accuracy comparable to reinforcement learning at a fraction of the generated tokens. But the same asymmetry that produces the signal also biases it. One failure mode now dominates the field: collapse, the progressive narrowing of the set of reasoning paths the model can produce. Collapse is not specific to OPSD, though privileged information aggravates it. This review treats collapse as a symptom governed by three levers: (i) where the signal is applied, that is, how tokens are weighted; (ii) what the teacher is shown, that is, the nature of the privileged information; and (iii) when the signal changes, that is, the teacher's dynamics and the decay of guidance. We restrict our scope to mathematical reasoning, where the method originated and where its failure modes are best documented. We report no new experiments. The contribution is structural: a shared vocabulary for phenomena named differently across papers, and a clear line between what is settled and what is still disputed.
 
 #### 深度分析（中文）
 
@@ -185,18 +128,37 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 10. Shortcut Before Circuit: Document Statistics Time In-Context Conflict Resolution
+### 7. Formal, Executable and Explainable Runtime Monitoring of Spoken Air Traffic Control Operational Procedures
 
-- **ArXiv ID**: [2608.24460v1](https://arxiv.org/abs/2608.24460v1)
-- **作者**: Yijun Liao, Fanwei Liang
-- **发布时间**: 2026-08-25
+- **ArXiv ID**: [2608.25926v1](https://arxiv.org/abs/2608.25926v1)
+- **作者**: Roberto Luvini, Giacomo Longo, Alessandro Armando, Enrico Russo
+- **发布时间**: 2026-08-26
+- **分类**: cs.AI, cs.CL, eess.AS
+- **PDF**: [https://arxiv.org/pdf/2608.25926v1](https://arxiv.org/pdf/2608.25926v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Air traffic control procedures are executed through spoken exchanges between controllers and pilots. These interactions are essential to the safety of air transportation: failures in their execution can create severe operational hazards, as evidenced by past fatal accidents. Assessing whether an instruction has been followed requires relating what was said to the aircraft concerned, its state, and the obligations that pilots must meet. We present a runtime verification framework that monitors such procedures by checking controller-pilot exchanges, surveillance data, and onboard observations. The framework parses radio communications into events linked to the entities they concern and merges them with surveillance and onboard observations into a time-stamped trace. The ICAO-derived obligations as formalized as temporal formulas with explicit time bounds and evaluated over execution traces. Every violation is reported along with the breached obligations and the observations that support the verdict. With real traffic, the complete pipeline reaches an F1 of 0.85 against blind human-annotated violations; in 1,495 synthetic situations derived from two public corpora, the monitor logic returns the expected verdict in every case. In two historical accidents reconstructed from official investigation reports, the monitor identifies the same procedural deviations documented by the investigators.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 8. Loss-Based Active Learning for Neural Abstractive Summarization
+
+- **ArXiv ID**: [2608.25881v1](https://arxiv.org/abs/2608.25881v1)
+- **作者**: Michail Ioannou, Tatiana Passali, George Michalopoulos, Grigorios Tsoumakas
+- **发布时间**: 2026-08-26
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.24460v1](https://arxiv.org/pdf/2608.24460v1)
+- **PDF**: [https://arxiv.org/pdf/2608.25881v1](https://arxiv.org/pdf/2608.25881v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-When a context asserts two values for one fact, a model commits to a cue -- recency, repetition, position -- but natural data rarely makes these disagree, so behavior cannot reveal which. We train 26M-parameter transformers on a synthetic language where recency and rarity are exactly coextensive, and separate them with a minimal causal edit that inverts one cue while holding the truth, token count and answer position fixed. All 75 runs reach accuracy >= 0.999, including where the trivial heuristic fails, so no held-in evaluation distinguishes them. Under intervention the per-cell readout does not replicate: 13 of 25 cells differ by more than 0.3 in sign fraction across three seeds, the largest by 0.879 against a standard error of 0.025. The construction predicts this -- coextensive rules leave the objective indifferent between them -- and the variance is ordered by how much of the optimization each comparison releases. What replicates is timing: escape from a positional shortcut with a closed-form ceiling, monotone in redundancy. Probed before that escape, attribution reverses sign in 32 of 75 runs at unchanged accuracy, and gating on circuit formation is necessary but not sufficient. The corpus fixes when a mechanism appears, not which one -- a criterion for when mechanistic attribution to data is available at all, and our construction makes the unavailable case exact.
+Fine-tuning abstractive summarization models requires high-quality annotated data. However, obtaining such corpora is expensive and time-consuming, as it requires human annotators to read and comprehend long documents to create accurate summaries. Active learning mitigates this issue by selecting only the most informative instances for annotation, allowing models to achieve competitive results with significantly fewer labels. However, the application of active learning to summarization remains under-explored, and existing studies often suffer from instability and significant computational bottlenecks. To overcome these challenges, we propose LOBSTER (LOss-BaSed acTivE leaRning), a novel active learning framework designed specifically for abstractive summarization. LOBSTER improves performance by prioritizing unlabeled instances semantically similar to the model's current high-loss training examples, enabling the model to explicitly correct its specific weaknesses. Our empirical evaluation across three benchmark datasets and two summarization backbone models demonstrates that LOBSTER consistently matches or outperforms current state-of-the-art approaches while achieving a query selection speedup of up to 665x.
 
 #### 深度分析（中文）
 
@@ -204,18 +166,94 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 11. Dataset Scarcity Limits Robust Evaluation of Multilingual Embedding Models: A Case Study of Slavic Languages
+### 9. Unfolding Scientific Papers into Multi-Turn Generation Trajectories for Continued Pre-Training
 
-- **ArXiv ID**: [2608.24477v1](https://arxiv.org/abs/2608.24477v1)
-- **作者**: Ana Gjorgjevikj, Barbara Koroušić Seljak, Tome Eftimov
-- **发布时间**: 2026-08-25
+- **ArXiv ID**: [2608.25826v1](https://arxiv.org/abs/2608.25826v1)
+- **作者**: Qiankai Xu, Qiguang Chen, Zixin Su, Wenhao Huang, Yue Gao...
+- **发布时间**: 2026-08-26
+- **分类**: cs.CL, cs.AI, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2608.25826v1](https://arxiv.org/pdf/2608.25826v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+A recent line of synthetic-data work reconstructs the thinking behind existing text rather than rewriting the text itself, but it operates on short web passages, recovers only local thoughts, and leaves the structure of whole documents untouched. Scientific papers are written to a clear and largely uniform structure and make a natural substrate for lifting this paradigm to the document level. We present a pipeline that unfolds each paper into a multi-turn generation trajectory in which a teacher model reconstructs the writing process of the whole paper: a writing request, a global plan, and pre-writing deliberation for each section. All section texts and the abstract are kept verbatim from the source paper. We apply the pipeline to quality-filtered arXiv papers and obtain a corpus for continued pre-training (CPT) that is roughly twice the size of the source text. The same reverse construction extends to instruction data and evaluation. Treating real paper text as the answer yields an SFT dataset. Anchoring tasks in held-out papers yields PAW-Bench, an academic-writing benchmark whose tasks carry their own rubrics and checklists. In controlled experiments CPT on our corpus followed by supervised fine-tuning on public datasets improves writing benchmarks broadly while preserving general reasoning and improving long-document reading. The writing gain persists even when every model is fine-tuned on a dedicated writing SFT dataset. Mixing our SFT data into that recipe lifts academic writing further.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 10. Learning from waste: Machine Learning for health risk prediction and computer vision-based sorting in Ghana
+
+- **ArXiv ID**: [2608.25759v1](https://arxiv.org/abs/2608.25759v1)
+- **作者**: Hilda Adwubi Osei, Catherine Tenewaa Osei, Desdemona Yaa Asobayire
+- **发布时间**: 2026-08-26
+- **分类**: cs.LG, cs.CV, cs.CY
+- **PDF**: [https://arxiv.org/pdf/2608.25759v1](https://arxiv.org/pdf/2608.25759v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+The inappropriate disposal of solid waste remains a significant public health and environmental concern worldwide, including in Ghana. Poor sanitation and improper waste management practices contribute to substantial economic costs and avoidable deaths annually. In 2022, a field study in Atonsu, Kumasi, Ghana, reported a community-perceived relationship between household waste disposal and illness patterns, but only through descriptive analysis without quantitative validation. This study extends that investigation using two data-driven approaches. First, a Random Forest classifier was developed to predict illness categories using waste disposal practices and demographic survey data. On a held-out group of respondents who reported illness (N=69), the model obtained a macro F1 score of 0.63, with disposal method emerging as the most important substantive predictor of illness type. Second, a MobileNetV2 image classification model enabled automated waste sorting via visual recognition, achieving 88.2% accuracy and a macro F1 score of 0.87 on the test set (N=415). The vision-based approach offers an affordable, camera-driven alternative to complex multi-sensor systems, making it highly suitable for resource-constrained settings. Taken together, the findings provide quantitative evidence for a community health relationship previously documented only qualitatively. They demonstrate the potential for automated waste-sorting in low-resource environments. Importantly, the results illustrate that technological performance alone does not guarantee public health improvements; effective institutional support and implementation are equally necessary.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 11. D3ER: Supporting Multi-Modal Recommendation via Disentangle and Distillation-based Dynamic Ensemble
+
+- **ArXiv ID**: [2608.25737v1](https://arxiv.org/abs/2608.25737v1)
+- **作者**: Bingnan Wang, Yi Li, Xiongxin Tang, Fanjiang Xu, Jiangmeng Li
+- **发布时间**: 2026-08-26
+- **分类**: cs.IR, cs.MM
+- **PDF**: [https://arxiv.org/pdf/2608.25737v1](https://arxiv.org/pdf/2608.25737v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Incorporating items' information shared among multiple modalities into a fused representation, multi-modal recommendation (MR) has demonstrated documented success than canonical unimodal recommendation. Although several attempts have been made to extract the discriminative information unique in each modality, existing methods suffer from a core limitation: the joint learning of modal-homogeneity discriminative information (HOI) and modal-heterogeneity discriminative information (HEI) tends to weaken their individual effectiveness. To remedy this deficiency, we propose a novel method, dubbed Disentangle and Distillation-based Dynamic Ensemble for multi-modal Recommendation (D3ER). We introduce gradient boosting into MR for the first time to formalize the optimization objective for alternately learning HOI and HEI. This design enables models dedicated to each type of information to focus on their proficient samples, thereby promoting specialized optimization. Furthermore, to mitigate the inherent high storage cost and risk of local optima in gradient boosting, we enhance our framework with knowledge distillation and a global correction regularization. Experiments on prevalent real-world datasets confirm the superiority of our proposed method on MR.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 12. Pointing the Way, Hiding the Destination: Practical Private Dense Retrieval at Scale
+
+- **ArXiv ID**: [2608.25735v1](https://arxiv.org/abs/2608.25735v1)
+- **作者**: Peichun Hua, Danyang Chen, Junan Zhang, Haifeng Sun, Jingyu Wang...
+- **发布时间**: 2026-08-26
+- **分类**: cs.CR, cs.AI, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2608.25735v1](https://arxiv.org/pdf/2608.25735v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Hosted retrieval-augmented generation (RAG) and semantic search allow users to query valuable provider-held corpora, raising two competing demands: to hide each query and chosen result, yet reveal only the documents that the user is authorized to receive. Existing cryptographic approaches either make this costly by processing the entire corpus for every query, or sacrifice quality for efficiency by scanning a few clusters. We repurpose learned deep hashing as a private filter: a randomized binary code points the provider to a short candidate list, while encrypted reranking and oblivious key transfer protect the precise query and final selection. This shortlist short-circuits full-corpus cryptographic search without sacrificing retrieval quality: with 200-500 candidates, it closely matches full-corpus retrieval across five zero-shot corpora spanning 25K to 5.4M documents. On the full 2.68M-passage NQ corpus over a 10-Gbps link, our protocol only adds 0.73 seconds, or 10 percent, to a 128-token Qwen3-32B RAG pipeline. The released code satisfies directional metric differential privacy (DP) and substantially reduces embedding-inversion and property-inference leakage, demonstrating that a carefully learned shortlist can make private dense retrieval both accurate and practical.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 13. One Form to Transfer Them All: Pretraining Multilingual Language Models Beyond Native Orthography
+
+- **ArXiv ID**: [2608.25904v1](https://arxiv.org/abs/2608.25904v1)
+- **作者**: Muge Zhang, Aaron Jencks, Krishna Badikela, Yulia Tsvetkov, Sachin Kumar
+- **发布时间**: 2026-08-26
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.24477v1](https://arxiv.org/pdf/2608.24477v1)
+- **PDF**: [https://arxiv.org/pdf/2608.25904v1](https://arxiv.org/pdf/2608.25904v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Multilingual text embedding models enable cross-lingual transfer of knowledge across a wide range of NLP tasks, but their evaluation remains highly uneven across high-, mid- and low-resource languages. In this paper, we propose a two-dimensional framework, specifically tailored for analyzing multilingual embedding benchmarks under dataset scarcity, and apply it on the Slavic-language subset of the MTEB benchmark. The framework distinguishes between task-specific and cross-task evaluation, while jointly analyzing three complementary aspects: (1) ranking robustness, (2) model consistency, and (3) evidence strength. At the task-specific level, we evaluate the stability of model rankings under changes in ranking methodology and benchmark dataset composition. At the cross-task level, we assess the ability of models to generalize across diverse tasks within a language. To quantify the reliability of benchmark conclusions, we introduce an Evidence Strength Score that accounts for dataset availability, diversity, and robustness assessability. Our analysis reveals severe benchmark sparsity, with many Slavic language-task pairs relying on a single dataset or highly correlated benchmark collections, limiting the ability to draw robust conclusions. The cross-task analysis reveals a small group of highly transferable models, most notably llama-embed-nemotron-8b, multilingual-e5-large-instruct, and Qwen3-Embedding variants, that consistently perform well across Slavic languages and tasks. Overall, the results demonstrate that benchmark rankings and robustness conclusions must be interpreted jointly with certain notation of their evidence strength and highlight benchmark scarcity as a major obstacle to trustworthy multilingual evaluation.
+Multilingual language models transfer knowledge across languages through shared subword vocabulary, a mechanism that breaks down when related languages use different writing systems. Prior work addresses this via script equalization (romanization or IPA transcription), but direct comparisons are rare; the focus has been on encoder-only models, with most work adapting existing pretrained models. We systematically compare different input representations in autoregressive multilingual pretraining, comparing orthographic text, IPA, and romanization in a controlled setup across three scales (467M, 709M, and 1.03B) on eight languages in four typologically motivated pairs. Across a wide range of downstream tasks on seen and unseen languages, romanized pretraining yields the strongest cross-lingual transfer, and the advantage over text widens with scale. IPA improves over text in most settings but trails romanization. Surprisingly, finetuning a text-pretrained model on romanized data hurts performance on languages already covered by the base model, only marginally helping when the model lacks script coverage. Our results indicate that for multilingual models spanning typologically diverse scripts, to obtain maximum benefits, romanization should be treated as a core design choice applied at pretraining rather than a post hoc fix.
 
 #### 深度分析（中文）
 
@@ -223,18 +261,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 12. Do Robotic World Models Really Follow Actions? Diagnosing and Aligning Action-Conditioned Generation for Policy Learning
+### 14. Skill Issue: Are Skills Language-Invariant in LLMs?
 
-- **ArXiv ID**: [2608.24885v1](https://arxiv.org/abs/2608.24885v1)
-- **作者**: Sixiang Chen, Jiaming Liu, Jixian Wu, Yichen Guo, Tinghao Wang...
+- **ArXiv ID**: [2608.25832v1](https://arxiv.org/abs/2608.25832v1)
+- **作者**: Bobby Cheng, Adam Gaber, Zhengyuan Liu, Catherine Arnett, Omer Goldman...
 - **发布时间**: 2026-08-26
-- **分类**: cs.RO, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.24885v1](https://arxiv.org/pdf/2608.24885v1)
+- **分类**: cs.CL, cs.AI, cs.GT
+- **PDF**: [https://arxiv.org/pdf/2608.25832v1](https://arxiv.org/pdf/2608.25832v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Action-conditioned world models are increasingly used as learned simulators for policy evaluation and improvement, yet their effectiveness rests on an unverified assumption: generated futures faithfully reflect arbitrary valid actions. Existing benchmarks are typically confined to expert demonstrations, leaving off-expert action following inadequately evaluated. To address this gap, we introduce WorldEcho, which probes action following over a broader action distribution using visual integrity and SE(3) trajectory alignment. Our diagnosis shows that current world models reasonably execute expert actions but struggle with diverse off-expert trajectories, either ignoring the commanded actions or producing visually invalid rollouts. We further propose WorldSync, which strengthens action following along three complementary axes: distributional coverage, representational grounding, and intervention-effect alignment. It broadens the training distribution over action consequences, grounds intermediate video representations in action-induced robot dynamics through an Action-Forcing Expert, and aligns predicted changes under action interventions with the corresponding changes in ground-truth futures. Experiments on RoboTwin benchmarks and real-robot tasks show that WorldSync improves WorldEcho metrics and serves as a more reliable simulator for iterative policy improvement, enabling policies to achieve higher success rates.
+Large language models access knowledge inconsistently across languages, but to what extent do they differ in their skill sets when interacting with different languages? This work quantifies cross-lingual skill inconsistency orthogonally from knowledge and general benchmark performance. We do this via multilingual self-play: two instances of the same model compete in a text-based game, each interacting through a different language interface. Since the model, opponent, rules, state space, and available actions remain fixed, this setting isolates the effect of language on the model's realized behavior. We build a multilingual extension to TextArena and evaluate three open-weight models across eight languages and six games covering spatial reasoning, imperfect information, resource allocation, and repeated interaction. We find that the same model can exhibit markedly different playing strength across languages, with systematic variation in win--loss margins, invalid actions, and strategic tendencies. Detailed analyses reveal language-specific failures in spatial reasoning, card-conditioned decisions, and optimal move selection. In some settings, changing only the intermediate reasoning language recovers much of the lost performance, suggesting that language can affect different stages of the decision process. These results show that skill discrepancies are a measurable major roadblock in the development of truly multilingual models. Better understanding these discrepancies can help us design models that perform more equitably across languages.
 
 #### 深度分析（中文）
 
@@ -242,56 +280,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 13. From Seeing to Acting: Smart Glasses as First-Person Intelligence Platforms
+### 15. VBVR-Pro: A Scalable and Verifiable Suite for Native Visual Reasoning
 
-- **ArXiv ID**: [2608.24877v1](https://arxiv.org/abs/2608.24877v1)
-- **作者**: Jiangning Zhang, Haojun Chen, Yong Liu
-- **发布时间**: 2026-08-26
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.24877v1](https://arxiv.org/pdf/2608.24877v1)
+- **ArXiv ID**: [2608.26105v1](https://arxiv.org/abs/2608.26105v1)
+- **作者**: Junxiang Xu, Ruisi Wang, Fanyi Pu, Maijunxian Wang, Ran Ji...
+- **发布时间**: 2026-08-27
+- **分类**: cs.CV, cs.AI, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2608.26105v1](https://arxiv.org/pdf/2608.26105v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Smart glasses are evolving from capture and display accessories into first-person intelligence platforms that connect human perception, persistent context, and digital or physical action. Their on-body viewpoint aligns with the wearer's vision, audition, motion, and hand-object interaction, but must operate under tight energy, thermal, privacy, and feedback constraints. Despite rapid progress in augmented reality, egocentric vision, multimodal models, human-computer interaction, and embodied intelligence, the literature remains fragmented across devices, tasks, and benchmarks. \textit{The key challenge is not whether a model can recognize, answer, remember, or act in isolation, but whether a complete system can sustain a reliable, temporally valid, correctable, and governable perception-state-interaction-action loop.} This survey is \textit{the \textbf{first} to systematically study smart glasses through such a unified framework}. We formalize first-person data flow and constrained task utility, characterize devices along eight verifiable hardware capability axes, organize the literature around seven interdependent foundational capabilities, and introduce an L0-L5 framework spanning capture, reactive perception, contextual assistance, persistent state, governed action, and embodied coupling. Across nine application scenes, we connect tasks with datasets, systems, products, stakeholders, failure consequences, and evidence gaps. We further present a nine-dimensional deployment framework, a claim-conditioned evaluation protocol, and an evidence ladder from controlled measurement to longitudinal field validation and audit. Together, these elements make smart glasses more comparable, deployable, and reproducibly evaluated, while outlining a roadmap toward trustworthy first-person intelligence.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 14. LeFlow: Generative Latent Flow Planning for World Models
-
-- **ArXiv ID**: [2608.24855v1](https://arxiv.org/abs/2608.24855v1)
-- **作者**: Hsiang-Wei Huang, Jianxu Shangguan, Junbin Lu, Jenq-Neng Hwang
-- **发布时间**: 2026-08-26
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.24855v1](https://arxiv.org/pdf/2608.24855v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Latent world models are inherently strong encoders that transform image pixel to latent embedding, yet existing world models still rely on online trajectory optimization for action planning: for every state-goal pair, an iterative optimizer is run from scratch to search for optimal action sequences, treating the world model as a black-box simulator. This approach pays the full iterative optimization cost anew at every replanning step and reuses no planning experience across queries. In this work, we ask whether planning itself can be amortized once a latent world model has been learned. We present LeFlow, which learns a reusable latent trajectory prior operating directly in the latent dynamics space from the world model. LeFlow recasts planning as conditional latent trajectory generation: a rectified-flow model imagines a future latent path between the current and goal embeddings, an inverse dynamics decoder turns latent transitions into action chunks, and the frozen world model verifies each candidate by autoregressive rollout. Across four major goal-conditioned pixel-control benchmarks, LeFlow replaces iterative action-space optimization with amortized latent planning and fixed-budget rollout selection, achieving consistent success-rate gains with an order-of-magnitude reduction in planning time. Our results argue that latent world models should support not only prediction but reusable planning priors. Our code is available at https://github.com/hsiangwei0903/LeFlow.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 15. EMFE: A lightweight, explainable machine learning framework for malaria cell classification
-
-- **ArXiv ID**: [2608.24793v1](https://arxiv.org/abs/2608.24793v1)
-- **作者**: Md Abdullah Al Kafi, Walayat Hussain, Mousumi Karmakar, Sumit Kumar Banshal, Ahmed Al Marouf
-- **发布时间**: 2026-08-26
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.24793v1](https://arxiv.org/pdf/2608.24793v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Automated malaria diagnosis from stained blood-smear microscopy is dominated by deep convolutional neural networks that are accurate but computationally expensive, poorly interpretable, and rarely validated with patient-level rigor. We present EMFE (Efficient Mathematical Feature Extraction), a five-feature framework for classifying single red-blood-cell images as parasitized or uninfected using Gray World color normalization, adaptive green-channel thresholding, morphological spot detection, and classical machine learning. Using the NIH LHNCBC malaria dataset (27,558 images from 200 patients), we evaluate Random Forest, Histogram Gradient Boosting, and Support Vector Machine classifiers under patient-grouped nested cross-validation (K_outer=20, K_inner=3), ensuring that cells from each patient remain within a single fold. The optimized Random Forest achieves 94.6% pooled out-of-fold accuracy (95% CI [93.6, 95.7]), corroborated by an untouched 40-patient holdout test (94.3%) and a patient-level permutation test (p<0.001, 1,000 permutations). Ablation experiments quantify the contribution of individual features and pipeline stages. Hardware-matched comparisons with retrained DenseNet121, ResNet50, and MobileNetV2 models assess the accuracy-efficiency trade-off. Synthetic perturbations characterize three failure modes, while explainability analysis identifies spot saturation as the dominant discriminative feature. Patient-level aggregation further quantifies sensitivity-specificity trade-offs and false-positive accumulation. These results demonstrate a statistically rigorous, interpretable, and computationally lightweight alternative to deep learning, while explicitly quantifying its limitations.
+Native visual reasoning treats visual generation as the medium of reasoning itself: visual states (i.e. images and videos) are not merely inputs to be understood or outputs to be rendered, but first-class substrates for problem solving beyond language. Yet progress remains bottlenecked by the lack of scalable training tasks, reliable feedback, and controlled comparisons across generative substrates. In this work, we introduce VBVR-Pro, a closed-loop testbed that makes native visual reasoning through generation trainable, verifiable, optimizable, and experimentally controllable. 1) Task scaling. VBVR-Pro turns visual reasoning into a controlled task space of 300 procedurally generated tasks. Models trained on VBVR-Pro show strong transfer beyond the proposed suite across seven external visual reasoning benchmarks such as RISE-Video, MME-CoF-Pro, and BabyVision. 2) Verifiable rewards. VBVR-Pro provides verifiable reward scorers for task-grounded evaluation. Through a systematic study of leading MLLMs as judges, we identify recurring failure modes of the prevalent VLM-as-a-judge paradigm. In contrast, the proposed scorers are grounded in deterministic, task-specific rules, achieve fine-grained alignment with human judgments. Importantly, they serve as reliable reward signals for large-scale multi-task reinforcement learning and demonstrate stronger post-RL performance across visual reasoning tasks. 3) Mechanism study. VBVR-Pro enables controlled modality studies across more than 30 image, video, and interleaved generators. Our analysis shows that video generation remains strongest for tasks requiring persistent spatiotemporal state tracking, while interleaved generation provides a compute-efficient alternative. Critically, ablations and probing suggest the presence of vision-native trajectories that are crucial to visual reasoning. We release all data, models, scorers, and code.
 
 #### 深度分析（中文）
 
