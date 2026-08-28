@@ -1,8 +1,8 @@
-# OCR arXiv Daily Pro — 2026-08-27
+# OCR arXiv Daily Pro — 2026-08-28
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-08-26 09:10 - 2026-08-27 09:10 (Asia/Shanghai)
+> 时间窗口：2026-08-27 09:10 - 2026-08-28 09:10 (Asia/Shanghai)
 
 ---
 
@@ -14,18 +14,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ## 📄 论文详情
 
-### 1. PlanSightRAG: A Visual-First Multimodal RAG for Automating Question Answering and Compliance Checking for Civil Standard Plans
+### 1. Ancient-Bench: A Comprehensive Multi-millennial, Multi-medium, and Multi-script Benchmark for Ancient Chinese Artifact Text Recognition
 
-- **ArXiv ID**: [2608.26091v1](https://arxiv.org/abs/2608.26091v1)
-- **作者**: Nabaraj Subedi, Shuvo Dip Datta, Ahmed Abdelaty, Shivanand Venkanna Sheshappanavar
+- **ArXiv ID**: [2608.27169v1](https://arxiv.org/abs/2608.27169v1)
+- **作者**: Hiuyi Cheng, Nuo Xu, Yuyi Zhang, Xuhan Zheng, Wei Pan...
 - **发布时间**: 2026-08-27
-- **分类**: cs.IR, cs.CL, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.26091v1](https://arxiv.org/pdf/2608.26091v1)
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.27169v1](https://arxiv.org/pdf/2608.27169v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Civil infrastructure compliance checking has long relied on engineers manually reading legacy 2D plans; however, OCR-based automation strips away the geometry and layout essential for interpreting these plans. We present a Visual-First Multimodal Retrieval-Augmented Generation (RAG) framework called PlanSightRAG. It indexes and reasons directly over plan imagery, integrates a ColNomic-3B multi-vector retrieval, an agentic Planner-Retriever-Auditor-Synthesizer, and MaxSim heatmaps as an evidence trail. We introduce a 4,056-pair benchmark from five state Departments of Transportation (DOT) standard plans (1,898 pages). PlanSightRAG achieves 91.47% Recall@5 on zero-shot retrieval, while on a held-out Michigan DOT corpus, it achieves 91.40%. On synthetic, parametrically-generated compliance drawings, our Qwen2.5-VL-72B pipeline reaches 100% verdict accuracy only when supplied a pre-resolved rule threshold, a controlled ceiling that a non-VLM OCR baseline already reaches at 76.4%. Finally, we demonstrate autonomous visual rule-grounding by extracting numeric limits directly from a specification corpus without any human-supplied rules.
+Ancient Chinese artifact text recognition is fundamental to heritage digitization, and benchmarks for ancient texts are essential for evaluating current model capabilities. However, existing benchmarks suffer from ''fragmentation'', manifested in limited temporal coverage, limited medium diversity, and incomplete script types. Therefore, we present Ancient-Bench, a comprehensive benchmark of 2,700 images for ancient Chinese artifact text recognition, featuring three dimensions: Multi-millennial (spanning 3,000 years of character evolution), Multi-medium (covering nine artifact categories), and Multi-script (encompassing seven historical script forms). To enable consistent and fair evaluation across heterogeneous media, we further define three annotation standards tailored to the medium-specific characteristics of ancient texts: symbol standardization, character standardization, and parsing standardization. Extensive experiments on Ancient-Bench covering general Vision-Language Models (VLMs) and OCR-specialist models reveal that ancient Chinese artifact text recognition remains fundamentally unsolved, with persistent challenges in variant characters, specialized symbols, and hallucination. The dataset is available at https://github.com/SCUT-DLVCLab/Ancient_Bench.
 
 #### 深度分析（中文）
 
@@ -33,18 +33,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 2. DocPC: Document-Level Visual Retrieval via Representative Page Composition
+### 2. AraMS-28k: The Largest Publicly Released Line-Level Dataset of Historical Arabic Manuscripts with Margin and Insertion-Anchor Annotations
 
-- **ArXiv ID**: [2608.25434v1](https://arxiv.org/abs/2608.25434v1)
-- **作者**: Chengsong You, Junwei Zhou, Nan Du
-- **发布时间**: 2026-08-26
-- **分类**: cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.25434v1](https://arxiv.org/pdf/2608.25434v1)
+- **ArXiv ID**: [2608.26921v1](https://arxiv.org/abs/2608.26921v1)
+- **作者**: Mohamed Guechaoui, Mohamed Diaa Zellagui, Souleyman Chaib, Sahraoui Dhelim
+- **发布时间**: 2026-08-27
+- **分类**: cs.CV, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2608.26921v1](https://arxiv.org/pdf/2608.26921v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Visual document retrieval has advanced by encoding page screenshots with vision-language models, bypassing OCR pipelines. However, existing methods remain page-centric, misaligned with real-world scenarios requiring complete document retrieval. A naive page-then-document aggregation suffers from linear indexing cost and degraded retrieval when relevance spans multiple pages. We propose DocPC, a document-level visual retrieval framework based on Representative Page Composition: selecting representative pages and composing them into a single grid image for document-level indexing, reducing indexed images, vectors, and storage by 10.1x and end-to-end indexing time by roughly 7.7x. To handle multi-positive supervision prevalent at the document level, we combine multi-positive contrastive learning with sparsely scheduled listwise optimization. We also introduce DocViRe, a benchmark with multi-positive relevance annotations. DocPC-ColQwen achieves NDCG@5 of 44.09 on DocViRe, outperforming the strongest page-level baseline at 38.91 while reducing storage by 10.1x. Code is available at https://anonymous.4open.science/r/DocPC-Document-Level-Visual-Retrieval-via-Representative-Page-Composition-1D52. Data is available at https://huggingface.co/datasets/anonymous-7219/docpc.
+We introduce AraMS-28k, the largest publicly released line-level dataset of genuine historical Arabic manuscripts, comprising 14 books, 3,043 pages, and 28,600 annotated text lines (27,971 main-text, 629 margin). Thirteen books are hand-copied manuscripts spanning three script traditions -- Naskh, Ruq'ah, and Maghrebi -- and one is a lithographed printed edition included to broaden format diversity. Each line is labelled as main-text or margin, and margin lines that have an unambiguous attachment point in the main text are further annotated with an insertion anchor, recovering the manuscript's true non-linear reading order at line-level granularity -- to our knowledge the first such annotation released for a historical Arabic manuscript corpus. Because reference transcriptions are fully vocalised while manuscript hands are typically undiacritised, we release both the raw diacritised transcription and a diacritic-normalised counterpart for every line. The dataset was constructed with RefLAM, a reference-grounded annotation pipeline that aligns multimodal-LLM OCR against independently sourced clean transcriptions and routes every line through human review, combining automatic verification with expert oversight. We describe the construction and quality-control process, present the annotation schema, report dataset statistics at both the corpus and per-book level, and provide baseline HTR results using Kraken and HATFormer, including a cross-script generalisation gradient from in-distribution pages to fully unseen books. AraMS-28k is released with page images, line-level annotations, and fixed train/val/test splits under CC BY-NC-SA 4.0 to support reproducible research on Arabic manuscript recognition, layout analysis, and reading-order recovery.
 
 #### 深度分析（中文）
 
@@ -52,18 +52,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 3. Unveiling Spectral Mechanisms in Training-Free LLM Text Detection
+### 3. D2C-Routing: Dimension-to-Composition Evidence Routing for Mixed-Origin AI-Generated Text Detection
 
-- **ArXiv ID**: [2608.25944v1](https://arxiv.org/abs/2608.25944v1)
-- **作者**: Haitong Luo, Xuying Meng, Weiyao Zhang, Wenji Zou, Shengfeng Lou...
-- **发布时间**: 2026-08-27
+- **ArXiv ID**: [2608.27380v1](https://arxiv.org/abs/2608.27380v1)
+- **作者**: Xin Chen, Fuwei Zhang, Yiqi Tong, Wei Guo, Yutian Xiao...
+- **发布时间**: 2026-08-28
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.25944v1](https://arxiv.org/pdf/2608.25944v1)
+- **PDF**: [https://arxiv.org/pdf/2608.27380v1](https://arxiv.org/pdf/2608.27380v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-The rapid advancement of Large Language Models (LLMs) makes it increasingly difficult to distinguish human writing from machine-generated text. Training-free detection offers a scalable solution, yet common confidence-based metrics mainly measure average token probabilities and often miss the signal fluctuations that characterize human writing, which we call "generative vitality". Spectral analysis offers a way to capture this vitality, but its mechanism and practical boundaries remain underexplored. In this paper, we analyze spectral detection from both theoretical and empirical perspectives. We connect spectral energy to variance in proxy log-probability trajectories and explain how broader human token choices create the fluctuations used by frequency-domain indicators. We further show that the strength of this signal depends on text length and sampling range: spectral evidence is clearest for long, continuous, constrained generation, while short, fragmented, mixed, and edited settings require complementary confidence and fluctuation views. These findings clarify when frequency-domain detection works and provide guidance for future multi-dimensional detector design.
+AI-generated text detection is commonly framed as a binary document-level judgment about whether a text is human-written or machine-generated. This framing breaks down for mixed-origin writing, where content origin and expression origin may differ. We cast mixed-origin detection as dimension-to-composition source attribution, inferring content origin and expression origin before composing them into four collaboration types. We propose Dimension-to-Composition Routing (D2C-Routing), which routes content-side and expression-side evidence to supervised dimension heads before a learned gated composition layer predicts the final label. On MixD2C, a reconstructed split derived from the HART mixed-origin benchmark, our disclosed D2C-Routing-based detector system reaches 0.8603 four-way Avg TPR@1%FPR, 6.5 points above the same-split RACE-local rerun. Core ablations support the routing design, while error analysis shows that distinguishing AI-content/human-expression from fully AI-generated text remains the hardest boundary. Code is available at https://github.com/bystander563/d2c-routing-artifact.
 
 #### 深度分析（中文）
 
@@ -71,18 +71,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 4. PANDA - Prototype-Anchored Alignment for Partially Unpaired Multimodal Learning, with Applications to Alzheimers MRI and TCGA Pathology
+### 4. PailitaoGR: Latent Think-with-Images for Generative Image Retrieval
 
-- **ArXiv ID**: [2608.25970v1](https://arxiv.org/abs/2608.25970v1)
-- **作者**: Sheethal Bhat, Mahfuzur Rahman Chowdhury, Paula Andrea Perez-Toro, Stephan Wunderlich, Rose Dawn Bharat...
+- **ArXiv ID**: [2608.26658v1](https://arxiv.org/abs/2608.26658v1)
+- **作者**: Xiaomeng Fan, Yueran Liu, Shengyu Zhou, Chenghan Fu, Wanxian Guan...
 - **发布时间**: 2026-08-27
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.25970v1](https://arxiv.org/pdf/2608.25970v1)
+- **分类**: cs.CV, cs.AI, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2608.26658v1](https://arxiv.org/pdf/2608.26658v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Multimodal medical prediction often faces incomplete pairing: auxiliary modalities with complementary signal are available for only a subset of subjects (or none) and cannot be assumed at deployment. We introduce PANDA (Prototype Anchored Data Alignment), a two-stage framework that transfers auxiliary information to a primary-modality model without auxiliary inputs at inference. Stage 1 learns a shared embedding from the paired subset and estimates class prototypes from auxiliary modalities; Stage 2 trains the primary encoder on all subjects using cross-entropy plus alignment to the frozen prototypes. Because supervision is defined at the class-prototype level, PANDA accommodates arbitrary pairing rates, including zero subject overlap. We evaluate PANDA on two applications. On a 1,021-subject multi-scanner ADNI cohort, we perform AD/CN classification with three auxiliary modalities at distinct pairing rates: tabular scores (44.8%), FDG-PET (18.7%), and external handwriting kinematics (0% overlap). Relative to the same-backbone MRI-only baseline, PANDA attains AUC 0.868 +-0.020 (+7.9pp) and reduces 1.5T CN false positives by 24.3pp; on a fully trainable Conv5-FC3 backbone it reaches AUC 0.893 (best overall). A pairing-rate ablation shows that the joint anchor remains within seed noise from 75% to 5% pairing. On TCGA-Lung survival prediction from whole-slide images with RNA-seq as auxiliary data, PANDA improves over WSI-only on 2-year OS (AUC +3.5pp) and Cox PH (C-index +9.0pts) and outperforms full-fusion training, which underperforms WSI-only, while requiring no RNA at inference; wide confidence intervals on this smaller cohort keep the gains below conventional significance. Overall, PANDA provides a deployment-oriented mechanism for leveraging incomplete auxiliary modalities to improve primary-modality prediction.
+Generative retrieval has demonstrated strong performance by directly generating product semantic identifiers (SIDs). Extending this paradigm to image search, however, is nontrivial because real-world query images contain diverse information, including the search target, useful auxiliary evidence, and irrelevant visual content. This requires the model to identify and focus on the search target while selectively utilizing auxiliary evidence. In this paper, we propose \textbf{PailitaoGR}, a \emph{Latent Think-with-Images} method for generative image retrieval, which internalizes target-focused perception and selective auxiliary-evidence utilization into a the generative retrieval model, enabling \textit{Zooming without Cropping} and \textit{Reading without OCR}. Specifically, we design a target-focused perception mechanism that identifies and enhances visual tokens of the search target, consisting of a target Enhancer and a learning strategy based on on-policy distillation and attention guidance loss, enabling the model to focus on search-target regions. We also design a selective auxiliary-evidence utilization mechanism that identifies and enhances visual tokens of auxiliary evidence, including an auxiliary enhancer and an in-capacity incremental contrastive distillation strategy, enabling the model to exploit auxiliary evidence. We construct training and validation sets sampled from real-world online image-search logs. Experiments show that our method outperforms existing baselines by an average of 13.8\%, validating its effectiveness.
 
 #### 深度分析（中文）
 
@@ -90,18 +90,37 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 5. Multi-Granularity Context-Enhanced RAG over Multimodal Knowledge Graphs
+### 5. CorporateBench: Large-Scale Q&A Benchmarking with Temporal Knowledge Bases
 
-- **ArXiv ID**: [2608.25986v1](https://arxiv.org/abs/2608.25986v1)
-- **作者**: Zongyu Wu, Yilong Wang, Xiaochen Wang, Minhua Lin, Zhichao Xu...
+- **ArXiv ID**: [2608.27391v1](https://arxiv.org/abs/2608.27391v1)
+- **作者**: Sil Hamilton, Albert Yu Sun, Oscar J. Romero, Carl-Leander Henneking, David Mimno...
+- **发布时间**: 2026-08-28
+- **分类**: cs.AI, cs.CL, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2608.27391v1](https://arxiv.org/pdf/2608.27391v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+LLMs are increasingly able to answer complex questions about enterprise-scale document collections. But evaluation is hard: companies don't want to share internal communications, and synthetic datasets have been overly simple. We present CorporateBench (CB), a human-validated multi-task Q&A benchmark whose scale approaches the conditions LLMs encounter in corporate communication networks, with evaluation corpora surpassing 230,000 documents. CB evaluates LLMs across two dimensions (information extraction and knowledge base querying) through four synthetically generated firms ranging from 12 to 10,000 employees. Each corpus is sampled from a temporally evolving knowledge base describing a consistent world, guaranteeing cross-document logical consistency even across hundreds of thousands of documents. We evaluate five LLMs on CB, revealing increasingly poor performance as input size approaches realistic scales. CB provides LLM developers a metric for corporate communication reasoning, filling a crucial gap in the benchmarking ecosystem.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 6. Relational Over-Regularization: Graph-Based AI-Generated Text Detection via Sentence Transition Deviation
+
+- **ArXiv ID**: [2608.26694v1](https://arxiv.org/abs/2608.26694v1)
+- **作者**: Hyeonchu Park, Bugeun Kim
 - **发布时间**: 2026-08-27
 - **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2608.25986v1](https://arxiv.org/pdf/2608.25986v1)
+- **PDF**: [https://arxiv.org/pdf/2608.26694v1](https://arxiv.org/pdf/2608.26694v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Retrieval-augmented generation (RAG) is widely used to mitigate hallucination issues in large language models (LLMs) and multimodal large language models (MLLMs). In particular, knowledge graph (KG)-based RAG leverages structured knowledge to provide (M)LLMs with high-quality external information. Building on these works, recent studies have explored multimodal knowledge graphs (MMKGs) as knowledge bases for GraphRAG. This enables Graph RAG to integrate knowledge across multiple modalities, thereby further enhancing its performance. However, existing MMKG-based RAG methods generally follow a common pipeline in which different modalities are largely processed independently before being fusion. As a result, textual context is only used to a limited extent during visual information extraction and subsequent multimodal knowledge fusion. This brings a semantic gap between images and text which limits the multimodal GraphRAG performance. To address this issue, we propose a novel framework for constructing a Context-Enhanced MMKG (CEMMKG) to better support multimodal GraphRAG. The proposed CEMMKG enriches each image with complementary textual context at both local and global scopes. Local context goes beyond the surrounding text by incorporating sentences that are semantically related to the image, while global context provides a summary of the entire passage. We further introduce a multi-granularity design for the local context, allowing it to capture semantically relevant information at different levels of detail. Extensive experiments on the selected vision-centric dataset validate that CEMMKG is effective in leveraging contextual information to improve MMKG-based RAG performance. Moreover, its effectiveness across different MMKG-based RAG methods demonstrates its broad applicability.
+Detecting AI-generated text (AIGT) remains challenging because existing approaches rely on token-level statistical signals or independent stylometric features, causing them to overfit to specific generators and fail under distribution shift. We identify a structural signal at the sentence-pair level: LLMs produce inter-sentence transition variance that deviates from human writing through inflated variance driven by recurring similarity bursts at paragraph boundaries and templated transitions. We formalize this as Relational Over-Regularization (ROR) and validate it across four benchmarks (p < 0.001). The central contribution is this relational problem formulation, not a novel GNN architecture; CSFG is one concrete instantiation for operationalizing ROR. To exploit this signal, we propose the Cross-Source Stylometric Fingerprint Graph (CSFG), a graph-based framework that encodes positional, sequential, semantic, and transition deviation signals as learnable GNN edge features. The per-edge signed deviation δ_ij operationalizes ROR without hand-crafted thresholds and acts as a false-positive calibrator. CSFG achieves 97.14% accuracy under binary detection, outperforming the strongest graph-based baseline by 11.14 pp, with a false-positive rate of 1.57% and robust generalization to unseen LLMs in the inflated-variance regime; detection degrades for generators whose transition variance falls at or below the human baseline.
 
 #### 深度分析（中文）
 
@@ -109,18 +128,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 6. One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation
+### 7. Sophistication in GenAI Use: Field Evidence from a Large Firm
 
-- **ArXiv ID**: [2608.25936v1](https://arxiv.org/abs/2608.25936v1)
-- **作者**: Justin Robert, Raheel Qader
-- **发布时间**: 2026-08-26
-- **分类**: cs.LG, cs.AI, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.25936v1](https://arxiv.org/pdf/2608.25936v1)
+- **ArXiv ID**: [2608.27364v1](https://arxiv.org/abs/2608.27364v1)
+- **作者**: Nicholas J. Hallman, Zachary T. Kowaleski, Anu Puvvada, Jaime J. Schmidt
+- **发布时间**: 2026-08-28
+- **分类**: cs.AI, econ.GN
+- **PDF**: [https://arxiv.org/pdf/2608.27364v1](https://arxiv.org/pdf/2608.27364v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-On-policy distillation trains a language model on its own generations while a teacher scores them token by token. It combines the dense supervision of imitation learning with the on-policy sampling of reinforcement learning. But it requires a second, larger model to act as teacher. On-Policy Self-Distillation (OPSD) removes that cost. The teacher is the model itself, conditioned on privileged information the student will not have at test time, such as a reference solution, a plan, or environment feedback. The teacher is no stronger than the student, only better informed. Early results were promising, with accuracy comparable to reinforcement learning at a fraction of the generated tokens. But the same asymmetry that produces the signal also biases it. One failure mode now dominates the field: collapse, the progressive narrowing of the set of reasoning paths the model can produce. Collapse is not specific to OPSD, though privileged information aggravates it. This review treats collapse as a symptom governed by three levers: (i) where the signal is applied, that is, how tokens are weighted; (ii) what the teacher is shown, that is, the nature of the privileged information; and (iii) when the signal changes, that is, the teacher's dynamics and the decay of guidance. We restrict our scope to mathematical reasoning, where the method originated and where its failure modes are best documented. We report no new experiments. The contribution is structural: a shared vocabulary for phenomena named differently across papers, and a clear line between what is settled and what is still disputed.
+We study how sophistication in generative AI (genAI) use varies among the back-office workforce of a large firm. Using proprietary data, we observe 713,564 employee prompts and their corresponding large language model responses from nearly 4,000 back-office employees across 15 functional areas over eight months in 2025. We document three main findings. First, senior employees exhibit more sophisticated genAI use, consistent with domain expertise complementing genAI capabilities. Second, sophistication varies considerably across functions and is highest in Strategy, Digital Innovation, and Project Management, three groups that share a focus on firmwide strategic initiatives and organizational change. Third, we observe neither improvements in sophistication over time nor lasting improvements following formal AI training, suggesting that sophisticated use can be difficult to change. Together, our study provides measures of and insights into sophisticated genAI use that managers can use to improve outcomes and that researchers can use in future research.
 
 #### 深度分析（中文）
 
@@ -128,37 +147,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 7. Formal, Executable and Explainable Runtime Monitoring of Spoken Air Traffic Control Operational Procedures
+### 8. Pair-Level Essay-Scale Republication and Reuse from Fragmented Historical Text Reuse: A Workflow Study on Eighteenth-Century Books and Newspapers
 
-- **ArXiv ID**: [2608.25926v1](https://arxiv.org/abs/2608.25926v1)
-- **作者**: Roberto Luvini, Giacomo Longo, Alessandro Armando, Enrico Russo
-- **发布时间**: 2026-08-26
-- **分类**: cs.AI, cs.CL, eess.AS
-- **PDF**: [https://arxiv.org/pdf/2608.25926v1](https://arxiv.org/pdf/2608.25926v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Air traffic control procedures are executed through spoken exchanges between controllers and pilots. These interactions are essential to the safety of air transportation: failures in their execution can create severe operational hazards, as evidenced by past fatal accidents. Assessing whether an instruction has been followed requires relating what was said to the aircraft concerned, its state, and the obligations that pilots must meet. We present a runtime verification framework that monitors such procedures by checking controller-pilot exchanges, surveillance data, and onboard observations. The framework parses radio communications into events linked to the entities they concern and merges them with surveillance and onboard observations into a time-stamped trace. The ICAO-derived obligations as formalized as temporal formulas with explicit time bounds and evaluated over execution traces. Every violation is reported along with the breached obligations and the observations that support the verdict. With real traffic, the complete pipeline reaches an F1 of 0.85 against blind human-annotated violations; in 1,495 synthetic situations derived from two public corpora, the monitor logic returns the expected verdict in every case. In two historical accidents reconstructed from official investigation reports, the monitor identifies the same procedural deviations documented by the investigators.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 8. Loss-Based Active Learning for Neural Abstractive Summarization
-
-- **ArXiv ID**: [2608.25881v1](https://arxiv.org/abs/2608.25881v1)
-- **作者**: Michail Ioannou, Tatiana Passali, George Michalopoulos, Grigorios Tsoumakas
-- **发布时间**: 2026-08-26
+- **ArXiv ID**: [2608.27343v1](https://arxiv.org/abs/2608.27343v1)
+- **作者**: Ke Shu, Kira Hinderks, Eetu Mäkelä, Mikko Tolonen
+- **发布时间**: 2026-08-28
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.25881v1](https://arxiv.org/pdf/2608.25881v1)
+- **PDF**: [https://arxiv.org/pdf/2608.27343v1](https://arxiv.org/pdf/2608.27343v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Fine-tuning abstractive summarization models requires high-quality annotated data. However, obtaining such corpora is expensive and time-consuming, as it requires human annotators to read and comprehend long documents to create accurate summaries. Active learning mitigates this issue by selecting only the most informative instances for annotation, allowing models to achieve competitive results with significantly fewer labels. However, the application of active learning to summarization remains under-explored, and existing studies often suffer from instability and significant computational bottlenecks. To overcome these challenges, we propose LOBSTER (LOss-BaSed acTivE leaRning), a novel active learning framework designed specifically for abstractive summarization. LOBSTER improves performance by prioritizing unlabeled instances semantically similar to the model's current high-loss training examples, enabling the model to explicitly correct its specific weaknesses. Our empirical evaluation across three benchmark datasets and two summarization backbone models demonstrates that LOBSTER consistently matches or outperforms current state-of-the-art approaches while achieving a query selection speedup of up to 665x.
+This paper addresses the recovery of essay-scale republication and reuse from fragmented text-reuse evidence, a setting whose central challenge is pair-level evidence consolidation and not fragment retrieval alone. The study focuses on a candidate set centered on essays by eighteenth-century Scottish philosopher David Hume, spanning books from ECCO (Eighteenth Century Collections Online) and historical newspapers. Because the input consists of fragmented reuse hits instead of clean document pairs, and positive coverage is inherently incomplete, we formulate the task as pair-level evidence consolidation into plausible transmission relations and compare three methodological families: a staged rule-based workflow, baselines (a decision tree and two direct LLM settings), and automated rule adaptation. On labeled ECCO--ECCO slices, pair-level feature aggregation alone already reaches 0.948 F1 on the main labeled slice, while the final workflow gives the strongest overall precision-recall trade-off among the tested rule stages. On the full ECCO--ECCO candidate universe, direct LLM baselines flag up to 14,886 pairs as reprints compared to 771 for the final workflow, behaving in this direct-prompt setup as high-recall candidate expanders rather than precision-controlled deployment classifiers. On ECCO--Newspaper, manual audit confirms all 176 predicted positives as genuine cases of republication or reuse, while issue duplication and source-side multiplicity reveal additional provenance structure. Under incomplete ground truth, auditable pair-level evidence consolidation provides a practical way to produce compact candidate spaces for historical inspection.
 
 #### 深度分析（中文）
 
@@ -166,94 +166,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 9. Unfolding Scientific Papers into Multi-Turn Generation Trajectories for Continued Pre-Training
+### 9. STAR : Sentence Translation Alignment Rate for Document-to-Document Machine Translation
 
-- **ArXiv ID**: [2608.25826v1](https://arxiv.org/abs/2608.25826v1)
-- **作者**: Qiankai Xu, Qiguang Chen, Zixin Su, Wenhao Huang, Yue Gao...
-- **发布时间**: 2026-08-26
-- **分类**: cs.CL, cs.AI, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2608.25826v1](https://arxiv.org/pdf/2608.25826v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-A recent line of synthetic-data work reconstructs the thinking behind existing text rather than rewriting the text itself, but it operates on short web passages, recovers only local thoughts, and leaves the structure of whole documents untouched. Scientific papers are written to a clear and largely uniform structure and make a natural substrate for lifting this paradigm to the document level. We present a pipeline that unfolds each paper into a multi-turn generation trajectory in which a teacher model reconstructs the writing process of the whole paper: a writing request, a global plan, and pre-writing deliberation for each section. All section texts and the abstract are kept verbatim from the source paper. We apply the pipeline to quality-filtered arXiv papers and obtain a corpus for continued pre-training (CPT) that is roughly twice the size of the source text. The same reverse construction extends to instruction data and evaluation. Treating real paper text as the answer yields an SFT dataset. Anchoring tasks in held-out papers yields PAW-Bench, an academic-writing benchmark whose tasks carry their own rubrics and checklists. In controlled experiments CPT on our corpus followed by supervised fine-tuning on public datasets improves writing benchmarks broadly while preserving general reasoning and improving long-document reading. The writing gain persists even when every model is fine-tuned on a dedicated writing SFT dataset. Mixing our SFT data into that recipe lifts academic writing further.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 10. Learning from waste: Machine Learning for health risk prediction and computer vision-based sorting in Ghana
-
-- **ArXiv ID**: [2608.25759v1](https://arxiv.org/abs/2608.25759v1)
-- **作者**: Hilda Adwubi Osei, Catherine Tenewaa Osei, Desdemona Yaa Asobayire
-- **发布时间**: 2026-08-26
-- **分类**: cs.LG, cs.CV, cs.CY
-- **PDF**: [https://arxiv.org/pdf/2608.25759v1](https://arxiv.org/pdf/2608.25759v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-The inappropriate disposal of solid waste remains a significant public health and environmental concern worldwide, including in Ghana. Poor sanitation and improper waste management practices contribute to substantial economic costs and avoidable deaths annually. In 2022, a field study in Atonsu, Kumasi, Ghana, reported a community-perceived relationship between household waste disposal and illness patterns, but only through descriptive analysis without quantitative validation. This study extends that investigation using two data-driven approaches. First, a Random Forest classifier was developed to predict illness categories using waste disposal practices and demographic survey data. On a held-out group of respondents who reported illness (N=69), the model obtained a macro F1 score of 0.63, with disposal method emerging as the most important substantive predictor of illness type. Second, a MobileNetV2 image classification model enabled automated waste sorting via visual recognition, achieving 88.2% accuracy and a macro F1 score of 0.87 on the test set (N=415). The vision-based approach offers an affordable, camera-driven alternative to complex multi-sensor systems, making it highly suitable for resource-constrained settings. Taken together, the findings provide quantitative evidence for a community health relationship previously documented only qualitatively. They demonstrate the potential for automated waste-sorting in low-resource environments. Importantly, the results illustrate that technological performance alone does not guarantee public health improvements; effective institutional support and implementation are equally necessary.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 11. D3ER: Supporting Multi-Modal Recommendation via Disentangle and Distillation-based Dynamic Ensemble
-
-- **ArXiv ID**: [2608.25737v1](https://arxiv.org/abs/2608.25737v1)
-- **作者**: Bingnan Wang, Yi Li, Xiongxin Tang, Fanjiang Xu, Jiangmeng Li
-- **发布时间**: 2026-08-26
-- **分类**: cs.IR, cs.MM
-- **PDF**: [https://arxiv.org/pdf/2608.25737v1](https://arxiv.org/pdf/2608.25737v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Incorporating items' information shared among multiple modalities into a fused representation, multi-modal recommendation (MR) has demonstrated documented success than canonical unimodal recommendation. Although several attempts have been made to extract the discriminative information unique in each modality, existing methods suffer from a core limitation: the joint learning of modal-homogeneity discriminative information (HOI) and modal-heterogeneity discriminative information (HEI) tends to weaken their individual effectiveness. To remedy this deficiency, we propose a novel method, dubbed Disentangle and Distillation-based Dynamic Ensemble for multi-modal Recommendation (D3ER). We introduce gradient boosting into MR for the first time to formalize the optimization objective for alternately learning HOI and HEI. This design enables models dedicated to each type of information to focus on their proficient samples, thereby promoting specialized optimization. Furthermore, to mitigate the inherent high storage cost and risk of local optima in gradient boosting, we enhance our framework with knowledge distillation and a global correction regularization. Experiments on prevalent real-world datasets confirm the superiority of our proposed method on MR.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 12. Pointing the Way, Hiding the Destination: Practical Private Dense Retrieval at Scale
-
-- **ArXiv ID**: [2608.25735v1](https://arxiv.org/abs/2608.25735v1)
-- **作者**: Peichun Hua, Danyang Chen, Junan Zhang, Haifeng Sun, Jingyu Wang...
-- **发布时间**: 2026-08-26
-- **分类**: cs.CR, cs.AI, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.25735v1](https://arxiv.org/pdf/2608.25735v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Hosted retrieval-augmented generation (RAG) and semantic search allow users to query valuable provider-held corpora, raising two competing demands: to hide each query and chosen result, yet reveal only the documents that the user is authorized to receive. Existing cryptographic approaches either make this costly by processing the entire corpus for every query, or sacrifice quality for efficiency by scanning a few clusters. We repurpose learned deep hashing as a private filter: a randomized binary code points the provider to a short candidate list, while encrypted reranking and oblivious key transfer protect the precise query and final selection. This shortlist short-circuits full-corpus cryptographic search without sacrificing retrieval quality: with 200-500 candidates, it closely matches full-corpus retrieval across five zero-shot corpora spanning 25K to 5.4M documents. On the full 2.68M-passage NQ corpus over a 10-Gbps link, our protocol only adds 0.73 seconds, or 10 percent, to a 128-token Qwen3-32B RAG pipeline. The released code satisfies directional metric differential privacy (DP) and substantially reduces embedding-inversion and property-inference leakage, demonstrating that a carefully learned shortlist can make private dense retrieval both accurate and practical.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 13. One Form to Transfer Them All: Pretraining Multilingual Language Models Beyond Native Orthography
-
-- **ArXiv ID**: [2608.25904v1](https://arxiv.org/abs/2608.25904v1)
-- **作者**: Muge Zhang, Aaron Jencks, Krishna Badikela, Yulia Tsvetkov, Sachin Kumar
-- **发布时间**: 2026-08-26
+- **ArXiv ID**: [2608.27161v1](https://arxiv.org/abs/2608.27161v1)
+- **作者**: Yichen Dong, Hao Wang, Junhui Li, Linlong Xu, Longyue Wang...
+- **发布时间**: 2026-08-27
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.25904v1](https://arxiv.org/pdf/2608.25904v1)
+- **PDF**: [https://arxiv.org/pdf/2608.27161v1](https://arxiv.org/pdf/2608.27161v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Multilingual language models transfer knowledge across languages through shared subword vocabulary, a mechanism that breaks down when related languages use different writing systems. Prior work addresses this via script equalization (romanization or IPA transcription), but direct comparisons are rare; the focus has been on encoder-only models, with most work adapting existing pretrained models. We systematically compare different input representations in autoregressive multilingual pretraining, comparing orthographic text, IPA, and romanization in a controlled setup across three scales (467M, 709M, and 1.03B) on eight languages in four typologically motivated pairs. Across a wide range of downstream tasks on seen and unseen languages, romanized pretraining yields the strongest cross-lingual transfer, and the advantage over text widens with scale. IPA improves over text in most settings but trails romanization. Surprisingly, finetuning a text-pretrained model on romanized data hurts performance on languages already covered by the base model, only marginally helping when the model lacks script coverage. Our results indicate that for multilingual models spanning typologically diverse scripts, to obtain maximum benefits, romanization should be treated as a core design choice applied at pretraining rather than a post hoc fix.
+Large Language Models (LLMs) have enabled a shift from sentence-level to document-to-document (Doc2Doc) machine translation, promising improved global coherence. However, document-to-document generation in a single pass frequently suffers from structural misalignment, manifesting as sentence omissions or hallucinations that violate the core requirement of source-target correspondence. To address this, we introduce Sentence Translation Alignment Rate (STAR), an auxiliary metric that explicitly quantifies sentence-level structural fidelity. Building on this, we propose STAR-masked Preference Optimization (StarPO), a framework that ranks document-level hypotheses by structural quality and utilizes a dynamic alignment mask to focus optimization on misaligned segments. Experimental results across news and literary domains demonstrate that StarPO significantly enhances translation quality and structural integrity. Notably, StarPO allows compact models to surpass the performance of massive proprietary systems like GPT-4o while maintaining superior token efficiency.
 
 #### 深度分析（中文）
 
@@ -261,18 +185,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 14. Skill Issue: Are Skills Language-Invariant in LLMs?
+### 10. LAAF: A Layered Accountability Architecture Framework for LLM Applications
 
-- **ArXiv ID**: [2608.25832v1](https://arxiv.org/abs/2608.25832v1)
-- **作者**: Bobby Cheng, Adam Gaber, Zhengyuan Liu, Catherine Arnett, Omer Goldman...
-- **发布时间**: 2026-08-26
-- **分类**: cs.CL, cs.AI, cs.GT
-- **PDF**: [https://arxiv.org/pdf/2608.25832v1](https://arxiv.org/pdf/2608.25832v1)
+- **ArXiv ID**: [2608.27102v1](https://arxiv.org/abs/2608.27102v1)
+- **作者**: Prachi Chaturvedi, Shahnawaz Ahmad, Ehsan Nowroozi, Muhammad Waqas, George Loukas...
+- **发布时间**: 2026-08-27
+- **分类**: cs.AI, cs.CR
+- **PDF**: [https://arxiv.org/pdf/2608.27102v1](https://arxiv.org/pdf/2608.27102v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Large language models access knowledge inconsistently across languages, but to what extent do they differ in their skill sets when interacting with different languages? This work quantifies cross-lingual skill inconsistency orthogonally from knowledge and general benchmark performance. We do this via multilingual self-play: two instances of the same model compete in a text-based game, each interacting through a different language interface. Since the model, opponent, rules, state space, and available actions remain fixed, this setting isolates the effect of language on the model's realized behavior. We build a multilingual extension to TextArena and evaluate three open-weight models across eight languages and six games covering spatial reasoning, imperfect information, resource allocation, and repeated interaction. We find that the same model can exhibit markedly different playing strength across languages, with systematic variation in win--loss margins, invalid actions, and strategic tendencies. Detailed analyses reveal language-specific failures in spatial reasoning, card-conditioned decisions, and optimal move selection. In some settings, changing only the intermediate reasoning language recovers much of the lost performance, suggesting that language can affect different stages of the decision process. These results show that skill discrepancies are a measurable major roadblock in the development of truly multilingual models. Better understanding these discrepancies can help us design models that perform more equitably across languages.
+Large Language Models (LLMs) operate in hospitals, courtrooms, banks, and public service desks, where fluent, confident outputs are treated as authoritative even when ungrounded or incorrect. When such an output contributes to harm, who is answerable, and through what mechanisms can responsibility be traced, explained, and acted upon? Following PRISMA guidance, five databases were searched from January 2022 to March 2026 against four review questions; of 4,512 records identified, 122 primary studies were included, together with 12 regulatory and standards documents analysed as primary sources. The review consolidates a sociotechnical account of accountability as an actor-forum relation resolved into five dimensions, and synthesises mechanisms across four families: technical controls, human oversight, organisational governance, and documentation and traceability, each with a maturity assessment. The corpus is read through a four-layer classification device spanning provenance, application logic, human oversight, and governance and redress, cross-cut by traceability, role clarity, and continuous monitoring. Both are mapped onto the EU AI Act, whose high-risk obligations have applied since 2 August 2026, the NIST AI RMF with its Generative AI Profile, ISO/IEC 42001, and sectoral guidance in healthcare, consumer finance, education, and the public sector. Four persistent gaps emerge: under-specification of human oversight, absence of shared accountability metrics, disciplinary disconnection, and limited empirical evaluation, alongside five structural tensions that no surveyed instrument resolves. The review closes by consolidating the classification device into an integrated accountability architecture, LAAF, with cybersecurity aligned to the OWASP LLM Top 10 (2025); it is a synthesis of the surveyed evidence rather than a validated artefact.
 
 #### 深度分析（中文）
 
@@ -280,18 +204,94 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 15. VBVR-Pro: A Scalable and Verifiable Suite for Native Visual Reasoning
+### 11. Beyond Classification: Task-Dependent Learnability under Privacy-Motivated Image Transformations
 
-- **ArXiv ID**: [2608.26105v1](https://arxiv.org/abs/2608.26105v1)
-- **作者**: Junxiang Xu, Ruisi Wang, Fanyi Pu, Maijunxian Wang, Ran Ji...
+- **ArXiv ID**: [2608.27066v1](https://arxiv.org/abs/2608.27066v1)
+- **作者**: Leon Ranke, Wolfgang Hübner, Ronny Hug, Michael Arens, Jürgen Beyerer
 - **发布时间**: 2026-08-27
 - **分类**: cs.CV, cs.AI, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2608.26105v1](https://arxiv.org/pdf/2608.26105v1)
+- **PDF**: [https://arxiv.org/pdf/2608.27066v1](https://arxiv.org/pdf/2608.27066v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Native visual reasoning treats visual generation as the medium of reasoning itself: visual states (i.e. images and videos) are not merely inputs to be understood or outputs to be rendered, but first-class substrates for problem solving beyond language. Yet progress remains bottlenecked by the lack of scalable training tasks, reliable feedback, and controlled comparisons across generative substrates. In this work, we introduce VBVR-Pro, a closed-loop testbed that makes native visual reasoning through generation trainable, verifiable, optimizable, and experimentally controllable. 1) Task scaling. VBVR-Pro turns visual reasoning into a controlled task space of 300 procedurally generated tasks. Models trained on VBVR-Pro show strong transfer beyond the proposed suite across seven external visual reasoning benchmarks such as RISE-Video, MME-CoF-Pro, and BabyVision. 2) Verifiable rewards. VBVR-Pro provides verifiable reward scorers for task-grounded evaluation. Through a systematic study of leading MLLMs as judges, we identify recurring failure modes of the prevalent VLM-as-a-judge paradigm. In contrast, the proposed scorers are grounded in deterministic, task-specific rules, achieve fine-grained alignment with human judgments. Importantly, they serve as reliable reward signals for large-scale multi-task reinforcement learning and demonstrate stronger post-RL performance across visual reasoning tasks. 3) Mechanism study. VBVR-Pro enables controlled modality studies across more than 30 image, video, and interleaved generators. Our analysis shows that video generation remains strongest for tasks requiring persistent spatiotemporal state tracking, while interleaved generation provides a compute-efficient alternative. Critically, ablations and probing suggest the presence of vision-native trajectories that are crucial to visual reasoning. We release all data, models, scorers, and code.
+Privacy-Enhancing Technologies (PETs) in computer vision often rely on noise or image perturbations to protect visual data while securely processing it, creating a trade-off between task performance and protection. This trade-off is commonly evaluated using image classification, which primarily captures semantic separability and remains robust despite significant geometric, spatial layout or local boundary alterations. As a result, it is too simplistic as a proxy for generic vision tasks. Exhaustive downstream-task evaluation, however, is computationally expensive because models must often be trained for each PET transformation and parameter setting. We therefore propose a compute-aware multi-task protocol for evaluating PETs in model training. It combines lightweight proxy tasks that target complementary aspects of visual structure while remaining simple and fast to compute. Across irreversible privacy transformations, key-based block primitives, and learnable image encryption schemes, we demonstrate that PETs with similar classification accuracy can differ substantially on other tasks. The outcomes highlight the need for PET evaluation protocols that move beyond classification-only reporting.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 12. ITL: Interpretable Document Alignment with Structured Reference Frameworks
+
+- **ArXiv ID**: [2608.27031v1](https://arxiv.org/abs/2608.27031v1)
+- **作者**: Raúl Giráldez, Dayrelis Mena, Jesús S. Aguilar--Ruiz
+- **发布时间**: 2026-08-27
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2608.27031v1](https://arxiv.org/pdf/2608.27031v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Measuring alignment between documents and structured reference frameworks requires identifying conceptual evidence distributed throughout the text and reporting it through measures that are quantitative, interpretable, and traceable. Many commonly used retrieval and classification approaches return either pairwise similarity scores or one or more class labels, whereas fewer methods provide concept-level scores that are directly traceable to the terminological evidence supporting them. We present \emph{Intelligent Target Locator} (ITL), a domain-agnostic and language-portable methodology that estimates the affinity between the textual units of a target document and the concepts defined in a \emph{Structured Reference Document} ($SRD$). From the $SRD$, ITL induces concept-specific terminological profiles built from independent terms, bigrams, trigrams, and co-occurrences. Each term is assigned an importance weight that combines concept membership, term-type specificity and inter-concept discriminability. The output is a textual-unit--concept affinity matrix that can be aggregated at different levels of granularity. We conduct an internal consistency assessment using the 17 Sustainable Development Goals (SDGs), evaluating each official goal statement against the $SRD$ induced from the same set of descriptors. Every statement reached its highest affinity with the corresponding concept, and the mean affinity across the remaining concepts stayed marginal relative to the mean reference affinity. This separation indicates that ITL distinguishes the conceptual profiles of the framework. ITL thus offers a general basis for quantifying document alignment with structured frameworks while keeping each result traceable to the terminological evidence that supports it.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 13. Conversational Recommendation over Live E-Commerce Catalogues with Self-Refreshing Retrieval
+
+- **ArXiv ID**: [2608.27006v1](https://arxiv.org/abs/2608.27006v1)
+- **作者**: Ante Kapetanovic, Tomislav Duricic, Dionizije Fa, Andro Mercep, Emanuel Lacic
+- **发布时间**: 2026-08-27
+- **分类**: cs.IR
+- **PDF**: [https://arxiv.org/pdf/2608.27006v1](https://arxiv.org/pdf/2608.27006v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Conversational recommender systems based on large language models (LLMs) are usually evaluated on static, pre-indexed item collections, yet e-commerce catalogues change continuously as products are added or removed, repriced, and restocked. We present a merchant-agnostic, multi-turn conversational shopping assistant that operates over such live catalogues. Its central component is a self-refreshing retriever that ingests a merchant product feed, enriches the records, and synchronizes them into a vector index. On each run, per-item hashes identify which products are new, changed, deleted, or unchanged, so only the delta is processed rather than rebuilding the whole catalogue. A controller-based dialogue layer consumes this index, using an LLM only for intent classification and preference elicitation while retrieval, reranking, and diversity selection run as dedicated functions. Our demonstration is a WhatsApp shopping assistant in which catalogue changes reach the recommendations after the next successful sync. A live chatbot, documentation, and a recorded walkthrough are available at https://github.com/infobip/infobip-agentic-crs.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 14. GRAIN: Bridging Name and Narrative Shifts in Real-World Graph Reasoning through Invariance-Rewarded Agentic RL
+
+- **ArXiv ID**: [2608.27142v1](https://arxiv.org/abs/2608.27142v1)
+- **作者**: Zike Yuan, Han Zhang, Jianzhi Yan, Le Liu, Cai Ke...
+- **发布时间**: 2026-08-27
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2608.27142v1](https://arxiv.org/pdf/2608.27142v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Despite their potential in standardized graph tasks, Large Language Models (LLMs) remain brittle to real-world shifts in node identifiers and task formulation. While deterministic graph tools are invariant to such shifts, extracting topological structures from noisy text is highly fragile for LLMs, which often overfit to surface patterns. Moreover, mitigating these parsing failures via multi-agent systems incurs prohibitive latency. To address this, we propose GRAIN, a single-agent framework optimized via reinforcement learning. GRAIN models reasoning as a semantic parsing and tool-execution pipeline, guided by a Structure Invariance Reward. By validating extracted intermediate graphs against ground-truth topologies, this reward forces the LLM to learn robust text-to-structure mappings rather than memorizing linguistic artifacts. We also introduce GRIT, a benchmark evaluating sensitivity to such linguistic shifts. GRAIN outperforms multi-agent baselines by 16.45\% in accuracy with approximately 24\% lower latency. Furthermore, it demonstrates superior structural generalization, halving the out-of-distribution (OOD) gap of SFT models (from 15.77\% to 7.80\%) and maintaining robustness on large-scale graphs beyond the training distribution.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 15. UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City
+
+- **ArXiv ID**: [2608.27456v1](https://arxiv.org/abs/2608.27456v1)
+- **作者**: Tianjie Ju, Zheng Wu, Yueqing Sun, Yuhan Cui, Bobo Li...
+- **发布时间**: 2026-08-28
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2608.27456v1](https://arxiv.org/pdf/2608.27456v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Multimodal large language models (MLLMs) can interpret a street view, but urban agency depends on whether such local evidence remains useful after the agent starts to move. In this paper, we investigate how far current MLLM agents can turn local urban perception into reliable action in a complicated real-scale city. We propose UrbanGround, the first sandbox to make this question testable in a physically constrained replica of Hong Kong built from territory-wide 3D geospatial data. UrbanGround supports closed-loop interaction from a first-person view and provides an interactive map for navigation. Agents can directly enter the 3D city and explore from a first-person view. Our analysis follows the growth of the spatial problem through three research questions. We first test whether an agent can ground a local scene well enough to answer spatial questions after active observation. Then we ask whether that grounding supports navigation as destinations become farther away and less explicit. Finally, we examine whether the resulting behavior survives changes in route availability and pedestrian motion. Contemporary MLLM agents usually show useful atomic abilities in visual recognition and short-range spatial reasoning, while orientation and pedestrian-aware movement remain unreliable. Their central failure emerges over extended exploration, where local abilities do not compose into sustained goal-directed behavior and errors accumulate without effective correction. We hope UrbanGround will support broader study of how far current MLLM agents can explore reliably in complex, open-ended urban environments.
 
 #### 深度分析（中文）
 
