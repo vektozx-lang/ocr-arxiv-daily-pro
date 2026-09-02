@@ -1,8 +1,8 @@
-# OCR arXiv Daily Pro — 2026-09-01
+# OCR arXiv Daily Pro — 2026-09-02
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-08-31 09:10 - 2026-09-01 09:10 (Asia/Shanghai)
+> 时间窗口：2026-09-01 09:10 - 2026-09-02 09:10 (Asia/Shanghai)
 
 ---
 
@@ -14,37 +14,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ## 📄 论文详情
 
-### 1. OCR-MetaReasoning Benchmark: Evaluating the Meta-Reasoning Ability of MLLMs in Text-Rich Image Understanding
+### 1. On the Design Fundamentals of Pixel Text Representation Learning
 
-- **ArXiv ID**: [2608.30678v1](https://arxiv.org/abs/2608.30678v1)
-- **作者**: Gengxu Li, Yuan Wu, Yi Chang
-- **发布时间**: 2026-08-31
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.30678v1](https://arxiv.org/pdf/2608.30678v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Text-rich image understanding requires multimodal large language models (MLLMs) to organize OCR (Optical Character Recognition)-grounded evidence across words, layout, fields, charts, and visual correspondences. Existing evaluations often conflate extraction with reasoning and rarely test whether models follow the required reasoning direction: applying visible rules, abstracting hidden regularities, or recovering missing premises. We introduce OCR-MetaReasoning, a controlled single-image benchmark that treats deduction, induction, and abduction as distinct directions and separates final-answer correctness from reasoning-process compliance. The benchmark contains 1,500 verified samples in a balanced \(3\times5\) taxonomy crossing three reasoning types with five OCR-object categories, along with reference reasoning steps, automatic answer scoring, the Meta-Reasoning Macro Score (MRMS), and the Reasoning Process Compliance Score (RPCS). Experiments with representative closed-source and open-source MLLMs show that OCR-grounded meta-reasoning remains far from saturated: models struggle with visible-rule application and layout-sensitive inference, while process-compliant rationales can accompany incorrect final answers under exact-match evaluation. The code is available at https://github.com/gengxuli/OCR-MetaReasoning.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 2. Towards a Joint Khmer Text Recognition and Word Segmentation
-
-- **ArXiv ID**: [2608.30213v1](https://arxiv.org/abs/2608.30213v1)
-- **作者**: Marry Kong, Rina Buoy, Sovisal Chenda, Nguonly Taing, Masakazu Iwamura...
-- **发布时间**: 2026-08-31
+- **ArXiv ID**: [2609.01147v1](https://arxiv.org/abs/2609.01147v1)
+- **作者**: Chaohao Yuan, Ruifeng Yuan, Zhuoxu Huang, Yu Rong, Hong Cheng...
+- **发布时间**: 2026-09-01
 - **分类**: cs.CV, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.30213v1](https://arxiv.org/pdf/2608.30213v1)
+- **PDF**: [https://arxiv.org/pdf/2609.01147v1](https://arxiv.org/pdf/2609.01147v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Text recognition, or extracting electronic text from document images, has been indispensable for knowledge retrieval tasks, such as retrieval-augmented generation (RAG). For Khmer, extracted text is subject to an extra word segmentation step, as Khmer does not use any visible word delimiters to denote word boundaries. Thus, a recognition-then-segmentation pipeline for Khmer requires two separate sequential models; this is not only error-prone but also adds significant latency for large-scale document processing. This paper proposes a novel joint Khmer text recognition and word segmentation framework in a unified model. The proposed model, using a connectionist-temporal-classification (CTC) decoder for fast, parallel decoding, can be instructed to recognize Khmer text with ($b=1$) and without ($b=0$) word segmentation. Experimental results on different benchmark datasets of different document modalities (document, scene, and handwritten images) show that the proposed model can not only recognize characters in document images but also locate word boundaries, removing the need for an extra word segmentation step in a conventional sequential pipeline.
+Text-rich visual inputs require models that can read, retrieve, and compress language directly in pixel space, yet existing pixel-text encoders struggle with fixed resolution pretraining, visual shortcut learning, weak visual grounding, and multilingual visual text understanding. In this work, we investigate the fundamental design principles required for robust visual text representation learning. Through systematic controlled ablations, we identify four critical components: variable image resolutions and rendered font sizes provide spatial proxies for high-resolution document generalization; natural image-text pairs are indispensable for grounding and prevent text-only collapse; layout-aware rendering helps prevent pixel-level shortcuts; and a two-stage multilingual curriculum enables effective cross-lingual alignment. By integrating these principles into a scalable training recipe, we train Pixel Linguist II, a native-resolution vision encoder trained with on-the-fly rendering, unified contrastive grounding, and a multilingual curriculum over 280M training examples. Pixel Linguist II sets new state-of-the-art results on English, cross-lingual, and multilingual Visual STS and ViDoRe, while also enabling better MLLM downstream evaluation. Notably, Pixel Linguist II remains robust under 80\% visual token compression, showing great promise for optical context compression. Our code and resources are available at https://github.com/Pixel-Linguist/Pixel-Linguist-II.
 
 #### 深度分析（中文）
 
@@ -52,18 +33,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 3. OCR-Based Field Extraction for Archaeological Pottery Metadata: The CENTURIA Dataset
+### 2. Closing Cost-Quality Gap in Document VLMs: Difficulty-Aware Data Curation and Quality-Adjusted Deployment Economics
 
-- **ArXiv ID**: [2608.30616v1](https://arxiv.org/abs/2608.30616v1)
-- **作者**: Gissu Valentina Naghavi, Dominik Hagmann, Martin Kampel, Irene Ballester
-- **发布时间**: 2026-08-31
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.30616v1](https://arxiv.org/pdf/2608.30616v1)
+- **ArXiv ID**: [2609.01575v1](https://arxiv.org/abs/2609.01575v1)
+- **作者**: Maksim Evdokimov, Matvey Ivanov, Dmitrii Tsiupin, Olga Tsymboi, Anatolii Potapov...
+- **发布时间**: 2026-09-02
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2609.01575v1](https://arxiv.org/pdf/2609.01575v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Pottery is a primary source for reconstructing the chronological and economic dimensions of past societies. Archaeologists often document ceramic finds through technical drawings and handwritten metadata. This metadata is critical for dating, provenance attribution, and cross-site comparison, but remains inaccessible to computational analysis, requiring manual transcription of every record. We investigate whether state-of-the-art document analysis models can address this task, and introduce CENTURIA, a dataset of 507 pottery records from the Roman site of Carnuntum, providing transcriptions, bounding boxes, and structured field-level labels across seven metadata categories. Benchmarking five OCR models reveals a substantial domain gap: zero-shot transcription error reaches 15-32% SpACER-M, far exceeding rates on printed archival documents, with domain-specific fields recovered in fewer than 3% of cases. LoRA fine-tuning on just 57 samples, reflecting a realistic archival annotation budget, closes this gap, reducing transcription error to below 1.5% and recovering overall field-level accuracy above 87%. Our results show that a small expert-validated fine-tuning set suffices to convert handwritten pottery documentation into structured, searchable metadata ready for archaeological databases.
+Extracting structured fields from hundreds of millions of documents annually remains costly in regulated industries: bespoke OCR cascades cover only a fraction of workflows, privacy rules preclude external models, and existing open-source VLMs that clear quality thresholds cost more to serve than human annotation. We present a deployed document-understanding system built on a Mixture-of-Experts VLM (35B total, 3B active), fine-tuned on in-house production data mixed with open-domain documents curated by a Difficulty-Aware pipeline for layout diversity, fact-extractability, and cross-model consistency. Fitting on a single H100 and serving heterogeneous workflows via prompting, the model leads all deployable (non-reasoning) baselines up to an order of magnitude larger. A quality-adjusted cost analysis, with confirmation and correction costs calibrated from production telemetry, shows it reduces expected costs by over 80% against the human baseline and by more than 50% against the best competing open-source model, while larger baselines remain economically unviable.
 
 #### 深度分析（中文）
 
@@ -71,18 +52,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 4. VeriCam: A Verification Baseline for the Classification of Unknown Data
+### 3. MIDR: Enrichment-Augmented Indexing for Multimodal Document Retrieval
 
-- **ArXiv ID**: [2608.31107v1](https://arxiv.org/abs/2608.31107v1)
-- **作者**: Lucas Wojcik, Gabriel E. Lima, Sergio M. Silva, Eduil Nascimento, David Menotti
+- **ArXiv ID**: [2609.01316v1](https://arxiv.org/abs/2609.01316v1)
+- **作者**: Debanjan Mahata, Atharva Tendle, Daniel Preotiuc-Pietro, Yong Zhuang, Ozan Irsoy
 - **发布时间**: 2026-09-01
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.31107v1](https://arxiv.org/pdf/2608.31107v1)
+- **分类**: cs.IR, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2609.01316v1](https://arxiv.org/pdf/2609.01316v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-The advent of foundation models have enabled a new era in zero-shot classification. Yet, key challenges persist. Despite their impressive generalization power that leverages the immense pre-training knowledge, both foundation models for image and text as well as vision-text hybrids lack the representational power needed for fine-grained, minutiae-based class separation that some real-world tasks require. To address the current gaps in the literature, we propose VeriCam, a pipeline designed to learn highly specialized features that enable classification of unknown classes in unseen data. VeriCam works by leveraging the representation power of image models trained for the verification task, where the model develops an intricate feature space that incorporates fine-grained details. By training a model to discriminate between pairs of images from the same and different classes, a relational graph is constructed, representing the class relationships between data points. We then present two approaches for graph clustering: a naive algorithm and a specific setup for the Leiden graph clustering algorithm. The pipeline is validated on the LPLCv2 dataset, which comprises real-world traffic surveillance images. We show that the dataset carries an inherent capture device bias that is posed as a generalization challenge for downstream License Plate recognition tasks such as OCR. As such, we dynamically identify capture devices with a label-agnostic approach, enabling the construction of a fair and unbiased benchmark. In the cross-device scenario, our pipeline reaches an F1-Score of 93.45 in the verification baseline and a V-Measure score of 80.13 in the clustering step. All code is publicly available at https://github.com/lmlwojcik/VeriCam
+Retrieval over visually rich documents has a representation problem: important content often lives in tables, charts, figures, and layout relations that plain OCR linearizes, corrupts, or omits. ColPali-family visual retrievers address this with patch-level multi-vector indexes and late-interaction scoring, keeping image-derived retrieval on the query-time serving path. We introduce MIDR (Multimodal Indexing for Document Retrieval), a training-free framework for enrichment-augmented indexing that shifts multimodal reasoning to index time. During ingestion, a multimodal LLM converts rendered pages into verified textual fields that are indexed with BM25F and optionally fused with dense retrieval, enabling text-centric serving over multimodally grounded evidence. On ViDoRe V3, MIDR Hybrid achieves 0.6219 average nDCG across five English domains, a 23.0% relative gain over BM25, remaining competitive with ColQwen2.5. On two French-document domains, enrichment bridges English queries and French page text, lifting BM25 from 0.1532 to 0.5448 nDCG and outperforming ColQwen2.5. Across all seven domains, MIDR leads ColQwen2.5 on four while using approximately 9x smaller index memory and approximately 2x lower query latency. These results establish index-time multimodal reasoning as a compelling accuracy-deployment alternative to serving-time visual late interaction.
 
 #### 深度分析（中文）
 
@@ -90,18 +71,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 5. Improving Information Extraction with Learned Queries
+### 4. Joint Training Is Not Enough: Conditioned Cross-Granularity Training for Multimodal Document Understanding
 
-- **ArXiv ID**: [2608.31058v1](https://arxiv.org/abs/2608.31058v1)
-- **作者**: Omar Sharif, Soroush Vosoughi, Nikhil Singh
+- **ArXiv ID**: [2609.00756v1](https://arxiv.org/abs/2609.00756v1)
+- **作者**: Chengguang Gan, Yunhao Liang, Hanjun Wei, Qinghao Zhang, Shiwen Ni
 - **发布时间**: 2026-09-01
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.31058v1](https://arxiv.org/pdf/2608.31058v1)
+- **PDF**: [https://arxiv.org/pdf/2609.00756v1](https://arxiv.org/pdf/2609.00756v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-When information extraction fails, a natural instinct is to improve the model doing it: for example, by scaling it up or refining its reasoning. In this paper, we show that another part of the pipeline matters at least as much: the queries used to elicit this information. Across four clinical benchmarks and five LLMs, improving the question design alone raises performance by 18.6 F1-score points, i.e. more than using larger extraction models. To make such question design learnable, we introduce List of Questions (LoQ), which generates document-specific question sets, and FeedQ, a feedback-driven optimization method that iteratively refines questions against extraction outcomes. The resulting optimized questions can be used to train lightweight generators: with fine-tuning, 4B-parameter models match or outperform expert-derived baselines and substantially exceed the performance of much larger untuned models. We release a dataset of 12,820 optimized questions to support a broader shift in information extraction research toward treating question design as a first-class problem.
+The Mutual Reinforcement Effect (MRE) asks whether a fine, span-level and a coarse, document-level task help each other when one model handles both. We test it in multimodal document understanding on three corpora, two of receipts and one of scanned business forms, comparing single-task, joint and conditioned training, which puts one granularity's gold output in the other's prompt during training only. We build Doc-MRE, an annotation layer pairing gold field extraction (point) with four document-level facets (line), from a three-judge LLM committee under a pre-registration, validated by blind re-annotation. One predicate, fixed in advance: at a shared recipe, a regime reinforces if it beats the matched single-task model on both granularities. Mixed joint training, the arrangement prior MRE work assumes, reinforces on no corpus at the main scale: it is below both single-task models on CORD and trades one granularity for the other on the two others, as single-task tuning does. Conditioned training reinforces on two of the three, CORD (+0.5 point, +4.8 line) and the forms corpus (+7.2 point, +11.0 line), resolvably on the coarse side and directionally on the fine one, and trades on WildReceipt; at that recipe no alternative measurably beats it on either side anywhere. Two byte-identical-prompt controls separate content from format: shuffled conditioning destroys the coarse-side skill but costs the fine side far less, and a neutral-content control reproduces the whole fine-side gain on WildReceipt, which is therefore prompt structure but buys nothing resolvable on the other two. On the forms corpus conditioning buys collapse avoidance: mixed training and the neutral control both assign the majority semantic label to all 50 test documents; only conditioning recovers the gold distribution. Probes find the information decodable under every regime with no resolvable increase under conditioning.
 
 #### 深度分析（中文）
 
@@ -109,18 +90,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 6. Uncertainty-Aware Trajectory Forecasting from Imperfect Tracking
+### 5. Can Scene Text Recognition Read Rare Compositions?
 
-- **ArXiv ID**: [2608.30899v1](https://arxiv.org/abs/2608.30899v1)
-- **作者**: Stephane Da Silva Martins, Victor Petrovic, Emanuel Aldea, Sylvie Le Hégarat-Mascle
-- **发布时间**: 2026-08-31
+- **ArXiv ID**: [2609.00816v1](https://arxiv.org/abs/2609.00816v1)
+- **作者**: Genpei Zhang
+- **发布时间**: 2026-09-01
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2608.30899v1](https://arxiv.org/pdf/2608.30899v1)
+- **PDF**: [https://arxiv.org/pdf/2609.00816v1](https://arxiv.org/pdf/2609.00816v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Most trajectory forecasting models are trained on clean annotated histories, and are often evaluated under the same idealized assumption, although practical deployments rely on trajectories produced by imperfect multi-object trackers. The real-world observations exhibit localization jitter, missed or unstable detections, and data-association ambiguity, which are usually either ignored or removed through denoising. This paper instead treats tracking-derived reliability cues as an informative signal to be propagated to the predictor. We propose a plug-in uncertainty-aware formulation in which each observed state is encoded as an uncertain state representation, modeled by a Gaussian distribution whose covariance combines detection-level localization uncertainty and association-level ambiguity through the law of total variance. Existing backbones are adapted with minimal architectural changes: input trajectories are represented as Gaussian observations, and predicted trajectories are produced as Gaussian forecasts rather than deterministic coordinates. To train predictors that remain robust under structured observation noise, we combine temporally correlated Ornstein-Uhlenbeck perturbations with response-based knowledge distillation from a teacher trained on clean trajectories. Experiments on Oxford Town Centre and VIRAT using real tracker outputs, together with a complementary ETH/UCY pseudo-detection protocol, show that the proposed formulation improves displacement accuracy and the reliability-sharpness trade-off of probabilistic forecasts.
+Scene text recognition is reported as 89--97% accurate on the six standard benchmarks, and the problem is widely treated as saturated. We present an alternative reading. When the same test images are stratified jointly by ground-truth word rarity and character n-gram novelty against a reference corpus, accuracy at the rare-word x rare-trigram corner of the resulting 5x5 grid drops 10--18 pt below the q3/q3 centre across nine English specialised recognisers, and the same direction (corner below centre) holds on all 13 of 13 (language, model) pairs we test across four writing systems (Latin, Han, Han+kana, Arabic). The drop is not a capacity bottleneck. A 6x vision-backbone scale-up (CLIP4STR-Base 158M -> CLIP4STR-Huge 1.0B, OpenCLIP ViT-H/14 LAION-2B) leads every benchmark in aggregate accuracy yet leaves the stress corner unchanged (86.9 -> 86.5, within paired-bootstrap noise). Four converging probes--layer-wise probing, confidence-when-wrong, attention re-balancing, and a cross-script commit-vs-abstain error split--localise the failure to the autoregressive decoder's lexical prior. We then ask how much of the gap existing techniques recover. Of 16 non-architectural mitigations, the largest mean q5/q5 gain is +1.3 pt and none clears the paired-bootstrap noise floor; the only intervention that does is the architectural shift from autoregressive to CTC decoding (SVTRv2, +2.5 pt, p=0.02, n=474). A confidence-routed AR-CTC ensemble adds a directionally consistent +0.6 pt that stays within noise, and its dominant learned coefficient is each model's own minimum-softmax confidence--independently echoing the mechanism above. No configuration we test improves both the compositional corner and aggregate accuracy. The rare-input long tail thus points to architectural change rather than added capacity.
 
 #### 深度分析（中文）
 
@@ -128,18 +109,113 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 7. Configurable Semantic Chunking for Biomedical Information Extraction in Retrieval-Augmented Generation
+### 6. LatentPress: Context Compression Beyond Text and Vision
 
-- **ArXiv ID**: [2608.31139v1](https://arxiv.org/abs/2608.31139v1)
-- **作者**: Riya Ahuja, Tim Kacprowski, Roya Shiasi Sardoabi
+- **ArXiv ID**: [2609.01507v1](https://arxiv.org/abs/2609.01507v1)
+- **作者**: Zhengze Zhou, Hejian Sang
+- **发布时间**: 2026-09-02
+- **分类**: cs.LG, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2609.01507v1](https://arxiv.org/pdf/2609.01507v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Compressed context is usually carried as human-readable text or as rendered images that must be decoded, even when its consumer is a language model. We introduce LatentPress, which writes conversational histories and long documents into a third representation: continuous memory tokens that a frozen decoder reads directly through its input-embedding interface, with no text reconstruction at inference. A small reader-matched writer compresses $4$-$16\times$ while training only an adapter (4.2M-26.2M parameters, $\sim\!0.1\%$ of the decoder). On LongMemEval, LatentPress reaches $0.504$ accuracy at $7.70\times$ compression versus $0.490$ for uncompressed evidence, outperforming text summaries (0.184) and OCR-based compression (0.426 to 0.312). On LongBench-QA, in-domain writers match or exceed raw-context reading at $4$-$8\times$ compression, while $16\times$ trails raw. Writing takes 43ms per conversation, roughly an order of magnitude faster than text summarization or OCR reconstruction, and reading is $5$-$9\times$ faster than raw context or cached OCR. We validate the interface under two transfer settings, zero-shot from UltraChat to LongMemEval memory QA and from LongMemEval-derived QA to unseen LongBench document domains, establishing direct soft tokens as a practical machine-facing context interface beyond text and vision. The implementation of the experiments could be found at: https://github.com/xuyd16ai/context_softtoken_compress .
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 7. MutMem-V2: Cryptographically Authorized Mutation in Persistent Agent Memory Portable Verification and Reproducible Evidence
+
+- **ArXiv ID**: [2609.01235v1](https://arxiv.org/abs/2609.01235v1)
+- **作者**: Walid Saidi
+- **发布时间**: 2026-09-01
+- **分类**: cs.CR, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2609.01235v1](https://arxiv.org/pdf/2609.01235v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+MutMem V1 introduced retention-preserving, cryptographically authorized mutation for persistent agent memory but did not provide a complete portable verification contract or clean-install reproduction path. MutMem V2 closes that publication gap without introducing a second memory engine. It specifies exact canonical bytes, domain-separated object and bundle commitments, mandatory recall-evidence membership and ordering, external trust anchors, identity epochs, revocation, authorization, request receipts, ordered disclosure, and three mutation terminal types. The released protocol contains 18 versioned object schemas, 39 recall vectors, 15 mutation vectors, and 37 closed recall failure reasons. Independent Node and Python implementations agree on verdict and primary reason for all 72 structural and cryptographic terminals; a production-conformance corpus agrees on 42/42 cases across 28 required classes. A clean Node v26.8.1 installation reaches first-boot, restart, and scheduler readiness with no experimental memories. A separately scoped 120-unit Canary experiment supports only explicit-marker traversal. Every public table regenerates from a self-hashed aggregate, and an independent verifier reconstructs the statistics and claim boundaries. Historical V1 empirical results remain historical. MutMem V2 supports claims about portable integrity, authorization, traceability, conformance, and reproducibility under stated assumptions; it does not establish semantic truth, universal robustness, or independent replication.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 8. SpatialGuard: Harness-Guided Verifiable Spatial Reasoning for Text-to-Image Generation
+
+- **ArXiv ID**: [2609.01582v1](https://arxiv.org/abs/2609.01582v1)
+- **作者**: Ziyun Qian, Zizhi Chen, Yizhou Liu, Mingyang Sun, Dingkang Yang...
+- **发布时间**: 2026-09-02
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2609.01582v1](https://arxiv.org/pdf/2609.01582v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Complex 3D spatial text to image generation requires models to convert natural language into stable visual geometry, not merely semantic appearance. Existing prompt-driven or layout-conditioned methods improve controllability, but often lack an optimizable and verifiable spatial intermediary before visual sampling. As a result, object relations, occlusion, visibility, and camera constraints can decay during multi-round generation. This paper presents SpatialGuard, a structured layout-guided framework for complex 3D spatial text-to-image generation. SpatialGuard parses prompts into image synthesis-oriented 3D layouts through a Spatial Layout Architect, realizes them as visual conditions and candidate images through a Visual Realizer, and uses a Visual Alignment Critic to validate consistency among prompt, layout, and image. To keep constraints stable across iterations, SpatialGuard introduces a Layout Harness that organizes rule constraints, tool invocation, shared knowledge, and feedback loops around the editable layout state. This design turns complex spatial generation from implicit prompt following into a verifiable process of planning, realization, validation, and repair. Comprehensive experiments show that SpatialGuard achieves state-of-the-art performance in complex 3D spatial layout generation and improves spatial faithfulness over existing text-to-image and layout control baselines.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 9. A systematic Approach to constructing a Chance-and-Risk Matrix for Semiconductor Supply Chains
+
+- **ArXiv ID**: [2609.01563v1](https://arxiv.org/abs/2609.01563v1)
+- **作者**: Ema Salkić, Alexander Fichtl, Philipp Ulrich, Hans Ehm, Marta Bonik...
+- **发布时间**: 2026-09-02
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2609.01563v1](https://arxiv.org/pdf/2609.01563v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Semiconductor supply chains face escalating risks from geopolitical tensions, geographic concentration, and rapid technological shifts, yet no scalable system continuously extracts, structures, and prioritizes risk intelligence from public corporate disclosures. We present an end-to-end pipeline that retrieves corporate documents for semiconductor companies and uses large language models (LLMs) to extract the risks and opportunities they describe. It organizes these into a knowledge graph linking each item to its category, sources, and related events, then merges duplicates and ranks them with a three-layer mechanism combining an algorithmic formula, an LLM relevance adjustment, and expert validation. Applied to five companies across the value chain, the pipeline produces 76,207 scored items, of which an independent check finds 92.6% valid. The automated rankings match expert judgment at an average Spearman correlation of 0.55 for risks and 0.72 for opportunities, and the resulting matrices identify trade restrictions as the dominant cross-company risk.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 10. When Tokenization is Secretly Output Supervision
+
+- **ArXiv ID**: [2609.01386v1](https://arxiv.org/abs/2609.01386v1)
+- **作者**: Tanja Baeumel, Josef van Genabith, Simon Ostermann
+- **发布时间**: 2026-09-01
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2609.01386v1](https://arxiv.org/pdf/2609.01386v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Tokenization in language models is treated by default as an input preprocessing decision. We argue that this framing is incomplete: in autoregressive models, tokenizer granularity determines what the model must resolve in a single forward pass, and therefore the supervision signal it receives. This affects both the difficulty of the learning problem and the representations that emerge inside the model. We test this in a controlled experiment on numeric reasoning with a novel decoupling of input and output tokenization. As the output supervision view predicts, differences in task performance, training dynamics, and model internals are induced by output tokenization and largely invariant to input tokenization. This may matter in practice, because models with different tokenization strategies differ not only in input representation but in the task they were trained on. Comparisons between models may thus partly reflect task definition rather than ability. A survey of 120 recent *CL papers on numeric reasoning confirms that this is rarely acknowledged: only about 10% report the numeric tokenization of the models they evaluate, while 69% compare across tokenization, and thus supervision, regimes without reporting it. While prior work documents that tokenization consistently affects model performance, there is no principled account of why. We argue that framing tokenization as output supervision provides that account.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
+
+---
+
+### 11. VerTox: Verifiable Reward-Guided Corpus Poisoning Against Neural Ranking Models
+
+- **ArXiv ID**: [2609.01325v1](https://arxiv.org/abs/2609.01325v1)
+- **作者**: Zhiqi Huang, Vivek Datla, Zhichao Xu, Puxuan Yu, Vivek Srikumar...
 - **发布时间**: 2026-09-01
 - **分类**: cs.CL, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.31139v1](https://arxiv.org/pdf/2608.31139v1)
+- **PDF**: [https://arxiv.org/pdf/2609.01325v1](https://arxiv.org/pdf/2609.01325v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-BioMedRAG introduced retrieval-augmented generation with a learned chunk scorer for biomedical information extraction. However, it relies on fixed-size chunking which can fragment semantic evidence. We propose a configurable semantic chunking framework that addresses this limitation by combining entity-preserving windows, trigger-centered chunking, proposition-first extraction, tiered trigger prioritization, and hierarchical relation resolution. The framework integrates with BioMedRAG by replacing only the chunk construction stage while preserving the embedding model, learned chunk scorer, generator, and evaluation protocol. We evaluate the framework on biomedical relation extraction benchmarks (GM-CIHT, DDI, ChemProt) and adverse event classification (ADE). On GM-CIHT, the full hybrid configuration achieves 82.6% F1, improving over the fixed-size baseline (74.2% F1) by 8.4 points under our experimental setup. Cross-dataset analysis shows that semantic chunking improves extraction datasets with explicit relation cues, such as GM-CIHT and DDI, while fixed chunking remains competitive or stronger for dense biochemical extraction and binary classification settings such as ChemProt and ADE. By externalizing chunking logic into configuration files, the framework provides an interpretable and adaptable alternative to rigid fixed-size chunking for biomedical RAG pipelines.
+Neural ranking models have become core components of modern information retrieval systems and important building blocks of AI systems such as retrieval-augmented generation (RAG) pipelines. However, their robustness remains insufficiently understood in the presence of large language models (LLMs), which can generate fluent and deceptive content at scale. This work investigates the vulnerability of neural ranking models to corpus poisoning attacks, in which an adversary injects a small number of maliciously crafted documents into the corpus to distort ranking behavior. We propose VerTox, the first framework to formulate corpus poisoning as a verifiable reward-guided reinforcement learning (RLVR) problem. By explicitly coupling ranking distortion with factual corruption through specialized reward shaping, we fine-tune compact LLMs into adversarial generators. Experiments demonstrate that our method achieves near-perfect attack success rates, producing adversarial documents that frequently rank higher than target documents across major neural ranking architectures, as well as a proprietary commercial embedding model. The generated adversarial documents are fluent and exhibit low perplexity, making them difficult to detect. Furthermore, by explicitly encouraging factual corruption, our adversarial documents significantly degrade the performance of a downstream RAG application.
 
 #### 深度分析（中文）
 
@@ -147,18 +223,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 8. Type-Balanced Contextual Learning for Incremental Named Entity Recognition
+### 12. Agentic Multimodal Models for Environmental Hyperspectral Unmixing
 
-- **ArXiv ID**: [2608.31038v1](https://arxiv.org/abs/2608.31038v1)
-- **作者**: Duzhen Zhang, Yahan Yu, Xiuyi Chen, Chenxing Li, Dong Yu
+- **ArXiv ID**: [2609.01289v1](https://arxiv.org/abs/2609.01289v1)
+- **作者**: Michał Cholewa, Luca Ciampi, Nicola Messina, Przemysław Głomb, Giuseppe Amato
 - **发布时间**: 2026-09-01
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.31038v1](https://arxiv.org/pdf/2608.31038v1)
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2609.01289v1](https://arxiv.org/pdf/2609.01289v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Incremental Named Entity Recognition (INER) stands as a pivotal task in information extraction, emphasizing the successive identification of new entity types within unstructured text. Faced with the continuous influx of entity types, INER grapples with two significant challenges: the widespread issue of catastrophic forgetting and the unique shift issue of the non-entity type semantics. While pseudo-labeling-based INER methods have proven effective in addressing these challenges, a previously overlooked issue arises: the biased context problem. Our analysis shows that, in new sentences, the contextual associations of tokens representing old entity types exhibit a significantly stronger bias towards new entity types compared to their contexts in old sentences. This tendency intensifies the degradation of old knowledge while promoting the overfitting of new knowledge. To solve this biased context, we propose a Type-Balanced Contextual Learning (TBCL) method, featuring a sentence-duplet learning scheme and a contextual consistency loss. This approach offers a fresh perspective for INER through context analysis. Extensive experiments across ten INER settings on three highly recognized datasets showcase the efficacy of our TBCL method, highlighting its proficiency in resolving the biased context issue inherent in pseudo-labeling based INER approaches.
+Hyperspectral unmixing is a key task in remote sensing that aims to decompose mixed pixels in hyperspectral images into their constituent material signatures, or endmembers, and their fractional abundances. Conventional modular approaches estimate the scene composition through successive model-order estimation, endmember extraction, and abundance estimation stages, whose errors can lead to redundant or ambiguous candidate components and ultimately affect the recovered decomposition. We introduce an algorithm-agnostic, large vision-language model (LVLM)-driven agentic framework that refines the outputs of such pipelines rather than replacing their underlying numerical algorithms. Starting from an initial decomposition, the agent iteratively gathers complementary spectral and spatial evidence through dedicated tools, including spectral-library retrieval and abundance-map visualization, and modifies the active endmember set through merge and discard operations followed by abundance re-estimation. We apply the same refinement procedure to several modular pipelines combining different model-order, extraction, and abundance-estimation methods, and evaluate it on HYDICE Urban, Jasper Ridge, and Stonewall Playa. Experiments show that the proposed agent consistently improves endmember cardinality and generally improves the recovered spectral signatures and abundance maps across heterogeneous modular pipelines, while remaining competitive with integrated end-to-end unmixing methods, including CNN-AE, uDAS, and R-CoNMF. These results highlight the potential of tool-using LVLM agents to combine spectral and spatial evidence for algorithm-agnostic refinement of physically grounded hyperspectral unmixing decompositions. Code is publicly available at https://anonymous.4open.science/r/agentic-hu.
 
 #### 深度分析（中文）
 
@@ -166,18 +242,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 9. InsightToast: Proactive Information Retrieval & Glanceable Visualization in the Side Channel of Data-Rich Meetings
+### 13. Where the Verifier Fails: A Category-Level Audit of Reward Signals in RLVR
 
-- **ArXiv ID**: [2608.31115v1](https://arxiv.org/abs/2608.31115v1)
-- **作者**: Mohammad Abolnejadian, Matthew Brehmer
+- **ArXiv ID**: [2609.01354v1](https://arxiv.org/abs/2609.01354v1)
+- **作者**: Esther Xin
 - **发布时间**: 2026-09-01
-- **分类**: cs.HC, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.31115v1](https://arxiv.org/pdf/2608.31115v1)
+- **分类**: cs.CL, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2609.01354v1](https://arxiv.org/pdf/2609.01354v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Missing institutional context during meetings can impede effective participation. Retrieving relevant information, often scattered across heterogeneous internal and external sources, requires costly task-switching that disrupts both individual focus and collective conversational flow, particularly detrimental during cognitively demanding tasks such as decision-making. We introduce InsightToast, a mixed-initiative application that monitors verbal discourse in real time, identifies topics and informational needs as they emerge, and proactively retrieves relevant information through a multi-agent large language model (LLM)-based pipeline integrating retrieval-augmented generation (RAG) to produce source-grounded insights as succinct text and glanceable interactive charts, delivered through a peripheral interface as ephemeral toasts in the conversation's side channel. To demonstrate the potential for yielding serendipitous insights, we showcase a usage scenario involving a knowledge base of legislative documents as the meeting's context. We then report on a comparative study (N=16), in which participants arrived at informed policy decisions while maintaining natural conversation flow.
+Reinforcement learning with verifiable rewards (RLVR) and standard benchmark evaluation both rely on an automatic verifier that turns a free text answer into a binary reward. Prior work reports that one evaluation harness accepts only about 94% of its own ground truth answers, blaming LaTeX parsing. That is an aggregate: it does not say which answer forms consume the error budget. We supply the decomposition. We apply metamorphic testing to the verifier rather than the model, generating certified equivalent answer variants, that is, rewrites that preserve mathematical meaning by construction, so that any rejection is a provable false negative needing no human adjudication. We then measure rejection per answer category across four widely used verifiers over 307,420 verdicts. We find three things. (1) Self validation ranges from 53.8% to 95.2% on identical inputs, a spread of 41.3 points. The published figure describes one implementation, not the task; two configurations of the same library disagree on 49.9% of pairs. (2) The residual is not spread across parsing categories but concentrated in whitespace and punctuation, which account for 93.0% of in contract failures for the default LaTeX configuration. A trailing period or newline dominates the budget. (3) Separating rejection from execution failure shows that verifiers with similar aggregate error fail for opposite reasons, and that a reference numeric cascade accepts off by one wrong answers as a step function of magnitude, from 0% below 10^4 to 100% at or above, because its relative tolerance is scale invariant.
 
 #### 深度分析（中文）
 
@@ -185,18 +261,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 10. Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data
+### 14. Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System
 
-- **ArXiv ID**: [2608.31082v1](https://arxiv.org/abs/2608.31082v1)
-- **作者**: Milad Rezaei Hajidehi, Qitong Wang, Stratos Idreos
-- **发布时间**: 2026-09-01
-- **分类**: cs.AI, cs.CL, cs.DB
-- **PDF**: [https://arxiv.org/pdf/2608.31082v1](https://arxiv.org/pdf/2608.31082v1)
+- **ArXiv ID**: [2609.01607v1](https://arxiv.org/abs/2609.01607v1)
+- **作者**: Penghao Wu, Haiwen Diao, Weichen Fan, Lewei Lu, Dahua Lin...
+- **发布时间**: 2026-09-02
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2609.01607v1](https://arxiv.org/pdf/2609.01607v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Valuable data remains embedded in unstructured sources: web pages, reports, contracts, filings, earnings calls, and PDFs. The big bet in enterprise AI is deploying LLM agents that reason over this data to answer complex questions for every knowledge worker. Agents can do this today, but at prohibitive cost. Each question repeatedly opens large documents to recover scattered evidence, consuming up to a million tokens. However, if the data were already structured, the same question would reduce to a cheap database lookup. For example, on FanOutQA benchmark, reasoning over an ideal pre-structured store is 28X cheaper, and the gap grows to orders of magnitude as questions fan out over more documents. Yet structuring everything in advance is not viable: documents hold vastly more possible structure than any workload will use, and the useful structure and documents are unknown until queries arrive. We propose agentic data cracking, a method that structures unstructured data adaptively and speculatively as a byproduct of reasoning itself. Structuring is adaptive because observed queries decide when it happens and what matters, and speculative because it goes beyond the current question. Whenever the agent opens a document to answer, a cracking sub-agent forks from the already-loaded context at marginal cost and extracts grounded structure likely to serve related future queries. Over time, an increasing share of queries is fully covered by structured data and answered without opening a document, keeping agentic accuracy at close to RAG cost. On FanOutQA, extended with merely one related question per test question, cracking cuts cost by 53% while preserving accuracy. Agentic data cracking is a first step toward next-generation data infrastructure for agentic reasoning over unstructured data: a shared substrate beneath the model where knowledge that reasoning already paid to uncover accumulates.
+While unified multimodal models (UMMs) jointly perform visual understanding and generation within a single model, functional unification does not guarantee learning synergy: the two objectives may reinforce each other, compete for capacity, or merely coexist. We investigate their relationship at the representation, task, and system levels in a controlled, structurally native setting without pretrained vision priors. At the representation level, we find that each objective provides useful signal to the other: generation enriches the visual features learned for understanding, while understanding strengthens vision--language alignment for generation. However, when both objectives are forced through the same computation path, one tends to dominate. A task-decoupled architecture that specializes conflicting visual computation while preserving semantic interaction avoids this asymmetric degradation. At the task level, through three case studies, we find positive bidirectional transfer when understanding and generation tasks rely on shared knowledge. At the system level, we show that an end-to-end UMM outperforms a matched planner--executor pipeline on complex tasks that explicitly require both image understanding and generation. Together, these results show that the value of UMMs extends beyond a unified interface: appropriate specialization, shared task knowledge, and end-to-end optimization can turn coexistence into synergy.
 
 #### 深度分析（中文）
 
@@ -204,94 +280,18 @@ LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"messag
 
 ---
 
-### 11. When Can We Work in Embedding Space? What Text Embeddings Preserve
+### 15. UI-VISA: U-Net Initialized Vascular Image Segmentation Architecture
 
-- **ArXiv ID**: [2608.31059v1](https://arxiv.org/abs/2608.31059v1)
-- **作者**: Simon Freyaldenhoven
-- **发布时间**: 2026-09-01
-- **分类**: econ.EM, cs.CL, stat.ML
-- **PDF**: [https://arxiv.org/pdf/2608.31059v1](https://arxiv.org/pdf/2608.31059v1)
+- **ArXiv ID**: [2609.01598v1](https://arxiv.org/abs/2609.01598v1)
+- **作者**: Asees Kaur, Suzanne S. Sindi, Erica M. Rutter
+- **发布时间**: 2026-09-02
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2609.01598v1](https://arxiv.org/pdf/2609.01598v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-When do text embeddings work as inputs to empirical analysis? Their use rests on an assumption: that we can trade text for its low-dimensional embedding, and lose little in doing so. I make that assumption precise under a generative model in which documents are mixtures of latent topics. I study two uses---clustering units in embedding space and controlling for high-dimensional text. A cluster of embeddings is a set of documents with similar topic mixtures; controlling for the embedding is equivalent to controlling for the topic mixture, so validity reduces to whether that mixture captures the confounding. In an application to 363 U.S. metropolitan areas, embedding-based clusters of LLM-generated economic descriptions recover interpretable economic archetypes and separate local employment dynamics more sharply than clustering on model residuals, or on a curated set of industry and demographic covariates.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 12. OmniRAS: Standardizing Foundation Model Training and Evaluation in Robot-Assisted Surgery
-
-- **ArXiv ID**: [2608.31048v1](https://arxiv.org/abs/2608.31048v1)
-- **作者**: Leonardo Borgioli, Neil Getty, Wenli Xiu, Jessica Cassiani, Alvaro Ducas...
-- **发布时间**: 2026-09-01
-- **分类**: eess.IV
-- **PDF**: [https://arxiv.org/pdf/2608.31048v1](https://arxiv.org/pdf/2608.31048v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Few foundation models exist for robot-assisted surgery, partly because large robotic-surgery video corpora are difficult to assemble and existing models are evaluated mostly on laparoscopic benchmarks. Further, most existing models are evaluated on a small set of public benchmarks, mostly focused on laparoscopic surgery. We present OmniRAS, a family of 1B- and 2B-parameter V-JEPA-2.1 encoders for robot-assisted surgery, and detail their training. First, we release two densely annotated robotic-cholecystectomy datasets: OmniRAS-PR and a multi-label YT-Chole tool-verb-target task, the first triplet-style annotation for robotic cholecystectomy, together with splits, probe protocols, and an inter-rater study validating the shared phase ontology. Second, we document continued pretraining at up to 256 compute nodes with global batch 6,144 over 19 sources totaling approximately 2,650 hours of surgical video, 51% robotic, and analyze compute and data composition. Third, we evaluate against raw V-JEPA-2.1 and specialized surgical models on six tasks spanning triplet, phase, and step recognition, action segmentation, and detection, under frozen-encoder and final-four-block fine-tuning regimes. Across three seeds, this yields 254 downstream runs, including 109 with partial backbone fine-tuning. The best OmniRAS models achieve the strongest adapted results across all task families, while frozen differences are smaller.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 13. Faithfulness Is Not Free: Auditing Offline KV-Cache Quantization in Retrieval-Augmented Generation
-
-- **ArXiv ID**: [2608.30996v1](https://arxiv.org/abs/2608.30996v1)
-- **作者**: Atta Ul Asad, Ahsan Bilal, Muhammad Ali, Muhammad Haseeb, Dean F. Hougen
-- **发布时间**: 2026-08-31
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.30996v1](https://arxiv.org/pdf/2608.30996v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Retrieval-augmented generation systems can precompute and store key-value caches of retrieved documents to avoid re-encoding context at every query. Quantizing these caches further reduces storage, but no prior work asks whether compression damages faithfulness, whether responses remain grounded in the retrieved evidence. Faithfulness and accuracy are not equivalent: a model can produce a correct answer that is no longer supported by the context it was given. We evaluate Qwen2.5-7B-Instruct under INT8 and INT4 quantization on RGB and HotpotQA, measuring both accuracy and faithfulness with a hallucination detector, NLI entailment, and an LLM judge. INT8 is near-lossless across both metrics. INT4 reduces accuracy and, more critically, even among answers that remain factually correct, over 90% of faithfulness changes are negative, i.e., accuracy metrics are blind to this regression. The harm grows under noisy retrieval and with more retrieved chunks. Faithfulness must be audited before compressed caches are deployed.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 14. MULTI3IR: A Benchmark for Multi-perspective Multi-domain Multi-modal Information Retrieval
-
-- **ArXiv ID**: [2608.30949v1](https://arxiv.org/abs/2608.30949v1)
-- **作者**: Seokwon Song, Sohyeon Kim, Gunhee Kim
-- **发布时间**: 2026-08-31
-- **分类**: cs.IR
-- **PDF**: [https://arxiv.org/pdf/2608.30949v1](https://arxiv.org/pdf/2608.30949v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Information retrieval (IR) increasingly targets open-ended queries that admit diverse perspectives. Existing IR benchmarks, however, focus primarily on closed-ended queries, while even open-ended benchmarks largely consist of queries whose supporting documents span a single subject domain and modality. We introduce Multi$^3$IR, a benchmark that evaluates how well retrievers cover the multifaceted perspectives of open-ended queries across diverse domains and modalities. It comprises 104.9K Stack Exchange queries, each annotated with perspective descriptions that capture the query's implicit viewpoints. We further propose SPIN, a parameter- and label-efficient method that learns noise vectors to steer embeddings toward diverse yet meaningful semantic directions. Experiments show that existing multimodal retrievers suffer from single-perspective bias, while SPIN substantially improves perspective coverage on Multi$^3$IR and generalizes well to unseen open-ended IR benchmarks. The dataset and experimental code are available at https://github.com/seokwon99/Multi3IR.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid","type":"authentication_erro
-
----
-
-### 15. Annotated Surrogate Retrieval for Polish Statutory Law
-
-- **ArXiv ID**: [2608.30929v1](https://arxiv.org/abs/2608.30929v1)
-- **作者**: Orkun Yiğit Cengiz
-- **发布时间**: 2026-08-31
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2608.30929v1](https://arxiv.org/pdf/2608.30929v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-We present a family of retrieval methods for Polish statutory law built on document surrogates: language-model annotations attached to statutory articles at index time. Three designs occupy different points on the cost-quality frontier. ASCR is a surrogate cascade with reranking; ASCR-H fuses a dense list into that cascade; and DTF replaces both language-model stages with three lexical and dense retrievers, weighted reciprocal rank fusion, and a deterministic re-scoring prior, using no model call before generation. We evaluate all three against fourteen lexical, dense, fused and ablated baselines plus four controls, on 300 questions from the 2024 and 2025 Polish bar and legal counsel entrance examinations (264 with their reference article in the corpus), over 82,508 articles from 1,133 acts. On paired McNemar tests, ASCR-H places the reference provision at rank one significantly more often than every other non-oracle configuration except one of its own ablations (eighteen of twenty comparisons significant in its favour at p < 0.005), reaching 72.3% against 61.7% for BM25 and 52.3% for dense retrieval. The advantage is concentrated at the head and does not survive depth: it is significant at cutoffs of one and five, disappears by ten, and by twenty DTF leads on point estimate (86.0% versus 84.5%) at one ninth the latency and less than half the cost. Ablation attributes 27.6 points of rank-one accuracy to the reranking stage alone. We further report that the ranking advantage does not extend to citation accuracy, where DTF matches the oracle ceiling, and three negative results on lemmatisation, pseudo-relevance feedback and query rewriting. Surrogate annotation covers 27.0% of the corpus but every reference provision in the benchmark, an asymmetry we disclose and discuss. Benchmark, per-question outputs and paired significance tests are publicly available.
+Accurate segmentation of vascular structures in digital subtraction angiography (DSA) images remains challenging due to the thin, elongated, and branching nature of blood vessels. Pixel-wise deep learning approaches such as U-Net achieve strong general-purpose segmentation performance but often produce fragmented or discontinuous predictions in fine vascular regions, since they do not explicitly enforce structural connectivity. Region growing algorithms preserve spatial context and topological continuity, but are highly sensitive to seed point initialization and can be computationally expensive. We propose UI-VISA (U-Net Initialized Vascular Image Segmentation Architecture), a hybrid pipeline that combines the complementary strengths of both approaches. UI-VISA uses U-Net's foreground predictions as informed seed points for a CNN-guided region growing algorithm, which then iteratively refines the segmentation by enforcing local connectivity and recovering fine vessel details that U-Net alone tends to miss or over-predict. We evaluate UI-VISA against standalone U-Net and a prior region-growing-based method (VISA) using 5-fold cross-validation on 26 DSA images. UI-VISA achieves the highest mean Dice and clDice scores across folds, and a paired Wilcoxon signed-rank test shows the improvement in clDice is statistically significant ($p=0.023$), consistent with the method's design goal of preserving vascular connectivity, while the improvement in Dice does not reach significance ($p=0.104$).
 
 #### 深度分析（中文）
 
