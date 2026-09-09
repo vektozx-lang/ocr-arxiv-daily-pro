@@ -1,1 +1,287 @@
-[]
+[
+  {
+    "title": "SQLMorph: Query Mutation and Fine-Grained Metrics for Text-to-SQL Evaluation",
+    "arxiv_id": "2609.08950v1",
+    "link": "https://arxiv.org/abs/2609.08950v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08950v1",
+    "authors": [
+      "Mohammadhossein Malekpour",
+      "Mohamed Riahi",
+      "Maxime Lamothe",
+      "Amine Mhedhbi"
+    ],
+    "published": "2026-09-08T16:08:43Z",
+    "categories": [
+      "cs.DB",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "Enhancing Table Structure Recognition via Bounding Box Guidance",
+    "arxiv_id": "2609.08705v1",
+    "link": "https://arxiv.org/abs/2609.08705v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08705v1",
+    "authors": [
+      "Lei Hu",
+      "Shuangping Huang"
+    ],
+    "published": "2026-09-08T13:04:39Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "Charts Are Beyond Pixels: Probing for Layer-Wise Chart Understanding and Editing",
+    "arxiv_id": "2609.08657v1",
+    "link": "https://arxiv.org/abs/2609.08657v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08657v1",
+    "authors": [
+      "Xiaochuan Zhong",
+      "Yifan Hou",
+      "Chenxi Pang",
+      "Shaobo Cui"
+    ],
+    "published": "2026-09-08T12:26:47Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "SkillAdam: Stable and Efficient Skill Evolution for Agents",
+    "arxiv_id": "2609.08944v1",
+    "link": "https://arxiv.org/abs/2609.08944v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08944v1",
+    "authors": [
+      "Gaoyuan Li",
+      "Meihao Fan",
+      "Yizhe Liu",
+      "Shaolei Zhang",
+      "Ju Fan",
+      "Siyi Wang",
+      "Jiaheng Hou",
+      "Xudong Weng",
+      "Honghan Tian",
+      "Zang Li"
+    ],
+    "published": "2026-09-08T16:04:45Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "Evaluating and Improving Evidence-Grounded Fact-Checking in LLMs via Multi-Round Evidence Ablation",
+    "arxiv_id": "2609.08943v1",
+    "link": "https://arxiv.org/abs/2609.08943v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08943v1",
+    "authors": [
+      "Xingyu Deng",
+      "Mingzi Cao",
+      "Nikolaos Aletras",
+      "Xi Wang",
+      "Mark Stevenson"
+    ],
+    "published": "2026-09-08T16:04:20Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "When Models Defer to Wrong Answers: A Robustness Audit of Source-Attributed Cues in Multiple-Choice QA",
+    "arxiv_id": "2609.08934v1",
+    "link": "https://arxiv.org/abs/2609.08934v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08934v1",
+    "authors": [
+      "Manikandan Ravikiran",
+      "Siddharth Vohra"
+    ],
+    "published": "2026-09-08T15:57:24Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "CoSA: Correlation-Guided Change A ttention with Learnable Residual Gating for Remote Sensing Change Detection",
+    "arxiv_id": "2609.08914v1",
+    "link": "https://arxiv.org/abs/2609.08914v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08914v1",
+    "authors": [
+      "Abdirashid Omar",
+      "Jonghyuk Park"
+    ],
+    "published": "2026-09-08T15:43:58Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "Q2D-Web: A Large-Scale Benchmark for Retrieval in Agentic RAG Systems",
+    "arxiv_id": "2609.08887v1",
+    "link": "https://arxiv.org/abs/2609.08887v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08887v1",
+    "authors": [
+      "Maximilian Schall",
+      "Sedigheh Eslami",
+      "Markus Krimmel",
+      "Antoine Chaffin",
+      "Louis Milliken",
+      "Bo Wang",
+      "Denis Bykov"
+    ],
+    "published": "2026-09-08T15:26:05Z",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "Medical AI Encodes a \"Feeling of Error\": Verifying Cancer Segmentation via Internal Concepts",
+    "arxiv_id": "2609.08879v1",
+    "link": "https://arxiv.org/abs/2609.08879v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08879v1",
+    "authors": [
+      "Mengmeng Ma",
+      "Yunxiang Peng",
+      "Tang Li",
+      "Lu Lin",
+      "Binsheng Zhao",
+      "Oguz Akin",
+      "Xi Peng"
+    ],
+    "published": "2026-09-08T15:21:08Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "API Benchmark Scores Do Not Reliably Transfer to Chatbot Interfaces",
+    "arxiv_id": "2609.08861v1",
+    "link": "https://arxiv.org/abs/2609.08861v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08861v1",
+    "authors": [
+      "Jennifer Wang",
+      "Joachim Baumann",
+      "Daniel E. Ho",
+      "Sanmi Koyejo"
+    ],
+    "published": "2026-09-08T15:08:37Z",
+    "categories": [
+      "cs.AI",
+      "cs.SE"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "REDSI: Addressing the Reproducibility and Evaluation Consistency of Differentiable Search Indexing for Document Retrieval",
+    "arxiv_id": "2609.08860v1",
+    "link": "https://arxiv.org/abs/2609.08860v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08860v1",
+    "authors": [
+      "Vivien Nicolas",
+      "Hicham Randrianarivo",
+      "Pascale Sébillot",
+      "Caio Corro"
+    ],
+    "published": "2026-09-08T15:07:59Z",
+    "categories": [
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "Silent Revision: Measuring Undisclosed Change in the Safety Frameworks of Frontier AI Developers",
+    "arxiv_id": "2609.08789v1",
+    "link": "https://arxiv.org/abs/2609.08789v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08789v1",
+    "authors": [
+      "Louis Yiven Zhu"
+    ],
+    "published": "2026-09-08T14:19:56Z",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.SE"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "Improving Term Evaluation in Machine Translation: Variation Matters",
+    "arxiv_id": "2609.08779v1",
+    "link": "https://arxiv.org/abs/2609.08779v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08779v1",
+    "authors": [
+      "Nicolas Dahan",
+      "Ziqian Peng",
+      "François Yvon",
+      "Rachel Bawden"
+    ],
+    "published": "2026-09-08T14:12:22Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "PDMR: Passage-Driven Multi-ID Document Retrieval",
+    "arxiv_id": "2609.08762v1",
+    "link": "https://arxiv.org/abs/2609.08762v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08762v1",
+    "authors": [
+      "Smail Oussaidene",
+      "Mohand Boughanem"
+    ],
+    "published": "2026-09-08T13:58:59Z",
+    "categories": [
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  },
+  {
+    "title": "SyncWorld: Visual Calibration Enables World Models as Zero-Shot Simulators",
+    "arxiv_id": "2609.09155v1",
+    "link": "https://arxiv.org/abs/2609.09155v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.09155v1",
+    "authors": [
+      "Yuncong Yang",
+      "Zhengtao Han",
+      "Furkan Ozyurt",
+      "Zeyuan Yang",
+      "Han Yang",
+      "Junyi Cao",
+      "Haoyu Zhen",
+      "Yilun Du",
+      "Chuang Gan"
+    ],
+    "published": "2026-09-08T17:59:47Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid\",\"type\":\"authentication_erro"
+  }
+]
