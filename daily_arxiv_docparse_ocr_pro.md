@@ -1,300 +1,300 @@
-# OCR arXiv Daily Pro — 2026-09-30
+# OCR arXiv Daily Pro — 2026-10-01
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-09-29 09:10 - 2026-09-30 09:10 (Asia/Shanghai)
+> 时间窗口：2026-09-30 09:10 - 2026-10-01 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: bc3cf5b7-32db-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 483469b9-3636-4
 
 ---
 
 ## 📄 论文详情
 
-### 1. Exploring In-Context Learning for Handwritten Text Recognition
+### 1. ViTeX-Bench: Benchmarking High-Fidelity Video Scene Text Editing
 
-- **ArXiv ID**: [2609.37195v1](https://arxiv.org/abs/2609.37195v1)
-- **作者**: Eric Ayllon, Abel Gandia, Jorge Calvo-Zaragoza
-- **发布时间**: 2026-09-29
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2609.37195v1](https://arxiv.org/pdf/2609.37195v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Handwritten Text Recognition (HTR) systems have become an indispensable tool for the digitization of historical documents. Not only do they cut down time and cost, but they also allow democratizing access and processing of their contents by generating their transcripts. However, literature in HTR currently focuses mostly on specialized models that require large amounts of annotated samples to achieve satisfactory performance. We explore the use of In-Context Learning with pre-trained Vision-Language Models (VLMs) to create a transcription pipeline without updating the model's parameters. We then evaluate this pipeline across multiple collections and models, and demonstrate that general-purpose VLMs can be effectively taught how to transcribe handwritten text from images. To assess how our observations may translate to practical applications, we evaluate the performance in a Cross-Domain (CD) scenario, where context examples are drawn from a different collection than the query image. Results in both the controlled In-Domain (ID) scenario and the realistic CD scenario follow the same patterns. First, as context size grows, the error range is expected to narrow towards the average performance. Thus, larger context sizes sacrifice the performance of the oracle-best sampling for lower expected error rates. The results obtained show that, without any parameter updates, this methodology has strong potential to compete with traditional HTR in the presence of domain shift. Moreover, we show and argue that some context samplings work better than others and suggest more effort should be put into finding an ideal sampling method in future work.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4409cbf2-8fb5-4
-
----
-
-### 2. PolyOCR-Venus: Unified OCR Foundation Models for Text-Centric Visual Intelligence
-
-- **ArXiv ID**: [2609.37712v1](https://arxiv.org/abs/2609.37712v1)
-- **作者**: GuangJian Team, Kaili Huang, Yongshuo Zhang, Bingtao Fu, Changjiang Jiang...
-- **发布时间**: 2026-09-29
+- **ArXiv ID**: [2609.40356v1](https://arxiv.org/abs/2609.40356v1)
+- **作者**: Xinghao Chen, Xiangbo Gao, Jiongze Yu, Yuheng Wu, Zhengzhong Tu
+- **发布时间**: 2026-10-01
 - **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2609.37712v1](https://arxiv.org/pdf/2609.37712v1)
+- **PDF**: [https://arxiv.org/pdf/2609.40356v1](https://arxiv.org/pdf/2609.40356v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Optical Character Recognition (OCR) is evolving from plain-text transcription toward general visual intelligence, requiring models to recognize, localize, and reason over textual information in complex visual environments. However, existing OCR systems often excel at only some tasks and struggle to balance recognition, parsing, and reasoning across scenarios. In this report, we present PolyOCR, a family of unified OCR foundation models of varying scales. PolyOCR combines a shared instruction-following framework with a large-scale data engine that converts heterogeneous visual resources into quality-verified OCR supervision. We introduce Competence-Guided Policy Optimization, which combines verifier-based Group Relative Policy Optimization with on-policy distillation through sample-wise routing based on teacher reliability and the teacher--student competence gap. We also introduce OCRBench v2.1, our revision of OCRBench v2 with manually verified annotation corrections and task-aligned scoring metrics. Extensive experiments across OCRBench v2.1, CC-OCR, in-house KIE Benchmark, OmniDocBench v1.6 and MDPBench demonstrate that PolyOCR achieves state-of-the-art or highly competitive performance.
+Recent video generation is increasingly realistic and controllable, yet video editing remains less developed, particularly for precise local edits that must preserve the original scene dynamics. Video scene text editing replaces text on scene surfaces, such as storefront signs, whiteboards, and product labels, while preserving the surrounding content, motion, and camera dynamics. Although scene text editing is well studied for images, video scene text editing that achieves high visual quality, temporal consistency, and edit locality remains underexplored. Existing resources offer limited paired real-video data, and general video-editing metrics do not directly measure whether the requested text remains correct over time. We introduce ViTeX-Bench, a benchmark suite comprising ViTeX-Dataset and a three-axis evaluation protocol. The dataset contains 387 real-world 720p videos with text-region masks and editing instructions: 230 provide reviewed, pipeline-generated paired edits for training, and 157 form a frozen evaluation split. The protocol evaluates text correctness, visual and temporal quality, and edit locality through 13 metrics, with one primary metric per axis and a Pareto comparison of their trade-offs. OCR calibration, human evaluation, and annotation-sensitivity analyses support the interpretation of these scores. Across eight baselines from four editing families, accurate text, temporal stability, and scene preservation remain difficult to achieve together. We also release ViTeX-Edit-14B, an open-source reference editor fine-tuned on the paired training split with motion-aligned glyph-video conditioning. It achieves CharAcc 0.688, the highest mean among the evaluated video-native editors, and the lowest comparable text-crop Warp among raw editor outputs. ViTeX-Bench provides a reproducible foundation for studying these trade-offs in video scene text editing.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 571258da-df0f-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: b25b6d21-f7c5-4
 
 ---
 
-### 3. Which papyrus HTR is good enough? Character-error-rate tolerance of four papyrological tasks on Greek texts
+### 2. Linguistic Loopholes in LLM Unlearning: From a 174-Language Benchmark to Coverage-Aware Unlearning
 
-- **ArXiv ID**: [2609.37755v1](https://arxiv.org/abs/2609.37755v1)
-- **作者**: Anton Repushko, Elena Chepel
-- **发布时间**: 2026-09-29
+- **ArXiv ID**: [2609.40286v1](https://arxiv.org/abs/2609.40286v1)
+- **作者**: Tyler Skow, Shravan Chaudhari, Rama Chellappa, Abhay Yadav
+- **发布时间**: 2026-10-01
+- **分类**: cs.CL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2609.40286v1](https://arxiv.org/pdf/2609.40286v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Unlearning a fact in one language does not guarantee its removal in others as changing the query or even the requested answer language can reopen seemingly forgotten knowledge -- a cross-lingual loophole. The most straightforward solution to this challenge -- unlearning in all languages -- is neither scalable nor desirable as it amplifies damage to unrelated model capabilities. We introduce the task of language budgeted multilingual unlearning where the goal is to select a subset of languages that maximizes cross-lingual erasure. To study this task we introduce the Cross-Lingual Unlearning Tensor, an unlearning benchmark that spans 174 language--script pairs and 25 atomic paraphrase types to examine when forgetting generalizes across linguistic expressions of the same knowledge. We further propose COVER, which selects source languages to maximize predicted COVERage of languages receiving no forget supervision, enabling unlearning on a language budget. Surprisingly, we find naively selecting strong individual sources does not reliably compose into strong source sets motivating our development of COVER. At deployment COVER only requires benign calibration data and access to the frozen model. Across three model families and two disjoint forget sets, COVER reduces mean held-out residual access by 7.8--27.3% relative to uniform source selection. We find these gains extend beyond synthetic benchmarks to real news documents in low-resource language settings using human translated data from the Low Resource Languages for Emergent Incidents (LORELEI) corpus.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 569e7038-57bf-4
+
+---
+
+### 3. Index-Translate: A Multilingual Translation Model Family -- Text, Speech, Controlled Dubbing, and Long-Document Translation
+
+- **ArXiv ID**: [2609.40181v1](https://arxiv.org/abs/2609.40181v1)
+- **作者**: Tianjiao Li, Mengran Yu, Chenyu Shi, Lusheng Zhang, Qisi Chen...
+- **发布时间**: 2026-10-01
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2609.37755v1](https://arxiv.org/pdf/2609.37755v1)
+- **PDF**: [https://arxiv.org/pdf/2609.40181v1](https://arxiv.org/pdf/2609.40181v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Purpose: Most Greek papyri remain unpublished and undigitised; a handwritten text recognition (HTR) pipeline that transcribes them automatically would let scholars discover documents and literary works that have so far gone unread. Recognition systems for Ancient Greek papyri are in statu nascendi, and how accurate they must be for a given papyrological task has not been examined. To answer this and set a benchmark for Greek papyrus HTR, we test a range of character error rates (CER) against four papyrological tasks, using published editions as ground truth. Methods: From 63,846 current editions of Greek texts in papyri.info, we imitate a letters-only "perfect HTR" output by removing the editorial layer, then degrade it with a seeded algorithm to exact CERs of 1 - 50%, with lost lines and four error-shape variants. On these data we train small models (TF-IDF, fastText, a character CNN, ByT5-small) for document type, dating and documentary-versus-literary classification, and apply eight keyword search methods. We compare models trained on clean text with models retrained at a specific CER level, and evaluate across CERs. Results: Tolerance differs by task. With clean-trained models, documentary-versus-literary classification retains 90% of its metric up to 20% CER; document type up to 7.5%; subtypes and search up to 5%; dating only up to 3%. Retraining on text containing character errors largely eliminates the sharp degradation that otherwise sets in above 15% CER. Models generally tolerate concentrated damage in a long document better than small errors spread across a short text. Conclusion: The study provides a CER target for each of the four tasks and shows that models trained on noisy text make current, imperfect text recognition useful for them.
+We introduce Index-Translate, a multilingual translation model family that combines a shared multilingual foundation with specialized training for general translation, instruction following, speech translation, controlled dubbing, and long-document translation. It includes three model sizes, 2B, 9B, and 35B-A3B, and supports translation in 150 languages, with multilingual instruction following. Evaluations on general translation and complex translation instructions show that Index-Translate outperforms translation models of comparable size and achieves performance comparable to 100B-scale translation models and frontier models. Index-Echo provides end-to-end speech-to-text and speech-to-speech translation, outperforming existing end-to-end models and achieving performance comparable to frontier omni models. Index-Homura extends the family to syllable-controlled dubbing. Index-NativeLong introduces native long-document translation with a dedicated task formulation and benchmark. These capabilities support diverse translation tasks, including multilingual content production.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: d688dd1b-e63e-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 55db2bdd-84ed-4
 
 ---
 
-### 4. ReMem: Rethinking Perception and Memory in Long-Context Recommendation Agents
+### 4. MatLoom: Layered Text-to-Material Generation in a Compact Program Space
 
-- **ArXiv ID**: [2609.37311v1](https://arxiv.org/abs/2609.37311v1)
-- **作者**: Haohao Qu, Yongcheng Jing, Chun Hin Chan, Shanru Lin, Wenqi Fan...
-- **发布时间**: 2026-09-29
-- **分类**: cs.AI, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2609.37311v1](https://arxiv.org/pdf/2609.37311v1)
+- **ArXiv ID**: [2609.40322v1](https://arxiv.org/abs/2609.40322v1)
+- **作者**: Anson Y. Lam, Shuqing Li, Michael R. Lyu
+- **发布时间**: 2026-10-01
+- **分类**: cs.CV, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2609.40322v1](https://arxiv.org/pdf/2609.40322v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Recent Recommendation Agents (RecAgents) offer a promising alternative by shifting recommendation to an active, user-side paradigm, where generative agents autonomously perceive external platforms, reason over user preferences, and execute decisions. However, existing RecAgents still suffer from two critical limitations: brittle item perception based on noisy and heterogeneous item pages, and inefficient long-context reasoning over extended user histories and multi-step interaction traces. To address these challenges, we propose a novel recommendation agent framework, termed as ReMem, that combines OCR-based multimodal perception with time-evolving dynamic memory. Instead of parsing raw HTML, ReMem observes item pages through screenshots and extracts structured multimodal information via an OCR tool, enabling a more humanoid and platform-agnostic perception mechanism. To support long-horizon preference modeling, ReMem further introduces a chunk-wise sequential memory update strategy, where the agent selectively maintains a fixed-size memory of informative historical interactions while processing arbitrarily long contexts with linear inference complexity and bounded context length. This design allows the agent to preserve evolving user preferences without relying on external memory modules or disrupting the standard autoregressive generation process. To enhance the dynamic memory instruction, we further develop a multi-memory GRPO variant, which propagates the final-answer advantage to all intermediate conversations that contribute to the final response. Extensive experiments on three datasets demonstrate that ReMem consistently outperforms state-of-the-art baselines, achieving an average improvement of 5.16\% across three recommendation agent tasks, namely searching, ranking, and judging.
+Material generation should produce not only an appearance, but also the rules that construct it. We introduce MatLoom, a compact, layer-oriented language for text-to-material generation with pretrained language models. Each program composes alpha-masked layers whose shared spatial expressions define coverage and physically based rendering (PBR) channels, making dependencies between patterns, color, and relief explicit. A standalone interpreter evaluates the program into material maps, while the source retains named fields and layer parameters for subsequent authoring. Without task-specific fine-tuning, our pipeline uses parser-guided repair and preview-based critique to revise material designs, then searches noise seeds while keeping each candidate's remaining source fixed. On a curated benchmark of 141 prompts evaluated with six backbones, our best-performing configuration achieves higher mean scores than three diffusion baselines on all four flat-layout prompt-alignment metrics. Its initial programs already exceed all three baselines on mean BLIPScore, before critique or seed search. Retained programs have a median length of 21 lines when pooled across backbones. In a blind four-way comparison involving 30 participants and 20 prompts, our renders receive 59.2% of choices, compared with 19.3% for the most-preferred baseline. Compact executable programs thus offer a way to generate prompt-aligned materials while retaining their construction as part of the asset.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 078e8886-952b-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: edf4a6e9-d0a5-4
 
 ---
 
-### 5. Decompose Radicals, Then Reward: Fine-Grained Inspection for Accurate Chinese Text Rendering
+### 5. Better Deck or Different Judge? Evaluating Agentic Harness Gains in Corporate and Investment Banking
 
-- **ArXiv ID**: [2609.37569v1](https://arxiv.org/abs/2609.37569v1)
-- **作者**: Yazhen Xie, Xingsong Ye, Zhineng Chen
-- **发布时间**: 2026-09-29
+- **ArXiv ID**: [2609.39958v1](https://arxiv.org/abs/2609.39958v1)
+- **作者**: Ludovic Gibert, Matis Despujols, Andre-Louis Rochet
+- **发布时间**: 2026-09-30
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2609.39958v1](https://arxiv.org/pdf/2609.39958v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Corporate and investment banking teams use presentations to support credit decisions and advise clients on financing and transactions. Producing these decks requires reconciling financial data, tracing sources and turning analysis into a recommendation. We retrospectively study the development of an agentic harness combining a 27B language model, financial calculations, narrative templates and validation checks. LLM judges guide engineering changes and assess the resulting decks, raising the question of whether higher scores reflect better documents or changes in grading. In shared-session text-only grading with template markers removed, five judges score the complete system 20.4 to 33.6 points out of 95 above the same model generating directly from a short prompt. Every judge scores the system higher on all seventeen development deliverables. Margins against direct Opus generation from a short prompt range from -4.7 to +0.8 points. Judges agree on broad progress across development rounds but agree less on final-deck rankings than on pooled scores. Repeated grading also shifts scores on unchanged decks, making small improvements difficult to distinguish from judge variability.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: b6bae101-dbff-4
+
+---
+
+### 6. TRACE: Trajectory Selection for Parallel Scaling of Search Agents
+
+- **ArXiv ID**: [2609.39912v1](https://arxiv.org/abs/2609.39912v1)
+- **作者**: Qisheng Zhou, Zhen Xiong, Qiaoyu Tan
+- **发布时间**: 2026-09-30
+- **分类**: cs.LG, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2609.39912v1](https://arxiv.org/pdf/2609.39912v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Parallel search may generate a correct answer that final-answer voting fails to select. We formulate this consolidation stage as trajectory selection and introduce TRACE (Trajectory Ranking with Aggregated Cross-Rollout Evidence), a lightweight learned selector that ranks completed trajectories using the search evidence behind their answers. TRACE preserves individual query and evidence occurrences, connects rollouts through shared content or document identity, and propagates information across these relations. Each candidate answer then reads the updated states of its own trajectory, preserving retrieval provenance while incorporating evidence from related rollouts. Trained with answer-level supervision over frozen text embeddings, TRACE returns an existing answer without additional search or autoregressive aggregation. One selector per search setting transfers across rollout policies and agent backbones without agent-specific fine-tuning, improving over voting across six WebQA policies and six long-horizon dataset-backbone combinations at $K=16$. On Qwen2.5-14B Base/SFT WebQA pools, TRACE achieves 45.2/49.2% EM, compared with 43.9/48.0% for the strongest Qwen3-32B generative aggregators. On long-horizon FRAMES, GAIA, and BrowseComp, it reaches 78.6% average accuracy, exceeding majority voting by 3.1 percentage points. On Base WebQA pools, TRACE with only 8 rollouts comes within 0.4 points of majority voting over 64. TRACE also achieves at least $10\times$ higher processing throughput than SolAgg, SummAgg, and AggAgent across all seven WebQA benchmarks. These results show that reusing cross-rollout search evidence provides an effective and efficient alternative to heavyweight generative aggregation for parallel search. Code is available at https://github.com/Jaasssoooonnnnn/TRACE.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 54106729-f394-4
+
+---
+
+### 7. Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces
+
+- **ArXiv ID**: [2609.40362v1](https://arxiv.org/abs/2609.40362v1)
+- **作者**: Hongyuan Tao, Xinggang Wang, Lianghui Zhu, Yongkang Li, Yunchao Wei...
+- **发布时间**: 2026-10-01
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2609.37569v1](https://arxiv.org/pdf/2609.37569v1)
+- **PDF**: [https://arxiv.org/pdf/2609.40362v1](https://arxiv.org/pdf/2609.40362v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Rendering accurate Chinese text remains challenging for text-to-image models. Existing OCR-based reinforcement-learning rewards compare decoded transcripts with target strings. Such rewards overlook the compositional nature of Chinese writing: an ideograph consists of reusable components arranged through explicit spatial relations, yet OCR evaluates it as an atomic character. Consequently, visually different radical-level errors may receive equally coarse feedback, encouraging glyphs that merely resemble the target instead of faithfully reproducing its internal structure. We employ Ideographic Description Sequences (IDS), which comprise spatial operators and character components, and train an expert IDS recognizer to transcribe rendered Chinese text into this representation. Building on this recognizer, we introduce IDSpect, which deterministically decomposes the target text into IDS tokens and aligns crop-level visual IDS predictions with the target sequence. Globally unique token credit makes this comparison robust to the order of detected text regions. Combined with a whole-character semantic reward, IDSpect supplies fine-grained credit with component and spatial-relation without changing the image generator or adding inference-time cost. Experiments with GRPO post-training of Qwen-Image demonstrate that IDSpect achieves leading structural quality and semantic alignment on LongText and GenTextEval.
+We present Multimodal Flow, a fully continuous generative model of language and vision. Most unified multimodal models either model both language and quantized images as discrete tokens or combine discrete language prediction with continuous image generation. The former introduces a visual quantization bottleneck. The latter requires modality-dependent objectives and sampling procedures. Fully continuous modeling avoids these trade-offs and enables a shared generative process, but remains underexplored for multimodal pretraining. Multimodal Flow introduces a unified continuous architecture that integrates multimodal continuous representations with a shared chunk-causal flow backbone. It organizes text blocks and images as ordered continuous hyperchunks, preserving textual token order and visual spatial structure. The backbone learns a single vector field over these hyperchunks through Flow Matching. Joint attention enables cross-modal interaction, while modality-specific feed-forward networks process each modality. The model predicts multiple target chunks in parallel during training and generates hyperchunks sequentially at inference. We instantiate MF-1 and pretrain it on multimodal data. Across 0.6B, 1.2B, and 1.6B scales, continued pretraining consistently improves multimodal modeling. With only 150B pretraining tokens, MF-1 achieves an average score of 82.8 across GenEval and DPG-Bench and 75.3 across VQAv2, MMBench, and POPE, remaining competitive with unified models trained on substantially more data. Under matched data, optimization, and parameter budgets, Multimodal Flow further outperforms representative hybrid and discrete models. These results establish continuous chunk-based embedding flow modeling as a new fully continuous paradigm for unified multimodal modeling. The related code and model are publicly released at https://github.com/hustvl/Multimodal-Flow.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 854faa87-5510-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1c5695b0-740c-4
 
 ---
 
-### 6. MSTypography: Multi-character Semantic Typography via Balancing Word Legibility and Object Recognizability
+### 8. Ranking-Aware Prompt Optimization for Multimodal Clinical Diagnosis
 
-- **ArXiv ID**: [2609.37141v1](https://arxiv.org/abs/2609.37141v1)
-- **作者**: Xinye Yang, Xinding Zhu, Kai Fang, Xinyi Ren, Mengjian Li...
-- **发布时间**: 2026-09-29
-- **分类**: cs.CV, cs.GR
-- **PDF**: [https://arxiv.org/pdf/2609.37141v1](https://arxiv.org/pdf/2609.37141v1)
+- **ArXiv ID**: [2609.40361v1](https://arxiv.org/abs/2609.40361v1)
+- **作者**: Tian Xia, Minghao Liu, Yiqing Liang, Laixi Shi, Jiayun Wang
+- **发布时间**: 2026-10-01
+- **分类**: cs.LG, cs.CL, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2609.40361v1](https://arxiv.org/pdf/2609.40361v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Semantic typography is a design technique where the visual representation of a word conveys its semantic meaning, while maintaining its legibility. Existing digital typography methods mainly focus on single-character scenarios. They suffer from a lack of legibility constraints and insufficient local deformation when extended to multi-character words, as the intricate structures among multiple characters are hardly preserved during the typography process. In this paper, we propose a global-to-local typography framework for multi-character scenarios. It performs mask-driven silhouette approximation at the global level, while semantic-guided refinement at the local level, with a culling step in between to improve efficiency. To preserve word legibility, we designed structural losses (including explicit collision constraints and implicit Jacobian singular value constraints) and an OCR constraint for character-level readability. To enhance the object recognizability, we leverage semantic guidance with diffusion priors, which drives the character glyph toward the target concept while preserving its structural integrity. To the best of our knowledge, this is the first multi-character semantic typography method that effectively balances word legibility and object recognizability. Evaluations on five representative languages (English, Chinese, Japanese, Korean, Arabic) demonstrate superiority over SOTA methods. Codes will be open-sourced.
+Multimodal large language models (MLLMs) are rapidly advancing clinical diagnosis, yet their adaptation pipelines remain anchored to accuracy-based objectives. Clinical data are heavily class-imbalanced: a constant-majority predictor can score above 90% accuracy while being clinically useless. We therefore evaluate and optimize for AUROC, a threshold-free score that ranks positives above negatives and is invariant to class balance. We focus on prompt optimization in MLLMs. Reflective methods such as GEPA use a binary scores matrix with one row per evaluation instance and one column per candidate prompt; cells record per-instance correctness, so the column average is accuracy and drives candidate selection. We introduce pair-level Pareto prompt evolution (Ranking-PE), which replaces each correctness row with a pairwise-ordering row over (positive, negative) instance pairs: the cell is 1 if the candidate scores the positive higher than the paired negative. The column average then equals empirical AUROC (by the Wilcoxon-Mann-Whitney identity). We apply this swap at all three layers the prompt evolution search reads from - the scores matrix that decides Pareto dominance, the per-example feedback to the reflection LM, and final candidate selection - at no extra model calls and with no surrogate loss. Across three diseases on MIMIC, accuracy-based prompt evolution can degrade ranking; Ranking-PE reverses this, beating the accuracy-based recipe by +5.8 AUROC pp on fine-tuned Qwen3-VL-8B and +16.2 pp on MedGemma-4B. Ablations examine each design component and show that a medical-grade visual backbone - via vision-encoder-tuned SFT or medical pretraining - is a prerequisite that prompt search cannot replace - our recipe extends reflective prompt evolution from text-only data to multimodal clinical decision-making.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: fc222811-2313-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1c6644a8-beaf-4
 
 ---
 
-### 7. Beyond Legibility: Benchmarking Visual Text Rendering and In-Place Editing in Unified Video Generation
+### 9. Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model
 
-- **ArXiv ID**: [2609.36598v1](https://arxiv.org/abs/2609.36598v1)
-- **作者**: Ziying Zhang, Litao Li, Junchao Liao, Tianyi Zeng, Siyu Zhu...
-- **发布时间**: 2026-09-29
+- **ArXiv ID**: [2609.40358v1](https://arxiv.org/abs/2609.40358v1)
+- **作者**: Liming Lu, Xianzheng Ma, Wenkun He, Guanqi Zhan, Yilin Zhao...
+- **发布时间**: 2026-10-01
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2609.36598v1](https://arxiv.org/pdf/2609.36598v1)
+- **PDF**: [https://arxiv.org/pdf/2609.40358v1](https://arxiv.org/pdf/2609.40358v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-A video can exhibit convincing motion and photorealism yet fail immediately when visual text collapses. Unlike generic scene content, visual text is unforgiving in video generation: minor stroke corruption, temporal instability, or editing errors instantly break legibility and realism. Existing benchmarks overlook this challenge by treating text as incidental or using static OCR metrics that ignore temporal dynamics. We introduce VidScribe, a unified diagnostic benchmark spanning four generation regimes: writing from language (T2V), transferring text identity from a reference (R2V), sustaining text under dynamics (I2V), and localized text editing (V2V). VidScribe contains 803 human-verified samples across a 12-axis conditionally orthogonal factor space covering Intrinsic Text Properties, Physical Imaging Conditions, and Temporal Behavior. For reliable evaluation, we build a track-grounded, gated suite with 11 shared metrics and 2 task-specific probes under strict measurability conditions. Benchmarking 11 commercial and open-source systems shows that video text capability is non-monolithic, with content recognition decoupled from stroke-level glyph correctness. Performance is highly task-asymmetric: I2V sustains text most reliably, whereas V2V editing is the primary bottleneck. Counter-intuitively, degradation concentrates on a small subset of text-centric structural and temporal factors rather than adverse imaging conditions. Further probes show that visual references improve glyph and typographic fidelity rather than content accuracy, while localized editing fails to isolate target text without corrupting undeclared source text. Beyond evaluation, VidScribe also provides an actionable training signal, where benchmark-aligned preference optimization measurably improves visual text generation. https://huggingface.co/datasets/Vicky0720/VidScribe.
+Video world models are expected to predict how the physical world evolves, yet they often produce visually plausible videos that violate basic physical principles. Existing approaches commonly assume that natural language is insufficient to represent the physical knowledge required for reliable generation, and therefore introduce additional visual, latent, numerical, or planning-based signals. We revisit this assumption and introduce Physis-Lang, a self-evolving framework that treats physical language as a shared and optimizable representation across data curation, model training, and video generation. Physis-Lang represents physical processes through language that describes their relevant entities, causes, interactions, governing principles, temporal evolution, and effects. To improve this representation, we construct PhysCapBench, which decomposes physical processes into atomic assertions and evaluates captions using recall and precision. An agentic loop iteratively analyzes assertion-level errors and refines the instruction used to produce physical captions. Physis-Lang further converts model deficiencies into textual descriptions and uses language-guided retrieval to identify visually diverse videos that cover missing physical processes. Experiments on four widely used physical video benchmarks with Wan and Cosmos backbones demonstrate consistent improvements in physical plausibility. Notably, starting from open-source Cosmos3-Nano backbones, our Physis-Lang-enhanced models surpass the leading proprietary Veo 3.1 model.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: fd3267d5-9480-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: bf62534a-09f8-4
 
 ---
 
-### 8. Learning What to Remember: Long-horizon Counterfactual Memory Optimization
+### 10. AssemblyWorld: Rethinking 3D Assembly with General-Purpose Agents
 
-- **ArXiv ID**: [2609.37930v1](https://arxiv.org/abs/2609.37930v1)
-- **作者**: Jiaming Tang, Mingyan Liu, Armin Sarabi
-- **发布时间**: 2026-09-30
-- **分类**: cs.CL, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2609.37930v1](https://arxiv.org/pdf/2609.37930v1)
+- **ArXiv ID**: [2609.40353v1](https://arxiv.org/abs/2609.40353v1)
+- **作者**: Jiahao Zhang, Yeying Fan, Moitreya Chatterjee, Suhas Lohit, Bernhard Egger...
+- **发布时间**: 2026-10-01
+- **分类**: cs.CV, cs.RO
+- **PDF**: [https://arxiv.org/pdf/2609.40353v1](https://arxiv.org/pdf/2609.40353v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Persistent textual memory allows language models to carry information across long interactions, but learning what to remember is fundamentally a credit-assignment problem. A memory rewrite may only become useful many steps later, while much of the observed utility may be inherited from information already stored before the rewrite. We introduce Memory Gain Policy Optimization (MGPO), which isolates the incremental value of each memory rewrite by crediting it for its marginal contribution to current and future downstream utility. This turns delayed memory utility into a direct learning signal for optimizing what information should persist. We study MGPO on document-level information extraction, where structured supervision makes the effects of individual memory updates directly measurable. MGPO improves extraction while reducing average memory length by nearly 80% relative to the initial memory policy before optimization. The learned memory policy also supports reuse and transfer across domains, downstream models without further training. These results show that effective memory learning depends not only on preserving useful information, but on identifying which memory updates create lasting incremental value.
+The task of 3D assembly requires translating an understanding of parts and their relationships into precise spatial arrangements. Can pretrained general-purpose agents assemble objects through visual interaction without additional assembly-specific fine-tuning? To investigate this question, we introduce AssemblyWorld, an interactive 3D environment in which agents inspect rendered views and manipulate supplied rigid parts, guided by images or assembly manuals when available. Agents perceive part geometry through 2D views rather than direct access to mesh vertices or faces, while their resulting assemblies are evaluated geometrically. Building on this environment, we construct AssemblyWorldBench, comprising 100 assembly tasks across 80 objects spanning furniture, industrial assembly, and fracture reassembly. Evaluating eight agent systems reveals substantial differences in their capabilities. The strongest system achieves 80.9% part accuracy but 59.4% complete-assembly success. The evaluated open-source systems lag substantially behind their stronger closed-source peers in both execution reliability and assembly accuracy. Analyses of visual references, interaction trajectories, and failures show how agents revise assemblies while leaving residual positioning errors. AssemblyWorld provides a common setting for both assessing the capabilities of interactive assembly agents and characterizing the gap between approximate structure recovery and precise reconstruction.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 515073c7-d551-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 377eb566-0041-4
 
 ---
 
-### 9. Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering
+### 11. Image Classifiers are Efficient Self-Supervised Video Representation Learners
 
-- **ArXiv ID**: [2609.38177v1](https://arxiv.org/abs/2609.38177v1)
-- **作者**: Jaewoo Jung, Hyeonseo Yu, Honggyu An, Jisang Han, Mungyeom Kim...
-- **发布时间**: 2026-09-30
-- **分类**: cs.CV, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2609.38177v1](https://arxiv.org/pdf/2609.38177v1)
+- **ArXiv ID**: [2609.40347v1](https://arxiv.org/abs/2609.40347v1)
+- **作者**: Owais Iqbal, Sudipta Sarkar, Shyam Marjit, Omprakash Chakraborty, Anirban Chakraborty...
+- **发布时间**: 2026-10-01
+- **分类**: cs.CV, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2609.40347v1](https://arxiv.org/pdf/2609.40347v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Reasoning about the 3D world from multi-view images remains a fundamental challenge for Multimodal Large Language Models (MLLMs). While modern MLLMs handle single-image inputs effectively, they struggle to integrate evidence across viewpoints into a coherent 3D understanding. A growing body of work attempts to close this gap by injecting 3D awareness into MLLMs, either by boosting fine-grained pixel-level cross-view correspondence or by fusing features from 3D geometry foundation models, yet a substantial gap to human reasoning persists. In this work, we revisit human spatial reasoning, which suggests that rather than relying on fine-grained geometry cues, humans roughly identify common objects across views, infer the relative geometry between viewpoints, and assemble a coarse 3D layout of the scene. Inspired by this process, we introduce Imagine3D-LLM, an MLLM that learns to assemble a similar compact 3D representation of the scene and conditions its answer on this representation. Concretely, we append a small set of learnable summary tokens after the image tokens, decode them into a compact 3D Gaussian Splatting representation supervised by a photometric reconstruction loss, and train jointly with the standard next-token prediction objective. Notably, although only the summary tokens receive direct reconstruction supervision, this objective also induces stronger cross-frame correspondence within the LLM's underlying image features, suggesting that learning to reconstruct propagates 3D-aware signals throughout the model. As a result, Imagine3D-LLM consistently outperforms prior approaches across multiple spatial reasoning and 3D understanding benchmarks, suggesting that imagining the scene can be more effective than being told its pixel-wise geometry.
+We introduce VideoMSN, a Masked Siamese Network framework for efficient self-supervised spatio-temporal representation learning in videos. Instead of relying on heavy 3D architectures or reconstruction-based autoencoders for learning with unlabeled data, we repurpose standard image Vision Transformers by representing videos as super images which are grids composed of frames sampled from videos. From each super image, we construct two views: one with spatial patch masking and the other with temporal frame masking, ensuring no information leakage across frames. A shared Vision Transformer (ViT) encoder aligns their embeddings using a masked Siamese loss, capturing both motion and appearance cues without reconstruction. Our decoder-free formulation leverages an image foundation model towards efficient video representation learning. Starting from pretrained DINO-v3 and DeiT-v3 image encoders, VideoMSN achieves state-of-the-art performance on Kinetics-400, UCF101, and HMDB51 while requiring up to $32\times$ fewer and $160\times$ fewer video pretraining epochs compared to prior video self-supervised learning methods. Our proposed approach also shows strong performance in low-shot classification, confirming the transferability of the learned representations in a label-scarce scenario. Project Page: https://cvir.github.io/projects/videomsn.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 74418154-e979-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4cfbf235-0287-4
 
 ---
 
-### 10. LIFT: Layout-In-Future Video Generation under Large Viewpoint Change via On-Policy Self-Distillation
+### 12. Ego4WAM: What Matters When Scaling Egocentric Human Data for Robot Learning?
 
-- **ArXiv ID**: [2609.38146v1](https://arxiv.org/abs/2609.38146v1)
-- **作者**: Shengxiang Ji, Boyang Wang, Haiyang Xu, Bingnan Li, Yucheng Mao...
-- **发布时间**: 2026-09-30
+- **ArXiv ID**: [2609.40341v1](https://arxiv.org/abs/2609.40341v1)
+- **作者**: Zhihao Sun, Liu Liu, Xinjiang Wang, Haoyi Jiang, Wei Feng...
+- **发布时间**: 2026-10-01
+- **分类**: cs.RO, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2609.40341v1](https://arxiv.org/pdf/2609.40341v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Egocentric human data provides a scalable source of experience for robot learning, but varies substantially in human-robot alignment, behavioral coverage, and available supervision. Existing work shows favorable scaling with increasing human data, but it remains unclear which data properties drive downstream robot gains and how to use such data throughout the training pipeline. We present a systematic study of egocentric human data with different alignment and supervision under a unified world-action model framework. With the model backbone fixed, we disentangle the effects of human-robot alignment, data duration and task diversity, action supervision, and data usage strategies. We find that aligned human demonstrations substantially improve out-of-distribution generalization and reduce target-task robot data requirements; data duration and task diversity affect downstream capabilities differently; and video-only supervision remains effective without action labels, providing a strong foundation for subsequent video-action training. We validate these findings through closed-loop policy evaluation on both real robots and RoboDojo. Rather than treating data duration as the sole scaling axis, Ego4WAM shows how alignment, task diversity, available supervision, and usage strategy jointly shape the value of egocentric human data for robot learning.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 69dc3ec8-ab88-4
+
+---
+
+### 13. I Have a Stream: Making Self-Supervised Learning Work on Continuous Video
+
+- **ArXiv ID**: [2609.40333v1](https://arxiv.org/abs/2609.40333v1)
+- **作者**: Ivan Martinović, Lukas Knobel, Yuki M. Asano
+- **发布时间**: 2026-10-01
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2609.38146v1](https://arxiv.org/pdf/2609.38146v1)
+- **PDF**: [https://arxiv.org/pdf/2609.40333v1](https://arxiv.org/pdf/2609.40333v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-We introduce LIFT, a unified image-to-video generation framework that complements camera control with Layout-In-FuTure control, enabling users to specify what should appear in a future view and where it should appear. This addresses a practical need in controllable video generation: given an initial image, users often care not only about how the camera moves, but also about what the scene should look like at key future moments, especially the final frame. Existing camera controls specify viewpoint trajectories, while text prompts provide only coarse semantic guidance; neither precisely determines the content and spatial layout of future views. This limitation becomes particularly pronounced under large viewpoint changes, where the camera reveals regions that are not visible in the first frame. LIFT therefore uses the last-frame layout as an explicit control signal for the desired future scene. Since learning from such sparse layout guidance is substantially more challenging than conditioning on dense per-frame layouts, we introduce on-policy self-distillation (OPSD) to transfer the control capability of a dense-layout teacher to a last-frame-layout student. We further curate LIFT-Vista, a dataset featuring large viewpoint changes with camera and temporally consistent layout annotations. Experiments show that LIFT improves video quality, future-layout controllability, and camera controllability over other methods.
+Self-supervised learning draws inspiration from infant visual development, yet standard training pipelines bear little resemblance to it: images are independently sampled and globally shuffled across epochs. We study self-supervised learning from continuous video streams, where frames are consumed in temporal order using strict sliding-window batches, without global reshuffling or multi-epoch replay. To this end, we construct WT++, a 95-hour urban walking-tour video dataset for streaming pretraining. Combined with a comprehensive evaluation suite we find that contrastive and distillation-based methods struggle in this setting, while MAE is more robust but still falls short of standard i.i.d. pretraining. We find that high inter-batch similarity, caused by sliding-window consumption across consecutive batches, does not explain this gap. The main challenge is high intra-batch similarity, where frames within each batch are near-duplicates. To mitigate this, we propose StreamMAE, which preserves the core MAE reconstruction objective while adapting the input pipeline with stream-aware regularization and motion-biased crop selection. StreamMAE outperforms streaming baselines, matches i.i.d. MAE trained on the same video data, remains competitive with ImageNet-pretrained MAE, and scales positively as the pretraining stream grows from 12 to 95 hours.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8aa81f63-46f6-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1a82bb8d-bf88-4
 
 ---
 
-### 11. LongHarness Bench: Stress-Testing Language Model Harnesses for Long-Context Reasoning
+### 14. Atomizer-IO: Beyond Pixels, Patches and Grids
 
-- **ArXiv ID**: [2609.38137v1](https://arxiv.org/abs/2609.38137v1)
-- **作者**: Quang Hieu Pham, Thuy Duong Nguyen, Jocelyn Qiaochu Chen, Xi Ye
-- **发布时间**: 2026-09-30
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2609.38137v1](https://arxiv.org/pdf/2609.38137v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Language-model (LM) harnesses enable LMs to operate effectively over long contexts using additional compute. However, existing long-context evaluations are insufficient for distinguishing modern harnesses, reflected by saturated accuracy across harnesses and largely similar evaluation costs. In this paper, we introduce a benchmark for evaluating both the effectiveness and efficiency of long-context harnesses. Our tasks require diverse retrieval strategies, including lexical search and semantic matching, together with strategic and adaptive reasoning over global and local context. Much of the context is semantically relevant but only a small subset is useful at each step, creating both a challenging search problem and different accuracy--cost tradeoffs across processing strategies. For example, one task requires identifying every person satisfying several conditions using evidence scattered across documents; strategically checking the most selective condition first can narrow the search before verifying the remaining conditions. We evaluate multiple families of frontier language models with four state-of-the-art harnesses. Our benchmarks remain challenging even for strong model--harness combinations: the best reaches 68\% macro-average accuracy across four evaluation suites. More importantly, we find that the same underlying model can exhibit markedly different efficiency under different harnesses. Our results establish efficiency as an important axis for long-context evaluation and provide a testbed for developing harnesses that process context strategically rather than exhaustively.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 50a22976-1a32-4
-
----
-
-### 12. CLeaR: A Unified Framework for Resolving the Leakage-Degradation Dilemma in Style Transfer
-
-- **ArXiv ID**: [2609.38136v1](https://arxiv.org/abs/2609.38136v1)
-- **作者**: Teng Zhou, Yunhao Chen
-- **发布时间**: 2026-09-30
+- **ArXiv ID**: [2609.40320v1](https://arxiv.org/abs/2609.40320v1)
+- **作者**: Hugo Riffaud de Turckheim, Sylvain Lobry, Nicolas Houdré, Damien Robert, Roberto Interdonato...
+- **发布时间**: 2026-10-01
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2609.38136v1](https://arxiv.org/pdf/2609.38136v1)
+- **PDF**: [https://arxiv.org/pdf/2609.40320v1](https://arxiv.org/pdf/2609.40320v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Style transfer aims to render target content in the style of a reference image, but existing methods often suffer from content leakage, where objects, layouts, or semantics from the style reference appear in the generated output. Although prior data-driven and training-free methods can reduce leakage, they often face a leakage-degradation dilemma: stronger content suppression may weaken style fidelity, while richer style preservation may reintroduce unwanted reference content. We identify this dilemma across the full style-transfer pipeline, including feature separation, feature-space grounding, and diffusion generation. To address these issues, we propose CLeaR, a training-free framework for content-leakage-resistant style transfer. CLeaR first uses Orthogonal Subspace Projection to define content-reduced style targets in each vision foundation model (VFM) feature space. It then performs Ensemble Inversion, which optimizes a shared pixel-space style anchor satisfying style constraints across multiple VFMs. Finally, Energy-Guided Calibration maintains style alignment during diffusion sampling by steering the denoising trajectory toward the ensemble-defined style manifold. We further provide a theoretical analysis showing that the style-anchor estimation error decreases with the number of VFMs. Experiments on StyleBench demonstrate that CLeaR improves style alignment, reduces content leakage, and achieves better LLM-as-Judge evaluation compared with existing methods. The code is available at \href{https://github.com/0606zt/CLeaR}{https://github.com/0606zt/CLeaR}.
+Most vision architectures assume that observations lie on a regular grid, an effective abstraction for natural images but a restrictive one for sensing data whose channels, temporal sampling, spatial resolution, and geometry can vary. Generic set-based architectures remove the grid, but also remove useful spatial inductive biases. We introduce Atomizer-IO, an architecture that places observations first and derives structure from their physical relationships. Building on top of an atomic representation of the data, each observation is described by its measurement and acquisition metadata, while local cross-attention maps observations to anchor points that can be arbitrarily placed. We evaluate this design by progressively relaxing the grid assumption, from varying input raster configurations and incomplete channel sets to flexible output density and, ultimately, inputs without a raster grid. Atomizer-IO is competitive with flexible EO-specific architectures on most tasks, while offering post-training control over inference cost and competitive compute--performance trade-offs. The same formulation extends without architectural redesign to unordered 3D point clouds, showing that the atomic interface generalizes beyond regular raster inputs. These results suggest that pixels, patches, and grids do not need to define the interface of a sensing architecture.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0035522d-e24f-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3b2b7969-c814-4
 
 ---
 
-### 13. Effective Dense Retrieval using Only In-Context Examples
+### 15. Looped Diffusion Transformer
 
-- **ArXiv ID**: [2609.38099v1](https://arxiv.org/abs/2609.38099v1)
-- **作者**: Nour Jedidi, Abdul Basit Ali, Hang Li, Jimmy Lin
-- **发布时间**: 2026-09-30
-- **分类**: cs.IR, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2609.38099v1](https://arxiv.org/pdf/2609.38099v1)
+- **ArXiv ID**: [2609.40305v1](https://arxiv.org/abs/2609.40305v1)
+- **作者**: Yong Xien Chng, Tianyi Chen, Wenwen Tong, Haiwen Diao, Zhongang Cai...
+- **发布时间**: 2026-10-01
+- **分类**: cs.CV, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2609.40305v1](https://arxiv.org/pdf/2609.40305v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Turning decoder-only large language models (LLMs) into strong dense retrievers typically requires some form of retriever training. In this paper, we ask whether LLMs can instead be prompted to produce effective representations for dense retrieval given only a few in-context examples. To answer this, we introduce RICE (Representations from In-Context Examples), a simple "training-free" approach that extracts high-quality dense representations from LLMs. To do so, RICE conditions the LLM on examples that provide a shared context for query and document encoding. Our results demonstrate that RICE embeddings can substantially improve the accuracy of prompt-based LLM embeddings, establishing it as a simple method to build LLM-based dense retrievers that do not require training. We release our code at https://github.com/nourj98/RICE.
+Improving text-to-image models has traditionally relied on increasing model size or the number of denoising steps. In this work, we explore an alternative way to scale computation by repeatedly running shared Transformer blocks within each denoising step, effectively increasing computational depth while keeping the parameter count fixed. This looped computation enables iterative refinement of internal representations without explicit reasoning tokens. However, naive looping fails to consistently improve image quality. We trace this problem to weak supervision across intermediate loops and unregulated attention updates that progressively erode local information. To overcome these challenges, we propose Looped Diffusion Transformer (Looped-DiT), which combines deep supervision across intermediate loops with self-modulating attention to stabilize looped feature updates. Under matched-parameter and matched-compute settings, Looped-DiT consistently outperforms non-looped baselines. Notably, a 260M-parameter looped model can surpass a model 6.5x larger across multiple text-to-image benchmarks while requiring 4.9x lower inference compute. Beyond this performance gain, we find that looped computation can offer a more effective form of iterative computation for diffusion models, with increasing loop depth yielding larger gains than adding more denoising steps under a fixed inference budget. Furthermore, deeper loops can progressively correct mistakes made in earlier loops, exhibiting behaviors suggestive of latent reasoning. Together, these results show that looped computation offers a promising way to scale visual generation models.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 5110dfda-4bb9-4
-
----
-
-### 14. Gender bias across LLMs is common and highly heterogenous
-
-- **ArXiv ID**: [2609.38036v1](https://arxiv.org/abs/2609.38036v1)
-- **作者**: Edoardo Bolzoni, Valerio Capraro
-- **发布时间**: 2026-09-30
-- **分类**: cs.CL, cs.AI, cs.CY
-- **PDF**: [https://arxiv.org/pdf/2609.38036v1](https://arxiv.org/pdf/2609.38036v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Understanding gender biases in large language models (LLMs) is increasingly important as these systems become embedded in decision-support tools with real consequences. Prior research has focused only on a small set of models, leaving open the extent to which gender biases are common and heterogeneous across LLMs. We address this gap across ten models released between April 2025 and June 2026, spanning nine vendors, using two paradigms: gender attribution to stereotyped phrases (Study 1) and moral judgment of abuse or torture against a woman or a man to prevent a catastrophic outcome (Study 2). In Study 1, two of ten models attributed masculine-stereotyped phrases to female writers more often than the reverse, while three models showed the opposite pattern. In Study 2, several models converged on a male-disadvantaging asymmetry that was directionally consistent with a documented human tendency to protect female targets from harm, though the specific conditions under which this asymmetry emerged varied by model; three other models, by contrast, showed no variation across conditions. These results indicate that gender-related biases are common in LLMs. Their direction and magnitude, however, are highly heterogeneous, to the point that some models behave in diametrically opposite ways to others. Bias auditing should therefore be treated as an ongoing, multi-vendor process, rather than a one-time assessment.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 88a221b3-b04a-4
-
----
-
-### 15. Generated Query Expansion Still Helps Strong Sparse Retrieval: A Controlled Study with SPLADE-v3
-
-- **ArXiv ID**: [2609.37911v1](https://arxiv.org/abs/2609.37911v1)
-- **作者**: Ryan C. Barron, Cade W. Trotter, Maksim E. Eren, Kim Ø. Rasmussen, Liz D. Miller...
-- **发布时间**: 2026-09-30
-- **分类**: cs.IR, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2609.37911v1](https://arxiv.org/pdf/2609.37911v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Scientific queries are often brief, while relevant papers use specialized vocabulary. Generated query expansion can bridge this mismatch, but earlier work suggests that its value shrinks as the underlying retriever becomes stronger. We test the four generated formats of term lists, a pseudo-document, multiple pseudo-references, and corpus-steered text all together with SPLADE-v3 on NFCorpus, TREC-COVID, and SciDocs. Every condition searches the same frozen document index and follows the same query-side integration rule and 256-dimension budget, isolating the effect of the added content. All twelve method-collection comparisons improve aggregate nDCG@10, with best relative gains of 4.81%, 8.92%, and 9.47%. Eleven remain significant after Holm correction. The gain persists in 103 of 114 interpolation settings, including every setting that assigns at least 30% of the mixture weight to the original query. Shuffled-text and non-contextual lexical-bag controls also remain above baseline in all 24 aggregate comparisons, showing that the added vocabulary carries most of the benefit. A corpus-induced typed concept graph, by contrast, produces no consistent gain, and its relation, depth, validation, random, and gating controls do not rescue it. Generated vocabulary can therefore complement a strong learned sparse retriever, provided that the original query remains strongly represented.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0482e782-4e58-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 5f34ee85-7976-4
 
 ---
