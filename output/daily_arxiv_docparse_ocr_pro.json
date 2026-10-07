@@ -1,1 +1,301 @@
-[]
+[
+  {
+    "title": "DSV-Mem: Evaluating Multimodal Memory in Professional Workflows for MLLM Agents",
+    "arxiv_id": "2610.08102v1",
+    "link": "https://arxiv.org/abs/2610.08102v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08102v1",
+    "authors": [
+      "Jike Zhong",
+      "Ritwick Chaudhry",
+      "Xuanbai Chen",
+      "Tianchen Zhao",
+      "Linghan Xu",
+      "Yifan Xing",
+      "Nishant Sankaran"
+    ],
+    "published": "2026-10-06T10:30:14Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 37645aaf-8de0-4"
+  },
+  {
+    "title": "How Well Do LLMs Reason with Noisy Evidence? An Active Visual Reasoning Benchmark",
+    "arxiv_id": "2610.07751v1",
+    "link": "https://arxiv.org/abs/2610.07751v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.07751v1",
+    "authors": [
+      "Bach Nguyen",
+      "Zhaonan Li",
+      "Mau Son Nguyen",
+      "Sanika Chavan",
+      "Nilay Kumar",
+      "Hong Anh Nguyen",
+      "Khoa Vo",
+      "Ben Zhou"
+    ],
+    "published": "2026-10-06T04:49:11Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 74c223df-9548-4"
+  },
+  {
+    "title": "A Systematic Study of Semantic ID Spaces for Generative Information Retrieval",
+    "arxiv_id": "2610.08732v1",
+    "link": "https://arxiv.org/abs/2610.08732v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08732v1",
+    "authors": [
+      "Alexia Allal",
+      "Hicham Randrianarivo",
+      "Sylvain Lamprier"
+    ],
+    "published": "2026-10-06T17:33:32Z",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: b13f9dac-4bf2-4"
+  },
+  {
+    "title": "Disentangling Paradigm, Identifier, and Decoding in Generative Retrieval",
+    "arxiv_id": "2610.08716v1",
+    "link": "https://arxiv.org/abs/2610.08716v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08716v1",
+    "authors": [
+      "Hicham Randrianarivo",
+      "Logan Renaud",
+      "Alexia Allal"
+    ],
+    "published": "2026-10-06T17:23:47Z",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: b28156e2-9f10-4"
+  },
+  {
+    "title": "Towards In-Parameter Memory Augmentation for Large Language Models",
+    "arxiv_id": "2610.08630v1",
+    "link": "https://arxiv.org/abs/2610.08630v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08630v1",
+    "authors": [
+      "Haoyu Huang",
+      "Zhongwei Xie",
+      "Jiaxin Bai",
+      "Yisen Gao",
+      "Hong Ting Tsang",
+      "Wuganjing Song",
+      "Huihao Jing",
+      "Yufei Li",
+      "Yangqiu Song"
+    ],
+    "published": "2026-10-06T16:27:47Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: f9408d0b-817f-4"
+  },
+  {
+    "title": "Incidental information contaminates patient notes and disrupts clinical reasoning in large language models",
+    "arxiv_id": "2610.08585v1",
+    "link": "https://arxiv.org/abs/2610.08585v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08585v1",
+    "authors": [
+      "Krithik Vishwanath",
+      "Brandon Ye",
+      "Anton Alyakin",
+      "John E. Markert",
+      "Aaron Hsieh",
+      "Michał Mańkowski",
+      "Eric K. Oermann"
+    ],
+    "published": "2026-10-06T15:55:29Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: e7027252-79a6-4"
+  },
+  {
+    "title": "World Models' Last Exam in Physics",
+    "arxiv_id": "2610.08791v1",
+    "link": "https://arxiv.org/abs/2610.08791v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08791v1",
+    "authors": [
+      "Mingju Gao",
+      "Qingle Liu",
+      "Yuzhao Peng",
+      "Xinjie Lin",
+      "Ziming Qin",
+      "Zheng Jiang",
+      "Wenyi Li",
+      "Calvin Xiao",
+      "Youjie Zheng",
+      "Kaisen Yang",
+      "Qinhuai Na"
+    ],
+    "published": "2026-10-06T17:59:56Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 5d631870-f7f5-4"
+  },
+  {
+    "title": "Building Rome from a Single Image",
+    "arxiv_id": "2610.08790v1",
+    "link": "https://arxiv.org/abs/2610.08790v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08790v1",
+    "authors": [
+      "Jiraphon Yenphraphai",
+      "Fang Li",
+      "Tianshuo Xu",
+      "Depu Meng",
+      "Quentin Herau",
+      "Yihan Hu",
+      "Raymond A. Yeh",
+      "Wei Zhan"
+    ],
+    "published": "2026-10-06T17:59:50Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 09472a37-15e8-4"
+  },
+  {
+    "title": "4D-HOF: Hand-Object Flow Matching for Feed-Forward 4D Interaction Reconstruction",
+    "arxiv_id": "2610.08782v1",
+    "link": "https://arxiv.org/abs/2610.08782v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08782v1",
+    "authors": [
+      "Shiqi Li",
+      "Sean Cho",
+      "Yijie Li",
+      "Fengzhi Guo",
+      "Bowen Wen",
+      "Cheng Zhang"
+    ],
+    "published": "2026-10-06T17:59:02Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.GR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1bdafce0-1fbc-4"
+  },
+  {
+    "title": "DepthWorld: 3D World Model for Robot Manipulation",
+    "arxiv_id": "2610.08780v1",
+    "link": "https://arxiv.org/abs/2610.08780v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08780v1",
+    "authors": [
+      "Jai Bardhan",
+      "Josef Sivic",
+      "Vladimir Petrik"
+    ],
+    "published": "2026-10-06T17:59:00Z",
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: cc51479a-524d-4"
+  },
+  {
+    "title": "ALIVE: Interaction-Aligned Object Insertion for First-Frame-Guided Video Editing",
+    "arxiv_id": "2610.08779v1",
+    "link": "https://arxiv.org/abs/2610.08779v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08779v1",
+    "authors": [
+      "Zhenghong Zhou",
+      "Zhe Lin",
+      "Jiebo Luo",
+      "Yuqian Zhou"
+    ],
+    "published": "2026-10-06T17:58:51Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 965da587-edef-4"
+  },
+  {
+    "title": "CtrlCache: Accelerating Interactive Video World Models with Control-Aware Caching",
+    "arxiv_id": "2610.08777v1",
+    "link": "https://arxiv.org/abs/2610.08777v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08777v1",
+    "authors": [
+      "Shangye Song",
+      "Dong Gong",
+      "Hong Jia",
+      "Yun Sing Koh",
+      "Xinyu Zhang"
+    ],
+    "published": "2026-10-06T17:57:29Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3824dd42-2263-4"
+  },
+  {
+    "title": "Backend-Agnostic Sparse Attention for Fast High-Resolution Visual Generation",
+    "arxiv_id": "2610.08772v1",
+    "link": "https://arxiv.org/abs/2610.08772v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08772v1",
+    "authors": [
+      "Liao Ma",
+      "Jiayi Song",
+      "Yunfeng Wu",
+      "Songhua Liu",
+      "Peilin Zhao"
+    ],
+    "published": "2026-10-06T17:55:24Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 6c87df6e-3804-4"
+  },
+  {
+    "title": "Data Leakage in Patch-Based Hyperspectral Image Classification: Quantifying the Impact of Spatial Overlap",
+    "arxiv_id": "2610.08770v1",
+    "link": "https://arxiv.org/abs/2610.08770v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08770v1",
+    "authors": [
+      "Mohammed Q. Alkhatib"
+    ],
+    "published": "2026-10-06T17:55:05Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8ad98e79-9c2a-4"
+  },
+  {
+    "title": "Post-Training Semantic Lifting for 3D Gaussian Splatting: Separating Detector, Lifting and Representation Error",
+    "arxiv_id": "2610.08756v1",
+    "link": "https://arxiv.org/abs/2610.08756v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08756v1",
+    "authors": [
+      "Iván Verdugo Guerra",
+      "Ezequiel López Rubio",
+      "Jorge García González"
+    ],
+    "published": "2026-10-06T17:47:47Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: d5371f9f-28b0-4"
+  }
+]
