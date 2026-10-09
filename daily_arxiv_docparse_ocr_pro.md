@@ -1,300 +1,300 @@
-# OCR arXiv Daily Pro — 2026-10-08
+# OCR arXiv Daily Pro — 2026-10-09
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-10-07 09:10 - 2026-10-08 09:10 (Asia/Shanghai)
+> 时间窗口：2026-10-08 09:10 - 2026-10-09 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a2ab99e5-022f-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 966b7ac0-46a8-4
 
 ---
 
 ## 📄 论文详情
 
-### 1. InscriptionOCR: A Dataset and Method for Understanding Inscriptions
+### 1. From Pixels to Structure: Lightweight Vision-Language Models for Document OCR and Structured JSON Extraction
 
-- **ArXiv ID**: [2610.09439v1](https://arxiv.org/abs/2610.09439v1)
-- **作者**: Jaidev Sanjay Khalane, Akbar Ali, V. N. Prabhakar, Shanmuganathan Raman
-- **发布时间**: 2026-10-07
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.09439v1](https://arxiv.org/pdf/2610.09439v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Ancient script image restoration is a fundamental problem in computer vision, as it directly affects the reliable analysis and interpretation of historical documents and inscriptions. Ashokan Brahmi is an ancient script extensively used during the reign of Emperor Ashoka in the 3rd century BC, primarily for inscriptions in Prakrit. These inscriptions, including major and minor rock and pillar edicts, constitute a valuable yet largely unexplored source of data for computational analysis. The degraded nature of inscription imagery and the lack of standardized digital resources pose significant challenges for automated processing. We present an end-to-end AI-based framework for understanding ancient inscriptions that encompasses image enhancement, optical character recognition (OCR), transliteration, and neural machine translation (NMT). The proposed pipeline processes low-quality images captured directly from stone inscriptions, performs image restoration and Brahmi script character recognition, maps the recognized characters to the Roman script, and finally translates the resulting Prakrit text into English. We also introduce two new datasets: (i) InscriptionOCR Dataset: the largest publicly usable digital OCR dataset for Brahmi script to date, consisting of over 200,000 character images across about 600 classes, and (ii) a bilingual Prakrit-English parallel corpus comprising over 2,000 sentence pairs for NMT. We believe that the proposed framework and datasets will facilitate future research in ancient script analysis, low-resource OCR, and digital epigraphy.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 93ee16ac-c79d-4
-
----
-
-### 2. TopoGraphRAG-Bench: Evaluating Multimodal GraphRAG on Layout-Grounded Evidence Reasoning
-
-- **ArXiv ID**: [2610.09360v1](https://arxiv.org/abs/2610.09360v1)
-- **作者**: Ruochi Li, Jianzhe Lin, Haoxuan Zhang, Haihua Chen, Junhua Ding...
-- **发布时间**: 2026-10-07
-- **分类**: cs.AI, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2610.09360v1](https://arxiv.org/pdf/2610.09360v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Real-world documents distribute evidence across text, tables, figures, and captions within complex page layouts. Answering complex questions over such documents therefore requires more than retrieving relevant passages: systems must recover the evidence topology that connects heterogeneous evidence units. Existing GraphRAG evaluations remain largely text-centered, while multimodal document RAG benchmarks assess cross-modal retrieval and generation without directly evaluating recovery of the intended evidence topology. We introduce TOPOGRAPHRAG-BENCH, a layout-grounded benchmark for multimodal evidence reasoning in GraphRAG, comprising 2,024 questions over 201 long, visually rich documents. Questions are constructed bottom-up from text, figure, and table evidence units under three controlled topologies: single-hop retrieval, bridge-chain reasoning, and multi-source synthesis. To ensure that questions preserve their intended structure, we apply counterfactual validation for shortcut resistance, modality necessity, and evidence necessity. We evaluate text-only GraphRAG, page-level visual retrieval, and multimodal GraphRAG systems using retrieval, generation, and topology-aware reasoning metrics. Multimodal GraphRAG systems achieve the strongest overall performance, but still fail when visual-textual evidence alignment or multi-unit composition is incomplete. Text-only GraphRAG struggles when key dependencies are grounded in figures or tables, while page-level visual retrieval lacks the fine-grained structure needed for topology recovery. These findings motivate GraphRAG systems that move beyond text-derived entity relation graphs to explicitly model document layouts, cross-modal evidence alignment, and the reasoning roles of evidence units. Code and data are available at https://richardlrc.github.io/TopoGraphRAG-Bench/.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: d7dd932b-f5d2-4
-
----
-
-### 3. Inverting Multi-Vector Visual Document Indices
-
-- **ArXiv ID**: [2610.09920v1](https://arxiv.org/abs/2610.09920v1)
-- **作者**: Zhuchenyang Liu, Yao Zhang, Yu Xiao
-- **发布时间**: 2026-10-07
-- **分类**: cs.IR, cs.CL, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.09920v1](https://arxiv.org/pdf/2610.09920v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Prevailing multi-vector visual document retrievers store each page as about a thousand patch vectors, often in vector databases run by a third party. Since no one can read a page from its vectors, this index is easily treated as less sensitive than the page. However, because the index keeps one vector per patch in raster order, and each vector is computed by a vision-language model pre-trained to read documents, we hypothesize that whoever runs or breaches the store can reproduce a page from its index alone. We frame inversion as conditional document image generation and infer from the vectors what the attack needs: the encoder, the page shape and, for shuffled vectors, their order. On the ViDoRe v3 benchmark, pages inverted from raw indices recover 47% of the words and 45% of the sensitive tokens. Used as queries against the stored indices, they rank their source page first 98.4% of the time. We test two cheap protections, token pooling and shuffling, which both cut word recall to about 8%. A model that restores the order of a shuffled index raises the share of source pages ranked first from 3.8% to 93.5%, while inverting a pooled index remains open. To test generalisation, we apply the same attack unchanged to another multi-vector retriever: its inverted pages still rank their source page first 70.2% of the time, though its word recall stays below a nearest-neighbour baseline. Multi-vector visual document retrievers are therefore vulnerable to inversion through their stored index, which should be protected like the documents it encodes.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4bc8aef7-3b62-4
-
----
-
-### 4. Rubix: Global Correspondence-Free Point Set Alignment through Assignment Geometry
-
-- **ArXiv ID**: [2610.10408v1](https://arxiv.org/abs/2610.10408v1)
-- **作者**: Subhransu S. Bhattacharjee, Dylan Campbell, Rahul Shome
+- **ArXiv ID**: [2610.11818v1](https://arxiv.org/abs/2610.11818v1)
+- **作者**: Uddipan Basu Bir, Vincent Christlein, Andreas Maier, Mathias Zinnen
 - **发布时间**: 2026-10-08
-- **分类**: cs.CV, cs.CG, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2610.10408v1](https://arxiv.org/pdf/2610.10408v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Procrustes-Wasserstein alignment jointly estimates a matching and rotation without supplied correspondences, but alternating minimization can stop at suboptimal solutions. Rubix solves the equally weighted planar problem globally under squared Euclidean loss. Each matching $σ$ of two centered $n$-point sets defines a complex correlation $z_σ=\sum_i\bar x_i y_{σ(i)}$. Their convex hull is the permutation polygon: supporting vertices give optimal matchings at fixed rotations, and the farthest vertex gives the global alignment. We prove the sharp bound of $n(n-1)$ vertices for $n\ge2$, answering Rote's rotation-assignment open problem. In exact arithmetic, assignment queries recover the polygon in $\mathcal O(n^5)$ operations. Assignment-based bounds extend the approach to three-dimensional rotations and partial matching at a supplied translation through branch-and-bound. On timed MPEG-7 shape pairs, Rubix attains every numerical reference value in 12 ms on average, 50 times faster than a rotation grid at the same accuracy. Its distances improve gravity-aligned matching of real 3D scans, shape retrieval and noisy crystal classification over alternating minimization.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: bfea45c8-a7b4-4
-
----
-
-### 5. LoomSC: Scalable Deep Subspace Clustering with Projector Factorization and Exact Spectral Reduction
-
-- **ArXiv ID**: [2610.10266v1](https://arxiv.org/abs/2610.10266v1)
-- **作者**: Nairouz Mrabah, Youssef Melki, Mohamed Bouguessa, Riadh Ksantini, Shakeeb Murtaza...
-- **发布时间**: 2026-10-07
 - **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.10266v1](https://arxiv.org/pdf/2610.10266v1)
+- **PDF**: [https://arxiv.org/pdf/2610.11818v1](https://arxiv.org/pdf/2610.11818v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Dense self-expression matrices and full-affinity spectral clustering limit the scalability of subspace clustering. We introduce the Latent Orthogonal Optimization Model for Subspace Clustering (LoomSC), a framework that addresses both bottlenecks through projector factorization and exact spectral reduction. Motivated by the spectral structure of least-squares regression, LoomSC jointly learns latent features and a projector self-representation through two thin factors. Alternating Procrustes and least-squares updates preserve the sample factor's orthogonality while keeping the coefficient matrix implicit. We construct a nonnegative quadratic affinity that preserves the projector's support. An exact feature map then reduces its normalized spectral problem to an eigenproblem whose dimension depends only on the factor width. Neither the full affinity nor the sample Laplacian needs to be formed. Our analysis quantifies the projector approximation and identifies conditions for subspace preservation and within-subspace connectivity. For fixed dimensions and iteration budgets, the complete pipeline has linear time and memory complexity in the number of samples. Across five image-clustering benchmarks, LoomSC ranks first or second in all 15 dataset-metric comparisons against 9 state-of-the-art baselines. Its mean accuracy exceeds the highest baseline mean by 6.66 percentage points. Synthetic experiments scale to 500,000 samples while maintaining at least 99.8% accuracy.
+While massive, closed-source Vision-Language Models (VLMs) set strong benchmarks for document understanding, their dependence on commercial APIs limits adoption in institutional archives due to data autonomy concerns, recurring costs, and the environmental footprint of hyperscale computing. This is especially acute in heritage digitization, where documents include historical handwriting, domain-specific terminology (e.g., jewelry, prehistory, architecture), and non-standard layouts requiring high-dimensional structured extraction. We present a comparative study of eight open-source lightweight VLMs (up to 7B parameters) for Optical Character Recognition (OCR)-to-structure across three university heritage collections. Given a document image, models must extract text and generate schema-compliant JSON, enabling automatic validation and downstream use. We evaluate models under a constraint-aware protocol across zero-shot, few-shot, and fine-tuning settings, measuring extraction fidelity and structured-output quality using Character Error Rate (CER), Approximate Normalized Levenshtein Similarity (ANLS*), and mean Average Precision F1 (mAP-F1). Against a fine-tuning baseline, we further test the independent impact of (i) hyperparameter optimization, (ii) classical image preprocessing (illumination flattening, denoising, and CLAHE), and (iii) multi-stage training. Finally, we analyze the trade-off between dataset-specific fine-tuning and a single multi-dataset checkpoint, where joint training enables one model to operate across collections but can shift performance between datasets. Overall, we show that carefully adapted VLMs with up to 7B parameters can provide a sustainable, private, high-performing alternative to manual transcription or commercial black-box systems, and we offer actionable guidance for heritage institutions seeking institution-controlled OCR-to-JSON extraction.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4a6b7558-70a4-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 45323bc2-be76-4
 
 ---
 
-### 6. Document-Level Text Simplification in Estonian Using Large Language Models
+### 2. SP-DocReader: Difference-Aware Self-Play for Precise Document OCR
 
-- **ArXiv ID**: [2610.10378v1](https://arxiv.org/abs/2610.10378v1)
-- **作者**: Meeri-Ly Muru, Eduard Barbu
+- **ArXiv ID**: [2610.11148v1](https://arxiv.org/abs/2610.11148v1)
+- **作者**: Wenjie Liao, Xiaohui Song, Liangjie Zhao, Haonan Lu
 - **发布时间**: 2026-10-08
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2610.10378v1](https://arxiv.org/pdf/2610.10378v1)
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2610.11148v1](https://arxiv.org/pdf/2610.11148v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Document-level text simplification involves transformations that go beyond sentence-internal edits, addressing discourse coherence, anaphora resolution, and cross-paragraph consistency. Despite advances in sentence-level simplification for high-resource languages, document-level simplification in morphologically rich, low-resource languages such as Estonian remains largely unexplored. This study presents a comprehensive evaluation of five state-of-the-art multilingual large language models (LLMs) for document-level simplification in Estonian. Three prompting strategies are examined: single-pass generation, pipeline-based modular agents, and guideline-augmented pipelines. The evaluation framework integrates automatic metrics assessing readability, semantic preservation, and discourse coherence, alongside a structured manual annotation protocol. The findings indicate that Gemini-2.0 and LLaMA-3.3 produce outputs with near-native fluency and strong meaning preservation, whereas other models display notable grammatical and semantic limitations. This work contributes novel document-level coherence metrics, evidence-based prompting strategies, and publicly available resources for reproducibility.
+Accurate page transcription remains difficult for vision language models under limited input and training budgets. We present SP-DocReader, a self-play framework for optical character recognition (OCR) that targets residual errors after supervised fine-tuning. Reading Discrepancy Masking aligns reference and generated model tokens through a longest common subsequence, then scores unmatched positions with their full conditioning prefixes. Focused Fidelity Loss adds direct negative log-likelihood supervision at unmatched ground-truth positions. Only the OCR module is trained, while the backbone remains frozen. We derive the combined gradient to distinguish relative score optimization from direct supervision. Compared with SFT-2, SP-DR-3 reduces Vary-600K character error rate on both backbones. On Qwen3-VL-4B, it reduces character error rate by approximately 54 percent and improves DocVQA Average Normalized Levenshtein Similarity (ANLS) by 3.7 points. These results show the value of focusing self-play training on the discrepancies that remain after supervised fine-tuning.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c2dab10e-5a5a-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e2ac1182-e28e-4
 
 ---
 
-### 7. ECHO: Embodied Camera Observations of Human Object Carrying
+### 3. HANS: A Handwritten Answer Sheet Dataset for Noisy Hybrid Document Parsing
 
-- **ArXiv ID**: [2610.10438v1](https://arxiv.org/abs/2610.10438v1)
-- **作者**: Xuefei Sun, Lorin Achey, Kali Hamilton, Alberto Speranzon, Gregory Grebe...
+- **ArXiv ID**: [2610.12363v1](https://arxiv.org/abs/2610.12363v1)
+- **作者**: Xiazhen Wu, Wansong Qin, Yangbin Zheng, Liangda Fang, Zhan Li...
+- **发布时间**: 2026-10-09
+- **分类**: cs.AI, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.12363v1](https://arxiv.org/pdf/2610.12363v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Intelligent grading and automated scoring technologies constitute critical infrastructure for smart education. However, existing document parsing and handwriting recognition benchmarks are predominantly designed for well-structured printed documents or isolated mathematical expressions, lacking datasets that capture the complex characteristics inherent to student answer sheets, including multi-line derivation processes, heterogeneous mixtures of text and mathematical formulae, and noise artifacts such as strikethroughs. To address this gap, we introduce HANS, the first dataset explicitly constructed for real-world educational scenarios, encompassing mathematical expressions, natural language text, hand-drawn tables, and diverse noise patterns including corrections and deletions, accompanied by fine-grained annotations that establish a reliable foundation for robust recognition research. Building upon HANS, we propose NA-GOT, an end-to-end framework that achieves two-stage noise suppression through a lightweight noise suppression module operating at the feature level, complemented by a noiseaware attention mechanism incorporated into the decoding stage. Experimental results demonstrate that HANS poses substantial challenges to existing methods, while NA-GOT achieves significant improvements in both accuracy and stability for answer process recognition. The dataset will be made publicly available upon publication.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c4451d0b-fba4-4
+
+---
+
+### 4. EVIE: Evidence-Vector-Informed Embeddings for Visual Document Retrieval
+
+- **ArXiv ID**: [2610.11553v1](https://arxiv.org/abs/2610.11553v1)
+- **作者**: Zifei Wang, Wei Wen, Qiang Ji, Qian-Wen Zhang, Ruizhi Qiao...
 - **发布时间**: 2026-10-08
-- **分类**: cs.CV, cs.RO
-- **PDF**: [https://arxiv.org/pdf/2610.10438v1](https://arxiv.org/pdf/2610.10438v1)
+- **分类**: cs.IR
+- **PDF**: [https://arxiv.org/pdf/2610.11553v1](https://arxiv.org/pdf/2610.11553v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Embodied and assistive agents must do more than recognize objects: they must reason about where an object belongs given the layout of an environment and the habits of the people who live in it. Progress on this problem has been limited, in part because no dedicated benchmark or dataset exists to define and evaluate it. Existing RGB-D scan datasets reconstruct static rooms without human activity, while human-object-interaction datasets capture motion without a navigable, fully reconstructed scene or a ground-truth notion of an object's natural destination. We introduce contextual object placement as a benchmark task: predicting an object's destination during an observed object-carrying episode. To support this task, we present Embodied Camera observations of Human Object carrying (ECHO), a large-scale synthetic dataset that pairs dense RGB-D scans of indoor scenes with recordings of an embodied human carrying everyday objects to context-appropriate destinations. ECHO is the first publicly available dataset to combine reconstructed scenes, human activity, natural language, and contextual-placement annotations. It comprises 3,805 human-annotated episodes across 159 floors of 115 HM3D scenes, involving 198 distinct objects. Each floor includes a complete RGB-D scan with human-annotated room labels and a surface list. Each episode provides synchronized RGB-D encounter clips; 6-DoF camera, human, and object trajectories; start and destination surfaces; an action caption; and a human-written context: a single sentence describing the inhabitant's routine that implies the destination without naming it. We evaluate contextual object placement using input-masked probes and an end-to-end baseline. Results show that no single input modality is sufficient, highlighting the need to jointly reason over scene structure, human activity, and contextual knowledge.
+Accurate and scalable visual document retrieval (VDR) requires both fine-grained page understanding and efficient indexing, yet existing approaches struggle to achieve both. OCR-based text retrieval adds preprocessing latency and can lose visual and structural cues needed to understand complex pages. Single-vector vision-language models bypass OCR, but compressing an entire page into one vector limits the granularity of query--document matching. Multi-vector retrievers with MaxSim provide finer interactions, yet demand large indexes and still leave room for accuracy improvements. We argue that overcoming these limitations requires preserving query-relevant page evidence throughout representation learning and index construction. To this end, we introduce \textbf{\textit{EVIE}} (Evidence-Vector-Informed Embeddings), a family of native visual document retrievers integrating three key innovations: (1) Evidence-judged data governance, which uses a multimodal judge to identify answer-bearing positives and filter unreliable negatives. (2) Bidirectional teacher--student learning with symmetric listwise distillation and prefix-based Matryoshka representation learning (Prefix-MRL), enabling one student checkpoint to serve six nested embedding dimensions without re-encoding. (3) Hierarchical agglomerative index compression (HAC), which clusters page tokens with spatial regularization and stores semantic centroids for single-stage MaxSim retrieval. Extensive experiments across 138 tasks from ViDoRe V1, V2, V3, and JinaVDR validate EVIE. EVIE-8B achieves 66.75 nDCG@10 on V3, exceeding the best external baseline by 1.43 points, with a four-suite average of 79.51. EVIE-4.5B with HAC retains 59.58 nDCG@10 at only 3.81 GiB per million pages, reducing vector payload by $128\times$. Together, these results improve the accuracy--storage trade-off for visual document retrieval.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 86f6cb82-8ebb-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 14094b18-220f-4
 
 ---
 
-### 8. SOTA: Stock Options Trading Agents Guided by Option-Implied Return Distributions
+### 5. ProtoSemImage: Image-Valued Prototypes with Deformable Row Alignment for Interpretable Document Classification
 
-- **ArXiv ID**: [2610.10407v1](https://arxiv.org/abs/2610.10407v1)
-- **作者**: Yizhen Xie, Mengyang Liu
+- **ArXiv ID**: [2610.11460v1](https://arxiv.org/abs/2610.11460v1)
+- **作者**: Mohammad Zare, Pirooz Shamsinejadbabaki
 - **发布时间**: 2026-10-08
-- **分类**: cs.AI, cs.LG, q-fin.PM
-- **PDF**: [https://arxiv.org/pdf/2610.10407v1](https://arxiv.org/pdf/2610.10407v1)
+- **分类**: cs.CV, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2610.11460v1](https://arxiv.org/pdf/2610.11460v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-As option markets grow and AI advances, agentic systems for option trading are gaining increasing attention. Language-model-based agents can reason over contextual information such as news, but option trading presents a particularly challenging decision problem: a single stock can have thousands of contracts, and the agent must decide both which contracts to trade and how to combine them. Existing approaches often sidestep this complexity by restricting the policy to a fixed strategy structure, such as a straddle, limiting their ability to switch strategies as market conditions change. We present SOTA (Stock Options Trading Agents), an agentic trading framework for structured option-strategy selection. SOTA abstracts the large option universe into strategy-level decisions while deterministic resolvers handle portfolio implementation. We develop SOTA by post-training Qwen3.8-27B with supervised fine-tuning followed by reinforcement learning. SOTA is evaluated on options on nine large-cap U.S. equities and SPY against rule-based and machine-learning strategy selectors in the same trading environment. Over a six-month out-of-sample period, SOTA earns an 18.3% total return with a Sharpe ratio of 1.60 and a maximum drawdown of 8.96%. We also document an asymmetric role of news: news improves frontier-teacher trajectories, but retaining news during reinforcement learning reduces out-of-sample return from 18.3% to -2.7%.
+Prototypes in classification models are almost always vectors, and a vector has no readable form. This paper asks what happens when a prototype is an image. Documents give the question a natural form, because a document can be rendered as a multi-channel image in which every token becomes a pixel, so a class representative can take the same shape and the same channel semantics as the inputs it stands for. ProtoSemImage represents each class by one or more visual archetypes: prototype images in a four-channel HSV space whose channels carry named linguistic factors. A Skip-Gram objective learns that color space end to end through a four-dimensional bottleneck, discourse boundary rows become differentiable typed difference rows, and classification reduces to 2D visual template matching: a deformable row alignment between a document image and the archetype bank, in the spirit of dynamic time warping. Because the match is a spatial pattern comparison rather than a linear readout, the model reports where an input departs from its archetype and along which channel, and a generative head decodes each archetype back into text. The image representation works: it beats an otherwise identical model with vector prototypes in all three paired seeds, by between 4.3 and 11.8 points on a ten-class task. The distance-based matching does not. A diagnostic that keeps the representation fixed and swaps only the classifier recovers the sequence baselines, which locates a 20.6-point shortfall in the matching rather than in the color compression, and a benchmark built so that a pair of documents shares a bag of words and differs only in arrangement confirms the layout-preservation it was designed for. We report both directions, because for a representation whose whole purpose is inspect ability, the failure modes are as informative as the gains.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 348e82a5-a17a-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 32376226-2f08-4
 
 ---
 
-### 9. TaoD2C-Bench: Benchmarking MLLMs for Industrial UI Code Generation Beyond Visual Fidelity
+### 6. WorldGuide: Goal-Directed Video World Model for Procedural Task Execution
 
-- **ArXiv ID**: [2610.10374v1](https://arxiv.org/abs/2610.10374v1)
-- **作者**: Chengwei Shi, Yunnong Chen, Tingting Zhou, Qiang Lu, Shiyu Yue...
-- **发布时间**: 2026-10-08
-- **分类**: cs.SE, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.10374v1](https://arxiv.org/pdf/2610.10374v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-A key challenge for multimodal large language models (MLLMs) is moving beyond visual recognition to constraint-aware cross-modal reasoning. This involves combining visual cues with information from other modalities to understand elements' relationships under domain-specific rules. This challenge is acutely evident in industrial design-to-code (D2C), which converts user interface (UI) designs into code and requires MLLMs to connect design images with disorganized layer metadata, infer component and layout implementation requirements, and realize them in code under target-library constraints. However, these capabilities remain insufficiently evaluated in realistic industrial settings. To fill this gap, we present TaoD2C-Bench, a benchmark for evaluating MLLMs' ability to generate UI code that satisfies implementation requirements in industrial applications. The TaoD2C dataset consists of 2,861 production designs from 17 commercial platforms with 97,652 expert annotations across four categories: Component, Group, Alignment, and Position. These annotations distinguish required constraints from permitted implementation choices. TaoD2C-Bench defines three tasks: end-to-end UI code generation, requirement inference, and requirement realization. Evaluating eight MLLMs reveals substantial gaps in generating UI code that satisfies implementation requirements, alongside distinct performance profiles in inference and realization. We further show that MLLMs' visual reconstruction ability does not necessarily imply an ability to generate code that meets these requirements. We release TaoD2C to support research on industrial UI code generation.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 5d51ab2a-886a-4
-
----
-
-### 10. QuSema: Detecting Silent Bugs in Quantum Libraries via Quantum-knowledge-enhanced Agents
-
-- **ArXiv ID**: [2610.10258v1](https://arxiv.org/abs/2610.10258v1)
-- **作者**: Yujin Song, Kaining Zhang, Qixin Zhang, Shuai Wang, Pingchuan Ma...
-- **发布时间**: 2026-10-07
-- **分类**: cs.SE, cs.AI, quant-ph
-- **PDF**: [https://arxiv.org/pdf/2610.10258v1](https://arxiv.org/pdf/2610.10258v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Quantum libraries are now critical infrastructure for quantum algorithm development, yet their correctness remains difficult to test. Existing testing techniques mainly rely on failure-based or comparison-based oracles, exposing bugs only when executions fail, violate runtime checks, or disagree with another implementation. Their applicability is limited when suitable execution-based oracles are unavailable, leaving some silent bugs undetected. Such missed bugs can produce incorrect results that propagate into experimental conclusions, simulation studies, and algorithmic designs. Here we present QuSema, an autonomous testing agent for finding silent bugs in quantum libraries. QuSema uses constraints from quantum semantics and documentation as a source-level semantic oracle to assess whether implementation logic can produce invalid outputs from valid inputs. It operates through an agentic loop that repeatedly inspects library API documentation and source code, reasons about the intended behavior of quantum operations, identifies potential semantic deviations, and validates them by generating executable tests through library APIs. Guided by quantum-domain reasoning, QuSema turns high-level behavioral mismatches into concrete, user-triggerable bug reports, enabling it to uncover non-crash defects. We implement QuSema for Qiskit and PennyLane. On a benchmark of 20 historical silent bugs, QuSema achieves higher mean bug relocation counts than Claude Code and Codex, with the DeepSeek configuration costing less than Claude Code. QuSema also discovers 40 previously unknown bugs confirmed by the developers, including 30 silent bugs.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1c09b509-323b-4
-
----
-
-### 11. OOM-RL II: Reality Is an Oracle, Not a Debugger Provenance-Constrained Diagnosis in Continually Evolving Agent-Engineered Systems
-
-- **ArXiv ID**: [2610.10256v1](https://arxiv.org/abs/2610.10256v1)
-- **作者**: Kun Liu, Liqun Chen
-- **发布时间**: 2026-10-07
-- **分类**: cs.AI, cs.SE, q-fin.PM
-- **PDF**: [https://arxiv.org/pdf/2610.10256v1](https://arxiv.org/pdf/2610.10256v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Reality may establish that an outcome occurred without identifying which evolving procedure produced it or why. This distinction matters in production ML systems whose code, configuration, and artifacts change while external feedback accumulates. We examine it in a human-directed, agent-engineered quantitative trading system, using oracle to mean an external source of realized outcomes rather than a complete correctness specification. Across one year, the account gained and outperformed a broad market index, while annual alpha was not statistically distinguishable from zero under the main retrospective specification. Retrospectively selected subperiods include adverse relative performance and conditional candidate-level weakness under declared approximate references. Engineering records document changes during the episode, and complete recommendation-to-runtime binding is unavailable. The archive does not establish a common frozen instance or a unique cause. The case motivates an outcome--diagnosis gap: outcome evidence, evaluated-object identity, and causal explanation support distinct claims. We distinguish frozen instances, pre-specified adaptive procedures, and ad-hoc development; organize archive-relative claim identifiability and an evidence hierarchy; and propose a prospective production-binding protocol. An illustrative compatible-history example shows how factual binding can resolve a recommendation's referent without supplying its counterfactual effect. The protocol is proposed rather than prospectively validated. External feedback constrains outcome claims, while provenance and additional identification structure determine the resolution of diagnosis.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a5b2abf7-cac3-4
-
----
-
-### 12. Agentic AI-Assisted Modeling for Production Scheduling: Assessment in Constraint Programming
-
-- **ArXiv ID**: [2610.10184v1](https://arxiv.org/abs/2610.10184v1)
-- **作者**: Ángel Sánchez-Fernández, Javier Pernas-Álvarez, Diego Crespo-Pereira
-- **发布时间**: 2026-10-07
-- **分类**: cs.AI, cs.SE
-- **PDF**: [https://arxiv.org/pdf/2610.10184v1](https://arxiv.org/pdf/2610.10184v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Developing optimization models for production scheduling requires substantial expert effort. Research on large language models (LLMs) has followed two directions: specialized approaches for automated modeling, mostly for mixed-integer linear programming, which often rely on dedicated training or problem-specific architectures that limit industrial deployment; and agentic artificial intelligence for operational decision support, which generally assumes that the optimization model already exists. This study bridges both directions by assessing whether general-purpose LLMs, orchestrated as agents without task-specific training, can formulate and implement constraint programming models from natural-language problem descriptions. Singleagent and multi-agent architectures are integrated with a Model Context Protocol server that provides context-aware retrieval of solver documentation to mitigate hallucinations during implementation. Both are compared with a direct LLM baseline on six industry-oriented problems covering flow-shop, job-shop, flexible job-shop and resource-constrained warehouse scheduling, using three LLMs and assessing modeling accuracy, execution success, latency and token consumption. Formulation proves largely within reach of current LLMs, whereas implementation is the main barrier. The multi-agent workflow raises the share of scripts that run correctly as generated from 14.8% with a direct LLM call to 59.3%, reaching 80.6% on the four less complex problems, while tightly coupled intralogistics models remain an open challenge.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 357a56ba-8e11-4
-
----
-
-### 13. Does Document Structure Help Dense Retrieval? A Placebo-Controlled Ablation of Four Mechanisms Across Two Corpora
-
-- **ArXiv ID**: [2610.10170v1](https://arxiv.org/abs/2610.10170v1)
-- **作者**: Andrey Kuehlkamp, Priscila Correa Saboia Moreira, Samuel Rund
-- **发布时间**: 2026-10-07
-- **分类**: cs.IR, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.10170v1](https://arxiv.org/pdf/2610.10170v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Retrieval-augmented generation systems increasingly rely on document-structure treatments: structure-aligned chunking, LLM-generated chunk contexts, heading-path metadata, and hierarchical two-stage retrieval. Separate studies support each on different corpora, embedders, and metrics, and none control for a shared confound: any text prepended to a chunk perturbs its embedding. We present a mechanism-isolating ablation testing all four treatments under one protocol, matching chunk sizes across conditions and adding a semantically null placebo---heading paths that are structurally valid but shuffled across documents. We score retrieval with a coverage-aware nDCG and test four pre-registered contrasts via document-clustered bootstrap with Holm correction, on two distant corpora: 200 Wikipedia Featured Articles (951 queries) and 1,585 QASPER papers (4,303 questions). Organization helps, and the cause is content, not tokens: structure-aligned chunks with real heading paths beat contextualized fixed windows (+0.022 / +0.012 cov-nDCG@10) and the placebo (+0.010 / +0.016). Naive two-stage hierarchical retrieval hurts (-0.033 / -0.015), traceable to first-stage section recall. Gold structure beats LLM-induced structure on Wikipedia but not on QASPER. Effects are small ($dz$ 0.06-0.11) but Holm-significant and consistent across corpora.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a18549ce-da7e-4
-
----
-
-### 14. Tetris3D: 3D Scene Generation With Objects That Fit Together
-
-- **ArXiv ID**: [2610.10539v1](https://arxiv.org/abs/2610.10539v1)
-- **作者**: Jaeyeong Kim, Jinhyuk Jang, Jongmin Lee, Kyehong Park, Seungryong Kim
-- **发布时间**: 2026-10-08
+- **ArXiv ID**: [2610.12459v1](https://arxiv.org/abs/2610.12459v1)
+- **作者**: Ankan Deria, Komal Kumar, Hisham Cholakkal, Fahad Shahbaz Khan, Salman Khan
+- **发布时间**: 2026-10-09
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.10539v1](https://arxiv.org/pdf/2610.10539v1)
+- **PDF**: [https://arxiv.org/pdf/2610.12459v1](https://arxiv.org/pdf/2610.12459v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-We propose Tetris3D, a generative framework for single-image 3D scene reconstruction that recovers objects which are physically and geometrically coherent as a scene. Existing methods often generate objects independently or couple them implicitly, providing limited guidance for ensuring fine-grained spatial compatibility between neighboring objects that interact with one another. To address this, we explicitly condition the generation of each object on the geometry of surrounding objects and their physical relationships, guiding its shape and pose to remain geometrically and physically plausible within the scene. Moreover, we introduce ComOb, a physics simulation-based dataset of 1.2M scenes featuring physical interactions across diverse object categories, with per-object meshes and pairwise physical relation annotations. Comprehensive experiments on synthetic and realworld scenes show that Tetris3D recovers coherent object shapes and poses even when interacting regions are occluded, and achieves state-of-the-art performance in both generation quality and physical stability.
+Video generators and video-based world models can synthesize plausible visual trajectories, but long-horizon procedural tasks require generation to adapt to what has actually been produced. A model must determine the next action from its generated state, execute that action, and recognize when the task is complete. Open-loop generation cannot adapt to execution outcomes, while existing closed-loop systems often rely on pretrained executors or indirect verification. This leaves a gap between deciding an action and successfully realizing it. We formulate procedural video generation as \emph{closed-loop task execution in visual world space} and introduce \textbf{WorldGuide}. Given only an initial image and a task goal, WorldGuide predicts an atomic action, generates its corresponding video clip, and uses the generated result to select the next action or terminate. The Planner and Executor are trained on the same step-level procedural demonstrations: the Planner learns to predict the next atomic action or task completion from visual progress, while the Executor is directly trained to realize the predicted actions. Hierarchical visual memory maintains state across long-horizon execution with bounded history token cost. Due to the lack of step-level action-video supervision for joint planner-executor training, we introduce \textbf{WorldGuide Bench}: approximately 59K step-annotated videos across 245 tasks and 27 procedural categories. WorldGuide achieves a 33.33\% Task Success on \textbf{WorldGuide-Bench}, compared with 29.90\% for the strong recent video model MiniMax-H3, even though MiniMax-H3 receives reference action plans, and achieves 47.69\% on \textbf{VideoCraft-Bench} compared with 32.73\% for MiniMax-H3 under goal-only conditioning. These results demonstrate the importance of coupling planning with learned execution for goal-directed procedural video generation.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 326eb6fc-3112-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a4afd985-35e9-4
 
 ---
 
-### 15. Never Look Back: Understanding Persistence in 3D Object Memory from Egocentric Videos
+### 7. LEGO: A Lifting-Free Approach for Exocentric-to-Egocentric Video Generation
 
-- **ArXiv ID**: [2610.10538v1](https://arxiv.org/abs/2610.10538v1)
-- **作者**: Shravan Chaudhari, William Paul, Suchi Saria, Rama Chellappa, Homanga Bharadhwaj
-- **发布时间**: 2026-10-08
-- **分类**: cs.CV, cs.AI, cs.RO
-- **PDF**: [https://arxiv.org/pdf/2610.10538v1](https://arxiv.org/pdf/2610.10538v1)
+- **ArXiv ID**: [2610.12442v1](https://arxiv.org/abs/2610.12442v1)
+- **作者**: Suhwan Cho, Yonwoo Choi, Soongjin Kim, Jicheol Park, Taegyu Lim
+- **发布时间**: 2026-10-09
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.12442v1](https://arxiv.org/pdf/2610.12442v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-As we move through the world and carry out everyday tasks, we encounter objects that may become relevant only later. We are capable of recalling where we left something or what was inside a container, even without knowing we would need it later. Here, we study how an embodied assistant can build a similar memory from egocentric videos, by observing a person's day-to-day activities. We present Ledger, a persistent 3D object memory that combines object locations, their histories, and contextual descriptions. It associates observations across the recording and retains objects after they leave the view, including those the person never touches. It clusters each object's observations by resting locations and records a move only after repeated evidence, reducing the effect of localization noise. Short descriptions preserve details such as an object's contents or supporting surface. It saves these records to later answer spatial questions without having to access the original images or video. Our memory raises HD-EPIC accuracy from 29.7% to 42.6%, UCS-Bench accuracy from 33.8% to 38.5% and localizes Ego4D objects with a 0.99 m median error on returned predictions. Our analyses identify complementary roles for temporal persistence, contextual descriptions, and retrieval. Our study on 100 stitched streams of multiple scenes each further exposes failures in both retrieval and construction. Per-scene construction partially recovers the performance lost across scene changes compared to that of single scene streams.
+Generating an egocentric video from a single exocentric recording is a challenging case of novel view synthesis, as the two cameras share little overlap and much of the target view is unobserved. Current state-of-the-art methods reconstruct the scene explicitly by estimating depth, lifting the video into a point cloud, and re-rendering it from the egocentric camera to condition a video diffusion model. This deterministic mapping assigns each pixel to a single reprojected location, which preserves texture but translates depth errors into misplaced content. We ask what a video diffusion model should receive as its condition and propose a lifting-free answer: a learned view synthesizer, an LVSM-style transformer fine-tuned to render the egocentric view directly without depth, point clouds, or reprojection, resolving cross-view correspondence internally. In contrast, its probabilistic mapping averages each region over candidate source locations according to a learned correspondence distribution, preserving structure while fine texture is averaged away. We argue that this trade-off suits a diffusion generator, whose denoising training excels at restoring detail, so an effective condition should prioritize structural alignment over sharpness. This distribution's concentration also yields a per-region confidence, used both to mask low-confidence regions and to guide the generator toward high-confidence areas during early layout-forming denoising steps. Our approach consistently outperforms the state-of-the-art explicit pipeline and generalizes to other datasets without retraining. The synthesizer thus supplies view structure, and the diffusion model its detail.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a9ac6cc6-5e6a-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 27d57ed1-9e6e-4
+
+---
+
+### 8. WOVEN: Weaving Visual World Modeling into Multimodal LLMs
+
+- **ArXiv ID**: [2610.12417v1](https://arxiv.org/abs/2610.12417v1)
+- **作者**: Zheyu Fan, Yue Zhang, Mingkai Deng, Kangrui Wang, Qineng Wang...
+- **发布时间**: 2026-10-09
+- **分类**: cs.CV, cs.CL, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2610.12417v1](https://arxiv.org/pdf/2610.12417v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Multimodal large language models (MLLMs) struggle with spatial, embodied, physical, and temporal reasoning. We hypothesize that these failures reflect a shared deficit in visual transition reasoning, and test whether this capability can serve as a shared training primitive, one that different models can learn from different supervision sources and reuse across different tasks, with a systematic training recipe. Existing benchmarks document these deficits separately but do not support controlled comparisons across scenes, actions, and reasoning operations. We therefore introduce WOVEN, a training source and benchmark for visual transition reasoning that organizes transition supervision by scene, action, and reasoning type, using diverse, realistic rollouts from video-pretrained generative models: 36,076 examples across 20 scene types, 5 action types, and 8 reasoning types. We first evaluate 38 frontier MLLMs (e.g., GPT-5.4 and Qwen3-VL-235B-A22B) and find a substantial and systematic deficit: even the strongest models fall far below humans, and the failures recur across model families and persist with scale. We then train MLLMs at multiple scales on WOVEN and find that they learn a shared capability that transfers broadly: training subsets of only about 2,000 items each collectively improve 22 of 26 external benchmarks by up to 27.3 percentage points, and WOVEN data can replace 30-50% of a task's own training data with comparable accuracy. Controlled comparisons further yield a training recipe for visual world modeling, validated prospectively on held-out benchmarks: select supervision by the reasoning operation it teaches rather than by the actions, scenes, or domains it shows, and prefer larger changes to the visual state for robustness. Our work establishes visual transition reasoning as a reusable foundation for systematic visual world-model training in MLLMs.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 16505aa7-0caf-4
+
+---
+
+### 9. ViSkill: Reinforcing VLM Agents with Evolving Visual-Native Skills
+
+- **ArXiv ID**: [2610.12403v1](https://arxiv.org/abs/2610.12403v1)
+- **作者**: Hongxing Li, Dingming Li, Yixin Li, Yong Du, Wenqi Zhang...
+- **发布时间**: 2026-10-09
+- **分类**: cs.CV, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2610.12403v1](https://arxiv.org/pdf/2610.12403v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Skill-augmented agents improve sample efficiency by distilling successful trajectories into reusable strategies. Yet most existing approaches remain text-centric, linearizing spatial layouts and action-state correspondences into language that loses critical geometric structure. Recent efforts have begun incorporating visual evidence, but construct and update skills separately from policy optimization, leaving their mutual improvement underexplored. We propose ViSkill, a visual-native skill learning framework that encodes successful interactions as composite visual skill cards directly accessible to VLM agents. Retrieved skills guide both inference and reward shaping, while successful trajectories are distilled back into the library, forming a closed feedback loop in which skill accumulation and policy improvement reinforce each other. An optional cold-start mechanism further accelerates early-stage learning. Evaluated on Sokoban, FrozenLake, and PrimitiveSkill, ViSkill achieves an overall success rate of 0.89, rising to 0.91 with cold-start initialization, outperforming all evaluated proprietary and open-source baselines while converging faster than standard PPO. Our code is available at https://github.com/ZJU-REAL/ViSkill.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 5a763e0f-525c-4
+
+---
+
+### 10. BudgetPix: Compute-Adaptive Tokenization for Pixel-Space Image Diffusion
+
+- **ArXiv ID**: [2610.12307v1](https://arxiv.org/abs/2610.12307v1)
+- **作者**: Ozgur Kara, Yujia Chen, Daniel Watson, David Forsyth, James Matthew Rehg...
+- **发布时间**: 2026-10-09
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.12307v1](https://arxiv.org/pdf/2610.12307v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Most image generation models rely on uniform tokenization, allocating the exact same computational budget to equally-sized image patches. This static paradigm cannot adapt to different resource constraints at inference time, and yields suboptimal quality-cost tradeoff by devoting the same effort to both plain backgrounds and intricate details. We propose BudgetPix, an adaptive tokenization framework that dynamically allocates compute based on visual complexity and spatial layout, enabling flexible computational budgeting at inference time. BudgetPix comprises three key components: (1) an adaptive encoder that maps a fixed-size image to a variable-length token sequence using an entropy-guided quadtree alongside a multi-scale patch embedder; (2) a scale-aware decoder reconstructs fixed-resolution images from multi-scale token sets; and (3) a flexible training and sampling schedule that enables pixel-space denoisers to operate across variable token counts. BudgetPix seamlessly integrates with existing pixel-space diffusion architectures, enabling a single checkpoint to be operated at a wide range of compute budgets. Evaluated on text-to-image generation, BudgetPix matches the fidelity of MiniT2I-L at $512^2$ and PixelDiT at $1024^2$ using just 25% of the original compute budget. In class-conditional generation using a MeanFlow backbone, BudgetPix requires merely 60% of the full compute budget to produce images with near-zero quality degradation, observing a marginal 0.8-point increase in FID. Comprehensive assessments by human and VLM judges confirm that BudgetPix establishes a significantly improved quality-efficiency tradeoff over prior budget-adaptive baselines. More details are available at our project page: https://karaozgur.com/BudgetPix
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: cc298d5a-0acc-4
+
+---
+
+### 11. Compact and Efficient Indexes for Learned Sparse Retrieval
+
+- **ArXiv ID**: [2610.12300v1](https://arxiv.org/abs/2610.12300v1)
+- **作者**: Franco Maria Nardini, Luca Rizzo, Cosimo Rulli, Rossano Venturini
+- **发布时间**: 2026-10-09
+- **分类**: cs.IR, cs.DB
+- **PDF**: [https://arxiv.org/pdf/2610.12300v1](https://arxiv.org/pdf/2610.12300v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+This paper investigates how to substantially reduce the memory footprint of learned sparse retrieval indexes without sacrificing the efficiency of state-of-the-art retrieval data structures. Building on SEISMIC, we revisit both levels of its design: the inverted index used to select candidates and the forward index used to score them. For the inverted index, we replace costly per-block summaries with medoids, namely existing documents elected as block representatives, collapsing the per-block metadata from a sparse vector to a single document identifier. For the forward index, we compress both components and values. We reorder the vocabulary to place co-occurring components closer together and encode the resulting $Δ$-gaps with DOTPACKING8, a SIMD-friendly bit-packing scheme that fuses decompression with dot-product evaluation; values are quantized with compact per-component 4-bit codebooks fitted to each component's distribution. We further introduce JUMPDOT, a blocked dot-product kernel tailored for queries that contain only a few non-zero entries. Our forward-index compression is independent of SEISMIC and can be plugged into any system relying on forward-index-based scoring, as we demonstrate by integrating it into KANNOLO. A comprehensive evaluation on MS MARCO with three state-of-the-art learned sparse encoders shows that our solutions markedly improve the speed-space trade-off of learned sparse retrieval: at equal accuracy, our indexes answer queries up to 5.3x faster than the best competitor while using about 3x less memory, and in the most memory-constrained regime, they remain up to 1.9x faster while using up to 3.9x less memory.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0b77ed71-b143-4
+
+---
+
+### 12. NativeScope: Relation-Localized Retrieval over Native Topology with a Correct Anchor
+
+- **ArXiv ID**: [2610.12243v1](https://arxiv.org/abs/2610.12243v1)
+- **作者**: Long Wang
+- **发布时间**: 2026-10-09
+- **分类**: cs.IR, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2610.12243v1](https://arxiv.org/pdf/2610.12243v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Dense retrieval usually ranks text chunks by their semantic similarity to a question. This ignores structure that many data systems already store, including section membership, session boundaries, and native order. We propose NativeScope, a scope-then-rank method for queries with a known anchor and relation. It represents a query as q -> (A, r, B). The anchor A and relation r select native units through belonging, before, or after operators, and the target term B ranks only chunks that overlap the selected scope. An internal variant, NS-FullQ, ranks the same candidates with the full question. We evaluate both methods on 200 controlled document and memory records derived from QASPER and LongMemEval under a 1,024-token budget. NativeScope attains native-unit recall of 89.28 percent for documents and 72.50 percent for memories, improving over instance-wide Dense RAG by 42.75 and 22.00 percentage points. NS-FullQ reaches 87.78 percent and 68.50 percent; its differences from NativeScope are inconclusive, locating the primary gain in relational scoping rather than the shorter ranking query. With automatic Top-1 anchors, memory recall falls to 35.50 percent. NativeScope is therefore effective when anchor coordinates and native relations are reliable, but hard scoping inherits errors from the localization interface.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a145d887-2046-4
+
+---
+
+### 13. One Word Opens the Gate: The Option-Channel Attack on Typed Decision Models as Agent Guardrails
+
+- **ArXiv ID**: [2610.12292v1](https://arxiv.org/abs/2610.12292v1)
+- **作者**: Seyedarmin Azizi, Erfan Baghaei Potraghloo, Massoud Pedram
+- **发布时间**: 2026-10-09
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2610.12292v1](https://arxiv.org/pdf/2610.12292v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+A typed decision model reads a piece of text and returns a probability over caller-defined options, each with a short written definition, generating no text. Recent work places these models in agent systems as guardrails: the component that reads a proposed tool call or incoming message and decides whether to allow it. We evaluate seven open-weight models in that role and report the two error directions separately: a fail-open error allows a prohibited action and is a vulnerability; a fail-closed error blocks a permitted one and is only a cost. On prompt-injection, jailbreak and toxic-content screening, accuracy at the allow-or-block decision ranges from 36% to 72% against a chance level of 50%. A low error rate in one direction only reflects which answer a model defaults to: one allows nearly everything, another blocks nearly everything. On a synthetic suite of agent tool calls, six lines of server log text that say nothing about the policy raise a gate's fail-open rate from 0% to 63% on a policy it otherwise decides correctly. Giving the permissive option a misleading name, with its definition and the judged text untouched, raises that rate to between 93% and 100% on the four models that place the label in their input. Every defense we tested is defeated, either by an attacker who targets its mechanism or by attacker-controlled text. Escalating the least confident decisions does not help either: a decision an attack has reversed is no less confident than the one it replaced. Parsing each policy field into a typed value does eliminate one attack, but it also makes the model unnecessary: a deterministic rule over those values reaches 100% accuracy on all six policies. These models can reduce how many cases reach a reviewer, but on this evidence they should not be the component that decides. Code is available at https://github.com/ArminAzizi98/option-channel-attack.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 53e21ed7-cf38-4
+
+---
+
+### 14. Dex-One2Many: Learning Dexterous Manipulation from a Single Human Demonstration
+
+- **ArXiv ID**: [2610.12470v1](https://arxiv.org/abs/2610.12470v1)
+- **作者**: Jusuk Lee, Sungha Kim, Yeonsoo Park, Jonguk Cheon, Yoonkyo Jung...
+- **发布时间**: 2026-10-09
+- **分类**: cs.RO, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.12470v1](https://arxiv.org/pdf/2610.12470v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+While learning dexterous manipulation from a single human video offers a promising alternative to costly robot demonstrations, many recent methods predominantly imitate demonstrated motions. Such strict motion matching often limits generalization to initial object poses, goal poses, and grasps not shown in the video. Alternatively, discovering a policy via reinforcement learning (RL) allows for broad generalization, but without prior guidance, it struggles with high-dimensional exploration in complex, multi-stage tasks. To address these coupled generalization and exploration challenges, we present Dex-One2Many, a real-to-sim-to-real framework that learns a generalizable dexterous manipulation policy from a single human video. Our key insight is to abstract the video into sequential scene graphs that guide RL, enabling efficient exploration while preserving broad generalizability. The graphs serve as generative constraints for sampling diverse reset states and provide dense rewards for each stage. Because the graphs constrain relations rather than exact poses, these reset states cover object poses and grasps beyond the video, while initializing each stage from them with dense rewards keeps exploration short and guided. Trained entirely in simulation, Dex-One2Many transfers zero-shot to a real multi-fingered hand. Across five tool-use and manipulation tasks, Dex-One2Many exceeds baselines by 6.5% in seen configurations, while its robust generalization widens this gap to 71% in unseen scenarios.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 31525d7f-1101-4
+
+---
+
+### 15. Rubric-CEPR: Self-Evolving Image Editing via Reward-Verified Self-Distillation
+
+- **ArXiv ID**: [2610.12469v1](https://arxiv.org/abs/2610.12469v1)
+- **作者**: Ritesh Thawkar, Shubham Patle, Shravan Venkatraman, Rao Muhammad Anwer
+- **发布时间**: 2026-10-09
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.12469v1](https://arxiv.org/pdf/2610.12469v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Instruction-guided image editors have become highly capable, yet improving them further still depends on human-edited training pairs or external reward models. Such supervision is costly to obtain and can reward plausible failures: a realistic output may leave the requested change undone or alter content that should be preserved. In this work, we strive to improve a pretrained image editor using only its own generations, without human-edited targets or an external training-time reward model. To this end, we propose a self-evolving framework, named Rubric-CEPR, that verifies the editor's own samples with its internal representations through a rubric-augmented Contrastive Edit-Preservation Reward (CEPR). A Planner proposes structured edit instructions from unlabeled images, the Editor samples multiple candidate edits, and a frozen Critic scores each candidate with decomposed rubric checks for edit realization, removal of the old state, and content preservation, using features already exposed by the editor. Non-compensatory gates reject infeasible candidates, and the best verified candidate is distilled into the editor through lightweight adapter training. On Qwen-Image-Edit, Rubric-CEPR improves ImgEdit from 4.36 to 4.60 (+5.5%), with a +24.9% gain on object isolation, and transfers to GEdit-Bench and Complex-Edit. The same procedure also improves Step1X-Edit by +7.8% on ImgEdit. We hope our approach will serve as a solid baseline for image editors that improve themselves from their own verified samples. Our code is publicly available at $\href{https://riteshthawkar.github.io/Rubric-CEPR/}{\text{this URL}}$
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c60af2a9-47fd-4
 
 ---
