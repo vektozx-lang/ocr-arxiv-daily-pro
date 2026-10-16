@@ -1,300 +1,300 @@
-# OCR arXiv Daily Pro — 2026-10-15
+# OCR arXiv Daily Pro — 2026-10-16
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-10-14 09:10 - 2026-10-15 09:10 (Asia/Shanghai)
+> 时间窗口：2026-10-15 09:10 - 2026-10-16 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1da909b3-0845-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7f8bdaac-4b4f-4
 
 ---
 
 ## 📄 论文详情
 
-### 1. Read, Parse, Describe: Unified Document Parsing with Visual Element Description Generation
+### 1. Making every stage of medical device document assessment with large language models deterministic
 
-- **ArXiv ID**: [2610.20335v1](https://arxiv.org/abs/2610.20335v1)
-- **作者**: Yuheng Chen, Yufan Chen, Zhuojun Cai, Ruiping Liu, Junwei Zheng...
-- **发布时间**: 2026-10-14
+- **ArXiv ID**: [2610.21300v1](https://arxiv.org/abs/2610.21300v1)
+- **作者**: Ryosuke Suzuki
+- **发布时间**: 2026-10-15
+- **分类**: cs.CL, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2610.21300v1](https://arxiv.org/pdf/2610.21300v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+To show that a medical device complies with regulation, experts judge whether documents and records meet each requirement and record the judgment for others to verify. For each assessment item that experts define, large language models could prepare a preliminary assessment: a label such as Satisfied or Not satisfied, a reason and quoted evidence. We sent fourteen commercial deployments of such models (seven models from three providers, through six routes) the same request repeatedly, with the deterministic sampling settings each accepted; every deployment returned differing assessments for at least one request, and in twelve the label changed. Reducing reasoning where the interface allows it did not reduce the variation, and prompts of retrieved passages removed it only for the smallest models. The same open-weight model was reproducible or not depending only on how it was served. A pipeline we built to be deterministic at every stage -- text extraction and optical character recognition (OCR), chunking, embedding, indexing, retrieval and inference -- returned byte-identical output at each stage across reruns, interruptions, edits, machines of one graphics processing unit (GPU) model and days, for blood glucose meter and infusion pump documents. OCR, embedding and approximate retrieval varied when their own serving was not made invariant, and outputs changed with the GPU model and with the inference engine's scheduling settings, which therefore belong in the recorded configuration. End-to-end determinism is achievable and gives a testable basis for audit and change control.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 193d360f-81cc-4
+
+---
+
+### 2. P2TPO: Structure-Aligned Page-to-Token Credit Assignment for Full-Page Document Parsing
+
+- **ArXiv ID**: [2610.21979v1](https://arxiv.org/abs/2610.21979v1)
+- **作者**: Yong Zu, Ninghua Yang, Zezhong Tan, Xinhong Ma, Ziqiang Dong...
+- **发布时间**: 2026-10-15
+- **分类**: cs.LG, cs.CL, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.21979v1](https://arxiv.org/pdf/2610.21979v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+End-to-end full-page document parsing must preserve the content and structure of heterogeneous elements, yet otherwise accurate outputs can contain local errors and omissions. A single page-level advantage does not explicitly identify which elements differ in quality across sampled outputs or where their errors occur. We introduce Page-to-Token Policy Optimization (P2TPO), a structure-aligned credit-assignment framework that operates on full-page policy trajectories. Reference-element alignment first associates block-level quality contrasts with generated spans. Unified Anchor Pricing (UAP) incorporates matched and missing element outcomes and provides feedback relative to a fixed quality ceiling when sampled outputs receive identical but imperfect scores for a reference element. Within matched blocks, Span Credit Redistribution (SCR) redistributes existing block credit according to aligned correct and erroneous spans, using boundary proxies for within-block omissions while preserving the total block-derived advantage across its tokens. Under a fixed-weight additive page utility, we show that element-indexed contrasts retain local quality differences that page-level aggregation can cancel out. In the main experimental comparison, P2TPO outperforms all evaluated policy optimization baselines in seed-averaged scores on each of the six document parsing benchmarks. Additional experiments demonstrate gains across model scales and initializations.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 15c1f2eb-08a0-4
+
+---
+
+### 3. ZoomCap: Evidence-Routed Visual Zooming for Recoverable Visual Information Transfer
+
+- **ArXiv ID**: [2610.21320v1](https://arxiv.org/abs/2610.21320v1)
+- **作者**: Hao Shi, Jiafeng Wang, Yuzhuo Fu, Tao Zhang, Jian Bai...
+- **发布时间**: 2026-10-15
+- **分类**: cs.CV, cs.CL, cs.MM
+- **PDF**: [https://arxiv.org/pdf/2610.21320v1](https://arxiv.org/pdf/2610.21320v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Detailed captions transfer visual information into vision-language model supervision, but quality is easily conflated with length: long single-pass outputs still miss small objects, text, and spatial relations or promote uncertain observations into confident claims. We formulate fine-grained captioning as recoverable visual information transfer, in which a teacher acquires missing evidence under a finite observation budget and converts it into reusable supervision. ZoomCap uses a draft caption to route conditional knowledge retrieval, OCR-sensitive reading, coverage-gap recovery, and adaptive visual zooming, allocating deeper crops only to the most complex eligible region, deriving spatial relations from grounded geometry, and fusing non-duplicate evidence. We also introduce FactCycle, which scores caption-derived atomic claims on two blind anchors--source image (truthfulness) and reconstruction (realizability)--separating fabrication from generator loss claim by claim; human and multi-judge comparisons complement this fact-level view. Against Qwen3.5-397B-A17B captions, ZoomCap achieves an 81.9% human tie-adjusted preference score with a teacher over 10x smaller, and FactCycle counts 52.4 transferred claims per image vs. 31.5 for ScaleCap. The evidence also transfers: in continual pre-training, ZoomCap-450K improves the 11-benchmark average by 1.31-2.38 points over the strongest competing corpus and Ling-Tiny-VL-v3 gains 1.4 points on a production document/OCR monitor suite (1.5 on perception) at 60B tokens; in medical pre-training, 2.64M ZoomCap-captioned images improve five VQA benchmarks by 3.04 points (vs. 1.76 for same-image Gemini-3.1-Pro captions).
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 10f80d97-a3cf-4
+
+---
+
+### 4. Loud and Clear: Making Visual Evidence Count in Multimodal Document RAG
+
+- **ArXiv ID**: [2610.21318v1](https://arxiv.org/abs/2610.21318v1)
+- **作者**: Eunchan Jo, Seounghyun Jang, Sangwoo Mo
+- **发布时间**: 2026-10-15
 - **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.20335v1](https://arxiv.org/pdf/2610.20335v1)
+- **PDF**: [https://arxiv.org/pdf/2610.21318v1](https://arxiv.org/pdf/2610.21318v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Document understanding systems are typically evaluated as separate components via layout analysis, optical text recognition, reading-order prediction, and image captioning. This separation leaves scientific figures, captions, and visual semantics weakly connected, and fails to measure whether a model can produce a single page-level parse that is both structurally faithful and semantically accessible. We introduce Read-Parse-Describe, a unified dataset for document parsing with visual element description generation. Given a page image, models are required to output an ordered list of layout elements containing bounding boxes, semantic labels, reading-order indices, recognized textual content, and alternative text descriptions for visual elements. The benchmark is built from 2,402 documents, comprising 18,163 continuous pages, 125,218 layout elements, and 11,338 visual instances. Besides, we further propose a plug-and-play space-awareness enhancer that reuses multi-layer visual features and injects grid-aware spatial guidance into vision-language tokens for layout-aware generation. Experiments across end-to-end VLMs and pipeline parsers show that existing systems still struggle to jointly recover reading order and visual semantics, while our enhanced model achieves strong joint performance. These results highlight the need to move beyond isolated document parsing modules toward unified models that jointly read, parse, and describe complex documents. The new dataset and code will be made publicly available at https://github.com/yufanchen96/RPD
+Multimodal document retrieval-augmented generation (RAG) has focused largely on retrieval, yet its answers depend on how well a vision-language model reads the retrieved pages. We find that evidence in retrieved pages remains underused even when the correct pages are retrieved. On SciEGQA oracle pages, five prior methods give the generator 0.7K to 2.7K visual tokens per query on average under a common image processor, yet raising the page-only budget from 1K to 32K improves accuracy by 15.22 points. At a fixed 16K budget, adding ground-truth crops improves accuracy by 3.75 points over page-only input. We study what the generator needs from retrieved pages through two requirements: Loud, making full use of visual token capacity, and Clear, refining the page so that its evidence becomes prominent. For Loud, increasing either the visual token budget or visual fidelity, the image resolution those tokens preserve, improves accuracy with the other held fixed, and full-page scaling outperforms repetition and tiling at matched budgets. For Clear, suppressing surrounding content improves accuracy without enlarging selected regions, and adding OCR of these regions to page images outperforms either input alone. We implement both as Loud and Clear (LoC), which combines higher-resolution pages with OCR from query-relevant regions without ground-truth annotations or additional training. LoC outperforms eight prior methods on SciEGQA, ViDoRe-v3, and MMLongBench-Doc, improving over the strongest, ColQwen3, by 8.88, 3.09, and 4.22 points with the same retriever and generator. It also outperforms its page-only variant under the same visual token budget. These results locate a bottleneck beyond retrieval: how the retrieved pages are given to the generator.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 144ded6c-a90a-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 27fd7773-162f-4
 
 ---
 
-### 2. Likelihood Is Not Authorship: Can We Reliably Measure Human Contribution in AI-Assisted Writing?
+### 5. DocPilot: Interactive Agent Orchestration and Training for Long Visual Document Understanding
 
-- **ArXiv ID**: [2610.19767v1](https://arxiv.org/abs/2610.19767v1)
-- **作者**: Hasan Amin, Zhuoran Lu, Ming Yin
-- **发布时间**: 2026-10-14
+- **ArXiv ID**: [2610.21327v1](https://arxiv.org/abs/2610.21327v1)
+- **作者**: Zhuowen Liang, Xiaotian Lin, Yuyu Luo, Haixun Wang, Nan Tang
+- **发布时间**: 2026-10-15
+- **分类**: cs.AI, cs.CL, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.21327v1](https://arxiv.org/pdf/2610.21327v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Multimodal long-document question answering requires models to seek sparse evidence across pages and modalities, understand heterogeneous document content, and reason over the collected evidence. Even advanced vision-language models (VLMs) can overlook sparse evidence and struggle with cross-modal reasoning in a single pass. Existing document agents further introduce multi-step interaction, but some still rely on predefined workflows or coarse-grained actions, limiting the flexibility and granularity of document reasoning. We introduce DocPilot, an agentic document framework that supports expressive orchestration and makes complex document solving learnable by small language models (SLMs). DocPilot orchestrates evidence seeking through page-level navigation and fine-grained evidence localization, and integrates local visual inspection, code-based numerical reasoning, and cross-modal reasoning for multimodal understanding. To transfer these capabilities to small models, we propose curriculum-based agentic training that progresses from single-ability learning to adaptive orchestration through supervision from data-grounded reasoning traces and executable interaction trajectories. Across MMLongBench-Doc, DocBench, FinRAGBench-V, and MADQA, DocPilot achieves strong gains with frontier VLM backbones, while DocPilot-4B delivers competitive performance against substantially larger models, demonstrating strong effectiveness and generalization across diverse long-document reasoning settings. The code is available at https://github.com/HKUSTDial/DocPilot.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 652741a8-76d2-4
+
+---
+
+### 6. Training Reasoning Models to Generate Diverse Scientific Ideas
+
+- **ArXiv ID**: [2610.22324v1](https://arxiv.org/abs/2610.22324v1)
+- **作者**: Manya Wadhwa, Pranav Narayanan Venkit, Hiroaki Hayashi, Yu Li, Tuhin Chakrabarty...
+- **发布时间**: 2026-10-16
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2610.19767v1](https://arxiv.org/pdf/2610.19767v1)
+- **PDF**: [https://arxiv.org/pdf/2610.22324v1](https://arxiv.org/pdf/2610.22324v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-AI-text detection generally asks whether a machine wrote a text. As AI becomes an increasingly integral and accepted part of writing, the more relevant question is no longer whether AI was used, but how much of the text reflects human contribution. A prominent line of work estimates this by measuring how predictive a person's prompt is of the final text. We show that this measure can be easily manipulated. We introduce SPECIFICITY PADDING that simply asks the model to copy a few random IDs from the prompt, and that alone makes a title-only request look more human than one that supplies the article's key ideas. A context-swap audit then holds each document fixed, and only shows or hides the IDs to the evaluator. The score of the unchanged text swings by a third to half of its scale, and it rises for every document we test, on news and scientific abstracts, across varied LLMs from 3.8B to 753B parameters. The same articles can average 85\% human or 15\% human depending only on which prompt is on record, and even with no prompt at all, the output-only variant rewards the random strings themselves. An exact identity, the credit ledger, explains why. The score is a surprisal-weighted average over the text, so rare strings that the context makes copyable collect the credit, whatever they mean. A two-point bound marks a deeper limit. If the prompt could have been machine-written, every transcript-only method must, in the worst case, miss by half the contribution at stake. Likelihood-based scores alone cannot reliably establish human contribution without evidence of what the person added and how the text was produced.
+One of the first steps of a research pipeline is generating ideas. Large Language Models (LLMs) are increasingly used to automate this step, but most of this work optimizes the quality of individual ideas, while overlooking diversity. In our work, we study document-grounded ideation, focusing on increasing the diversity of LLM generated ideas and ensuring they are high quality. Given prior papers, a model must propose a set of ideas that are each high-quality and clearly distinct from one another, while also being grounded in the input documents. To optimize for this, we propose training with a set-level reinforcement learning objective. In our setup, in a single generation, the model writes K structured idea cards grounded in the source papers, and the set is scored jointly, where each idea's quality is weighted by its distance from the ideas written before it. This teaches the model to steer each new idea away from its predecessors. We show that our trained 8B model achieves higher creative utility (a measure combining quality and diversity) than Claude Opus 4.8 and GPT-6 Astra on our contamination-free benchmark. In a pilot human study with four experts, our sets are judged as promising as Claude Opus 4.8's and contain marginally more unique ideas. When a coding agent runs proof-of-concept experiments on the ideas, our model's success@k is comparable to Claude Opus 4.8's, so we see that the added diversity does not cost any executability.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a32373d9-71be-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a0ed58d9-4b89-4
 
 ---
 
-### 3. Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR
+### 7. MJev-Spatial: System One Spatial Intelligence via Native Attention Matching
 
-- **ArXiv ID**: [2610.20461v1](https://arxiv.org/abs/2610.20461v1)
-- **作者**: Nguyen Nguyen, Yongyi Zang
-- **发布时间**: 2026-10-15
-- **分类**: cs.CL, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.20461v1](https://arxiv.org/pdf/2610.20461v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Character Error Rate (CER), the standard metric for OCR and vision-language models (VLMs), charges a typo as much as a wrong name. We introduce semCER, which keeps CER's alignment and denominator and charges each grapheme edit a severity from an LLM judge, with no word segmentation. Normalized CER keeps the score of a whole transcription, where it tracks readers as well as semCER or better, and semCER breaks that score down into named edits. The charges track readers' ratings edit by edit in English, Vietnamese, and Chinese and put the edits readers rate most severe near the top of a sorted list. On pairs drawn where CER and semCER disagreed, readers side with semCER more often than with normalized CER in English and Chinese, and equally often in Vietnamese. Across 16 languages, the judge charges a wrong diacritic or tone mark almost nothing in Spanish but nearly a wrong letter's severity in Telugu. Where we can count real words, a general VLM's wrong letter forms one far above chance while a classical pipeline's stays near it. We release the 61 million judged edits, the aggregated reader ratings, and the distilled scorer at https://github.com/nguyenx2t/semcer.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: f9356f52-f4ac-4
-
----
-
-### 4. TextVerifier: Seeing Beyond Recognition to Verify Chinese Text Rendering
-
-- **ArXiv ID**: [2610.19551v1](https://arxiv.org/abs/2610.19551v1)
-- **作者**: Yiyang Chen, Guo-Hua Wang, Yaoli Liu, Qing-Guo Chen, Zhao Xu...
-- **发布时间**: 2026-10-14
+- **ArXiv ID**: [2610.22276v1](https://arxiv.org/abs/2610.22276v1)
+- **作者**: Luozheng Qin, Yuhan Zhu, Changhai Zhou, Qian Qiao, Jun Gao...
+- **发布时间**: 2026-10-16
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.19551v1](https://arxiv.org/pdf/2610.19551v1)
+- **PDF**: [https://arxiv.org/pdf/2610.22276v1](https://arxiv.org/pdf/2610.22276v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Text-to-image models increasingly generate readable Chinese text that still contains local rendering defects, such as a character with an extra or missing stroke or a malformed component. Such errors are invisible to OCR and vision-language models, which are trained for recognition and are therefore invariant to the very structural deviations that define a rendering error. We formalize text rendering verification as a target-conditioned problem: given a target character and an image crop, decide whether the crop is a correct rendering of that character. Our verifier TEXTVERIFIER feeds the text tower a character's Ideographic Description Sequence (IDS) rather than a single-character symbol, and is trained on 12.7M crop-IDS pairs plus label-free "same-character, different-quality" hard pairs sampled from the training trajectory of a text-region inpainting model. To evaluate this ability we build TEXTRENDERBENCH-ZH, the first per-character benchmark for generated Chinese text, annotating position, identity, and correctness for 7,358 characters. TEXTVERIFIER reaches an F1 of 0.844, far above OCR confidence (0.526), a general VLM (0.329), and TextPecker (0.590). Used as a per-character reward for Flow-GRPO post-training, it further reduces rendering errors, showing that its score can both detect and correct errors.
+Spatial intelligence lets an agent perceive and act in the physical world, and many of its judgments must be made at interaction rates: which spatial relation holds, how far an object is, or where to place it. Vision-language models (VLMs) produce these answers by free-form text generation, paying for autoregressive decoding and answer parsing even though the output space is compact: one of a few options, a scalar, or a 2D point. In light of this, we introduce MJev-Spatial, a System 1 multimodal decision model that tackles all three types of spatial understanding tasks within a unified classification framework. Specifically, MJev-Spatial treats each candidate as a class and scores it using the backbone's pretrained query and key projections, without adding parameters. The candidates are the given options for choice tasks, or value bins and image regions refined through coarse-to-fine classification for numerical and point prediction, respectively. At inference, each classification decision takes a single forward pass and generates no answer tokens. To train on heterogeneous spatial data efficiently, we supervise all coarse-to-fine stages jointly with teacher forcing in one forward pass, and combine this with length-aware global batching and cross-GPU load balancing, raising training throughput by 30.8% over the original batching strategy. Built on Qwen3.5-4B and trained on 12.3M question-answer pairs converted from existing spatial datasets, MJev-Spatial achieves the highest overall score (65.64%) among eight tested models, ranks first on seven of twelve benchmarks, and outperforms its unmodified autoregressive base model on all twelve, while running 2.5 times faster than the fastest autoregressive baseline and 5.6 times faster than the base model.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2b563e64-a3cc-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 209e5af0-7a03-4
 
 ---
 
-### 5. CommerceGen-Studio: An End-to-End Framework for Commercial-Grade Main-Image Generation
+### 8. Librarian Agents: Training LLMs to Curate Long-Context Workspaces that Anticipate Future Queries
 
-- **ArXiv ID**: [2610.20603v1](https://arxiv.org/abs/2610.20603v1)
-- **作者**: Xiaoli Xu, Zhengtao Wu, Zhengze Xu, Tao Liu, Yongchao Du...
+- **ArXiv ID**: [2610.22273v1](https://arxiv.org/abs/2610.22273v1)
+- **作者**: Anikait Singh, Teresa Zhang, Yoonho Lee, Roshen Sanjay Nair, Aviral Kumar...
+- **发布时间**: 2026-10-16
+- **分类**: cs.LG, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2610.22273v1](https://arxiv.org/pdf/2610.22273v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Reasoning over long document contexts remains a challenge for large language models (LLMs). Standard retrieval methods are inherently reactive, bottlenecking agents with complex, cross-document reasoning at inference time, while precomputed structures like knowledge graphs often fall short because they rely on rigid heuristics. Instead, can we allow agents to perform anticipatory directed curation: learning to proactively reorganize unstructured corpora prior to inference to efficiently serve diverse future queries. We build on a key asymmetry in modern agentic harnesses (e.g., Claude Code): while LLM agents are adept at navigating existing filesystems to solve an immediate task, they are rarely trained to construct reusable workspaces for future use. To instantiate this capability, we introduce Librarian Agents, a framework in which a builder agent transforms raw documents into a hierarchical filesystem of synthetic files and reference links, which forms a workspace tailored for a downstream answering agent. We formulate workspace construction as a Markov decision process and optimize the builder policy via reinforcement learning to directly maximize downstream answering accuracy. Empirically, Librarian Agents outperforms the strongest retrieval and precomputation baselines by 33 percentage points on BrowseComp-Plus, amortizes upfront construction costs across repeated queries, and generalizes zero-shot to unseen domains on BRIGHT with a 31-point average accuracy improvement.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c4ad978d-cef8-4
+
+---
+
+### 9. Beyond Downstream QA: Rethinking How We Evaluate Agent Memory
+
+- **ArXiv ID**: [2610.22209v1](https://arxiv.org/abs/2610.22209v1)
+- **作者**: Sebastian-Antonio Toma, Jean de Kernier, Mike Ply, Oliviu Matei
+- **发布时间**: 2026-10-16
+- **分类**: cs.CL, cs.AI, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2610.22209v1](https://arxiv.org/pdf/2610.22209v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Agent memory benchmarks evaluate whether an agent's responses reflect correct knowledge, measuring downstream question-answering accuracy as a proxy for memory quality. We show this evaluation paradigm is incomplete: it conflates memory correctness with retrieval and generation quality, producing both false positives where correct responses mask broken memory and false negatives where incorrect responses blame correct memory for retrieval failures. We introduce FEB-30, a benchmark of 30 fact-evolution trajectories spanning 6 diagnostic categories and 3 difficulty levels, constructed via paradigm inversion: documents are generated from known fact trajectories, yielding deterministic ground truth without human annotation. Each trajectory defines how a fact should evolve across multi-author artifacts (documents, emails, conversations), enabling direct inspection of the memory store after each ingestion step. Applying FEB-30 to a representative memory system, we demonstrate that intrinsic and extrinsic evaluation diverge by an average of 16 percentage points, with 44% of trajectories exceeding meaningful divergence thresholds. Diagnostic decomposition reveals that the system correctly classifies memory operations (create, update, reinforce, supersede) only 20% of the time, a failure entirely invisible to extrinsic evaluation, and that failure modes differ systematically by category and difficulty. We release the benchmark, document generation pipeline, and scoring framework to support reproducible evaluation of agent memory systems.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0fc75d0b-1e36-4
+
+---
+
+### 10. Documenting Trofinetide Treatment Phenotypes in Rett Syndrome with a Dual-LLM Consensus Pipeline
+
+- **ArXiv ID**: [2610.22062v1](https://arxiv.org/abs/2610.22062v1)
+- **作者**: Daniel Palacios, Guantong Qi, Mikael Guzman Karlsson, Shawntel K. David, Mohammed Sameeruddin...
 - **发布时间**: 2026-10-15
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.20603v1](https://arxiv.org/pdf/2610.20603v1)
+- **分类**: q-bio.QM, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2610.22062v1](https://arxiv.org/pdf/2610.22062v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-We present CommerceGen-Studio, an end-to-end framework for generating commercial-grade main images for e-commerce Stock Keeping Units (SKUs). Our framework is organized along a three-stage pipeline of information extraction, semantic rewriting, and multi-condition generation: Prompt-Eval-Refine-Loop Agent (PERL-Agent) distills heterogeneous SKU metadata into concise selling-point text lists through an iterative closed loop of VLM and LLM roles scored by a reference-free rubric. Layout Thinker Optimization (LTO) aligns the rewriter with both caption and rendered-image quality via alternating domain-specific policy optimization. SKU-DiT, trained under Reinforce-Distill-Reinforce (RDR) progressive training, conditions jointly on the white-background product image, the trademark crop, and the structured layout to hold subject fidelity, trademark integrity, and character-level text accuracy together. The framework runs in production at a scale of millions of main images per day with a latency of a few seconds per image, which we believe makes it among the first systems of this kind to operate at commercial scale. We also release CommerceGen-Bench, a benchmark of hard cases collected from live traffic across all product categories. On it, our framework achieves the highest overall scores among the evaluated open-source baselines on both editing tracks, with and without prompt enhancement. It also matches much larger closed-source models, and beats several of them at Instruction Following and Product Integration - the two properties that determine whether an image can be published.
+Objective: Trofinetide, approved in 2023 as the first Rett syndrome treatment, lacks scalable real-world monitoring because chart review is labor-intensive. We developed a dual large language model (LLM) consensus pipeline to extract 18 treatment-response phenotypes, comprising 4 adverse effects, 13 Rett clinical features, and medication refusal, from clinical notes. Materials and Methods: We analyzed 26,763 notes from 108 patients with confirmed sustained trofinetide exposure at Texas Children's Hospital. The pipeline filters notes by keyword, classifies each through two LLMs requiring consensus, and aggregates a patient-by-timepoint matrix. Architecture and prompt were selected on a diarrhea development set, then frozen and applied to the other 17 phenotypes with the phenotype definition substituted, as an out-of-sample test. The reported prompt comparison scores 183 expert-labeled cells. Results: A prompt requiring diarrhea to be active and severe performed best (84.2 $\pm$ 0.0% accuracy; F1 = 0.674), 47 percentage points above regular-expression matching ($p < 0.0001$). Expert reviewers judged six of the pipeline's calls per phenotype, three positive and three negative, and agreed with 90.2% (92/102). The 13 Rett clinical features are manifestations of the disorder itself rather than adverse effects of trofinetide. Gross and fine motor impairment, language/communication, and stereotypy were documented present in 92-100% of patients at every visit. Discussion: In-context LLM extraction captured multi-domain treatment responses. The outcome is documented presence at each visit, not a direction-of-change judgment. Conclusion: Coupling in-context LLM reasoning with a consensus architecture offers a scalable alternative to keyword and regular-expression extraction for real-world evidence, adapting to new phenotypes and medications through configuration alone.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 358d0a20-b24a-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: ec13796a-ba77-4
 
 ---
 
-### 6. Lost in Translation: Why Lower Bias Scores Don't Mean Fairer Models
+### 11. Not X, but When: Diagnosing a Mandarin LLM Writing Tic through Contextual Appropriateness
 
-- **ArXiv ID**: [2610.20479v1](https://arxiv.org/abs/2610.20479v1)
-- **作者**: Harsh Kumar
-- **发布时间**: 2026-10-15
-- **分类**: cs.CL, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2610.20479v1](https://arxiv.org/pdf/2610.20479v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Bias audits of multilingual language models usually compare a model's average stereotype score in English with its average in another language and read the difference as a difference in fairness. We ask how much of that difference is noise. Auditing ten open models in eight languages, we measure how far scores move when English test items are merely reworded, test every language shift item by item, and check that the test catches shifts we inject on purpose. In all 70 model-language pairs the stereotype score falls below its English level, and for Hindi, Korean and Swahili the drop clearly exceeds what rewording English produces; most of it comes from StereoSet items. Judging every translation, we find that imperfect ones drop more, but faithful translations alone drop nearly as much. Still, a lower average does not show that a model is fairer. An item's English score predicts its translated score far less well than its reworded score (correlation 0.23, 0.27 on faithful translations, vs. 0.48), while scores stay as far from neutral, models agree on translated items, and within Hindi or Spanish a translated item's score correlates with its own rewording at 0.84 and 0.82. The average cannot distinguish lower bias from a different pattern of item-level scores. We also document three common pipeline errors that silently erase bias signal, and release our code.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7002acfc-2072-4
-
----
-
-### 7. Cascaded Retrieval with Cross-Modal Query Refinement for Efficient Visual Document Search
-
-- **ArXiv ID**: [2610.20367v1](https://arxiv.org/abs/2610.20367v1)
-- **作者**: Diana Turmakhan, Aseem Srivastava, Vivek Gupta, Iryna Gurevych, Thamar Solorio
-- **发布时间**: 2026-10-14
+- **ArXiv ID**: [2610.22249v1](https://arxiv.org/abs/2610.22249v1)
+- **作者**: Yihang Peng, Yi Jing, Dewen Liu, Weihan Meng, Ying Liu
+- **发布时间**: 2026-10-16
 - **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2610.20367v1](https://arxiv.org/pdf/2610.20367v1)
+- **PDF**: [https://arxiv.org/pdf/2610.22249v1](https://arxiv.org/pdf/2610.22249v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Retrieving information from visually rich documents requires matching queries against pages that contain complex evidence in tables, figures, and layout-dependent structures. Current vision-language retrievers address this but incur query-time costs that grow with corpus size and are impractical to scale. We propose SCOUT, a cascaded two-track retrieval framework that separates retrieval performance from exhaustive search. The visual track first uses a lightweight parent retriever to filter the corpus to a compact candidate pool, then applies a stronger multi-vector reranker only to those candidates. In parallel, a semantic track retrieves over hierarchical page and document summaries generated offline to provide a signal complementary to visual matching. The outputs are fused through cross-modal query refinement, which uses semantic scores to adjust the visual query representation before final ranking. We evaluate SCOUT on 4 major benchmarks against 6 baselines and observe a significant query-time latency improvement up to 80.7x (28.8x on average) relative to the best baseline, while exceeding state-of-the-art retrieval performance by up to 7.8% NDCG across all benchmarks.
+Recurring expressions in model-written text are often treated as signatures of machine authorship, yet most of them serve legitimate functions. Whether such an expression is a tic depends on whether the model knows when it is called for. This judgment of appropriateness, central to communicative competence, remains largely unexamined for language models. We study it through the Mandarin corrective construction bushi X, ershi Y ("not X, but Y"). Drawing on Gricean pragmatics and corrective negation, we introduce a decision tree that classifies uses as substantive, optional, or defective by testing whether the context makes X a live alternative and whether rejecting X is informative. Five commercial models use the construction 2.5 to 9.2 times as densely as a human reference. Of 307 annotated uses, only 1.30% are defective while 52.8% are optional, that is, correct but unneeded, so models fall short in appropriateness far more often than in correctness. Several reward models favor the construction even over quality-matched variants, an LLM judge favors it even where the context does not license it, and both supervised fine-tuning and preference optimization tend to raise its frequency in open-weight models. We hope this work encourages the development of models attentive to the appropriateness of their expressions.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 87c13306-2786-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 6e55cb9b-bf63-4
 
 ---
 
-### 8. Latent Compaction with Test-Time Training
+### 12. RAG-RST: Retrieved Exemplars as In-Context Discourse Schema for RST Parsing
 
-- **ArXiv ID**: [2610.20582v1](https://arxiv.org/abs/2610.20582v1)
-- **作者**: Yingfa Chen, Xingyu Shen, Chaojun Xiao, Xu Han
-- **发布时间**: 2026-10-15
-- **分类**: cs.CL, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2610.20582v1](https://arxiv.org/pdf/2610.20582v1)
+- **ArXiv ID**: [2610.22150v1](https://arxiv.org/abs/2610.22150v1)
+- **作者**: Mohammadreza Sediqin, Shlomo Engelson Argamon
+- **发布时间**: 2026-10-16
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2610.22150v1](https://arxiv.org/pdf/2610.22150v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Long contexts enlarge key--value (KV) caches, increasing memory use and attention costs during generation. Compressing these caches must preserve information for unseen questions. We introduce **Latent Compaction**, which learns a compact document-specific cache through test-time training. We initialize cache entries using reconstruction importance, teacher attention, and key-space diversity. Training first fits attention outputs and log-normalizers to those of the full cache, with reconstruction-selected entries held fixed. It then jointly optimizes the entire cache through end-to-end distillation from the full-cache model. Model weights remain frozen throughout, and training uses only generic prompts about the document, without access to downstream questions or answers. Experiments on RULER, LongBench, and Phonebook Lookup demonstrate substantial gains over budget-matched compression baselines. On a RULER, for example, our method achieves 96.7% accuracy at 32$\times$ compression, compared with 40.0% for KVZip+. The method also transfers across model scales and families, with retrieval gains on both Qwen3 and MiniCPM5. These results show that treating the KV cache as a neural network and optimizing it with test-time training can preserve retrieval accuracy under aggressive compression. The code is released at https://www.github.com/THUNLP/latent-compaction
+In Rhetorical Structure Theory (RST), each edge of a discourse tree carries a nuclearity label, marking which span holds the central content, and a relation drawn from a closed inventory of functional categories. Neither label is a surface property: the same two clauses can be Elaboration or Background depending on rhetorical intent, and the boundary between them is fixed by annotation convention rather than by lexical cues. Predicting these labels therefore requires a formal discourse schema, and exposure to discourse-rich pretraining text does not supply it: given only a target EDU pair, a strong LLM recovers nuclearity at 0.794 F1 and relation at 0.738 F1. We propose RAG-RST, a retrieval-augmented framework that supplies this schema as in-context demonstration rather than through parameter updates, raising nuclearity to 0.846 F1 and relation to 0.788 F1 with no training. Two configurations are compared: a precomputed strategy that labels all EDU pairs before parsing, and a dynamic strategy that retrieves at each reduce step, so that the exemplars reaching the generator depend on the reductions the parser has already committed to. Both outperform existing RST parsers across span, nuclearity, relation, and full tree metrics, with the dynamic variant consistently strongest. Two properties of the retrieved schema emerge: its utility is bounded in number, saturating and then declining beyond fifty exemplars, and it depends on structural position. Both indicate that a formal linguistic schema can be supplied to a foundation model as a demonstration rather than trained into its parameters.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 300656d4-1100-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 64c32bc5-b0c5-4
 
 ---
 
-### 9. Manacá-1B-Instruct-2: Reproducible Safety Alignment for a Native Brazilian-Portuguese LLM. Negative DPO Results, a Controlled Composition Scan, and a Silent Failure Mode of the LLM Judge
+### 13. Gen4P: Video Generators are 4D Perceivers
 
-- **ArXiv ID**: [2610.20570v1](https://arxiv.org/abs/2610.20570v1)
-- **作者**: Bruno Leonardo Santos Menezes, Carlos Leonardo Souza Cardoso, Fabio André Machado Porto
-- **发布时间**: 2026-10-15
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2610.20570v1](https://arxiv.org/pdf/2610.20570v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Brazilian Portuguese remains underserved by open-source language models, and the few that are safety-aligned rarely document what did not work or validate comparisons with statistical significance. We present Manacá-1B-Instruct-2, the second-generation post-training alignment of Manacá-1B (1.72B parameters, trained from scratch for PT-BR), with an SFT corpus of 291,223 examples. We document three DPO attempts, all negative, including a case where the training reward margin reaches 1.0 while free generation does not change at all, and show that safety came from a dedicated safety-SFT (LLM-jp AnswerCarefully style), refined over three iterations until closing the safety-helpfulness frontier. A controlled scan of the fraction of general data in the safety-SFT mix (10% to 60%) reveals a non-monotonic over-refusal curve with a knee point at 40-50%. The final model is compared against four external PT-BR models on the same items, with Wilson confidence intervals and paired McNemar tests with Holm-Bonferroni correction: the lower bound of its safety interval (94.1%) lies above the upper bound of all four baselines. We also report a methodological finding for LLM-judge evaluation: on two of six safety items in MT-Bench-PT, the judge categorically refuses to assign a score regardless of the evaluated response, silently reducing the effective N of that category in every prior report of the project. We complement this with an n-gram decontamination check and a Chinchilla-anchored compute-budget table that attributes the gap in general capability to pre-training scale rather than alignment methodology. All code, raw data, logs, and scripts that produce every reported number are publicly released.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 97b56050-5b87-4
-
----
-
-### 10. PrismaCoder: Pushing the Boundaries of Open Multimodal Code Intelligence through Decomposed Rubric Synthesis
-
-- **ArXiv ID**: [2610.20538v1](https://arxiv.org/abs/2610.20538v1)
-- **作者**: Qiushi Sun, Jingyang Gong, Yang Liu, Qiaosheng Chen, Zhangyue Yin...
-- **发布时间**: 2026-10-15
-- **分类**: cs.CL, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.20538v1](https://arxiv.org/pdf/2610.20538v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Multimodal code intelligence connects the symbolic world of programs with the visual world their execution creates. Interest in this capability is burgeoning, as models are increasingly asked to produce charts, webpages, animations, and semi-structured documents. Recently, proprietary models have pushed far ahead, producing interactive artifacts even from a text description or a screenshot alone. Yet their data and training remain closed, and open progress is held back by the quantity and quality of available data and by the pipelines and methods for producing it. Quality is the harder of the two, since a sample must be correct as a program, well built, and above all visually right once rendered. No existing signal covers all three. Execution often returns just a pass or fail, code similarity does not map to the visual output, and task-specific verifiers do not generalize. To push open progress further, we start from the data side with PrismaForge, a hierarchical data pipeline centered on a synthesized rubric that decomposes these factors into checkable criteria. The same rubric serves as both filter and reward: it curates the supervised corpus, then drives reinforcement learning on visual-coding tasks. Leveraging PrismaForge for data synthesis and filtering, we build PrismaCoder-2M, the most diverse open dataset for multimodal code intelligence and the largest to date. On the model side, we train PrismaCoder-9B and PrismaCoder-35B on this data and release both. They lead the open state of the art by a wide margin and rival leading proprietary systems. Our analyses further show that the proposed rubric-based pipeline improves multimodal coding performance across model backbones. We release our code and data at https://qiushisun.github.io/PrismaCoder-Home/.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e977a38b-27dc-4
-
----
-
-### 11. From Unreliable to Usable: Decomposing Failure Modes and Confidence Signals in LLM Entity Extraction - Evidence from Cyber Threat Intelligence
-
-- **ArXiv ID**: [2610.20417v1](https://arxiv.org/abs/2610.20417v1)
-- **作者**: Jiahong Qian
-- **发布时间**: 2026-10-15
-- **分类**: cs.CL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.20417v1](https://arxiv.org/pdf/2610.20417v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Audits of large language model (LLM) extraction from full-length documents report severe unreliability, leaving two questions open: what the failures actually consist of, and whether confidence signals can turn unreliable output into usable output. We run a preregistered, fully frozen evaluation of two new-generation low-cost LLMs (DeepSeek-V4-Flash, GLM-5.3-Flash) with a flagship-tier control (GPT-6.1-Sol) on a public corpus of 354 incident campaigns (315 unique reports, 630 model-report evaluations), scoring extraction quality against gold, confidence calibration, and robustness to single-sentence perturbations. Three findings emerge. (1) Unreliability persists across tiers: micro precision is 0.03-0.34 and verbalized calibration error (ECE) 0.53-0.94 across both splits; the gap does not close at the flagship tier. (2) The dominant failure is not hallucination: a full mention census plus a three-tier annotation of 360 sampled candidates (two independent LLM annotators from vendors outside the evaluated set, Cohen's kappa = 0.79 on the preregistered acceptance line, fully disclosed) back-projects to 65.6% background mentions and 19.9% gold-scope gaps, with only 1.2% unsupported candidates. (3) Confidence ranks but does not verify: zero-cost self-consistency-frequency tiering passes a preregistered top-30% precision-gain bar in all six test-split model-type cells (4/6 on train), the zero-cost text-frequency x SC frequency combination wins 3, ties 2, loses 1 across cells, yet relation-level counterfactuals on all 45 targets show that a single misattribution sentence flips high-confidence judgments in 95.6-100% of cases, and even a background sentence explicitly marked as unrelated still binds a fake vulnerability in up to 26.7% of them. We conclude with a deployment boundary: confidence tiering may set review priorities, never truth.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 04119446-0224-4
-
----
-
-### 12. Doc2Harness: Benchmarking LLMs on Long-Horizon Harness Engineering of Coding Agents
-
-- **ArXiv ID**: [2610.20344v1](https://arxiv.org/abs/2610.20344v1)
-- **作者**: Yuyao Ge, Shenghua Liu, Peizhong Gao, Chendi Ge, Chenxu Liu...
-- **发布时间**: 2026-10-14
-- **分类**: cs.SE, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.20344v1](https://arxiv.org/pdf/2610.20344v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Agents driven by large language models are increasingly deployed on long-horizon tasks, where they use tools and modify real workspaces. How well they perform depends as much on the harness around the model as on the model itself. Existing benchmarks measure downstream task success under a fixed harness, leaving harness engineering itself unexplored. We propose Doc2Harness, a two-stage benchmark that evaluates long-horizon harness engineering directly. In Stage 1, a build model operating inside a fixed builder harness receives an interface-only contract skeleton and a development document that consolidates behavior across twelve frontier harnesses, and then constructs a complete candidate harness in an isolated container. In Stage 2, the frozen candidate harness runs in containers separate from the construction environment, one per test case, and is driven end to end by a scripted mock model. We score each test case using four observable channels, namely the requests sent to the model, the files on disk, the process exit code, and the command output; positive controls rule out vacuous passes. Across nineteen frontier models, each evaluated with three independent builds on 328 test cases, GPT-6 Astra achieves the highest pass rate at 53.05%, while the weakest model reaches 27.44%, a gap of roughly twenty-six percentage points. Even the strongest model fails nearly half of the test cases, and failures cluster around how cross-cutting functionality is split across modules. To our knowledge, Doc2Harness provides the first deterministic benchmark for measuring long-horizon harness engineering.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: be4e9a38-451d-4
-
----
-
-### 13. Beyond Static Cues: Unified Dynamic Detection of MLLM Backdoors via Dual-Flow Trajectory Analysis
-
-- **ArXiv ID**: [2610.20319v1](https://arxiv.org/abs/2610.20319v1)
-- **作者**: Yinzhen Huang, Jiahe Xie, Yitong Sun, Ruochen Zhang, Xingxing Wei
-- **发布时间**: 2026-10-14
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.20319v1](https://arxiv.org/pdf/2610.20319v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Multimodal Large Language Models (MLLMs) are increasingly deployed in safety-critical domains, yet their susceptibility to backdoor attacks remains a formidable challenge. While existing defenses have evolved from visual-centric patch cues to unsupervised internal attention statistics, they are fundamentally constrained by a reliance on static snapshots and attack-specific heuristics. Given the intricate interplay between dual modalities, the vast design space for multimodal triggers allows diverse threats, such as textual injections, sub-perceptual noises, and coordinated cross-modal triggers, to easily circumvent such rigid priors, particularly when attack types are unknown in real-world applications. In this paper, we rethink backdoor detection by shifting the diagnostic paradigm from static observations to dynamic output evolution. We observe that a successful attack inevitably hijacks the model's decoding trajectory, skewing internal modal contributions during generation while maintaining an abnormal output invariance despite input perturbations. To capture this behavior, we propose EVO-Detect, a unified detection framework that monitors the dynamic evolution of internal signals during early decoding steps through two complementary channels: Attention Flow and Logits Flow. The attention branch measures how image-text attention allocation evolves during early generation, whereas the logits branch quantifies the sensitivity of the output distribution to modal perturbations through interventional ablations. We then convert these trajectories into compact sample-level metrics and normalize them against negative-control signatures so that natural perturbations are less likely to be mistaken for backdoor evidence. Extensive evaluations show that our approach substantially outperforms state-of-the-art baselines such as BYE and TCAP across diverse attack families.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4cc9af8f-7425-4
-
----
-
-### 14. Harness Policy Distillation: Aligning Agent Policies with Runtime Semantics
-
-- **ArXiv ID**: [2610.20261v1](https://arxiv.org/abs/2610.20261v1)
-- **作者**: Junze Zhu, Weihao Chen, Zhiyang Zhou, Zhen Wu, Xinyu Dai
-- **发布时间**: 2026-10-14
-- **分类**: cs.LG, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.20261v1](https://arxiv.org/pdf/2610.20261v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Deploying a general-purpose model as an agent means running it inside a product-specific runtime harness that decides which actions are executable, how state advances, and when the loop may terminate. Ordinary trajectory supervision shows which action was taken but leaves the runtime semantics behind that action implicit. We introduce Harness Policy Distillation (HPD), which makes these runtime control semantics an explicit training target alongside actions to align the harness policy. HPD replays reference trajectories through the harness to recover the runtime semantics that are implicit in ordinary trajectory data, and represents them as control documents at each model-call boundary. These documents provide privileged information for a teacher to generate actions, while harness verification ensures that the resulting targets are executable under the runtime contract. We jointly train a shared model on the runtime semantics recovered from control-state privileged information and native history, thereby internalizing these semantics into the model policy. At deployment, the trained model uses the original harness interface without requiring the control document or any additional supplement. On TRAJECT-Bench with the Pi harness, Qwen3-8B trained with HPD reaches 22.98% autonomous task success and 49.23% runtime compliance, against 3.09% and 19.90% for the unadapted model. Harness-verified teacher actions substantially improve the native deployment policy, while joint control-state supervision provides further gains in task completion and runtime compliance. HPD turns executable runtime semantics into dense supervision for learning harness-compatible actions at each decision boundary.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a54629d1-1e42-4
-
----
-
-### 15. Glance Forcing: Making Bidirectional Diffusion Autoregressive at a Glance
-
-- **ArXiv ID**: [2610.20220v1](https://arxiv.org/abs/2610.20220v1)
-- **作者**: Zhuobai Dong, Junchao Yi, Hu Jian Guo, Linjie Li, Rui Zhao...
-- **发布时间**: 2026-10-14
+- **ArXiv ID**: [2610.22371v1](https://arxiv.org/abs/2610.22371v1)
+- **作者**: Yitong Xia, Zeren Jiang, Chuanxia Zheng
+- **发布时间**: 2026-10-16
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.20220v1](https://arxiv.org/pdf/2610.20220v1)
+- **PDF**: [https://arxiv.org/pdf/2610.22371v1](https://arxiv.org/pdf/2610.22371v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Autoregressive generation underlies real-time, causal video synthesis and is the backbone of video world models. Today's dominant approach distills a bidirectional diffusion model into a causal few-step student, but existing pipelines make this conversion prohibitively expensive, requiring offline Probability Flow ODE} (PF-ODE) trajectories that cost tens of thousands of GPU-hours and terabytes of storage. We show it can be made dramatically more efficient. Pushing this efficiency to its extreme, we reduce trajectory supervision to a single sample, the strictest setting possible, and find that it causes severe quality collapse. We trace this to the teacher's trajectory geometry: the high-noise regime, governing semantic layout and motion, and the low-noise regime, governing fine texture exhibit fundamentally different curvature and optimization behavior, so a single monolithic student cannot jointly fit both, causing severe representation interference. Motivated by this, we propose Glance Forcing, a lightweight distillation framework that decouples the denoising trajectory into two complementary slow and fast experts, each guided by a tailored, stage-specific objective, while keeping the pretrained teacher entirely frozen. This decoupling further reveals a general mechanism underlying few-step distillation: PF-ODE distillation mainly straightens the few-step trajectory geometry, while the subsequent distribution-matching stage independently governs distributional quality. Using only one PF-ODE trajectory, Glance Forcing already surpasses the fully-trained state-of-the-art baseline, raising the VBench Total score from 84.04 to 84.22 while cutting trajectory-collection cost from thousands of GPU-hours to about one A100-GPU-hour, with markedly larger gains in dynamic degree, VisionReward, and instruction-following, and consistent preference from human raters over strong baselines.
+We introduce Gen4P, a unified framework for recovering 4D geometry and motion from monocular video. We show that a pretrained video generator can be repurposed into a feed-forward 4D perceiver without iterative denoising. Building on on-demand querying, Gen4P processes clean video latents in a single encoder pass and predicts the requested 4D attributes through a lightweight cross-attention decoder. The on-demand query formulation enables flexible spatial sampling, and our proposed continuous-time queries further provide temporal flexibility. To strengthen geometric knowledge, we propose a straightforward plug-in solution by incorporating a pretrained video-depth LoRA as a frozen geometry prior, improving overall performance without adding extra trainable parameters. Gen4P achieves state-of-the-art or competitive performance on tasks of 3D point tracking, video depth and camera pose estimation. Qualitative results on in-the-wild videos illustrate its capability of tracking complex motion while maintaining the delicate structure. Together, these results demonstrate the potential of video generative pretraining for unified 4D perception. See https://gen4p.github.io for more visual results.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 607e4574-98fd-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 955fdb0b-3110-4
+
+---
+
+### 14. Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation
+
+- **ArXiv ID**: [2610.22370v1](https://arxiv.org/abs/2610.22370v1)
+- **作者**: SeungJu Cha, Ye-Chan Kim, HyunGee Kim, Sungho Koh, Dong-Jin Kim
+- **发布时间**: 2026-10-16
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.22370v1](https://arxiv.org/pdf/2610.22370v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Token merging has emerged as an effective training-free strategy for accelerating diffusion models by reducing redundant token computation while minimizing generation degradation. A key challenge is determining which tokens can be safely merged and which should be preserved for subsequent computation. Existing method addresses this by preserving prompt-aligned foreground regions, thereby protecting semantically relevant structures. However, this text-relevance criterion overlooks background objects, local details that are not explicitly mentioned in the prompt, leading to degraded structural coherence. In this work, we propose Dynamics-aware Token Merging (DaTMe), a training-free framework that grounds token merging in the underlying diffusion dynamics. Our key insight is that token importance should reflect whether a token remains unresolved during denoising and whether it carries structural information. To this end, DaTMe constructs a dynamics- aware importance map from the Tweedie denoised estimate. The map combines a temporal signal, measuring inter-step changes in the predicted clean image, with a structural signal, capturing local high-frequency content such as boundaries and fine details. Using this map, DaTMe adaptively assigns tokens into merging roles under a given compression ratio: important tokens are preserved as anchors, while tokens that are both temporally stabilized and structurally homogeneous are selected as safe merge candidates. Experiments on PixArt-a and FLUX demonstrate that DaTMe maintains visual fidelity across the entire image, highlighting diffusion dynamics as an effective token-level merging decision in efficient generation. Our code is available at https://github.com/SeungJuCha/DaTMe.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 864fe7f3-a642-4
+
+---
+
+### 15. SoftCache: Adaptive Step Size Caching for Diffusion Transformers
+
+- **ArXiv ID**: [2610.22369v1](https://arxiv.org/abs/2610.22369v1)
+- **作者**: Shimon Malnick, Nadav Orenstein, Ohad Fried, Shai Avidan
+- **发布时间**: 2026-10-16
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.22369v1](https://arxiv.org/pdf/2610.22369v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Diffusion and flow models generate a sample over iterative steps, each a full pass through a large network, and that pass dominates generation cost. Training-free caching accelerates them by reusing activations from recent evaluations instead of recomputing them. Dynamic caching methods decide when to refresh by accumulating a cheap probe of the network input into a staleness signal and spending a fresh evaluation once it crosses a threshold. They perform hard caching: the signal is a binary switch between refresh and reuse, and every step, fresh or cached, advances by the prescribed step size. We observe that the signal carries much more than this switch. How far it sits below the threshold, its headroom, predicts the error induced by reuse. We propose SoftCache, which performs soft caching: instead of a binary switch, the headroom sets how far each cached step goes. Where the headroom is large, the sampler jumps past several scheduled nodes, and as a refresh nears, its steps shrink back toward the original step. These adaptive jumps may land between the scheduled nodes, taking the sampler off its fixed grid. SoftCache requires no training and adds no per-backbone settings: on FLUX for images and on HunyuanVideo and Wan2.1 for video, at speedups from $3.5\times$ to $6.9\times$, it is ahead of every baseline on all four fidelity metrics.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1004fad2-51ec-4
 
 ---
