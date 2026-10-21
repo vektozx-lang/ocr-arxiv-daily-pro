@@ -1,339 +1,317 @@
 [
   {
-    "title": "GAIDA: Generative AI for Human-in-the-Loop Document Annotation",
-    "arxiv_id": "2610.26362v1",
-    "link": "https://arxiv.org/abs/2610.26362v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26362v1",
+    "title": "DocLayout-YOLO: Axis-Attentive Document Layout Detector with Mesh-Guided Synthetic Pretraining",
+    "arxiv_id": "2610.28171v1",
+    "link": "https://arxiv.org/abs/2610.28171v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28171v1",
     "authors": [
-      "Islam Mesabah",
-      "Ali Elhosary",
-      "Priyabanta Sandulu",
-      "Darko Obradovic",
-      "Sebastian J. Vollmer"
+      "Zhiyuan Zhao",
+      "Hengrui Kang",
+      "Guang Liang",
+      "Bin Wang",
+      "Conghui He"
     ],
-    "published": "2026-10-19T13:22:13Z",
+    "published": "2026-10-20T13:11:41Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 601bbb51-3d55-4"
+  },
+  {
+    "title": "Real In, Real Out: What If We Only Use Real Data for Scene Text Editing?",
+    "arxiv_id": "2610.27592v1",
+    "link": "https://arxiv.org/abs/2610.27592v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.27592v1",
+    "authors": [
+      "Xingsong Ye",
+      "Yongkun Du",
+      "Jiaxin Zhang",
+      "Chong Sun",
+      "Zhineng Chen"
+    ],
+    "published": "2026-10-20T03:58:22Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 58d1447f-7f70-4"
+  },
+  {
+    "title": "Africa-Papers: A 10-Billion-Token Multi-Domain Academic Corpus for African Foundation Language Models",
+    "arxiv_id": "2610.28173v1",
+    "link": "https://arxiv.org/abs/2610.28173v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28173v1",
+    "authors": [
+      "Mich-Seth Owusu"
+    ],
+    "published": "2026-10-20T13:14:58Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2a664eab-cbe6-4"
+  },
+  {
+    "title": "ChartEvo: Self-Evolving Agent Harnesses for Long-Tail Chart Reasoning",
+    "arxiv_id": "2610.28282v1",
+    "link": "https://arxiv.org/abs/2610.28282v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28282v1",
+    "authors": [
+      "Qi Wang",
+      "Peijie Wang",
+      "Jun Cao",
+      "Haoyang Tong",
+      "Xiao-Hui Li",
+      "Fei Yin",
+      "Cheng-Lin Liu"
+    ],
+    "published": "2026-10-20T14:34:54Z",
+    "categories": [
+      "cs.AI",
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 62636e01-cde7-4"
+  },
+  {
+    "title": "SolarRenderer: Few-Step Generative Reference Rendering",
+    "arxiv_id": "2610.28630v1",
+    "link": "https://arxiv.org/abs/2610.28630v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28630v1",
+    "authors": [
+      "Guian Fang",
+      "Shengju Qian",
+      "Dongyue Lu",
+      "Junchao Huang",
+      "Lutao Jiang",
+      "Xin Wang",
+      "Yiren Song",
+      "Li Jiang",
+      "Mike Zheng Shou"
+    ],
+    "published": "2026-10-20T17:59:48Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 39a2f737-5675-4"
+  },
+  {
+    "title": "WildMAE: Structure-Aware Masked Autoencoding for Wildlife Image Reconstruction",
+    "arxiv_id": "2610.28590v1",
+    "link": "https://arxiv.org/abs/2610.28590v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28590v1",
+    "authors": [
+      "Yicheng Zhang",
+      "Yujie Jin",
+      "Ke Zhang",
+      "Jiaxin Wu"
+    ],
+    "published": "2026-10-20T17:41:31Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 6483d027-2e0d-4"
+  },
+  {
+    "title": "DecisionPivot: A Diagnostic Benchmark for Decision Models in LLM Systems",
+    "arxiv_id": "2610.28522v1",
+    "link": "https://arxiv.org/abs/2610.28522v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28522v1",
+    "authors": [
+      "Xialie Zhuang",
+      "Mingcong Lei",
+      "Zunhai Su",
+      "Ri Liu",
+      "Jianjin Li",
+      "Peixian Ma",
+      "Jia Pan",
+      "Ngai Wong",
+      "Guanhua Chen",
+      "Chuan-Wei Kuo"
+    ],
+    "published": "2026-10-20T16:57:49Z",
     "categories": [
       "cs.AI"
     ],
     "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: a7e606e0-b565-4"
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: a51884b4-84a3-4"
   },
   {
-    "title": "One Fact, Many Places: Redundant Evidence in Long Visual Documents Breaks Single-Gold Evaluation of Retrieval, Citation and Attribution",
-    "arxiv_id": "2610.26401v1",
-    "link": "https://arxiv.org/abs/2610.26401v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26401v1",
+    "title": "MythoSemantic: An Interactive System for Discovering Semantic Parallels Across Mythological and Religious Traditions",
+    "arxiv_id": "2610.28452v1",
+    "link": "https://arxiv.org/abs/2610.28452v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28452v1",
     "authors": [
-      "Xiaokang Yuan",
-      "Binhui Yao",
-      "Luwei Yang",
-      "Ruimin Chen",
-      "Zeng Wang"
+      "Nikita Ganziuk",
+      "Innokentiy S. Humonen",
+      "Ilya Makarov",
+      "Pavel Lebedev"
     ],
-    "published": "2026-10-19T13:43:29Z",
+    "published": "2026-10-20T16:11:21Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: e867c785-7503-4"
+  },
+  {
+    "title": "Multimodal Reranking Is a System One Decision",
+    "arxiv_id": "2610.28435v1",
+    "link": "https://arxiv.org/abs/2610.28435v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28435v1",
+    "authors": [
+      "Zhuchenyang Liu",
+      "Yao Zhang",
+      "Yu Xiao"
+    ],
+    "published": "2026-10-20T16:00:45Z",
+    "categories": [
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3a96ea7e-a188-4"
+  },
+  {
+    "title": "DeclineCraft: A RAG Abstention Benchmark for Jointly Measuring Combined Retrieval and Parametric Knowledge",
+    "arxiv_id": "2610.28340v1",
+    "link": "https://arxiv.org/abs/2610.28340v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28340v1",
+    "authors": [
+      "Atharva Thakur",
+      "Abulhair Saparov",
+      "Bruno Ribeiro"
+    ],
+    "published": "2026-10-20T15:07:19Z",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: e190b5a9-9efe-4"
+  },
+  {
+    "title": "Benchmarking Arabic Dialects for Math Problems",
+    "arxiv_id": "2610.28607v1",
+    "link": "https://arxiv.org/abs/2610.28607v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28607v1",
+    "authors": [
+      "Noor Abo Mokh",
+      "Teresa Lynn",
+      "Nizar Habash",
+      "Ahmed Elshabrawy",
+      "Sara Alhajeri",
+      "Alaa Elsetohy",
+      "Preslav Nakov",
+      "Alham Fikri Aji"
+    ],
+    "published": "2026-10-20T17:50:13Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: a376a388-b1dd-4"
+  },
+  {
+    "title": "Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs",
+    "arxiv_id": "2610.28632v1",
+    "link": "https://arxiv.org/abs/2610.28632v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28632v1",
+    "authors": [
+      "Noam Rotstein",
+      "Yoad Tewel",
+      "Chen Tessler",
+      "Haggai Maron",
+      "Gal Chechik",
+      "Or Litany",
+      "Yoni Kasten",
+      "Yuval Atzmon"
+    ],
+    "published": "2026-10-20T17:59:56Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.GR",
+      "cs.LG",
+      "cs.RO"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: d8cb71d9-ab81-4"
+  },
+  {
+    "title": "AEON: Unifying Video and 3D World Models",
+    "arxiv_id": "2610.28631v1",
+    "link": "https://arxiv.org/abs/2610.28631v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28631v1",
+    "authors": [
+      "Weiqi Zhang",
+      "Wenyuan Zhang",
+      "Yu-Shen Liu",
+      "Junsheng Zhou"
+    ],
+    "published": "2026-10-20T17:59:51Z",
     "categories": [
       "cs.CV"
     ],
     "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 78910f1c-09d4-4"
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 72be0f6d-87b9-4"
   },
   {
-    "title": "DeOverlay: A Benchmark and Source-Anchored Flow for Video Overlay Removal",
-    "arxiv_id": "2610.26081v1",
-    "link": "https://arxiv.org/abs/2610.26081v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26081v1",
+    "title": "Learning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking",
+    "arxiv_id": "2610.28628v1",
+    "link": "https://arxiv.org/abs/2610.28628v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28628v1",
     "authors": [
-      "Deshui Miao",
-      "Yuhang Ma",
-      "Shaoyong Jia",
-      "Wenzhao Gao",
-      "Yue Zhang",
-      "Shaohui Jiao",
-      "Xin Li"
+      "Yuxuan Kuang",
+      "Jiashun Wang",
+      "Yixuan Sun",
+      "Yufei Ye",
+      "Sungjae Park",
+      "Umar Iqbal",
+      "Katerina Fragkiadaki",
+      "Shubham Tulsiani"
     ],
-    "published": "2026-10-19T09:39:06Z",
+    "published": "2026-10-20T17:59:32Z",
     "categories": [
-      "cs.CV"
+      "cs.RO",
+      "cs.CV",
+      "cs.GR",
+      "cs.LG"
     ],
     "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: ca04cfee-421d-4"
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 6b5fc964-479f-4"
   },
   {
-    "title": "VideoMaMa++: Temporally Consistent Video Matting via Preserve-and-Refine Token",
-    "arxiv_id": "2610.26857v1",
-    "link": "https://arxiv.org/abs/2610.26857v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26857v1",
+    "title": "UniWALM: Unified World Action Language Model for Embodied Robot Control",
+    "arxiv_id": "2610.28626v1",
+    "link": "https://arxiv.org/abs/2610.28626v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28626v1",
     "authors": [
-      "Sangbeom Lim",
-      "Seoung Wug Oh",
-      "Heeji Yoon",
-      "Seungryong Kim",
-      "Joon-Young Lee"
+      "Rahul Sajnani",
+      "Diego Romeres",
+      "Mingyuan Zhang",
+      "Kai Gao",
+      "Carl Qi",
+      "Baichuan Huang",
+      "Srinath Sridhar",
+      "Dylan Randle",
+      "Lillian J. Ratliff",
+      "Jose Barreiros",
+      "Manikantan Nambi",
+      "Jeroen Vanbaar"
     ],
-    "published": "2026-10-19T17:59:56Z",
-    "categories": [
-      "cs.CV"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3b8e713f-8223-4"
-  },
-  {
-    "title": "Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy",
-    "arxiv_id": "2610.26848v1",
-    "link": "https://arxiv.org/abs/2610.26848v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26848v1",
-    "authors": [
-      "Zekai Li",
-      "Jiayi Yu",
-      "Jinlu Zhang",
-      "Luyang Niu",
-      "Zekun Qi",
-      "Jun Zheng",
-      "Xuchuan Chen",
-      "Dairu Liu",
-      "Yintianrun Zhang",
-      "He Wang",
-      "Li Yi"
-    ],
-    "published": "2026-10-19T17:59:30Z",
+    "published": "2026-10-20T17:59:04Z",
     "categories": [
       "cs.RO",
       "cs.AI",
       "cs.CV"
     ],
     "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4ccf2870-13e9-4"
-  },
-  {
-    "title": "Mise-en-Video: Fine-Grained 3D Control for Multi-Shot Video Generation",
-    "arxiv_id": "2610.26801v1",
-    "link": "https://arxiv.org/abs/2610.26801v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26801v1",
-    "authors": [
-      "Yingshuang Zou",
-      "Xiaoyu Shi",
-      "Yawen Luo",
-      "Ziang Li",
-      "Qinghe Wang",
-      "Mengfei Li",
-      "Chengfeng Zhao",
-      "Xintao Wang",
-      "Pengfei Wan",
-      "Kun Gai",
-      "Yuan Liu"
-    ],
-    "published": "2026-10-19T17:45:43Z",
-    "categories": [
-      "cs.CV",
-      "cs.AI"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: d7d50008-7400-4"
-  },
-  {
-    "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
-    "arxiv_id": "2610.26797v1",
-    "link": "https://arxiv.org/abs/2610.26797v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26797v1",
-    "authors": [
-      "Agus Sudjianto",
-      "Denis Burakov"
-    ],
-    "published": "2026-10-19T17:42:24Z",
-    "categories": [
-      "stat.ML",
-      "cs.CL",
-      "cs.LG",
-      "q-fin.RM"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 002d628a-002b-4"
-  },
-  {
-    "title": "TokenGate: Adapting LLMs for Fast and Memory-Efficient Prefill with Learned Token Pruning",
-    "arxiv_id": "2610.26754v1",
-    "link": "https://arxiv.org/abs/2610.26754v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26754v1",
-    "authors": [
-      "Liana Patel",
-      "Rishabh Ranjan",
-      "Ion Stoica",
-      "Matei Zaharia",
-      "Carlos Guestrin"
-    ],
-    "published": "2026-10-19T17:15:53Z",
-    "categories": [
-      "cs.CL",
-      "cs.AI"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: f8de0368-f2bb-4"
-  },
-  {
-    "title": "EpiLens: Lightweight RAG for Epidemiological Knowledge Acquisition",
-    "arxiv_id": "2610.26730v1",
-    "link": "https://arxiv.org/abs/2610.26730v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26730v1",
-    "authors": [
-      "Vincenzo Perri",
-      "Ciro Cattuto",
-      "Daniela Paolotti"
-    ],
-    "published": "2026-10-19T16:58:53Z",
-    "categories": [
-      "cs.CL",
-      "cs.DL",
-      "physics.soc-ph"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: c4547578-5406-4"
-  },
-  {
-    "title": "SpatialScout: Can VLM Agents Actively Explore and Map 3D Scenes?",
-    "arxiv_id": "2610.26659v1",
-    "link": "https://arxiv.org/abs/2610.26659v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26659v1",
-    "authors": [
-      "Zhaoxi Zhang",
-      "Hao Liang",
-      "Linxuan Wu",
-      "Yiming Wu",
-      "Yifu Yuan",
-      "Kun Liang",
-      "Chenming Tang",
-      "Meiyi Qiang",
-      "Wentao Zhang",
-      "Weikang Li"
-    ],
-    "published": "2026-10-19T16:17:48Z",
-    "categories": [
-      "cs.CV",
-      "cs.CL"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: cbdec856-a652-4"
-  },
-  {
-    "title": "Text-to-Image Generative Modeling Without Language Pretraining",
-    "arxiv_id": "2610.26863v1",
-    "link": "https://arxiv.org/abs/2610.26863v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26863v1",
-    "authors": [
-      "Keshigeyan Chandrasegaran",
-      "Yue Zhao",
-      "Armin W. Thomas",
-      "Ehsan Adeli",
-      "Jiajun Wu",
-      "Juan Carlos Niebles",
-      "Li Fei-Fei",
-      "Michael Poli"
-    ],
-    "published": "2026-10-19T17:59:59Z",
-    "categories": [
-      "cs.LG",
-      "cs.CV"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8454c917-1dee-4"
-  },
-  {
-    "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
-    "arxiv_id": "2610.26860v1",
-    "link": "https://arxiv.org/abs/2610.26860v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26860v1",
-    "authors": [
-      "Yu Zhou",
-      "Cheng-Fu Yang",
-      "Rui Sun",
-      "Di Wu",
-      "Sibo Peng",
-      "Mingyang Zhang",
-      "Zhen Yang",
-      "Ruiyi Zhang",
-      "Nanyun Peng",
-      "Zhe Gan",
-      "Kai-Wei Chang"
-    ],
-    "published": "2026-10-19T17:59:58Z",
-    "categories": [
-      "cs.CL",
-      "cs.AI",
-      "cs.CV",
-      "cs.LG",
-      "cs.MM"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: de6b2292-0362-4"
-  },
-  {
-    "title": "Can It Actually Work? Synthesizing Functional CAD Mechanisms",
-    "arxiv_id": "2610.26861v1",
-    "link": "https://arxiv.org/abs/2610.26861v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26861v1",
-    "authors": [
-      "Wenqian Zhang",
-      "Yangyi Huang",
-      "Zigeng Xu",
-      "Weiyang Liu",
-      "Zhen Liu"
-    ],
-    "published": "2026-10-19T17:59:58Z",
-    "categories": [
-      "cs.CV",
-      "cs.CL",
-      "cs.GR"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 25bc1bfc-dfef-4"
-  },
-  {
-    "title": "Reinforcement Learning with Visually Attributable On-Policy Self-Distillation",
-    "arxiv_id": "2610.26856v1",
-    "link": "https://arxiv.org/abs/2610.26856v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26856v1",
-    "authors": [
-      "Shiao Xie",
-      "Siyu Chen",
-      "Jianwei Lv",
-      "Xiandong Li",
-      "Yujin Wang"
-    ],
-    "published": "2026-10-19T17:59:56Z",
-    "categories": [
-      "cs.CV",
-      "cs.AI"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: c498677d-dc1b-4"
-  },
-  {
-    "title": "Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience",
-    "arxiv_id": "2610.26855v1",
-    "link": "https://arxiv.org/abs/2610.26855v1",
-    "pdf_url": "https://arxiv.org/pdf/2610.26855v1",
-    "authors": [
-      "Tianqi Liu",
-      "Hanfei Zhao",
-      "Qifeng Liang",
-      "Hui En Pang",
-      "Jiarui Xu",
-      "Sayang Mu",
-      "Penghao Qiu",
-      "YingSheng Zhang",
-      "Jun Wang",
-      "Ziang Cao",
-      "Mingze Sun",
-      "Yukang Cao",
-      "Fangzhou Hong",
-      "Zhaoxi Chen",
-      "Ziwei Liu"
-    ],
-    "published": "2026-10-19T17:59:55Z",
-    "categories": [
-      "cs.CV",
-      "cs.RO"
-    ],
-    "score": 10,
-    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2b6f9f81-bc1b-4"
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 021e7184-61fc-4"
   }
 ]
