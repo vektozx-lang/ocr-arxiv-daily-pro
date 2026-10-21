@@ -1,300 +1,300 @@
-# OCR arXiv Daily Pro — 2026-10-20
+# OCR arXiv Daily Pro — 2026-10-21
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-10-19 09:10 - 2026-10-20 09:10 (Asia/Shanghai)
+> 时间窗口：2026-10-20 09:10 - 2026-10-21 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 991f0454-fd75-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 124380c5-1e67-4
 
 ---
 
 ## 📄 论文详情
 
-### 1. GAIDA: Generative AI for Human-in-the-Loop Document Annotation
+### 1. DocLayout-YOLO: Axis-Attentive Document Layout Detector with Mesh-Guided Synthetic Pretraining
 
-- **ArXiv ID**: [2610.26362v1](https://arxiv.org/abs/2610.26362v1)
-- **作者**: Islam Mesabah, Ali Elhosary, Priyabanta Sandulu, Darko Obradovic, Sebastian J. Vollmer
-- **发布时间**: 2026-10-19
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.26362v1](https://arxiv.org/pdf/2610.26362v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Document annotation is a fundamental yet labor-intensive step in building document information extraction systems. While Optical Character Recognition (OCR) and Large Language Models (LLMs) can automate parts of this process, we argue that annotation systems should be judged not by how completely they remove human effort, but by how effectively they redirect it toward review and correction. We propose a modular human-in-the-loop architecture that integrates OCR-based extraction, LLM-based semantic pre-annotation, and human validation in a single editable workflow, and present \textbf{GAIDA}, a research prototype serving as its reference implementation. GAIDA supports interchangeable OCR engines, LLM backends, and prompt configurations, and enables stage-specific measurement of annotation effort. In an initial single-annotator, stage-specific study on the FUNSD scanned-form and WildReceipt retail-receipt benchmarks, OCR assistance reduced region-creation and transcription time by up to \textbf{80.9\%}, and reviewing LLM pre-annotations reduced semantic-labeling time by up to \textbf{73.7\%}, despite imperfect pre-annotations of 78.86\% and 86.98\% Micro F1 on FUNSD and WildReceipt, respectively. Finally, we reuse the same implementation, adapting only OCR and prompt configuration, to build and openly release \textbf{AraReceipt}, a manually annotated dataset of 100 Arabic receipt images labeled with 25 key-information classes. The results indicate that imperfect automated outputs provide practical value when presented as editable suggestions under human control.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a7e606e0-b565-4
-
----
-
-### 2. One Fact, Many Places: Redundant Evidence in Long Visual Documents Breaks Single-Gold Evaluation of Retrieval, Citation and Attribution
-
-- **ArXiv ID**: [2610.26401v1](https://arxiv.org/abs/2610.26401v1)
-- **作者**: Xiaokang Yuan, Binhui Yao, Luwei Yang, Ruimin Chen, Zeng Wang
-- **发布时间**: 2026-10-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.26401v1](https://arxiv.org/pdf/2610.26401v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Document understanding is increasingly judged on where an answer comes from, scored against annotated gold locations as if each fact lived in one place. In long visual documents, a fact often lives in several places: a chart value is restated in the text, a key figure reappears in the summary. We ask how often such copies occur in standard benchmarks and what they do to evaluation. We annotate 420 questions from MMLongBench-Doc and MMDocRAG with the locations that independently establish each required fact, checked by two independent reviewers. Copies are common and often cross-modal: 19.5% of MMLongBench-Doc test questions have a strict copy outside the gold, and in 28% of MMDocRAG questions a non-gold candidate alone supplies a required fact. Single-gold scoring then fails in three predictable ways. A retriever that finds a copy is scored as a miss: page recall@1 of text and visual retrievers is underestimated by 13-24 points on questions with a cross-page copy. A model that cites a copy is scored as citing wrongly: crediting equivalent evidence reverses 11% of pairwise orderings among 65 competitive MMDocRAG systems. Masking the gold region leaves the fact available elsewhere: with a copy in the input, 41-56% of correct answers across four models survive it yet fail once every annotated instance is masked. Set-level masking with automatically found copies closes 78% of the gap to masking every annotated instance at matched granularity (three models); an unverified key-string rule lowers survival at least as far but masks three times the area. We release the annotations and redundancy-aware metrics.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 78910f1c-09d4-4
-
----
-
-### 3. DeOverlay: A Benchmark and Source-Anchored Flow for Video Overlay Removal
-
-- **ArXiv ID**: [2610.26081v1](https://arxiv.org/abs/2610.26081v1)
-- **作者**: Deshui Miao, Yuhang Ma, Shaoyong Jia, Wenzhao Gao, Yue Zhang...
-- **发布时间**: 2026-10-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.26081v1](https://arxiv.org/pdf/2610.26081v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Video overlay removal aims to recover scenes obscured by subtitles, titles, and logos while preserving surrounding content. Existing methods use temporal propagation or source-conditioned generation, but can leave residual overlays and distort scene structure when useful source information is obscured. We propose DeOverlay, a source-anchored flow model that reconstructs the clean video from the source latent with fixed source guidance. Specifically, we train a shared velocity network along paired source-to-clean paths using region-weighted flow matching, enabling successive cor- rections from intermediate states. To select local source cues, we develop visibility-normalized temporal aggregation that excludes masked positions and averages the remaining observations. Global source context and edit-region embeddings complement these cues through additive condi- tioning, retaining a single video-token sequence. To evaluate scene recovery across diverse overlay conditions, we introduce DVTE-Bench, comprising 1,631 paired videos across eight text-overlay categories, with OCR-screened clean targets, frame-aligned pixel masks, and a common evaluation protocol. Experiments on the complete release show that DeOverlay outperforms four baselines on all five reconstruction and perceptual metrics, reducing Mask LPIPS and Mask VFID by 58.3% and 70.3%, respectively, relative to the strongest evaluated baseline. Additional qualitative examples demonstrate the removal of graphic logos and stickers. We will make the complete benchmark, evaluation code, and test outputs availabl. Project page:https://yahooo-m.github.io/DVTE-Bench/
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: ca04cfee-421d-4
-
----
-
-### 4. VideoMaMa++: Temporally Consistent Video Matting via Preserve-and-Refine Token
-
-- **ArXiv ID**: [2610.26857v1](https://arxiv.org/abs/2610.26857v1)
-- **作者**: Sangbeom Lim, Seoung Wug Oh, Heeji Yoon, Seungryong Kim, Joon-Young Lee
+- **ArXiv ID**: [2610.28171v1](https://arxiv.org/abs/2610.28171v1)
+- **作者**: Zhiyuan Zhao, Hengrui Kang, Guang Liang, Bin Wang, Conghui He
 - **发布时间**: 2026-10-20
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.26857v1](https://arxiv.org/pdf/2610.26857v1)
+- **PDF**: [https://arxiv.org/pdf/2610.28171v1](https://arxiv.org/pdf/2610.28171v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Diffusion-based video matting has recently emerged as a leading approach, leveraging video diffusion priors from internet-scale pretraining to achieve strong zero-shot generalization from limited synthetic data. However, the heavy compute of these diffusion backbones limits inference to a short chunk of just 6 to 24 frames, so even ordinary videos span multiple chunks. Because each chunk is matted independently from coarse mask guidance, existing methods fail to maintain consistency across chunk boundaries, producing flickering edges and discontinuous transparency. We address this with a mask-guided diffusion-matting framework built on two ideas. The RGB and mask conditioning are represented as separate token streams that interact through full spatio-temporal self-attention, letting the model adaptively combine fine RGB texture with coarse mask layout rather than committing to a fixed channel-wise fusion. On top of this, we propose a novel pair of learnable embeddings, the preserve token and the refine token, that act as a per-frame conditioning interface and enable a sliding-window inference scheme in which already-generated mattes are propagated across chunk boundaries for local temporal consistency, complemented by a globally shared reference anchor at every chunk to prevent error accumulation in long sequences without any additional training. Across standard video matting benchmarks and in-the-wild long footage, our framework outperforms prior diffusion-based methods in both fine-detail accuracy and temporal consistency, and uniquely maintains consistency across chunk boundaries on long videos.
+Accurate and efficient document layout analysis is critical for modern document parsing systems. However, although the YOLO framework represents a leading paradigm for the real-time detector, its adaptation to heterogeneous documents remains underexplored. To address this gap, we propose DocLayout-YOLO, a document-specialized real-time detector that integrates diverse synthetic document pretraining and page-axis context modeling. From the data perspective, we introduce MeshLayout-1M, a synthetic pretraining corpus generated by the proposed Mesh-candidate BestFit algorithm, which provides large-scale and diverse document layouts for pretraining and improves adaptation to heterogeneous document scenarios. From the model perspective, we propose Page-Axis Layout Attention (PALA), which captures long-range dependencies along the horizontal and vertical page axes while remaining computationally efficient. Extensive experiments demonstrate that DocLayout-YOLO achieves state-of-the-art performance on four heterogeneous document benchmarks, obtaining 72.4%/75.5%/96.0%/73.1% mAP50:95 on D4LA, M6Doc, HJDataset, and PRIMA-LAD, respectively. Compared with existing real-time detectors, DocLayout-YOLO establishes a superior accuracy-efficiency trade-off in document layout analysis. Code, model, and data are available at https://github.com/opendatalab/DocLayout-YOLO/tree/release-v2.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3b8e713f-8223-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 601bbb51-3d55-4
 
 ---
 
-### 5. Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy
+### 2. Real In, Real Out: What If We Only Use Real Data for Scene Text Editing?
 
-- **ArXiv ID**: [2610.26848v1](https://arxiv.org/abs/2610.26848v1)
-- **作者**: Zekai Li, Jiayi Yu, Jinlu Zhang, Luyang Niu, Zekun Qi...
+- **ArXiv ID**: [2610.27592v1](https://arxiv.org/abs/2610.27592v1)
+- **作者**: Xingsong Ye, Yongkun Du, Jiaxin Zhang, Chong Sun, Zhineng Chen
 - **发布时间**: 2026-10-20
-- **分类**: cs.RO, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.26848v1](https://arxiv.org/pdf/2610.26848v1)
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.27592v1](https://arxiv.org/pdf/2610.27592v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-In this paper, we systematically investigate the mechanisms, scaling behavior, and generalization of physical Recursive self-improvement. We introduce PhysRSI-eval to quantify physical RSI through a five-axis metric: First-Attempt Performance, Efficiency, Success, Budget and Improvement from failure. Different VLMs are evaluated on 18 manipulation tasks under a fixed interaction budget. The analysis of experimental results motivates the Physical Barrel Hypothesis: different capabilities may constrain different parts of improvement. The five-axis metrics also distinguish systems with close public benchmark averages and show that high scores need not come with early or efficient gains. We study observational scaling from two perspectives: predicting the relative performance of VLM agents from their public capabilities, and forecasting later progress from early physical feedback. Together, these analyses ask how quickly and how far an agent can improve. Moreover, we conduct workspace interventions and then analyze what improvement leaves behind. Removing history reduces late-round success, frozen workspaces remain useful on unseen layouts, and three cross-task cases achieve success earlier. The results suggest that scene-specific adaptation and reusable experience can coexist.
+Aiming to modify textual content while preserving the original style, Scene Text Editing (STE) has significant practical value in many applications. STE typically requires paired images before and after editing for training. However, recent approaches rely heavily on synthetic paired data and complex disentanglement strategies. They struggle to faithfully capture the diversity and complexity of natural scenes, often producing artifacts or hallucinations. In this work, we challenge the common practice and investigate whether STE can be driven by turning each real sample into its own paired supervision. Concretely, we explore multiple ways to disrupt the original image (e.g., Crop, Shuffle, Mask) to construct self-paired training data, and build a strong baseline (TextRIRO}) upon a conditional diffusion architecture. Our experiments show that combining character-column shuffling with image cropping (Shuffle&Crop) effectively destroys text semantics while preserving key style cues, enabling the model to learn editing behaviors directly from the real text image. With this concise yet real-oriented design, TextRIRO achieves promising performance in both accuracy and visual realism across real-world benchmarks, substantially mitigating the synthetic-to-real domain gap. Furthermore, we leverage TextRIRO to build TextRIRO-3M, a large-scale realistic dataset for long-text recognition by concatenating edited and original images. Experimental results show that training recognition models with TextRIRO-3M significantly improves recognition accuracy, demonstrating that TextRIRO provides highly useful training resources for downstream tasks. Overall, TextRIRO lifts STE to realistic, reliable, and widely applicable new levels. Code is available at https://github.com/YesianRohn/TextRIRO.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4ccf2870-13e9-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 58d1447f-7f70-4
 
 ---
 
-### 6. Mise-en-Video: Fine-Grained 3D Control for Multi-Shot Video Generation
+### 3. Africa-Papers: A 10-Billion-Token Multi-Domain Academic Corpus for African Foundation Language Models
 
-- **ArXiv ID**: [2610.26801v1](https://arxiv.org/abs/2610.26801v1)
-- **作者**: Yingshuang Zou, Xiaoyu Shi, Yawen Luo, Ziang Li, Qinghe Wang...
-- **发布时间**: 2026-10-20
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.26801v1](https://arxiv.org/pdf/2610.26801v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Recent advances in text-to-video generation have enabled high-fidelity single-shot synthesis, yet practical storytelling creation requires multi-shot videos with both strong inter-shot consistency and fine-grained controllability. Existing multi-shot video generation approaches achieve strong consistency but still fall short in controllability. In this paper, we propose Mise-en-Video (MeV), a highly controllable multi-shot video generation framework that allows video creators to conduct staging the multi-shot in the 3D space and then generate the corresponding multi-shot video. To achieve this, our framework combines a hierarchical attention mechanism for multi-level narrative consistency with 3D-aware layout guidance for precise, per-shot spatial control. To support training and evaluation, we develop standardized annotation pipelines and construct a 160K-video dataset with hierarchical multi-shot texts and oriented 3D bounding boxes. Extensive experiments demonstrate that MeV consistently outperforms strong baselines in video quality, inter-shot consistency, and subject-level controllability.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: d7d50008-7400-4
-
----
-
-### 7. Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models
-
-- **ArXiv ID**: [2610.26797v1](https://arxiv.org/abs/2610.26797v1)
-- **作者**: Agus Sudjianto, Denis Burakov
-- **发布时间**: 2026-10-20
-- **分类**: stat.ML, cs.CL, cs.LG
-- **PDF**: [https://arxiv.org/pdf/2610.26797v1](https://arxiv.org/pdf/2610.26797v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Candidate-scoring decision models return a probability distribution over a presented set of answers. Public documentation of one such system, Jev, and of an open counterpart, JevAny, describes three training ingredients that determine what these probabilities estimate: soft targets from larger models, a frozen pretrained backbone and temperature calibration. We analyze each ingredient in Gaussian surrogates where the finite-sample risk can be computed exactly. A student trained on teacher targets inherits the teacher's bias, which more student data does not remove and agreement with the teacher does not reveal. A fixed representation lowers the risk only below an explicit sample-size threshold. In a probit model the exact recalibration map is a temperature scaling, which removes all excess risk only when the teacher's coefficient has the correct direction and otherwise leaves a residual that calibration diagnostics do not detect. Under Luce's choice axiom, candidate scores are coherent across refinements of an event if and only if they aggregate by log-sum-exp. On 231,521 credit card complaints from the Consumer Financial Protection Bureau, where the decision is whether a complaint ends in monetary relief, a student trained on a logistic teacher's probabilities ends at the teacher's decision cost while a student trained on outcomes goes 8% below it, a 30B model read zero-shot remains worse than the teacher after recalibration, and that model departs from the coherence condition by 17.5 decibans. Pretrained representations reduce the labeled data required and calibration corrects the scale of the probabilities, but neither corrects a biased teacher, so the probabilities have to be checked against realized outcomes.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 002d628a-002b-4
-
----
-
-### 8. TokenGate: Adapting LLMs for Fast and Memory-Efficient Prefill with Learned Token Pruning
-
-- **ArXiv ID**: [2610.26754v1](https://arxiv.org/abs/2610.26754v1)
-- **作者**: Liana Patel, Rishabh Ranjan, Ion Stoica, Matei Zaharia, Carlos Guestrin
+- **ArXiv ID**: [2610.28173v1](https://arxiv.org/abs/2610.28173v1)
+- **作者**: Mich-Seth Owusu
 - **发布时间**: 2026-10-20
 - **分类**: cs.CL, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.26754v1](https://arxiv.org/pdf/2610.26754v1)
+- **PDF**: [https://arxiv.org/pdf/2610.28173v1](https://arxiv.org/pdf/2610.28173v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Expert human readers process large inputs (e.g., code repositories and long documents) by skimming to closely read only what matters. On the other hand, language models process all input tokens through each model layer, resulting in significant processing costs for long-context inputs. We introduce TokenGate, a small, drop-in component that extends existing trained models to enable end-to-end learnable token pruning over long-context inputs for fast and memory-efficient prefill. To enable end-to-end learning despite the non-differentiable top-K operator for token pruning, we introduce token-gated attention, a mechanism inspired by Mixture-of-Experts that re-weights attention logits using token importance scores. Across diverse tasks, TokenGate achieves $1.4$-$11.3\times$ faster time-to-first token (TTFT) and $1.5$-$3.4\times$ lower peak memory at no accuracy degradation for prefill in transformers. Compared to the best-performing prior methods for token-pruning, TokenGate gives up to $6.4\times$ faster prefill and $2\times$ lower peak memory. TokenGate natively extends both standard transformers (e.g., Qwen3) and hybrid-attention models (e.g., Qwen3.5) with simple lightweight adaptation comparable to standard parameter-efficient fine-tuning. We make our code available at: https://github.com/tokengate-models/TokenGate.
+Large Language Models (LLMs) depend fundamentally on the diversity, depth, and factual rigor of their pre-training corpora. However, contemporary foundational pre-training datasets (such as The Pile, S2ORC, and Dolma) exhibit a severe structural omission: African scientific, medical, legal, and agricultural scholarship constitutes less than 0.5% of global pre-training tokens. Consequently, state-of-the-art models suffer from systematic failure modes when reasoning about tropical epidemiology, localized smallholder agro-ecologies, regional economic governance, and indigenous linguistic structures. To resolve this representation deficit and advance African intellectual sovereignty in artificial intelligence, we introduce Africa-Papers, the largest curated multi-domain Pan-African academic pre-training corpus to date. Comprising over 844,807 full-text papers spanning 10.15 billion tokens across 879 Parquet shards, Africa-Papers unifies four primary scientific streams: (1) continental peer-reviewed journals indexed in DOAJ across 31 African nations, (2) the CGIAR CGSpace agricultural repository, (3) African-authored and African-focused STEM/AI preprints on arXiv, and (4) open-access international publications by scholars affiliated with African institutions indexed via OpenAlex. The entire corpus is processed into layout-aware, clean Markdown preserving section hierarchies, mathematical equations, and tabular data, accompanied by exact BPE token counts and a standardized 8-domain taxonomy. We release Africa-Papers openly on the Hugging Face Hub under the AfriSpeech organization to accelerate continual pre-training and domain evaluation for foundation models globally.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: f8de0368-f2bb-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2a664eab-cbe6-4
 
 ---
 
-### 9. EpiLens: Lightweight RAG for Epidemiological Knowledge Acquisition
+### 4. ChartEvo: Self-Evolving Agent Harnesses for Long-Tail Chart Reasoning
 
-- **ArXiv ID**: [2610.26730v1](https://arxiv.org/abs/2610.26730v1)
-- **作者**: Vincenzo Perri, Ciro Cattuto, Daniela Paolotti
+- **ArXiv ID**: [2610.28282v1](https://arxiv.org/abs/2610.28282v1)
+- **作者**: Qi Wang, Peijie Wang, Jun Cao, Haoyang Tong, Xiao-Hui Li...
 - **发布时间**: 2026-10-20
-- **分类**: cs.CL, cs.DL, physics.soc-ph
-- **PDF**: [https://arxiv.org/pdf/2610.26730v1](https://arxiv.org/pdf/2610.26730v1)
+- **分类**: cs.AI, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.28282v1](https://arxiv.org/pdf/2610.28282v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-To prepare for future outbreaks, researchers need to know what studies have been done and what data they use. Mapping a large literature by hand is slow, while large language models alone can misstate or conflate sources. We present EpiLens, a lightweight, open-source retrieval-augmented generation package that applies a fixed retrieval template and output schema to every paper in a corpus and links outputs to source passages. We build a corpus of 2,297 papers from the sources of a multi-pathogen parameter study and evaluate EpiLens's paper-classification workflow against 214 manually labelled papers. Without task-specific training data, the classifier matches or exceeds the tested supervised and zero-shot baselines across four tasks. The study's early extraction sheets cite published sources for 327 estimates. We link each estimate to a cited document or to corpus studies included by a review. Then, we use the classifier's labels to compare the papers associated with different parameters and pathogens. EpiLens labels more papers linked to reproduction numbers than fatality risks as model-based (54% versus 22%, compared with 62% versus 24% in the manual labels). The gap is consistent with the frequent use of transmission models to estimate reproduction numbers and persists within each of five pathogens compared. Beyond the contrast between parameters, the model-based share of papers linked to incubation-period estimates differs by pathogen: 55% for SARS-CoV-2 versus 6% for mpox.
+Multimodal large language models (MLLMs) have substantially advanced chart understanding and reasoning, yet their performance remains highly uneven across chart types. While modern MLLMs perform well on common charts, their accuracy drops sharply on long-tail charts with diverse visual structures and reasoning requirements. Tool-augmented agents can improve complex chart reasoning by introducing specialized visual capabilities, but manually engineering strategies and tools for the heterogeneous and evolving long tail is difficult to scale. We introduce \textbf{ChartEvo}, a recursive self-improvement framework that enables chart agents to adapt to underperforming chart types through experience-driven harness-level self-improvement. ChartEvo jointly evolves reusable chart-specific Skills and executable Tools, while learning reusable local tool-call chains to compose evolved capabilities and control the inference overhead of tool-augmented reasoning. On long-tail charts from ChartBench and ChartX, ChartEvo improves accuracy over its base MLLM, Qwen3.7-Plus, by \textbf{45.6\%} and \textbf{32.5\%}, respectively, demonstrating the effectiveness of recursive self-improvement for long-tail chart adaptation.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c4547578-5406-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 62636e01-cde7-4
 
 ---
 
-### 10. SpatialScout: Can VLM Agents Actively Explore and Map 3D Scenes?
+### 5. SolarRenderer: Few-Step Generative Reference Rendering
 
-- **ArXiv ID**: [2610.26659v1](https://arxiv.org/abs/2610.26659v1)
-- **作者**: Zhaoxi Zhang, Hao Liang, Linxuan Wu, Yiming Wu, Yifu Yuan...
-- **发布时间**: 2026-10-20
-- **分类**: cs.CV, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2610.26659v1](https://arxiv.org/pdf/2610.26659v1)
+- **ArXiv ID**: [2610.28630v1](https://arxiv.org/abs/2610.28630v1)
+- **作者**: Guian Fang, Shengju Qian, Dongyue Lu, Junchao Huang, Lutao Jiang...
+- **发布时间**: 2026-10-21
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.28630v1](https://arxiv.org/pdf/2610.28630v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Spatial intelligence requires agents to actively acquire visual evidence and integrate observations into a coherent representation of the three-dimensional world. Yet spatial question answering offers limited evidence of whether models can construct accurate metric maps through autonomous exploration. We introduce SpatialScout, a benchmark for evaluating vision-language model (VLM) agents on active object-level 3D mapping. SpatialScout comprises 80 diverse indoor scenes containing 3,140 target objects. Given an object inventory, RGB observations, camera calibration, and camera poses, agents control a camera to explore each scene and estimate object centers in a shared coordinate frame. The task requires coordinating viewpoint selection, cross-view association, geometric estimation, and map revision under bounded interaction budgets. Evaluation jointly measures localization accuracy and target coverage through object-scale overlap scores that penalize missing predictions. Experiments with frontier VLMs reveal substantial limitations: the strongest evaluated model, Claude Opus 5.5, achieves a mean overlap score of 41.71%, with 47.23% of targets exceeding an intersection-over-union (IoU) threshold of 0.5 and only 3.25% exceeding 0.9. These results reveal a substantial gap between recovering coarse object layouts and constructing complete, precise metric maps. SpatialScout provides a quantitative testbed for developing agents that build reliable 3D spatial representations through active perception. Code is available at https://github.com/JesseZZZZZ/SpatialScout.
+Game engines and coding agents can specify the layout, motion, and camera of a scene, yet turning such coarse structure into realistic video requires a renderer that follows the structure and completes the appearance it leaves open. Existing renderers are tied to the representation of one engine, need tens of denoising steps or a costly distillation of their own, and learn from conditions that are not aligned with their target videos. We present SolarRenderer, a structure-conditioned video renderer that adapts a frozen MiniMax-H3 33B backbone with two lightweight LoRAs. Structural videos enter the native reference pathway of the backbone at the positions of the frames they describe, without a type identifier and described only in plain text, so that a single control LoRA follows arbitrary structural representations. Starting from a pretrained four-step LoRA, structure-guided distribution matching renders in four steps, 12.3 times faster than 50-step sampling, while preserving the learned control. A block-causal variant extends the same design to streaming and renders 768p video in real time. To train the model, we build a frame-aligned corpus of 136K clips from game engines, simulators, and YouTube videos. Experiments on an in-distribution test set and a generalization benchmark of 16 structural representations show that SolarRenderer achieves state-of-the-art results across both, and generalizes to 11 unseen representations, including pose skeletons, drawings, and point clouds.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: cbdec856-a652-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 39a2f737-5675-4
 
 ---
 
-### 11. Text-to-Image Generative Modeling Without Language Pretraining
+### 6. WildMAE: Structure-Aware Masked Autoencoding for Wildlife Image Reconstruction
 
-- **ArXiv ID**: [2610.26863v1](https://arxiv.org/abs/2610.26863v1)
-- **作者**: Keshigeyan Chandrasegaran, Yue Zhao, Armin W. Thomas, Ehsan Adeli, Jiajun Wu...
-- **发布时间**: 2026-10-20
-- **分类**: cs.LG, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.26863v1](https://arxiv.org/pdf/2610.26863v1)
+- **ArXiv ID**: [2610.28590v1](https://arxiv.org/abs/2610.28590v1)
+- **作者**: Yicheng Zhang, Yujie Jin, Ke Zhang, Jiaxin Wu
+- **发布时间**: 2026-10-21
+- **分类**: cs.CV, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2610.28590v1](https://arxiv.org/pdf/2610.28590v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Modern text-to-image (T2I) systems use internet-scale language pretraining for text-conditioned image generation. We ask whether language pretraining is necessary for strong T2I generation. We introduce Halcyon, a family of early-fusion multimodal autoregressive models pretrained entirely from scratch on GPIC, a dataset of 100M image-text pairs. Halcyon-0.52B outperforms LlamaGen-XL/8 (48.0 vs. 63.3 gFD) with 18.2$\times$ less pretraining compute. Further, Halcyon-1.6B outperforms JiT-T2I-XXL/8++ (35.3 vs. 41.0 gFD) with 275$\times$ less pretraining compute. Controlled experiments show that text-only pretraining does not improve T2I generation. Halcyon also learns image captioning by replacing caption dropout with I2T supervision, maintaining competitive T2I generation quality under the same pretraining budget. We show that strong T2I systems can be trained from scratch without internet-scale language pretraining. Code and models are available at https://cs.stanford.edu/~keshik/halcyon
+Camera-trap imagery presents substantial variation in animal appearance, illumination, background clutter, and visual degradation. Masked autoencoders (MAEs) offer a label-free framework for modeling such data through reconstruction of randomly hidden image patches. We present WildMAE, a decoder-side extension of MAE that combines local structure-aware refinement with masked-to-visible cross-attention. A zero-gated convolutional residual path introduces a two-dimensional neighborhood prior, while gated cross-attention allows masked positions to retrieve contextual information from visible-position features without replacing the original Transformer decoder. The associated training recipe progressively introduces normalized-pixel, Sobel-edge, and perceptual objectives. In the original Snapshot Serengeti study, covering 4,744 test images at 75% masking, the reported reconstruction scores were 27.90 versus 24.33 dB PSNR, 0.840 versus 0.780 SSIM, and 0.160 versus 0.320 LPIPS for WildMAE and vanilla MAE, respectively. Additional historical records document favorable average differences under four synthetic degradation conditions and describe component variants. We present the method, experimental observations, and their scope together: the retained metrics are historical protocol-dependent results, rather than a newly reproduced, harmonized comparison or a validation of restoration from genuinely unavailable pixels. WildMAE provides a practical architectural case study for combining global token mixing with spatial and targeted contextual refinement in wildlife masked-image modeling.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8454c917-1dee-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 6483d027-2e0d-4
 
 ---
 
-### 12. OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory
+### 7. DecisionPivot: A Diagnostic Benchmark for Decision Models in LLM Systems
 
-- **ArXiv ID**: [2610.26860v1](https://arxiv.org/abs/2610.26860v1)
-- **作者**: Yu Zhou, Cheng-Fu Yang, Rui Sun, Di Wu, Sibo Peng...
-- **发布时间**: 2026-10-20
-- **分类**: cs.CL, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2610.26860v1](https://arxiv.org/pdf/2610.26860v1)
+- **ArXiv ID**: [2610.28522v1](https://arxiv.org/abs/2610.28522v1)
+- **作者**: Xialie Zhuang, Mingcong Lei, Zunhai Su, Ri Liu, Jianjin Li...
+- **发布时间**: 2026-10-21
+- **分类**: cs.AI
+- **PDF**: [https://arxiv.org/pdf/2610.28522v1](https://arxiv.org/pdf/2610.28522v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Multimodal large language models (MLLMs) have made rapid progress on visual reasoning, yet many tasks require evidence that is difficult to obtain through internal reasoning alone: our controlled study on 22 benchmarks shows that simply increasing the inference budget of the base model yields only modest gains. Such tasks demand grounded perception, external knowledge, and numerical measurements obtained through heterogeneous tools, whose outputs must be made interpretable to the model and retained across reasoning steps. We introduce OpenVLHarness, a multimodal reasoning harness organized around a capability layer and persistent multimodal memory. The capability layer combines task-level tool interfaces with evidence rendering, providing consistent access to heterogeneous backends and converting their outputs into model-readable observations. Persistent multimodal memory retains the corresponding images, structured data, and web references as addressable artifacts throughout each query. A coding interface executes generated programs over stored data, enabling computations that combine results from multiple tools. Together, these mechanisms support an iterative process of acquiring, inspecting, and composing multimodal evidence. Evaluated on 22 benchmarks with eight open and proprietary backbones, OpenVLHarness improves average scores by 9.7-12.6 points over matched no-tool baselines, including +11.2 with Qwen3-VL-8B, +9.7 with Kimi K3, and +9.9 with GPT-6 Astra. With GPT-6 Luna at medium reasoning effort, OpenVLHarness outperforms the base model, Codex, and Visual Sketchpad at maximum effort by 7.7-8.5 points while incurring at most 37% of their model-token cost.
+Decision models support routing, guardrails, and output verification in LLM systems. However, item accuracy alone cannot establish whether models make correct decisions across controlled variations or assign reliable confidence to their predictions. We introduce DecisionPivot, a diagnostic benchmark comprising 48 tasks and 40,033 items across seven decision roles. Its core track contains 7,800 items from 13 generated task families, organized into contrast groups with computed answers verified by independently implemented solvers. The complementary reference track contains 32,233 items from 35 public test sets, preserving their original evaluation metrics. We evaluate 40 decision models and 14 general models using documented, model-specific protocols, assessing item and contrast-group accuracy, probability ordering, calibration, and empirical selective coverage. Our results reveal substantial differences obscured by aggregate scores: two 27B models separated by only 2.6 points on the reference track achieve contrast-group accuracies of 70.1% and 44.2%. Across 2,400 binary contrast pairs, Perplexity Decider correctly ranks the positive member above the negative member in 92.3% of pairs but answers both members correctly in only 74.1%, exposing a gap between probability ordering and decision correctness. Models with similar item accuracy also differ in the reliability of their high-confidence predictions. On a separate 1,296-item subset, GLM-5.3 achieves 93.5\% contrast-group accuracy at a higher reasoning setting, compared with 81.5% at its lowest effort. By linking errors to pivotal details and difficulty levels, DecisionPivot provides fine-grained diagnostics of decision failures that aggregate evaluation alone cannot reveal.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: de6b2292-0362-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a51884b4-84a3-4
 
 ---
 
-### 13. Can It Actually Work? Synthesizing Functional CAD Mechanisms
+### 8. MythoSemantic: An Interactive System for Discovering Semantic Parallels Across Mythological and Religious Traditions
 
-- **ArXiv ID**: [2610.26861v1](https://arxiv.org/abs/2610.26861v1)
-- **作者**: Wenqian Zhang, Yangyi Huang, Zigeng Xu, Weiyang Liu, Zhen Liu
-- **发布时间**: 2026-10-20
-- **分类**: cs.CV, cs.CL, cs.GR
-- **PDF**: [https://arxiv.org/pdf/2610.26861v1](https://arxiv.org/pdf/2610.26861v1)
+- **ArXiv ID**: [2610.28452v1](https://arxiv.org/abs/2610.28452v1)
+- **作者**: Nikita Ganziuk, Innokentiy S. Humonen, Ilya Makarov, Pavel Lebedev
+- **发布时间**: 2026-10-21
+- **分类**: cs.CL
+- **PDF**: [https://arxiv.org/pdf/2610.28452v1](https://arxiv.org/pdf/2610.28452v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-While LLM agents can generate visually plausible CAD assemblies, these designs often fail to fulfill their intended physical functions. We study functional CAD design, a setting where agents interpret underspecified requests to construct and iteratively revise mechanisms that satisfy functional requirements in physical simulation. Verifying these requirements is nontrivial: different candidate mechanisms may realize the same function through entirely different components, controls, and operating sequences. To bridge this gap, we propose FunCAD-Harness, a framework that translates abstract requirements into candidate-specific physical tests and uses simulation feedback to guide design revisions. To systematically evaluate this capability, we introduce FunCADBench, a benchmark spanning 46 mechanism families with interdependent and multi-step operations. Experiments across frontier LLM agents show that FunCAD-Harness exposes subtle mechanical failures invisible to visual inspection, substantially improving functional success rates over standard simulation-augmented baselines. Ultimately, our work marks a step toward CAD agents capable of translating human intent into working mechanisms.
+We present a tool for the comparative study of mythological and religious texts. Traditional manual analysis is highly labor-intensive and difficult to scale. To address this, we use neural language models to embed texts into a shared semantic space, so that users can find semantic parallels across cultural traditions in an interactive interface. Embedded fragments form distinct semantic structures whose coarse geometry aligns with well-documented historical relations between traditions. We quantify how much of that geometry is already explained by lexical overlap and by proper names. The current system is available at https://mythoscope.io, and the installable package is available at https://github.com/haafus/MythoSemantic/blob/main/RUN.md.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 25bc1bfc-dfef-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e867c785-7503-4
 
 ---
 
-### 14. Reinforcement Learning with Visually Attributable On-Policy Self-Distillation
+### 9. Multimodal Reranking Is a System One Decision
 
-- **ArXiv ID**: [2610.26856v1](https://arxiv.org/abs/2610.26856v1)
-- **作者**: Shiao Xie, Siyu Chen, Jianwei Lv, Xiandong Li, Yujin Wang
-- **发布时间**: 2026-10-20
-- **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2610.26856v1](https://arxiv.org/pdf/2610.26856v1)
+- **ArXiv ID**: [2610.28435v1](https://arxiv.org/abs/2610.28435v1)
+- **作者**: Zhuchenyang Liu, Yao Zhang, Yu Xiao
+- **发布时间**: 2026-10-21
+- **分类**: cs.IR
+- **PDF**: [https://arxiv.org/pdf/2610.28435v1](https://arxiv.org/pdf/2610.28435v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Multimodal reinforcement learning with verifiable rewards (RLVR) provides reliable task-level supervision, yet offers limited guidance for localizing errors in visual reasoning. On-policy self-distillation (OPSD) complements this supervision with dense token-level corrections from a privileged teacher equipped with an evidence-centered visual view. However, the resulting corrections may conflate visual evidence with non-visual shifts induced by linguistic priors, response style, or the privileged view itself. We formalize this phenomenon as privileged-correction contamination: a token-level correction is contaminated when its update direction cannot be consistently attributed to the privileged visual evidence. Directly distilling contaminated corrections may therefore reinforce erroneous token-level updates. To address this issue, we propose reinforcement learning with visually attributable on-policy self-distillation, an evidence-consistent paradigm that augments task-level RLVR supervision with privileged token-level corrections grounded in visual evidence. We instantiate this paradigm with Visual-Attribution Gating (VAG), which uses the verifier-derived advantage as the optimization anchor and validates each privileged correction against the contrast between evidence-present and evidence-degraded teacher views. By admitting only corrections directionally supported by this visual contrast, VAG preserves visually grounded guidance while suppressing inconsistent residuals. Experiments across six visual reasoning benchmarks show that VAG consistently outperforms GRPO and OPSD methods, establishing new state-of-the-art average performance.
+Multimodal rerankers are usually dedicated models: a vision-language model (VLM) is trained on retrieval data to score the candidates of a query. Scoring options is not specific to reranking. System One decision models such as Jev map a state and a typed question to one probability per option without generating text, and general models can make such decisions with little or no training. Reranking is one such decision, with the query and its candidates as the state and the candidates as the options. We therefore argue that a general VLM can serve as a multimodal reranker through System One decisions, and that decision tuning can improve its reranking. We ask a VLM one choice question over the top 16 candidates of a first-stage retriever and rank the candidates by the probabilities of their labels, read from one forward pass. On MMEB-V2 image retrieval, this choice scores 5.4 to 7.3 hit@1 above a yes/no question per candidate, and the yes/no question falls below the first stage. With the choice, zero-shot Qwen3.8-27B beats the supervised Qwen3-VL-Reranker-2B on all three benchmarks and comes within 1.6 points of Reranker-8B on each. It matches Reranker-8B on MMEB-V2 visual documents (84.79 vs. 84.78 nDCG@5), at 1.1 to 1.5 times its latency. JEV-27B-VL, the same backbone tuned on text decisions only, improves page reranking by 0.6 to 1.1 points, with gains on most tasks (sign test, p <= 0.017), and leaves natural images unchanged. The zero-shot model is larger than the supervised rerankers and of a newer generation, so these comparisons are confounded; we discuss this and other alternative views, and the experiments that would test the position.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c498677d-dc1b-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3a96ea7e-a188-4
 
 ---
 
-### 15. Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience
+### 10. DeclineCraft: A RAG Abstention Benchmark for Jointly Measuring Combined Retrieval and Parametric Knowledge
 
-- **ArXiv ID**: [2610.26855v1](https://arxiv.org/abs/2610.26855v1)
-- **作者**: Tianqi Liu, Hanfei Zhao, Qifeng Liang, Hui En Pang, Jiarui Xu...
+- **ArXiv ID**: [2610.28340v1](https://arxiv.org/abs/2610.28340v1)
+- **作者**: Atharva Thakur, Abulhair Saparov, Bruno Ribeiro
 - **发布时间**: 2026-10-20
-- **分类**: cs.CV, cs.RO
-- **PDF**: [https://arxiv.org/pdf/2610.26855v1](https://arxiv.org/pdf/2610.26855v1)
+- **分类**: cs.CL, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2610.28340v1](https://arxiv.org/pdf/2610.28340v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-World models enable embodied agents to anticipate action consequences, yet jointly modeling locomotion and manipulation across diverse embodiments remains challenging due to heterogeneous action spaces and limited multimodal supervision. We present Ropedia W0, the first egocentric loco-manipulation world foundation model spanning humans and robots with diverse embodiments. We curate Xp-Data, comprising 10k hours of egocentric human data and 3k hours of robot data with unified multimodal annotations and systematic quality control. A unified kinematic representation encodes locomotion through camera poses and manipulation through projected skeletons, with robot skeletons combining embodiment-specific forward kinematics with extensive manual keypoint annotation and correction. We also introduce Xp-Teleop, a long-horizon loco-manipulation benchmark based on high-quality dexterous humanoid teleoperation data. Evaluations demonstrate state-of-the-art performance across five cross-embodiment benchmarks (DreamDojo, $Ψ_0$, $ω$-HOME, Xp-Teleop, and AgiBot) and on held-out human egocentric video, from zero-shot inference to few-shot and full-data post-training. Scaling human pre-training data improves performance on both human and robot evaluations. After distillation, our model supports real-time, minute-long rollouts, enabling live VR interaction. Applications in policy evaluation, model-based planning, and world-action modeling further demonstrate the model's utility for embodied decision-making.
+Reliable retrieval-augmented generation (RAG) requires recognizing when neither retrieved documents nor parametric knowledge supports an answer. We introduce DeclineCraft, a dynamic abstention benchmark whose unanswerable questions target Minecraft feature additions after a corpus cut-off, with audits of possible parametric exposure. Later cut-offs support evaluation of future models. Across 27 LLMs, we measure Correct Abstention Rate (CAR; how often models acknowledge insufficient knowledge on unanswerable questions), Answerable Attempt Rate and Answer Accuracy. We find that (1) single-shot retrieval significantly raises CAR in 38 of 40 configurations (model and thinking setting) versus no retrieval. (2) Iterative RAG, in which the model self-assesses its context and can request up to two further retrieval rounds, significantly lowers CAR versus single-shot RAG in 30 of 40 configurations (mean 46.4%), with little change in Answer Accuracy (68.5% to 69.3%). Adding query rewriting and reranking to hybrid (dense & sparse) retrieval lowers CAR for all 12 models tested. (3) Larger models answer more accurately (Spearman $ρ= +0.60$ with total parameters), but neither model size nor release date shows a significant association with CAR. (4) Without retrieval, enabling thinking on the same weights lowers CAR significantly for 8 of 13 models (by 14% points on average), and the responses shift from acknowledged uncertainty to premise denial.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2b6f9f81-bc1b-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e190b5a9-9efe-4
+
+---
+
+### 11. Benchmarking Arabic Dialects for Math Problems
+
+- **ArXiv ID**: [2610.28607v1](https://arxiv.org/abs/2610.28607v1)
+- **作者**: Noor Abo Mokh, Teresa Lynn, Nizar Habash, Ahmed Elshabrawy, Sara Alhajeri...
+- **发布时间**: 2026-10-21
+- **分类**: cs.CL, cs.AI
+- **PDF**: [https://arxiv.org/pdf/2610.28607v1](https://arxiv.org/pdf/2610.28607v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Mathematical reasoning remains underexplored for low-resource languages, including Dialectal Arabic. To bridge this gap, we introduce the DAR-MGSM (Dialectal Arabic Multilingual Grade School Math) Benchmark, the first manually curated benchmark for evaluating mathematical reasoning in Dialectal Arabic. DAR-MGSM consists of math word problems (MWPs) requiring multi-step reasoning and covers five major Arabic dialects alongside Modern Standard Arabic (MSA). The benchmark comprises two parallel versions: translated-only and translated & culturally localized. The latter version adapts entities and references to regional varieties. We evaluate eleven Arabic-centric and multilingual large language models on DAR-MGSM. The results show that the performance generally declines on the localized version, highlighting the challenges introduced by culturally grounded adaptations. However, the magnitude of this effect varies across models, with Arabic-centric models exhibiting different levels of sensitivity to localization. A mechanistic interpretability analysis shows that translated and localized variants of the same MWPs often induce distinct internal reasoning trajectories, even when aggregate accuracy remains similar. Overall, our results show that mathematical reasoning performance depends on both linguistic variety and cultural context.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a376a388-b1dd-4
+
+---
+
+### 12. Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs
+
+- **ArXiv ID**: [2610.28632v1](https://arxiv.org/abs/2610.28632v1)
+- **作者**: Noam Rotstein, Yoad Tewel, Chen Tessler, Haggai Maron, Gal Chechik...
+- **发布时间**: 2026-10-21
+- **分类**: cs.CV, cs.AI, cs.GR
+- **PDF**: [https://arxiv.org/pdf/2610.28632v1](https://arxiv.org/pdf/2610.28632v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Video generation models can now depict remarkably realistic motion. Yet it is unclear how to use this motion beyond pixels: to animate a specific 3D asset and replay the animation in its 3D scene. For instance, a video model can show a monkey jumping over a crossbar, but it cannot return that jump as replayable 3D motion placed in the 3D scene. Here we present a model that directly co-generates the video and 3D motion for any supplied rig, along with a camera that registers this motion to the scene. Prior video-motion models either handle only human skeletons, often adding billions of parameters, or triangulate 3D motion from generated 2D pose maps. We instead keep 3D motion in a separate model that supports arbitrary skeletons, and connect it to a pretrained video model through a small set of cross-attention layers. This separation lets the motion model first learn how skeletons move from motion-only data, which is easier to obtain and augment than paired video. Additionally, our model learns to locate each joint in the video frames, which lets us recover the camera and place the 3D motion in the scene. To train across many skeletons, we use a generative video editor to place animated 3D assets in scenes suited to their actions, curating the edits so their known motion remains valid. Together with human and robot video, this yields nearly 200K training pairs. Our evaluations demonstrate that our model animates diverse rigs from text more faithfully than video-first pipelines, and its motion responds to the surrounding scene. It also turns video into rig motion, rig motion into video, and enables keyframe-based control of the 3D motion. Videos and additional results are available on our project page: https://research.nvidia.com/labs/par/projects/jca/.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: d8cb71d9-ab81-4
+
+---
+
+### 13. AEON: Unifying Video and 3D World Models
+
+- **ArXiv ID**: [2610.28631v1](https://arxiv.org/abs/2610.28631v1)
+- **作者**: Weiqi Zhang, Wenyuan Zhang, Yu-Shen Liu, Junsheng Zhou
+- **发布时间**: 2026-10-21
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.28631v1](https://arxiv.org/pdf/2610.28631v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Current world models for explicit world simulation typically follow two distinct pathways: (1) video generative models (e.g., Sora), which simulate realistic appearances but fail to preserve 3D consistency; and (2) 3D generative models (e.g., Marble), which generate geometrically consistent scenes but often yield static, less realistic observations. We present AEON, a unified framework that bridges video-based and 3D-based world models and combines the benefits of both. The key insight of AEON lies in a generative model that operates within the text- or image-conditioned video latent space while producing renderable 4D graphics primitives---specifically, 4D Gaussian Splatting (4DGS)---as the explicit world representation. We train a 4D reconstruction model to predict both 4DGS and camera poses from monocular videos, serving as our initialized 4D decoder. Furthermore, we design a domain adapter that translates generative video latents into reconstructive 4D latents through a distillation process on the video VAE. AEON naturally supports video-based world modeling by rendering 4DGS at predicted camera trajectories, and constructs a persistent 4D environment with scene dynamics for realistic world simulation. Consequently, AEON empowers a diverse range of world modeling applications and achieves state-of-the-art performance on standard benchmarks. Project Page: https://weiqi-zhang.github.io/AEON
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 72be0f6d-87b9-4
+
+---
+
+### 14. Learning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking
+
+- **ArXiv ID**: [2610.28628v1](https://arxiv.org/abs/2610.28628v1)
+- **作者**: Yuxuan Kuang, Jiashun Wang, Yixuan Sun, Yufei Ye, Sungjae Park...
+- **发布时间**: 2026-10-21
+- **分类**: cs.RO, cs.CV, cs.GR
+- **PDF**: [https://arxiv.org/pdf/2610.28628v1](https://arxiv.org/pdf/2610.28628v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Dexterous multi-finger hands hold promise to unlock diverse skills like functional grasps, in-hand reorientation, and dynamic handover that the human-designed world assumes, yet existing learning recipes force a trade-off. Goal-reaching reinforcement learning generalizes to arbitrary object poses but, lacking any human prior, converges to unnatural and unreliable finger strategies; motion tracking reproduces human-like behavior from a single clip but cannot deviate from it. We present AdaDex, a goal-conditioned RL framework that turns a single hand-object trajectory of a few seconds---from mocap data or HOI reconstruction from in-the-wild RGB(D) video---into an adaptable dexterous skill. At the core of AdaDex is Hybrid Dexterous Mimicking: a shared policy is trained on two populations of massively parallel environments: motion tracking environments trained with dense motion tracking objective, which instill the human prior from human motion; and generalization environments with noised initial states and goals and a sparse object-success reward, which force the skill to work far off the reference. From seconds of human motion per skill, the resulting policies can learn diverse adaptable dexterous skills, such as functional grasping, object reposing, in-hand reorientation with finger gaiting, and dynamic behaviors like throw-and-catch. Our method outperforms baselines in terms of generalization and functionality, and we demonstrate transfer across simulators and to the real world. Project page: https://yuxuank.com/AdaDex/.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 6b5fc964-479f-4
+
+---
+
+### 15. UniWALM: Unified World Action Language Model for Embodied Robot Control
+
+- **ArXiv ID**: [2610.28626v1](https://arxiv.org/abs/2610.28626v1)
+- **作者**: Rahul Sajnani, Diego Romeres, Mingyuan Zhang, Kai Gao, Carl Qi...
+- **发布时间**: 2026-10-21
+- **分类**: cs.RO, cs.AI, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2610.28626v1](https://arxiv.org/pdf/2610.28626v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Motivated by the human ability to integrate experience across language, perception, and action, we introduce UniWALM, a unified world-action-language model that learns video, action, and language in a single shared representation, where each modality is both a conditioning signal and a supervision target. We ask: can jointly generating language enrich this shared representation, improving manipulation and supporting memory-dependent behavior? Unlike prior approaches that attach a reasoning or vision-language model to a video-action backbone and run them as distinct stages, UniWALM unifies all three modalities inside a single mixture-of-transformers backbone whose per-modality diffusion heads co-denoise synchronously, decoding subtask and textual memory in the same pass as action with no separate planning stage; the generated language is re-consumed on the next step, closing a language-as-memory loop without an external planner or memory bank. To keep the action stream reliable under this richer objective, we further introduce Flow Matching with Correction (FMC), a training objective that teaches recovery from perturbed action trajectories at no inference-time cost. UniWALM consistently improves over same-backbone baselines (e.g., FastWAM) on compositional pick-and-place (MolmoSpaces) and across the memory-dependent subset of RMBench, where it reaches 34.5% without any pretrained language or reasoning model and exceeds Mem-0's keyframe-equipped setup (28.5%) using only a single anchor frame. On a real-world Find-the-Item task, generating textual memory lifts success from 11.1% to 61.1%, while state-of-the-art VLAs stay at or below chance (<=33.3%).
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 021e7184-61fc-4
 
 ---
