@@ -1,1 +1,332 @@
-[]
+[
+  {
+    "title": "ArabGeoText: Tool-Augmented Vision-Language Models for Arabic Geospatial Text Spotting",
+    "arxiv_id": "2611.03339v1",
+    "link": "https://arxiv.org/abs/2611.03339v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03339v1",
+    "authors": [
+      "Yakoub Bazi",
+      "Sarah Alsaleh",
+      "Mohamad M. Al Rahhal",
+      "Mohamed A. Mekhtiche",
+      "Mansour Zuair"
+    ],
+    "published": "2026-11-02T15:58:02Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 9cca0423-0e59-4"
+  },
+  {
+    "title": "DR Pixel: Page-Native Deep Research with Vision-Language Models",
+    "arxiv_id": "2611.03097v1",
+    "link": "https://arxiv.org/abs/2611.03097v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03097v1",
+    "authors": [
+      "Tiansheng Hu",
+      "Yichuan Wang",
+      "James V. Talwar",
+      "Nicholas Tomlin",
+      "Chen Zhao",
+      "Sewon Min"
+    ],
+    "published": "2026-11-02T13:13:42Z",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: e8db24d6-0c8c-4"
+  },
+  {
+    "title": "Can We Stop the Backtest Yet? Anytime-Valid Promotion Tests for Adaptive Financial Research Agents",
+    "arxiv_id": "2611.03384v1",
+    "link": "https://arxiv.org/abs/2611.03384v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03384v1",
+    "authors": [
+      "Eric Benhamou",
+      "Jean-Jacques Ohana",
+      "Beatrice Guez",
+      "Ethan Setrouk",
+      "Chamyl Saadi",
+      "Thomas Jacquot"
+    ],
+    "published": "2026-11-02T16:24:43Z",
+    "categories": [
+      "cs.AI",
+      "q-fin.ST"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 20a1962d-48ee-4"
+  },
+  {
+    "title": "Specificity Bias and the Wikipedia Paradox: An xAI Analysis of AI Text Detectors under Domain Shift",
+    "arxiv_id": "2611.03280v1",
+    "link": "https://arxiv.org/abs/2611.03280v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03280v1",
+    "authors": [
+      "Nico Morloher",
+      "Johannes Reschke",
+      "Mohamed Mady"
+    ],
+    "published": "2026-11-02T15:22:34Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: c273bd7a-fbf4-4"
+  },
+  {
+    "title": "CoLa3D: Composable Latent 3D Decomposition",
+    "arxiv_id": "2611.03533v1",
+    "link": "https://arxiv.org/abs/2611.03533v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03533v1",
+    "authors": [
+      "Xudong Cai",
+      "Yongcai Wang",
+      "Deying Li",
+      "Chuanxia Zheng"
+    ],
+    "published": "2026-11-02T18:00:50Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8291e683-ec9e-4"
+  },
+  {
+    "title": "Grading the Unannotated: Insights from the WorkRB Skill Extraction Challenge at RecSys-HR 2026",
+    "arxiv_id": "2611.03525v1",
+    "link": "https://arxiv.org/abs/2611.03525v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03525v1",
+    "authors": [
+      "Warre Veys",
+      "Luis Gasco",
+      "Jens-Joris Decorte"
+    ],
+    "published": "2026-11-02T17:57:53Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0ad54cd8-e251-4"
+  },
+  {
+    "title": "LLMs Depend on Specialist Tools for Out-of-Distribution Generalization in MS/MS Structural Elucidation",
+    "arxiv_id": "2611.03308v1",
+    "link": "https://arxiv.org/abs/2611.03308v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03308v1",
+    "authors": [
+      "Gabriel Asher",
+      "Cailum M. K. Stienstra",
+      "Tomo Oga",
+      "Devesh Shah Antonio H. de O. Fonseca",
+      "Niall O'Connor",
+      "Michael Widrich"
+    ],
+    "published": "2026-11-02T15:39:07Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "stat.ML"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 13c32ae6-e9c6-4"
+  },
+  {
+    "title": "ScienceCUA: Resource-to-Skill Construction and Execution-Guided Skill Evolution for Scientific Computer Use Agents",
+    "arxiv_id": "2611.03238v1",
+    "link": "https://arxiv.org/abs/2611.03238v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03238v1",
+    "authors": [
+      "Daiqiang Li",
+      "Jingyi Peng",
+      "Rui Hu",
+      "Jia Li",
+      "Xuyang Liu",
+      "Guanren Qiao",
+      "Yujia Xiang",
+      "Qiuzhuang Sun",
+      "Zhiping Xu",
+      "Mingrui Luo"
+    ],
+    "published": "2026-11-02T14:50:06Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 23013786-cf80-4"
+  },
+  {
+    "title": "Every Clause Counts: Instruction-Following Reranking by Multiplying Small, Answerable Questions",
+    "arxiv_id": "2611.03179v1",
+    "link": "https://arxiv.org/abs/2611.03179v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03179v1",
+    "authors": [
+      "S. M. Mahbub Uddin Ahmed",
+      "Abdullah Al Musaddiq"
+    ],
+    "published": "2026-11-02T14:15:23Z",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: e6a5f733-79af-4"
+  },
+  {
+    "title": "CoworkOS:Scaling Agent Coworkers for Real-world Automation",
+    "arxiv_id": "2611.03178v1",
+    "link": "https://arxiv.org/abs/2611.03178v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03178v1",
+    "authors": [
+      "Jiajie Jin",
+      "Guanting Dong",
+      "Chengjun Pan",
+      "Xin Deng",
+      "Zhuohui Sheng",
+      "Guoqiang Wang",
+      "Tao Gui",
+      "Yutao Zhu",
+      "Yujia Chen",
+      "Shihong Yi",
+      "Binze Hu",
+      "Zhixiong Yang",
+      "Zhichao Sun",
+      "Rui Wang",
+      "Han Han",
+      "Mingyu Ma",
+      "Junhao Huang",
+      "Xiaotao Wang",
+      "Huicheng Jiang",
+      "Yuyang Hu",
+      "Xinyu Yang",
+      "Wanghan Xu",
+      "Yajie Yang",
+      "Zhecan Wang",
+      "Honglin Guo",
+      "Xiaoyu Xing",
+      "Xiaoqian Zhang",
+      "Yulun Zhu",
+      "Xiaoxi Li",
+      "Jiahang Lin",
+      "Shaofan Liu",
+      "Shihan Dou",
+      "Zhiheng Xi",
+      "Qi Zhang",
+      "Yu-Gang Jiang",
+      "See-Kiong Ng",
+      "Yang Zhang",
+      "Tat-Seng Chua",
+      "Ji-Rong Wen",
+      "Zhicheng Dou"
+    ],
+    "published": "2026-11-02T14:15:11Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3e4d3a27-beec-4"
+  },
+  {
+    "title": "Beyond Surface Metrics: Multi-Condition Requirements in Enterprise Maintenance and AI Coding Benchmarks",
+    "arxiv_id": "2611.03162v1",
+    "link": "https://arxiv.org/abs/2611.03162v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03162v1",
+    "authors": [
+      "Heeyong Eun"
+    ],
+    "published": "2026-11-02T14:03:38Z",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 274bb184-33a0-4"
+  },
+  {
+    "title": "Visual-to-Executable Procedural Reconstruction of Buildings",
+    "arxiv_id": "2611.03143v1",
+    "link": "https://arxiv.org/abs/2611.03143v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03143v1",
+    "authors": [
+      "Zichong Zhu",
+      "Zhihao Liu",
+      "Andrei Sharf",
+      "Zhanglin Cheng"
+    ],
+    "published": "2026-11-02T13:52:45Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: bb97a9ff-7eba-4"
+  },
+  {
+    "title": "Library of Layers (LoL): Adaptively Ordering Transformer Layers at Runtime",
+    "arxiv_id": "2611.03526v1",
+    "link": "https://arxiv.org/abs/2611.03526v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03526v1",
+    "authors": [
+      "Abdellah Rahmani",
+      "Sean McLeish",
+      "Ang Li",
+      "Sanae Lotfi",
+      "Pascal Frossard",
+      "Micah Goldblum"
+    ],
+    "published": "2026-11-02T17:57:53Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 9a753fc8-b3fa-4"
+  },
+  {
+    "title": "Steering with Multilingual Lexicons for Sentiment Control in Low-Resource Languages",
+    "arxiv_id": "2611.03317v1",
+    "link": "https://arxiv.org/abs/2611.03317v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03317v1",
+    "authors": [
+      "Lucinda Laurent",
+      "Muhammad Dehan Al Kautsar",
+      "Alfan Farizki Wicaksono",
+      "Fajri Koto"
+    ],
+    "published": "2026-11-02T15:44:02Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: bae8a34c-f723-4"
+  },
+  {
+    "title": "Pixel-UMI: Learning Environment-Aware Whole-Body Manipulation from Sensorized Human Demonstrations",
+    "arxiv_id": "2611.03647v1",
+    "link": "https://arxiv.org/abs/2611.03647v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.03647v1",
+    "authors": [
+      "Jason Jingzhou Liu",
+      "Tony Tao",
+      "Deepak Pathak",
+      "Ruslan Salakhutdinov"
+    ],
+    "published": "2026-11-02T18:59:32Z",
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.CV",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 25feeb40-7f6e-4"
+  }
+]
