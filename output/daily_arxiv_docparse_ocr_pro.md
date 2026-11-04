@@ -1,300 +1,300 @@
-# OCR arXiv Daily Pro — 2026-11-03
+# OCR arXiv Daily Pro — 2026-11-04
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-11-02 09:10 - 2026-11-03 09:10 (Asia/Shanghai)
+> 时间窗口：2026-11-03 09:10 - 2026-11-04 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0ee1110d-985f-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: cfc25517-1f2e-4
 
 ---
 
 ## 📄 论文详情
 
-### 1. ArabGeoText: Tool-Augmented Vision-Language Models for Arabic Geospatial Text Spotting
+### 1. OCR in the Foundation Model Era: From Specialist Models to Unified Models
 
-- **ArXiv ID**: [2611.03339v1](https://arxiv.org/abs/2611.03339v1)
-- **作者**: Yakoub Bazi, Sarah Alsaleh, Mohamad M. Al Rahhal, Mohamed A. Mekhtiche, Mansour Zuair
-- **发布时间**: 2026-11-02
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.03339v1](https://arxiv.org/pdf/2611.03339v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Geospatial text spotting involves locating and transcribing geographic labels, such as road names, district names, and landmarks, in raster maps. These labels are often small, densely arranged, and arbitrarily oriented. Although Arabic text recognition has been studied extensively in documents and natural scenes, Arabic geospatial text spotting remains underexplored. We introduce ARABGEOTEXT, an Arabic-centric benchmark covering 970 geographic locations in Riyadh and Jeddah, with 17,875 manually annotated text instances per view type. For each location, we pair an OpenStreetMap (OSM) rendering with a composite created by overlaying that rendering on the corresponding remote sensing (RS) imagery. The paired views preserve label content and pixel geometry, allowing evaluation across different backgrounds. Geographic partitions support in-city and city-disjoint evaluation of detection, recognition, and end-to-end spotting. Experiments with direct Qwen3.5-4B spotting show difficulties in recovering all labels within a tile. We therefore propose a tool-augmented vision-language framework that combines YOLO26 localization and crop rectification with Qwen3.5-4B recognition adapted through low-rank adaptation (LoRA). The framework outperforms direct LoRA-adapted Qwen3.5-4B spotting across both image views and test cities. With localization held fixed, reader adaptation further improves recognition over the pretrained zero-shot reader. The dataset and code will be made publicly available at https://github.com/yakoubbazi/ArabGeoText.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 9cca0423-0e59-4
-
----
-
-### 2. DR Pixel: Page-Native Deep Research with Vision-Language Models
-
-- **ArXiv ID**: [2611.03097v1](https://arxiv.org/abs/2611.03097v1)
-- **作者**: Tiansheng Hu, Yichuan Wang, James V. Talwar, Nicholas Tomlin, Chen Zhao...
-- **发布时间**: 2026-11-02
-- **分类**: cs.CV, cs.CL, cs.IR
-- **PDF**: [https://arxiv.org/pdf/2611.03097v1](https://arxiv.org/pdf/2611.03097v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Complex documents such as scientific papers contain rich information in tables, figures, and equations; however, existing deep research (DR) agents typically reduce papers to OCR-extracted text. We instead ask whether vision-language models (VLMs) can enable page-native deep research: directly retrieving and reasoning over rendered document page images. We introduce DR Pixel, the first open-source end-to-end multimodal DR agent that uses rendered page images as its sole retrieval and reasoning unit, operating over a corpus of 1.06M pages. To evaluate this setting, we construct DRPixelBench, a benchmark on scientific papers requiring reasoning over text, figures, tables, and equations. Surprisingly, page-native DR already works well without training, outperforming OCR-based baselines across state-of-the-art models like GPT-5.4, Gemini-3.5-Flash, and Qwen3.6-27B, while requiring fewer tool calls. We next turn to DR training. A key challenge is that teacher trajectories for agentic supervised finetuning are noisy, mixing critical reasoning and action steps with redundant or failed attempts. To address this, we introduce counterfactual credit reweighting, a fine-grained credit assignment method that weights individual reasoning and action steps by their counterfactual contribution to the final answer. Our training improves retrieval recall by about 15 points and final accuracy by over 10 points on DRPixelBench, and likewise outperforms the untrained baseline on four existing benchmarks. On out-of-distribution ViDoRe-V3, DR Pixel comes within 1.8 points of an oracle that is given the gold pages directly. Our results suggest that the conventional OCR-then-retrieve pipeline is not only unnecessary but suboptimal: directly retrieving and reasoning over visual document pages makes complex DR both more effective and more efficient.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e8db24d6-0c8c-4
-
----
-
-### 3. Can We Stop the Backtest Yet? Anytime-Valid Promotion Tests for Adaptive Financial Research Agents
-
-- **ArXiv ID**: [2611.03384v1](https://arxiv.org/abs/2611.03384v1)
-- **作者**: Eric Benhamou, Jean-Jacques Ohana, Beatrice Guez, Ethan Setrouk, Chamyl Saadi...
-- **发布时间**: 2026-11-03
-- **分类**: cs.AI, q-fin.ST
-- **PDF**: [https://arxiv.org/pdf/2611.03384v1](https://arxiv.org/pdf/2611.03384v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Financial research agents can generate and monitor trading rules faster than a human can document the resulting selection process. Candidates appear at data-dependent times, weak rules are abandoned, and promising ones are watched until they cross a reporting threshold. We introduce PROMOTE, a protocol that assigns every candidate predictable testing wealth at birth and accumulates a cost-aware e-process only from subsequent returns. If lifetime allocations sum to at most one, a weighted Ville argument bounds the probability of ever promoting a rule whose declared bounded net score has always had nonpositive conditional mean. The result permits dependent candidates, adaptive births, and indefinite monitoring. We audit the implementation in two settings. A retrospective pseudo-out-of-sample replay contains 24 panel--rule hypotheses, 3,000 shared-sign null paths, injected alternatives, and public ETF and industry data. Repeated unadjusted tests produce a family crossing in 94.5% of null paths, versus 0.0% for PROMOTE; at a 15-bp aligned ETF-component perturbation, PROMOTE has 70.1% target power and median crossing session 2,327. A separate exact mean-zero experiment lets an agent select candidate identities and birth times from past scores; the funded gate has 1.77% false-family crossings across 3,000 programs. The market replay produces zero promotions after costs. The certificate controls historical false promotion under the declared null; it is not a certificate that an earlier edge remains profitable at deployment. AI-use disclosure. Generative AI tools, including OpenAI Codex, assisted manuscript preparation. For this preprint version, Codex assisted with LaTeX editing, author and venue metadata, compilation, and layout checks.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 20a1962d-48ee-4
-
----
-
-### 4. Specificity Bias and the Wikipedia Paradox: An xAI Analysis of AI Text Detectors under Domain Shift
-
-- **ArXiv ID**: [2611.03280v1](https://arxiv.org/abs/2611.03280v1)
-- **作者**: Nico Morloher, Johannes Reschke, Mohamed Mady
-- **发布时间**: 2026-11-02
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2611.03280v1](https://arxiv.org/pdf/2611.03280v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-The widespread adoption of Large Language Models (LLMs) demands reliable detection of human-authored versus synthetic text. However, current Transformer-based detectors often experience severe performance degradation during domain shifts and operate as opaque classifiers. This paper investigates the robustness and interpretability of fine-tuned Transformer models (DistilBERT, RoBERTa) by evaluating them against a custom out-of-distribution (OOD) dataset of hyper-local news synthesized via open-source LLMs (Llama 3, Mistral, Gemma). To analyze model decision boundaries, we apply a tripartite Explainable AI (xAI) framework using SHAP. Our analysis reveals three key phenomena: First, detectors often rely on a "Call-to-Action" syndrome inherent to instruction-tuned LLMs rather than generic machine text. Second, we observe a "Specificity Bias," where LLMs successfully bypass detection by hallucinating specific named entities and mimicking conversational imperfection. Finally, we illustrate the "Wikipedia Paradox," wherein formal, objective human writing is frequently misclassified as AI due to its low statistical burstiness. These findings demonstrate that purely statistical detection paradigms face systematic limitations in highly structured human domains, emphasizing the critical need for semantically-aware, interpretable detection architectures.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c273bd7a-fbf4-4
-
----
-
-### 5. CoLa3D: Composable Latent 3D Decomposition
-
-- **ArXiv ID**: [2611.03533v1](https://arxiv.org/abs/2611.03533v1)
-- **作者**: Xudong Cai, Yongcai Wang, Deying Li, Chuanxia Zheng
+- **ArXiv ID**: [2611.04874v1](https://arxiv.org/abs/2611.04874v1)
+- **作者**: Zhiheng Li, Zongyang Ma, Jiaxian Chen, Cheng Cui, Yi Liu...
 - **发布时间**: 2026-11-03
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.03533v1](https://arxiv.org/pdf/2611.03533v1)
+- **PDF**: [https://arxiv.org/pdf/2611.04874v1](https://arxiv.org/pdf/2611.04874v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-We introduce CoLa3D, a simple and effective model for composable 3D scene decomposition that, given a single whole-scene latent from either a single image or an existing scene mesh as input, directly outputs a set of object meshes with consistent spatial layout that can be assembled back into a coherent scene. CoLa3D introduces a novel paradigm for 3D scene decomposition within a shared whole-scene latent, unlike alternatives that perform per-object generation in canonical spaces and then glue the objects back together with fragile pose and scale estimation. The network is a lightweight, flexible, and scalable query-based transformer that accepts various types of queries, including 2D masks, 3D points, and learnable queries, and learns to decompose the scene into objects in a compact latent space. On both synthetic and real-world datasets, CoLa3D achieves state-of-the-art performance on composable 3D scene decomposition, substantially improving global scene-level consistency and object-level quality while running 2 times faster and using less than 1% of SAM 3D's training data. Visible depth on par with MoGe2 further confirms that latent decomposition preserves accurate visible scene geometry while producing physically complete, decomposable object meshes.
+Optical Character Recognition (OCR) is among the oldest and most widely deployed applications of artificial intelligence. This survey reviews its development, focusing on the Foundation Model Era. We define OCR through faithful transcription: within a specified visual scope, OCR should completely reconstruct the text, notation, and document structure observable in the source image, and every textual, notational, or structural element in the output must be verifiable from visual evidence in that image. We trace the development from specialist OCR models toward unified models, examining joint text detection and recognition, structured sequence generation, and the use of pretrained vision-language models (VLMs). We organize contemporary OCR systems into five coexisting families: modular toolkits and task-specific models, specialized document VLMs, hybrid workflows, general-purpose VLMs, and commercial products and managed services. We compare their architectures, data, and training, examining hallucination and omission, insufficient spatial grounding, and inference cost in generative OCR. We review evaluation from character and scene text recognition to parsing individual structural elements and full-page transcription, highlighting gaps in consistent output definitions, attribution of performance to individual components, and coverage of real capture conditions and visible content and structure. Finally, we summarize the challenges facing OCR and discuss directions for future research. We continuously track related work at https://github.com/zhihengli-casia/Awesome-OCR-in-the-Foundation-Model-Era.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8291e683-ec9e-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 97f62a05-9701-4
 
 ---
 
-### 6. Grading the Unannotated: Insights from the WorkRB Skill Extraction Challenge at RecSys-HR 2026
+### 2. FlowTranslator: Training-Free In-Image Machine Translation with Flow-Based Editing
 
-- **ArXiv ID**: [2611.03525v1](https://arxiv.org/abs/2611.03525v1)
-- **作者**: Warre Veys, Luis Gasco, Jens-Joris Decorte
+- **ArXiv ID**: [2611.04303v1](https://arxiv.org/abs/2611.04303v1)
+- **作者**: Zhixian Li, Xingsong Ye, Yongkun Du, Yunyan Xiao, Yanglin Huang...
 - **发布时间**: 2026-11-03
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.03525v1](https://arxiv.org/pdf/2611.03525v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Skill extraction benchmarks score models against a few human-annotated positives and treat every other skill in the vocabulary as equally wrong. At the scale of ESCO (13,939 skills) this binary view can reward models that rank the annotated positive high for the wrong reason, and hides semantically nonsensical predictions. The WorkRB Challenge at RecSys-HR 2026 replaces it with graded relevance: every candidate skill in a model's ranking window carries a 0 to 4 grade, and the leaderboard scores nDCG@100 against these grades. Since ternary judgements proved too coarse for objective annotation, relevance is decomposed into a cascade of four binary questions (same domain, activity mentioned, right granularity, replacement of a gold positive) that a smaller LLM judge can answer reliably; the labels are validated with blind human and frontier-model re-annotation. This paper documents the annotation methodology, the construction of five benchmark datasets (four with vacancy sentences as queries, one with lexically distant skill surface forms), the validation of the LLM cascade, and insights from the submissions. The field converged on multi-stage retrieve-and-rerank pipelines, whose gains come from clearing nonsense out of the ranking window rather than finding more positives: at the top of the leaderboard, the graded ordering is uncorrelated with what binary evaluation would have said. Graded labels expose much bigger gaps between top submissions and baselines than binary evaluation does, and show that semantic-understanding skill recommendation is still wide open. The clear next direction is bringing efficiency back: every submitted system we could size uses at least 42x, typically several hundred times, more parameters than the baselines it beats.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0ad54cd8-e251-4
-
----
-
-### 7. LLMs Depend on Specialist Tools for Out-of-Distribution Generalization in MS/MS Structural Elucidation
-
-- **ArXiv ID**: [2611.03308v1](https://arxiv.org/abs/2611.03308v1)
-- **作者**: Gabriel Asher, Cailum M. K. Stienstra, Tomo Oga, Devesh Shah Antonio H. de O. Fonseca, Niall O'Connor...
-- **发布时间**: 2026-11-02
-- **分类**: cs.LG, cs.AI, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2611.03308v1](https://arxiv.org/pdf/2611.03308v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-A frontier language model was recently reported to solve 1D NMR structural elucidation without tools. We ask whether this capability transfers to tandem mass spectrometry (MS/MS) in the de novo setting, where the model must propose a structure directly from the spectrum without a candidate list or reference library. To separate reasoning from recall, we build a 100-analyte benchmark from MassSpecGym, split by each analyte's textual footprint into in-distribution (well documented in literature) and out-of-distribution (essentially undocumented) arms. We hold the model, harness, and output format fixed and vary only the LLM's access to domain-specific tools. Without tools, a frontier LLM reaches 52% Top-1 accuracy in-distribution but only 2% out-of-distribution. Only access to de novo structure generators improves out-of-distribution accuracy, raising it to as much as 38% Top-1, and the resulting agent outperforms the standalone de novo models both in and out of distribution. These results suggest that LLMs are not effective at de novo MS/MS structural elucidation on their own, and that further gains depend on the specialist tools available to the agent rather than on the LLM itself.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 13c32ae6-e9c6-4
-
----
-
-### 8. ScienceCUA: Resource-to-Skill Construction and Execution-Guided Skill Evolution for Scientific Computer Use Agents
-
-- **ArXiv ID**: [2611.03238v1](https://arxiv.org/abs/2611.03238v1)
-- **作者**: Daiqiang Li, Jingyi Peng, Rui Hu, Jia Li, Xuyang Liu...
-- **发布时间**: 2026-11-02
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.03238v1](https://arxiv.org/pdf/2611.03238v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Computer-use agents for scientific software require application-specific expertise. Much of this expertise is documented in human-authored software manuals and web pages. However, turning these resources into executable, reusable skills remains challenging due to mismatches between documented and deployed software versions and differences in scope between documentation coverage and task requirements. We introduce ScienceCUA, a two-stage framework combining resource-to-skill construction with execution-guided skill evolution. First, ScienceCUA identifies tasks supported by the software from its documentation, infers operational trajectories, and generalizes them into reusable Skills. Command catalogs, syntax constraints, and shortcuts are organized separately as References for on-demand lookup. Then, ScienceCUA uses execution feedback to drive skill self-evolution by contrasting successful and failed trajectories for the same task, identifying deficiencies, revising existing skills or adding new ones, and updating the skill library only after repeated validation in real environments. To enable reliable evaluation without benchmark noise or task leakage, we introduce two improved benchmarks. ScienceBoard-Verified provides an audited and corrected basis for measuring task performance, while ScienceBoard-VE separates skill evolution from final testing through disjoint evolution and test tasks and further supports native-agent evaluation. Experiments show that the initial Skills and References improve average task success rate by up to 7.23 percentage points over the base model, while skill self-evolution increases the total gain over the baseline to as much as 17.12 percentage points. ScienceCUA turns software documentation into an evolving set of executable skills and queryable references, offering a practical way for general-purpose agents to use scientific software reliably and at scale.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 23013786-cf80-4
-
----
-
-### 9. Every Clause Counts: Instruction-Following Reranking by Multiplying Small, Answerable Questions
-
-- **ArXiv ID**: [2611.03179v1](https://arxiv.org/abs/2611.03179v1)
-- **作者**: S. M. Mahbub Uddin Ahmed, Abdullah Al Musaddiq
-- **发布时间**: 2026-11-02
-- **分类**: cs.IR, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2611.03179v1](https://arxiv.org/pdf/2611.03179v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-People often attach instructions to their search queries, asking for pages written for beginners, documents in a certain language or official sources only. Most rerankers were trained to judge topical relevance and treat such instructions as a few extra words. On the InfoSearch benchmark, even GPT-4o used as a list-wise reranker reaches an average WISE (Weighted Instruction Sensitivity Evaluation) of only 33.5. We present DMReranker (Decision-Model Reranker), a zero-shot reranker that splits an instructed query into a topic and a short list of typed clauses. A small judge model answers one narrow question per clause, and the answer probabilities are multiplied into a single score. Nothing is trained, and the configuration was frozen before the test runs. Reranking the same top-100 candidates as the published baselines, DMReranker reaches a macro WISE of 50.9 over all six InfoSearch dimensions while keeping original-mode nDCG@10 at 82.9. It trails GPT-4o on the stricter SICR (Strict Instruction Compliance Ratio) metric, 19.2 against 32.1. We show that this gap follows from how a product of probabilities behaves when SICR compares raw scores across runs. Computed from ranks, our SICR is 67.0. On the same judge, splitting the instruction raises WISE from 32.9 to 47.6 over a single combined question, while raw-score SICR falls. Scoring all six dimensions cost about $10 at list price.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e6a5f733-79af-4
-
----
-
-### 10. CoworkOS:Scaling Agent Coworkers for Real-world Automation
-
-- **ArXiv ID**: [2611.03178v1](https://arxiv.org/abs/2611.03178v1)
-- **作者**: Jiajie Jin, Guanting Dong, Chengjun Pan, Xin Deng, Zhuohui Sheng...
-- **发布时间**: 2026-11-02
-- **分类**: cs.AI, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2611.03178v1](https://arxiv.org/pdf/2611.03178v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Rapid advances in cowork agents are shifting human-AI collaboration toward real-world automation, delivering software, designs, and other artifacts. However, such productivity work demands both high-quality delivery on complex productivity tasks and continued monitoring and decision-making over long horizons, a combination that remains an open challenge. We introduce CoworkOS, a general-purpose harness for long-horizon work that separates task strategy from execution management: the model decides actions, delegation, and acceptance, while the runtime maintains state and feedback. Its three-layer architecture enables direct execution or delegation to Subagents, synchronously or asynchronously, under stable responsibilities. Through a shared application layer, humans and agents inspect and revise the same evolving documents, presentations, CAD models, and Blender scenes, so human-in-the-loop participation can enter both through conversation and through direct modification of the work itself. To sustain continuity across agents and sessions, CoworkOS further introduces hierarchical workspaces and persistent semantic memory, so working files, key decisions, and long-running Job logs remain shareable, reusable, and resumable after interruption. Across 12 benchmarks and 6 categories of real-world applications, CoworkOS proves highly competitive with frontier agent applications such as Codex and DeepSeek Harness. As a sustained-work case study, CoworkOS uses GLM-5.3 as its backbone to conduct RSI-driven automated post-training on Qwen3.6-35B-A3B. Over five rounds, the model's average score across eight benchmarks rose from 33.19 to 42.95 (+9.76). Looking ahead, we believe CoworkOS opens a meaningful path toward general cowork-agent intelligence.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3e4d3a27-beec-4
-
----
-
-### 11. Beyond Surface Metrics: Multi-Condition Requirements in Enterprise Maintenance and AI Coding Benchmarks
-
-- **ArXiv ID**: [2611.03162v1](https://arxiv.org/abs/2611.03162v1)
-- **作者**: Heeyong Eun
-- **发布时间**: 2026-11-02
-- **分类**: cs.SE, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.03162v1](https://arxiv.org/pdf/2611.03162v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Repository-level AI coding benchmarks measure task success but do not directly capture the conditions required for software maintenance completion. We study multi-condition fulfillment, where a maintenance task must satisfy multiple operational conditions, sometimes with directional dependencies. Using a fixed 18-criterion taxonomy, we analyze 2,925 Apache Fineract issues and 944 tasks from SWE-bench Pro, SWE-PolyBench Java, and SWE-EVO. We examine condition breadth, corpus-level co-occurrence, and source-grounded directional requirement relationships. Among 1,177 benchmark task pairs matched on issue classification, modified-file count, and code churn, the mean fulfillment-set Jaccard distance is 0.8138, and 57.4% have disjoint condition sets. Condition count alone does not explain this contrast: SWE-bench Pro averages 2.47 conditions per task, versus 1.78 for Fineract. Temporal (B4) and numerical (B2) conditions have a phi coefficient of +0.430 in Fineract versus -0.013 in the pooled benchmark corpus. Among temporally tagged tasks, numerical conditions are also specified in 48.85% (254/520) of Fineract cases versus 5.81% (5/86) of benchmark cases. We document 16 directional relationships in Fineract requirements involving time, calculation, and state preservation, and inspect four benchmark cases to illustrate how relevant conditions appear in evaluation assertions. These examples do not quantify benchmark-wide oracle omissions. The results show that similar surface task profiles can mask substantially different fulfillment-condition sets. We recommend reporting condition breadth, co-occurrence, and directional relationships separately. The corpus comparisons are descriptive and may reflect domain differences; they do not establish causality or production failure rates.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 274bb184-33a0-4
-
----
-
-### 12. Visual-to-Executable Procedural Reconstruction of Buildings
-
-- **ArXiv ID**: [2611.03143v1](https://arxiv.org/abs/2611.03143v1)
-- **作者**: Zichong Zhu, Zhihao Liu, Andrei Sharf, Zhanglin Cheng
-- **发布时间**: 2026-11-02
 - **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.03143v1](https://arxiv.org/pdf/2611.03143v1)
+- **PDF**: [https://arxiv.org/pdf/2611.04303v1](https://arxiv.org/pdf/2611.04303v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Procedural modeling offers compact, editable, and reusable representations for architectural content, but building such models still depends heavily on manually authored grammars. We study image-based procedural building reconstruction from in-the-wild images, with the goal of recovering an executable procedural description that can be instantiated as an editable 3D building asset. Because a single image provides only partial and view-dependent evidence, we focus on recovering the dominant visible facade(s) and attach the recovered facade program to a simple mass model for building-level instantiation. Our method decomposes this task into two structured prediction stages. First, a Global Structure Layout Tree recovers facade-scale split-and-repeat organization through a fine-tuned layout model with render-guided visual-symbolic reflection. Second, a Component Parameterization schema maps representative facade tiles to structured procedural attributes for local architectural component synthesis. These two representations are then deterministically compiled into executable Computer Generated Architecture (CGA) programs, avoiding the brittleness of direct low-level program generation. Experiments show that the proposed framework handles both regular facades and challenging in-the-wild images, while maintaining high structural consistency, procedural executability, and fine-grained architectural detail. The recovered programs further enable controllable and reusable 3D building asset generation.
+In-image machine translation (IIMT) replaces text in an image with its translation while preserving the surrounding visual context. Existing task-specific models achieve convincing performance but require massive paired training images before and after translation. As advanced text-to-image (T2I) models have reached a practically usable level of multilingual text generation, we argue that this capability can be transferred to IIMT and present FlowTranslator. It is a training-free IIMT framework that first employs an OCR model and an LLM to generate the translation prompt, which is injected into the T2I-based diffusion model. To optimize the accurate and natural generation of translated text, we introduce two trajectory controls: Region Coupling Release (RCR) partially decorrelates target-branch noise inside the text region early in the trajectory, while Coupling Expansion (CE) amplifies the emerging edit displacement mid-trajectory. Under the EasyOCR read-back protocol, FlowTranslator achieves average PRIM BLEU and COMET scores of 20.6 and 57.2, respectively, substantially outperforming the strong training-based baseline UniTranslator. On the more challenging and realistic whole-image ScenePair photographs translated into Chinese, it reaches 40.1\% exact-match accuracy and surpasses existing editing systems, some of which only address the text-rendering stage rather than the complete IIMT task. These results establish flow-based editing as a strong, fully training-free baseline for IIMT.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: bb97a9ff-7eba-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: d0b79041-501c-4
 
 ---
 
-### 13. Library of Layers (LoL): Adaptively Ordering Transformer Layers at Runtime
+### 3. OpenBrain: An Auditable Generated-Label Release for Whole-Brain MRI Parcellation
 
-- **ArXiv ID**: [2611.03526v1](https://arxiv.org/abs/2611.03526v1)
-- **作者**: Abdellah Rahmani, Sean McLeish, Ang Li, Sanae Lotfi, Pascal Frossard...
+- **ArXiv ID**: [2611.05348v1](https://arxiv.org/abs/2611.05348v1)
+- **作者**: Qizhen Lan, Yu-Chun Hsu, Yuxiang Wei, Lijing Zhu, Zenan Sun...
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05348v1](https://arxiv.org/pdf/2611.05348v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Automatic tools can now generate whole-brain MRI parcellations at cohort scale, but generated-label releases often provide little evidence about which cases are reliable enough to reuse. We introduce OpenBrain, a confidence-aware release of 35,838 provenance-verified OpenNeuro T1w cases from 607 source datasets. OpenBrain is organized as an auditable case-record release rather than a directory of standalone segmentation files: each record links a primary parcellation, two committee parcellations, source/license provenance, raw QC-7 measurements, percentile risks, a combined risk score R, and a confidence tier. QC-7 is a reference-free reliability panel over label geometry, image-label consistency, and committee disagreement, so users can filter, weight, audit, or re-threshold generated labels without rerunning inference. We evaluate this released evidence under a frozen protocol. Across external cohorts, lower QC-7 risk corresponds to higher generated-label quality; in fixed-budget training, lower-risk selections improve paired macro Dice over random selection by +3.2 to +3.7 percentage points. OpenBrain also exposes raw axes, committee outputs, provenance, and datasheet documentation, so confidence claims remain inspectable after download. It does not turn generated labels into manual annotations or clinical-grade segmentations. Its contribution is a large open generated-parcellation substrate, a reusable case-level risk-evidence layer, and an external validation protocol for release-time QC. Dataset: https://huggingface.co/datasets/lanqz7766/OpenBrain. Code: https://github.com/lanqz7766/openbrain.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: f9912718-cb52-4
+
+---
+
+### 4. Personas Are Not People: Identity as State, Not Attribute
+
+- **ArXiv ID**: [2611.05292v1](https://arxiv.org/abs/2611.05292v1)
+- **作者**: Tamunotonye Harry, Yuanyuan Feng
+- **发布时间**: 2026-11-04
+- **分类**: cs.CL, cs.AI, cs.CY
+- **PDF**: [https://arxiv.org/pdf/2611.05292v1](https://arxiv.org/pdf/2611.05292v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Synthetic populations, large sets of simulated people, are increasingly used in place of real people to pretest surveys, simulate users and communities, and evaluate AI systems. Each simulated person is defined by a persona, a written profile of fixed traits, demographics, and attitudes that a language model is instructed to act out. Every such system assumes that a person's identity is a stable attribute that behaves the same way in every situation the simulation presents. We show that this assumption is not a harmless simplification. Three decades of personality research find the opposite. How a given person behaves varies more across contexts than people vary from one another. Drawing on identity economics, which describes how different situations activate different identities and norms within the same person, we separate behavior into three parts, which are stable traits, the identity a context calls up, and the situation itself. We then prove, under two stated assumptions, that any simulation built on fixed personas, no matter how detailed the personas or how large the underlying model, cannot reproduce the part of a population's behavior that is specific to it and its circumstances. We propose a new evaluation criterion based on this result and a person-in-context design that can meet it in principle. We test one version on a naturalistic Reddit personality corpus and on a published clinical-trial recruitment survey of a community with documented distrust of medical institutions. The design does produce context-dependent behavior when tested directly, but in neither setting does it fully match the real population, and we show where it falls short. The consequence for practice is a risk that synthetic-population evaluations misrepresent the groups whose behavior is most shaped by context, a distortion that richer personas cannot correct.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: deb5e1ef-b670-4
+
+---
+
+### 5. Robust Reconstruction of Power Lines from Incomplete Mobile and Aerial LiDAR Data
+
+- **ArXiv ID**: [2611.05197v1](https://arxiv.org/abs/2611.05197v1)
+- **作者**: Mohamed Gaha, Damos Ayobo Abongo, Philippe Massicotte, Eya Ben Kacem, Wael Jaafar...
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05197v1](https://arxiv.org/pdf/2611.05197v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Accurate vegetation-encroachment assessment and risk mitigation require electric utilities to accurately locate and characterize distribution-network assets, including poles and power lines, and distinguish among medium-voltage, low-voltage, neutral, and telecommunication lines. Mobile and aerial Light Detection and Ranging (LiDAR) point clouds provide detailed 3D representations of these assets and their surroundings. However, power-line detection and reconstruction remain challenging because conductor returns are often sparse, incomplete, noisy, or occluded by vegetation. These challenges are especially significant in distribution networks, where lower pole heights and complex line configurations place conductors close to trees. In addition, mobile and aerial LiDAR datasets differ substantially in point density, viewing geometry, spatial coverage, and occlusion patterns. We propose a robust and automated reconstruction method combining scaled density-based clustering, robust polynomial fitting, and iterative fragment merging to recover individual conductors under severe data incompleteness and occlusion. Following semantic classification, the same reconstruction pipeline processes both mobile and aerial LiDAR data without modality-specific code or parameter tuning. The method is evaluated through degradation experiments, benchmarking, parameter sensitivity analysis, and large-scale validation. On the aerial dataset, it achieves 96.87% precision, 96.66% recall, a 96.76% F$_1$-score, and a geometric RMSE of 0.127 m. On the mobile dataset, where conductor-level reference annotations were unavailable, it achieves a point-to-model RMSE of 0.045 m and a reconstruction coverage of 95.27%. Source code, documentation, and evaluation data are publicly available at https://github.com/varen-project.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: d9d3776e-c1b5-4
+
+---
+
+### 6. DPAGait: Dynamic Pose-Knowledge-Aware Network for Robust Gait Recognition in the Wild
+
+- **ArXiv ID**: [2611.04950v1](https://arxiv.org/abs/2611.04950v1)
+- **作者**: Zenan Lin, Junduan Huang, Kun Liu, M. Saad Shakeel, Wenxiong Kang
 - **发布时间**: 2026-11-03
-- **分类**: cs.LG, cs.AI, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2611.03526v1](https://arxiv.org/pdf/2611.03526v1)
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.04950v1](https://arxiv.org/pdf/2611.04950v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Computer programmers chain together the same reusable computational primitives, for example, conditional statements or loops, but in different orders to implement different algorithms. In contrast, existing language model architectures always execute their layers in the same order. We introduce Library of Layers (LoL), an architecture that dynamically orders its layers during inference to solve the problem at hand. LoL has a single hyperparameter, the size of its global library of transformer blocks, that allows it to transition seamlessly between parameter reuse and sparsity, generalizing the parameter-efficiency and FLOPs-efficiency tradeoffs of dense, depth-recurrent, and mixture of experts architectures in one unified family. We show that LoL achieves competitive performance with all three above baselines when pretrained on text data. On synthetic sudoku and maze data, we observe that the model employs distinct layer orderings to implement different solution strategies, and we can intervene on routing to force a model to apply a specific solution strategy to a problem instance. In a multilingual natural language setting, we find that LoL chooses different layer order patterns based on language and script. Similarly, we train LoL on safety data and fit probes to its router outputs, finding that these probes distinguish safe from unsafe text with high AUROC. LoL provides a path toward a future in which models dynamically compose their own computational graph, enabling more efficient and controllable reasoning.
+Gait biometrics aims at identity recognition by appearance or pose features captured during unconstrained human walking. Existing methods predominantly rely on binary silhouette images, inherently characterized by low information entropy, and fail to fully utilize the dynamic information in gait sequences, limiting their ability to handle cross-time variations effectively. Consequently, these methods encounter significant challenges in the wild. They are susceptible to variations in clothing, carried objects, and viewpoints, as well as dynamic environmental conditions, all of which lead to substantial degradation in recognition accuracy and robustness. To overcome these challenges, we propose a pose-knowledge-aware approach specifically designed for robust gait recognition in the wild. First, we propose a novel Dynamic Pose-Parsing enhanced Silhouette gait representation paradigm that substantially enhances the information entropy and effectively captures fine-grained behavioral cues by integrating pose-parsing cues with traditional silhouettes. Subsequently, we develop a dual-branch Dynamic Pose-Knowledge-Aware Gait network. The framework consists of two complementary branches: (1) a 2D dynamic pose-aware branch that extracts pose-enhanced features from our proposed DPPS representations, and (2) a 3D Skinned Multi-Person Linear branch that leverages the 3D SMPL model to capture rich and comprehensive 3D dynamic pose information. Finally, the features are integrated to facilitate accurate and robust gait recognition. Extensive experiments on four challenging in-the-wild gait datasets demonstrate the effectiveness and generalizability of the proposed DPPS representation. The complete framework is further evaluated on SUSTech1K, CCPG, and Gait3D, where SMPL information is available or can be consistently estimated, achieving competitive performance under diverse real-world conditions.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 9a753fc8-b3fa-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2400cbcf-a538-4
 
 ---
 
-### 14. Steering with Multilingual Lexicons for Sentiment Control in Low-Resource Languages
+### 7. EP-LVMQA: Evidence-Preserving Coarse-to-Fine Localization for Low-Quality Long Video Moment Question Answering
 
-- **ArXiv ID**: [2611.03317v1](https://arxiv.org/abs/2611.03317v1)
-- **作者**: Lucinda Laurent, Muhammad Dehan Al Kautsar, Alfan Farizki Wicaksono, Fajri Koto
-- **发布时间**: 2026-11-02
-- **分类**: cs.CL
-- **PDF**: [https://arxiv.org/pdf/2611.03317v1](https://arxiv.org/pdf/2611.03317v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Activation steering offers a lightweight mechanism for controlling model behavior, but existing methods depend on sentence-level contrastive data that is unavailable for most of the world's languages. We show that multilingual sentiment lexicons are a viable substitute across three model families: aggregated multilingual lexicons outperform English-derived steering vectors for mid- and low-resource languages, while monolingual lexicons remain stronger for languages a model has specialized in during pre-training. The steering efficacy is mechanistically dictated by both representational density and pre-training priors. Large-magnitude English vectors overwhelm the compact representations of low-resource languages, causing "linguistic collapse." This fragility is mitigated by the norm-dampening of multilingual aggregation. Architectural biases, including bilingual specialization penalty and latent numerical rigidity, also heavily constrain cross-lingual steering responsiveness. Ultimately, our work establishes lexicons as a practical steering signal and offers a comprehensive mechanistic account of cross-lingual steering dynamics.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: bae8a34c-f723-4
-
----
-
-### 15. Pixel-UMI: Learning Environment-Aware Whole-Body Manipulation from Sensorized Human Demonstrations
-
-- **ArXiv ID**: [2611.03647v1](https://arxiv.org/abs/2611.03647v1)
-- **作者**: Jason Jingzhou Liu, Tony Tao, Deepak Pathak, Ruslan Salakhutdinov
+- **ArXiv ID**: [2611.04913v1](https://arxiv.org/abs/2611.04913v1)
+- **作者**: Guoning Chen, Zhexun Hu, Yifan Wei, Yixuan Weng, Bin Li...
 - **发布时间**: 2026-11-03
-- **分类**: cs.RO, cs.AI, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.03647v1](https://arxiv.org/pdf/2611.03647v1)
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.04913v1](https://arxiv.org/pdf/2611.04913v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Sensorized human demonstrations offer scalable data for mobile manipulation, but embodiment differences complicate policy learning. We present Pixel-UMI, a pipeline for learning environment-aware whole-body policies from human data. We first introduce Environment-Aware Retargeting (EAR), which combines reconstructed scene geometry with demonstrated head and gripper trajectories to determine robot posture and generate collision-aware joint and base targets. Delay-calibrated action assignment converts these trajectories into actions. However, kinematic differences can leave residual pose errors, creating viewpoint mismatches between human demonstrations and robot observations. We therefore introduce Retargeting-Error-Aware Masking (REAM), which uses these errors during training to reduce reliance on mismatched views at deployment. Finally, because estimated actions cannot fully capture contact-rich interactions, we collect on-policy human corrections through DAgger to improve performance. We evaluate Pixel-UMI on five challenging tasks spanning articulated-object manipulation, deformable-object handling, constrained-space reaching, whole-body collision avoidance, and contact-rich bimanual coordination, achieving 87.0% average task progress. Video results are available at https://pixel-robot.com/pixel-umi
+Long instructional videos are increasingly used in medical education, industrial training, and procedural knowledge transfer, yet their evidence is often incomplete or unreliable: subtitles may be missing, ASR noisy, OCR sparse, and decisive actions briefly shown without narration. Existing VideoQA systems typically return labels or free-form text, making answer support difficult to inspect. We study Long Video Moment Question Answering (LVMQA), where a system returns timestamped answer-supporting evidence. We propose EP-LVMQA, an evidence-preserving coarse-to-fine framework comprising an Uncertainty-Aware Multimodal Evidence Timeline, a Coarse Evidence Planner, and an Evidence-Conditioned Fine Localizer. An evidence card transfers planner scores, matched cues, source-confidence proxies, modality-specific evidence, neighboring context, and a temporal prior between the latter two modules. On MedVidQA, EP-LVMQA achieves 26.1 R1@0.5 and 31.8 mIoU, improving the strongest non-ours results by 6.3 and 5.1 points. It raises Suff.@2 and Ver.@2 to 25.4 and 22.6, gains of 9.5 and 8.8 points. Under matched low-quality perturbations, average relative degradation is reduced from the strongest non-ours value of 14.6% to 11.1%. On Ego4D-NLQ and QVHighlights, EP-LVMQA remains broadly comparable to established task-specific localization methods.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 25feeb40-7f6e-4
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4206f331-014c-4
+
+---
+
+### 8. DreamX: Video Diffusion Model is a Universal Latent Action Learner
+
+- **ArXiv ID**: [2611.05377v1](https://arxiv.org/abs/2611.05377v1)
+- **作者**: Jisoo Kim, Chaehyun Kim, Junsu Kim, Jiho Park, Seongchan Kim...
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV, cs.AI, cs.RO
+- **PDF**: [https://arxiv.org/pdf/2611.05377v1](https://arxiv.org/pdf/2611.05377v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Learning a universal action representation from video requires modeling dynamics that are consistent across different executions of the same action yet invariant to changes in embodiment and appearance. Existing latent action models infer actions from visual transitions, but their representations often entangle the underlying action with irrelevant visual variations, limiting transfer across embodiments. We introduce DreamX, which repurposes a pretrained video diffusion model as a universal latent action learner. Our approach extracts compact latent actions from the video model's rich spatiotemporal features, compressing each latent video frame by $\boldsymbol{300\times}$ ($\boldsymbol{1{,}200 \rightarrow 4}$ tokens). In addition, by leveraging the video model's generative prior, these latent actions capture action-relevant dynamics disentangled from visual appearance. The resulting latent space serves as a shared action interface across embodiments (human and robot), environments, and action parameterizations. On LARY-Bench, DreamX achieves state-of-the-art performance among latent action models. Moreover, actions encoded in one setting remain effective in another: the latent space supports any-to-any video transfer and zero-shot action transfer across diverse embodiments and environments. Furthermore, this shared interface also enables policy learning in a compact latent action space, reducing the computational cost of video-diffusion-based policies.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8af8dd1a-3b8a-4
+
+---
+
+### 9. Visibility-Aware Reference Generation for Benchmarking Visual 3D Reconstruction in Vegetation-Rich Environments
+
+- **ArXiv ID**: [2611.05361v1](https://arxiv.org/abs/2611.05361v1)
+- **作者**: Zhipeng Zhong, Matthew Coombes, Cunjia Liu
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV, cs.RO
+- **PDF**: [https://arxiv.org/pdf/2611.05361v1](https://arxiv.org/pdf/2611.05361v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Reliable evaluation of visual 3D reconstruction and depth estimation in vegetation-rich outdoor environments is limited by the scarcity of geometric ground-truth data and the cost of complete scanner surveys. We present a LiDARbased reference-generation pipeline for evaluating the zero-shot performance of feed-forward visual-geometry models alongside conventional structure-from-motion (SfM) methods. The pipeline reuses camera images, LiDAR scans, and reference poses from existing multi-sensor localization datasets to generate per-view depth maps and visible reference point clouds. To address visibility errors in accumulated LiDAR scans, we introduce the LargeDepth-Gap Visibility Score (LDGVS) for point-wise visibility filtering and automatic scale selection in Hidden Point Removal(HPR). Experiments on TartanAirV2 and TartanGround show that, compared with Poisson surface reconstruction, which is an approach suited to completed scan surveys, the combined HPR and LDGVS filtering retains approximately three times the point density at comparable absolute relative error. We also apply the pipeline to the BotanicGarden dataset to systematically compare depth estimation and 3D reconstruction methods. Feedforward methods produce dense depth predictions efficiently, but their 3D reconstructions can contain duplicated structures. Conventional SfM generally produces more coherent geometry, but its reconstructions remain sparse and more prone to failure in challenging vegetated scenes. The benchmark toolkit and datasets will be released.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 92d3ecca-26cb-4
+
+---
+
+### 10. GSCV++: Lightweight 3D Gaussian Splatting Sequence Compression via Standard Video Codecs
+
+- **ArXiv ID**: [2611.05359v1](https://arxiv.org/abs/2611.05359v1)
+- **作者**: Qi Yang, Yingzhan Xu, Kai Zhang, Li Zhang
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05359v1](https://arxiv.org/pdf/2611.05359v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+This paper presents GSCV++, a lightweight pipeline for 3D {G}aussian {S}platting (GS) sequences {C}ompression with standard {V}ideo codecs. To meet the requirements of low-complexity and hardware compatibility from the industry, GSCV++ jointly improves preprocessing, 3D-to-2D mapping, and practical video compression configuration of GS compression. First, for preprocessing, energy-adaptive inter-frame spherical harmonic (SH) alternative current (AC) dimensionality reduction (EA-SHDR) is proposed to produces a compact and stable temporal SH AC feature space. It can reduce the data volume of following mapping and practical compression, as well as less complexity while eliminating redundant information. Second, for 3D-to-2D mapping, prior-based Inter-MiniPLAS (P-MiniPLAS) is designed to generate smooth 2D feature maps through prior-based weighting factor inference and small scale remapping. Compared with vanilla Parallel Linear Assignment Sorting (PLAS) and Morton scan, P-MiniPLAS ensures the generated 2D maps are more suitable for the video codec while maintaining a low level of computational complexity. Third, for practical compression, content-aware generalized compression (CA-GC) is developed to use a non-uniform bit-depth split for coordinate map generation, and a coding unit size selection is introduced for efficient compression complexity control, which fully exploits the performance of video codecs without involving normative changes. Experiments demonstrate that GSCV++ reports over 20\% in intra- and 60\% in inter-prediction rate-distortion gains compared with state-of-the-art (SOTA) methods. GSCV++ also achieves faster 2D map generation, encoding, and decoding than other SOTA methods using the same type of video codecs. Ablation studies verify the effectiveness and robustness of the proposed modules and provide insights for subsequent research.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 63b1bd15-2d2c-4
+
+---
+
+### 11. Wonder 4: A Mixture-of-Experts Recipe for Image Quality Enhancement
+
+- **ArXiv ID**: [2611.05294v1](https://arxiv.org/abs/2611.05294v1)
+- **作者**: Yunan Wu, Bin Sun, Partha Acharjee, Xiaoyu Wang
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05294v1](https://arxiv.org/pdf/2611.05294v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+A real photograph is often blurry, grainy, compressed, scratched, and low-resolution at the same time. Each defect has its own severity and its own place in the image. The corrections for these defects conflict with each other. Exist- ing models describe the whole image with one description, so they cannot say where each correction belongs. To solve this problem, we present Wonder 4, a mixture-of-experts (MoE) model for image quality enhancement. It corrects several defects of a real photograph at the same time, each in the region where it occurs. Every block of the model holds a mixture of N = 13 experts. A router, trained with the model, sends every image patch to k = 5 of them. No degradation classifier, mask, prompt, detector, or task label is used. Another issue is that standard MoE training, taken from language models, pushes every expert toward equal use. Equal use applies every correction everywhere, even where it is not needed. We replace this rule with a bias that only sets a minimum share of use. Across all patches, an expert used less than this minimum gets higher router scores until it is selected again. An expert above the minimum is not changed, so no expert is forced to be used as often as the others. The bias needs no extra loss. The method adds no extra module and no extra processing step. We evaluate Wonder 4 on DIV2K and Flickr2K, against five published methods and three open-weight pipelines. It reaches the best LPIPS, DISTS, and NIQE on all three test settings (DIV2K x4, DIV2K x8, and Flickr2K x4).
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7577ef64-09ad-4
+
+---
+
+### 12. Anchored Rank-Adversarial Fine-Tuning Pretrained Visual Place Recognition Models
+
+- **ArXiv ID**: [2611.05286v1](https://arxiv.org/abs/2611.05286v1)
+- **作者**: Mostafa Kira, Bader Rasheed, Manuel Mazzara
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05286v1](https://arxiv.org/pdf/2611.05286v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Visual place recognition (VPR) localises a camera by retrieving similar geo-tagged images, and current foundation-model VPR models are accurate across cities, seasons and illumination, but not robust to adversarial perturbations: under a white-box attack on the ranking at an imperceptible budget of 1/255, SuperVLAD and BoQ keep at most 0.2% top-1 recall (R@1) on four benchmarks. We propose anchored rank-adversarial fine-tuning (ARAFT), which fine-tunes a released model with a listwise rank loss on each adversarial query's hardest positive and an anchor to the clean descriptor of the frozen pretrained model. Checkpoints are selected under a clean-accuracy budget fixed in advance, and the full trade-off is reported. Within five validation R@1 points of clean cost, plain adversarial training has no admissible checkpoint, whereas ARAFT raises robust R@1 from zero to 47.3 on SuperVLAD and 55.3 on BoQ; plain adversarial training exceeds this only at about three times the clean cost. Against unbudgeted plain adversarial training on the test sets, ARAFT matches its robust R@1 at 2/255 with about ten more clean R@1 points. At 4/255, plain adversarial training is 6-9 robust R@1 points ahead, while ARAFT still keeps its ten-point clean advantage. Developed on SuperVLAD, ARAFT transfers to BoQ without re-tuning, and its robustness holds against stronger optimisers, with no sign of gradient masking.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: c5880d10-ca0d-4
+
+---
+
+### 13. YANAMI: A Large-Scale Multimodal Dataset and Benchmark for Multiturn Stateful Interaction
+
+- **ArXiv ID**: [2611.05280v1](https://arxiv.org/abs/2611.05280v1)
+- **作者**: Shengyu Wang, Tengyue Nong, Junming Liu, Haosong Peng, Siyu Li...
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05280v1](https://arxiv.org/pdf/2611.05280v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Unified Multimodal Models (UMMs) integrate visual understanding, generation, and editing within a single unified framework. However, existing unified multimodal datasets and benchmarks remain dominated by single-turn tasks. Even in recent multi-turn datasets, many turns can be solved independently without tracking information across turns. Consequently, they provide limited supervision and evaluation for multimodal stateful interaction, which requires models to understand, maintain, update, and faithfully realize evolving dialogue states across turns. To address this gap, we introduce YANAMI, the first large-scale multimodal dialogue dataset and benchmark for stateful interaction, comprising YANAMI-400K and YANAMI-Bench. YANAMI-400K contains 400K multi-turn multimodal dialogues, with more than 2M images and 2.6M dialogue turns. The dialogues span four representative scenarios: Multi-Image Fusion, Image Editing, World Modeling, and Visual Reasoning, and require models to continuously track, preserve, and revise evolving multimodal dialogue states across turns. YANAMI-Bench comprises 400 multi-turn dialogues for systematically evaluating multimodal stateful interaction. It jointly evaluates Dialogue State Understanding and Visual Realization, characterizing the gap between models' ability to understand evolving dialogue states and their ability to faithfully realize them in visual outputs. Experiments show that fine-tuning BAGEL on YANAMI-400K improves image editing, generation, and multimodal stateful interaction by 10.3%, 2.0%, and 13.23%, respectively, while preserving its general visual understanding capabilities. Evaluations on YANAMI-Bench further reveal that existing UMMs still struggle to maintain, update, and visually realize evolving multimodal dialogue states.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2b1aa54f-6eaf-4
+
+---
+
+### 14. Möbius: A Unified Motion-Language Model Bridging Understanding and Generation
+
+- **ArXiv ID**: [2611.05279v1](https://arxiv.org/abs/2611.05279v1)
+- **作者**: Jiazhi Shu, Chengfeng Zhao, Jinyi Wang, Yubo Zhao, Zhiyang Dou...
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05279v1](https://arxiv.org/pdf/2611.05279v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+We aim to build a truly unified motion model that can understand, generate, and edit human motion within a single framework. Existing motion UMMs remain only partially unified: motion understanding is handled by a language model, while generation is often delegated to a separate diffusion module operating over learned motion latents. We introduce Möbius, which brings the entire diffusion process into the same multimodal representation space used for motion understanding. Clean motion, noisy motion, and text jointly participate in shared attention, while role-specific parameters process understanding and generation streams. Importantly, Möbius operates directly on continuous frame-level raw motion, requiring neither discrete tokenization nor a pretrained motion VAE. This simple formulation naturally supports motion captioning, text-to-motion generation, temporal completion, and instruction-guided editing within a single model. On HumanML3D, Möbius achieves state-of-the-art performance among unified motion models. Scaling to 1.7B parameters and 1,700 hours of motion data further demonstrates that our framework is both effective and scalable.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: f0f2f3ce-7ef6-4
+
+---
+
+### 15. Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems
+
+- **ArXiv ID**: [2611.05275v1](https://arxiv.org/abs/2611.05275v1)
+- **作者**: Pengfei Zhou, Yixing Ma, Hexin Wang, Weidong Tang, Zhenglin Wan...
+- **发布时间**: 2026-11-04
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.05275v1](https://arxiv.org/pdf/2611.05275v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Artificial general intelligence (AGI) requires a method that can understand, generate, reason, and act across diverse domains and modalities. Rather than relying on a single model to master every capability, a promising path toward AGI now is to orchestrate a heterogeneous ecosystem of specialized models, tools, and policies (candidates) into a unified AI system. At the heart of this vision lies a fundamental question: how can an AI system dynamically select and coordinate the most capable candidate for each task while balancing performance and computational cost? In this work, we present Route Anything, a unified framework for studying model and policy routing across general-purpose AI systems. We develop a unified theoretical foundation that characterizes optimal routing under quality--cost trade-offs and establishes how the information available to a router determines its attainable performance. To systematically investigate routing across diverse capabilities, we first construct an omni-modal trajectory matrix spanning 25 benchmarks across language understanding, image, video, and speech generation, coding and workplace agents, and robotic manipulation, comprising 374,401 scored runs from 452 candidate configurations. Building on this framework, we train and test different routers to investigate the potential of omni-modal model routing, the capabilities of learned routers, and the conditions under which routing improves efficiency. Our results reveal substantial opportunities for capability orchestration: per-input oracle routing outperforms the best fixed candidate by 5.4 points, and learned routers outperform it by 0.3 points across 16 benchmarks, by 2.1 points on video generation, and by 1.1 points on robot manipulation while using 24% less policy time. More importantly, routing raises efficiency by 8.82x on average compared with the reference model.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.BadRequestError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4a0004a7-8fc5-4
 
 ---
