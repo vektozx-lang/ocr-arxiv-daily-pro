@@ -1,1 +1,324 @@
-[]
+[
+  {
+    "title": "Multi-Modal Agricultural Document Understanding at the DAGRI Task",
+    "arxiv_id": "2611.11886v1",
+    "link": "https://arxiv.org/abs/2611.11886v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.11886v1",
+    "authors": [
+      "Zhefan Wang",
+      "Da Li",
+      "Keping Bi",
+      "Nanqing Dong"
+    ],
+    "published": "2026-11-09T05:06:27Z",
+    "categories": [
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1063564f-fafd-4"
+  },
+  {
+    "title": "A Lattice-Based HMM Approach to Aruz Scansion of Ottoman Poetry",
+    "arxiv_id": "2611.12691v1",
+    "link": "https://arxiv.org/abs/2611.12691v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12691v1",
+    "authors": [
+      "Mehmet Emre Tiryaki"
+    ],
+    "published": "2026-11-09T16:51:42Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 013ce870-d5a4-4"
+  },
+  {
+    "title": "A four-step validation protocol for radiomic survival analysis in small cohorts: a body composition case study",
+    "arxiv_id": "2611.12682v1",
+    "link": "https://arxiv.org/abs/2611.12682v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12682v1",
+    "authors": [
+      "Mariela Talavera-Muñoz",
+      "Cecilia Diana-Albelda",
+      "Miguel Antonio Sampedro-Nuñez",
+      "Victor Rodriguez-Laval",
+      "Jesus Bescos",
+      "Álvaro García-Martín"
+    ],
+    "published": "2026-11-09T16:46:25Z",
+    "categories": [
+      "eess.IV",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0b090c0e-1f04-4"
+  },
+  {
+    "title": "Path-Level Structural and Semantic Alignment for Hierarchical Multi-Label Text Classification",
+    "arxiv_id": "2611.12420v1",
+    "link": "https://arxiv.org/abs/2611.12420v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12420v1",
+    "authors": [
+      "Xindi Wang",
+      "Aifen Xiong",
+      "Baiyang Wang",
+      "Xuri Ge",
+      "Robert Mercer",
+      "Frank Rudzicz",
+      "Yifan Peng",
+      "Zhumin Chen",
+      "Hongjun Wang"
+    ],
+    "published": "2026-11-09T13:49:01Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8ea5991d-6844-4"
+  },
+  {
+    "title": "AutoBuddy: Evaluating Proactive, Always-On Agents on Task Discovery and Execution in a Simulated Workplace",
+    "arxiv_id": "2611.12393v1",
+    "link": "https://arxiv.org/abs/2611.12393v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12393v1",
+    "authors": [
+      "Shiqi Chen",
+      "Daniel Madrigal Diaz",
+      "Wei-Ning Chen",
+      "Gbola Afonja",
+      "Fangkai Yang",
+      "Rujia Wang",
+      "Chetan Bansal",
+      "Victor Rühle",
+      "Saravan Rajmohan",
+      "Dongge Han"
+    ],
+    "published": "2026-11-09T13:30:18Z",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1f40df90-b163-4"
+  },
+  {
+    "title": "Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning",
+    "arxiv_id": "2611.12886v1",
+    "link": "https://arxiv.org/abs/2611.12886v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12886v1",
+    "authors": [
+      "Haozhi Yuan",
+      "Handong Li",
+      "Yifan Zhang",
+      "Qianshan Wei"
+    ],
+    "published": "2026-11-09T18:59:54Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8f87e94f-4959-4"
+  },
+  {
+    "title": "World In-Context Learning for Agentic Robot Manipulation",
+    "arxiv_id": "2611.12885v1",
+    "link": "https://arxiv.org/abs/2611.12885v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12885v1",
+    "authors": [
+      "Heng Fang",
+      "Zehui Guo",
+      "Yuehan Zhang",
+      "Mingyang Du",
+      "Dingkang Liang",
+      "Xiang Bai"
+    ],
+    "published": "2026-11-09T18:59:45Z",
+    "categories": [
+      "cs.CV",
+      "cs.RO"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: b2ab1882-1e5d-4"
+  },
+  {
+    "title": "Guiding Data Allocation for Robust Subpopulation Generalization",
+    "arxiv_id": "2611.12884v1",
+    "link": "https://arxiv.org/abs/2611.12884v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12884v1",
+    "authors": [
+      "Zhaoying Pan",
+      "Yipei Wang",
+      "Shenyu Lu",
+      "Xiaoqian Wang"
+    ],
+    "published": "2026-11-09T18:59:40Z",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 36ffac36-3eb3-4"
+  },
+  {
+    "title": "Beyond Modality Preference: Controlling Multimodal Arbitration under Modality Conflict in MLLMs",
+    "arxiv_id": "2611.12883v1",
+    "link": "https://arxiv.org/abs/2611.12883v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12883v1",
+    "authors": [
+      "Zhaoying Pan",
+      "Shenyu Lu",
+      "Jun Hui Wong",
+      "Junyi Chai",
+      "Xiaoqian Wang"
+    ],
+    "published": "2026-11-09T18:59:36Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: c7334320-7b8b-4"
+  },
+  {
+    "title": "Grasping the Future: Joint 3D Hand-Object Forecasting From Internet Videos",
+    "arxiv_id": "2611.12879v1",
+    "link": "https://arxiv.org/abs/2611.12879v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12879v1",
+    "authors": [
+      "Rustin Soraki",
+      "Matthew Wallingford",
+      "Ryan Aby",
+      "Brandon Chee",
+      "Jason Ren",
+      "Ali Farhadi",
+      "Homanga Bharadhwaj",
+      "Roozbeh Mottaghi"
+    ],
+    "published": "2026-11-09T18:59:01Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: c14c5359-2451-4"
+  },
+  {
+    "title": "Click3R: Interactive Stereo 3D Reconstruction with Sparse Correspondence Clicks",
+    "arxiv_id": "2611.12875v1",
+    "link": "https://arxiv.org/abs/2611.12875v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12875v1",
+    "authors": [
+      "Hao Gu",
+      "Jin Yao",
+      "Zezhou Cheng"
+    ],
+    "published": "2026-11-09T18:58:02Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: cdee391e-e200-4"
+  },
+  {
+    "title": "SWAM: Scaling World Action Models with Cross-Modal Alignment",
+    "arxiv_id": "2611.12870v1",
+    "link": "https://arxiv.org/abs/2611.12870v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12870v1",
+    "authors": [
+      "Yu Zhou",
+      "Xinyuan Xia",
+      "Xuankun Yang",
+      "Yinghao Yang",
+      "Wendi Chen",
+      "Bowen Liu",
+      "Jianhan Ma",
+      "Weicheng Duan",
+      "Jun Lv",
+      "Cewu Lu",
+      "Yanwei Li"
+    ],
+    "published": "2026-11-09T18:55:04Z",
+    "categories": [
+      "cs.CV",
+      "cs.RO"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: dff408b4-d092-4"
+  },
+  {
+    "title": "AI-based characterization of lymphoid structures and the tumor microenvironment reveals lower mature tertiary lymphoid structures, lymph-node follicles, and plasma cells after neoadjuvant therapy in lung squamous cell carcinoma",
+    "arxiv_id": "2611.12855v1",
+    "link": "https://arxiv.org/abs/2611.12855v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12855v1",
+    "authors": [
+      "Arne Schmidt",
+      "Justin Nieder",
+      "Cornelius Boehm",
+      "Julika Ribbat-Idel",
+      "Marius Teodorescu",
+      "Marie-Lisa Eich",
+      "Simon Schallenberg",
+      "Gabriel Dernbach",
+      "Katja Lingelbach",
+      "Miriam Haegele",
+      "Timo Milbich",
+      "Adam Narai",
+      "Maria Stoelben",
+      "Hans Pinckaers",
+      "Lukas Ruff",
+      "Kai Standvoss",
+      "Christian Watermann",
+      "Christiane Kuempers",
+      "Sven Perner",
+      "Verena Sailer",
+      "Jasmin Tiebach",
+      "Torsten Goldmann",
+      "Sebastian Marwitz",
+      "Johannes Braegelmann",
+      "Frederick Klauschen",
+      "Marija Pezer",
+      "Rosemarie Krupar"
+    ],
+    "published": "2026-11-09T18:45:06Z",
+    "categories": [
+      "cs.CV",
+      "q-bio.QM"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 11ee5658-63cd-4"
+  },
+  {
+    "title": "What kills $v$-prediction? A Patch-wise PCA Perspective on Pixel-Space Flow Matching",
+    "arxiv_id": "2611.12852v1",
+    "link": "https://arxiv.org/abs/2611.12852v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12852v1",
+    "authors": [
+      "Tianze Luo",
+      "Haofeng Huang",
+      "Yuan Yao"
+    ],
+    "published": "2026-11-09T18:44:37Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: bb4f813e-fb11-4"
+  },
+  {
+    "title": "2D Gum-Net: Unsupervised Dense Elastic Image Registration via Symmetric Correlation and Spectral Pooling",
+    "arxiv_id": "2611.12805v1",
+    "link": "https://arxiv.org/abs/2611.12805v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.12805v1",
+    "authors": [
+      "Aarya Bhave",
+      "Anushka Ajay Bhave"
+    ],
+    "published": "2026-11-09T18:11:45Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 18e2c539-20d8-4"
+  }
+]
