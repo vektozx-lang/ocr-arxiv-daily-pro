@@ -1,1 +1,290 @@
-[]
+[
+  {
+    "title": "Syllable- and Word-Level Evaluation of Tibetan OCR",
+    "arxiv_id": "2611.21303v1",
+    "link": "https://arxiv.org/abs/2611.21303v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21303v1",
+    "authors": [
+      "Jacob Moore",
+      "Paula Lauren"
+    ],
+    "published": "2026-11-16T16:03:52Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8a67a636-9e"
+  },
+  {
+    "title": "Dataset Distillation for Handwritten Text Recognition: An Empirical Study",
+    "arxiv_id": "2611.21054v1",
+    "link": "https://arxiv.org/abs/2611.21054v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21054v1",
+    "authors": [
+      "Félix Fuentes-Hurtado",
+      "Aric Ayllón",
+      "Juan C. Alfaro"
+    ],
+    "published": "2026-11-16T13:05:34Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: a9bf0dda-ee"
+  },
+  {
+    "title": "Digits in Notation Are Not Numbers: A Scoring Pitfall in PDF-to-Markdown Conversion of Japanese Technical Documents (Preliminary Evaluation)",
+    "arxiv_id": "2611.20993v1",
+    "link": "https://arxiv.org/abs/2611.20993v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.20993v1",
+    "authors": [
+      "Mitsumasa Wada"
+    ],
+    "published": "2026-11-16T12:22:03Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3b63c4e6-1a"
+  },
+  {
+    "title": "Replicating and Extending Weight-Space Programming: Frontier LLMs Compile Programs into Weights and Read Input Layers",
+    "arxiv_id": "2611.21449v1",
+    "link": "https://arxiv.org/abs/2611.21449v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21449v1",
+    "authors": [
+      "Roksana Goworek",
+      "Alexander Hickey",
+      "Federico Nanni",
+      "Martin O'Reilly"
+    ],
+    "published": "2026-11-16T17:35:18Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7ddf52ad-cd"
+  },
+  {
+    "title": "Verifiable Random Sampling of Private Data Without a Trusted Single Party",
+    "arxiv_id": "2611.21222v1",
+    "link": "https://arxiv.org/abs/2611.21222v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21222v1",
+    "authors": [
+      "Muhammed Karamuk",
+      "Mikołaj Glinka",
+      "Ruben Wolff"
+    ],
+    "published": "2026-11-16T15:09:40Z",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 2df21812-c1"
+  },
+  {
+    "title": "Reading or Remembering? Measuring Temporal Contamination in Language Models",
+    "arxiv_id": "2611.21554v1",
+    "link": "https://arxiv.org/abs/2611.21554v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21554v1",
+    "authors": [
+      "Arunkumar V",
+      "Gangadharan G. R.",
+      "S. Senthilkumar"
+    ],
+    "published": "2026-11-16T18:34:08Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7f7c4788-63"
+  },
+  {
+    "title": "GHySSeg: Real-Time Geometric Ground and Road Segmentation for Hybrid Solid-State LiDAR",
+    "arxiv_id": "2611.21507v1",
+    "link": "https://arxiv.org/abs/2611.21507v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21507v1",
+    "authors": [
+      "Martín Palos",
+      "Fernando García"
+    ],
+    "published": "2026-11-16T18:04:36Z",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 5479bc47-05"
+  },
+  {
+    "title": "Power Line Detection in Point Clouds with Point-SAM and RANSAC",
+    "arxiv_id": "2611.21438v1",
+    "link": "https://arxiv.org/abs/2611.21438v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21438v1",
+    "authors": [
+      "Christoph Dalitz",
+      "Oskar Waedt",
+      "Steffen Goebbels",
+      "Mahdieh Shamsadini Motlagh",
+      "Gabriel Gerzabek"
+    ],
+    "published": "2026-11-16T17:25:02Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7ea411fa-36"
+  },
+  {
+    "title": "Benchleaking Is Accelerating: Benchmark contamination has worsened sharply in the past month -- from post-training down to pre-training base models",
+    "arxiv_id": "2611.21315v1",
+    "link": "https://arxiv.org/abs/2611.21315v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21315v1",
+    "authors": [
+      "Yiwei Qin",
+      "Muhang Xie",
+      "Xuefeng Li",
+      "Mohan Jiang",
+      "Dayuan Fu",
+      "Tiantian Mi",
+      "Qipeng Guo",
+      "Pengfei Liu"
+    ],
+    "published": "2026-11-16T16:10:16Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 3b540a0c-a5"
+  },
+  {
+    "title": "Benchmarking Large Language Models for Linguistic Annotation",
+    "arxiv_id": "2611.21291v1",
+    "link": "https://arxiv.org/abs/2611.21291v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21291v1",
+    "authors": [
+      "Ondřej Tichý",
+      "Anna Marklová",
+      "Barbora Bulantová",
+      "Magdalena Titlbachová",
+      "Jiří Milička"
+    ],
+    "published": "2026-11-16T15:55:45Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 755bfed9-39"
+  },
+  {
+    "title": "A Generative AI-Driven Architecture for Whole-Home Intelligent Services: Edge Models, Memory Management, and Household Applications",
+    "arxiv_id": "2611.21232v1",
+    "link": "https://arxiv.org/abs/2611.21232v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21232v1",
+    "authors": [
+      "Mo Zhou"
+    ],
+    "published": "2026-11-16T15:16:17Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: b9cc9094-ef"
+  },
+  {
+    "title": "ExRel: Learning Directed Reuse Relevance between Rich-Text K-12 Question Images with Executable Relation Contracts",
+    "arxiv_id": "2611.21461v1",
+    "link": "https://arxiv.org/abs/2611.21461v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21461v1",
+    "authors": [
+      "Xuexin Liu",
+      "Zengyi Wo",
+      "Shiyu Zhang",
+      "Suqi Cheng",
+      "Daiting Shi",
+      "Xiuyi Chen"
+    ],
+    "published": "2026-11-16T17:44:10Z",
+    "categories": [
+      "cs.IR"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 6c2bf86e-37"
+  },
+  {
+    "title": "Beyond Bilingual: Studying Quadrilingual Code-Switching with Conversational AI",
+    "arxiv_id": "2611.21394v1",
+    "link": "https://arxiv.org/abs/2611.21394v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21394v1",
+    "authors": [
+      "Annika Bush",
+      "Melika Minnaar",
+      "Salys Sultan",
+      "Tasnimul Hasan Tashin",
+      "Ankur Bhatt",
+      "Meltem Aksoy"
+    ],
+    "published": "2026-11-16T16:49:54Z",
+    "categories": [
+      "cs.HC",
+      "cs.CL"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: e12ba51b-1e"
+  },
+  {
+    "title": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
+    "arxiv_id": "2611.21605v1",
+    "link": "https://arxiv.org/abs/2611.21605v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21605v1",
+    "authors": [
+      "Huawei Lin",
+      "Jinting Liu",
+      "Tongyan Wang",
+      "Xuyang Chen",
+      "Ruihua Shi",
+      "Zhichao Xu",
+      "Jiaxin Qin",
+      "Guoshenghui Zhao",
+      "Baijian Yang",
+      "Yingjie Victor Chen",
+      "Tan Yu",
+      "Weijie Zhao"
+    ],
+    "published": "2026-11-16T18:59:04Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0d861ece-22"
+  },
+  {
+    "title": "FaceJev: Direct Visual Decisions for Face Forgery Detection",
+    "arxiv_id": "2611.21604v1",
+    "link": "https://arxiv.org/abs/2611.21604v1",
+    "pdf_url": "https://arxiv.org/pdf/2611.21604v1",
+    "authors": [
+      "Siran Peng",
+      "Tianshuo Zhang",
+      "Yibo Xue",
+      "Ajian Liu",
+      "Haoyuan Zhang",
+      "Weisong Zhao",
+      "Shuhuan Chen",
+      "Xiangyu Zhu",
+      "Zhen Lei"
+    ],
+    "published": "2026-11-16T18:59:04Z",
+    "categories": [
+      "cs.CV"
+    ],
+    "score": 10,
+    "zh_summary": "LLM 调用失败: litellm.AuthenticationError: DeepseekException - {\"error\":{\"message\":\"Authentication Fails, Your api key: ****e78f is invalid (request_id: 5d32456f-86"
+  }
+]
