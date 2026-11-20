@@ -1,300 +1,300 @@
-# OCR arXiv Daily Pro — 2026-11-19
+# OCR arXiv Daily Pro — 2026-11-20
 
 > 自动生成，共收录 **15** 篇高相关论文
 
-> 时间窗口：2026-11-18 09:10 - 2026-11-19 09:10 (Asia/Shanghai)
+> 时间窗口：2026-11-19 09:10 - 2026-11-20 09:10 (Asia/Shanghai)
 
 ---
 
 ## 📊 今日综合分析
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 875de2f5-5d
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 4dc8a80e-88
 
 ---
 
 ## 📄 论文详情
 
-### 1. Generalization of Text Line Segmentation for HTR in Historical Documents
+### 1. SEAF: Selective Semantic Enrichment and Visual Evidence Fusion for Multimodal Sarcasm Detection
 
-- **ArXiv ID**: [2611.24726v1](https://arxiv.org/abs/2611.24726v1)
-- **作者**: Gayan H. Pathirage, Stephan M. Unter, Simon Corbillé, Elisa H. Barney Smith
+- **ArXiv ID**: [2611.25672v1](https://arxiv.org/abs/2611.25672v1)
+- **作者**: Faxian Wan, Xiaocui Yang, Yifan Cao, Shi Feng, Daling Wang...
+- **发布时间**: 2026-11-19
+- **分类**: cs.CV, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2611.25672v1](https://arxiv.org/pdf/2611.25672v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Multimodal sarcasm detection requires textual, visual, and contextual evidence, particularly when multiple images provide complementary cues. Multimodal large language models (MLLMs) can generate auxiliary information from a post's text and images, but their outputs may mix useful background knowledge with redundant visual descriptions. We propose SEAF, a dual-branch framework for selective semantic enrichment and visual evidence fusion. SEAF assigns generated fields to distinct roles: entity background enriches semantic input, while image descriptions supply alignment statistics. The semantic branch combines the original post text, background from a frozen MLLM, and optical character recognition (OCR) text. The aligned visual branch combines global and local visual features with statistics of cross-modal and inter-image similarity. Text-Anchored Smoothed Aggregation (TASA) weights images by their similarity to the original post text while preserving contributions from images with low literal similarity. Summing the branch classification scores integrates contextual semantics with visual evidence. Experiments on the multi-image MMSD3.0 benchmark show that SEAF outperforms all compared methods.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 006ae0c3-39
+
+---
+
+### 2. Uncontrolled source titles: When Nature, Science, and PNAS meet Scopus
+
+- **ArXiv ID**: [2611.25627v1](https://arxiv.org/abs/2611.25627v1)
+- **作者**: Weishu Liu, Ruifeng Zhang, Haifeng Wang
+- **发布时间**: 2026-11-19
+- **分类**: cs.DL, cs.IR
+- **PDF**: [https://arxiv.org/pdf/2611.25627v1](https://arxiv.org/pdf/2611.25627v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Bibliographic databases such as Scopus and Web of Science play a critical role in literature discovery, systematic reviews, bibliometric analyses, and research evaluation, yet their reliability depends on effective control of the quality of the bibliographic data. This study examines the problem of uncontrolled source titles in Scopus by comparing five possibly adopted journal-level retrieval strategies across three flagship journals-Nature, Science, and PNAS. Substantial discrepancies across retrieval results indicate persistent fragmentation in the source title field. A comparative analysis using the Web of Science Core Collection shows that no comparable degree of uncontrolled source-title variation is observed for the same journals. The study further explores possible mechanisms, including inheritance of different title forms from (different) upstream providers, automated parsing and OCR-related artifacts, and insufficient cross-validation. Based on these findings, the study proposes recommendations at both the user and database-provider levels to improve source-title normalization and strengthen source-level metadata governance, with implications for the accuracy and reproducibility of journal-level retrieval and evaluative uses.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: be985676-9f
+
+---
+
+### 3. Carry the Fine Print: Budget-Aware Visual Token Compression for Document OCR
+
+- **ArXiv ID**: [2611.25506v1](https://arxiv.org/abs/2611.25506v1)
+- **作者**: Yixuan Huang, ShengFan Zhang, Jiawei Chen
 - **发布时间**: 2026-11-19
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24726v1](https://arxiv.org/pdf/2611.24726v1)
+- **PDF**: [https://arxiv.org/pdf/2611.25506v1](https://arxiv.org/pdf/2611.25506v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-In this paper we investigate the generalization capability of state-of-the-art object detection models (Hi-SAM, YOLO, and RT-DETR) for the automatic segmentation of text lines in historical documents. Generalization is needed because it is not practical for museums and archives to produce large amounts of labeled samples for each new collection. We also evaluate the few-shot setting by fine-tuning the networks with only a small number of training samples per target dataset. To this end, we use nine different datasets that differ significantly in visual layout and language. Additionally, we discuss why mean average precision (mAP), a classic evaluation metric for object detection, is insufficient for assessing the quality of a text line segmentation model. Depending on the dataset, our CRNN models achieve character error rates (CER) ranging from 2.48% to 7.07% per page for the segmented text lines. This is sufficient for reading comprehension and simple text searches. Finally, we quantify the resource and time requirements of training and inference in different use case settings. This forms the basis for more informed decisions about model and hardware choices based on available resources.
+Visual token compression often treats salience or similarity as a proxy for transcription importance. Complete document OCR breaks this assumption: small symbols and repeated entries can be indispensable to the transcript despite being visually inconspicuous. We present Select and Compensate, a two-stage framework built on a simple idea: choosing where to retain a token need not determine all the evidence it carries. Selection combines adaptive encoding resolution with global importance and local contrast to choose which tokens to retain as anchors. Compensation enriches these anchors with nearby discarded content and its relative position, without adding tokens. The OCR backbone remains frozen, and native coordinates and structural tokens are preserved. We evaluate complete page transcription across five backbones on OmniDocBench and document reconstruction on MPDocBench. With half the original visual tokens, our input-adapted configuration reaches 95.42 OmniDocBench Overall on Ovis versus 96.09 for the uncompressed model, and paired evaluations show gains over simply reducing the input resolution on both benchmarks. With the original input grid, our method stays within 0.17 points of the uncompressed model at 75% retention and exceeds a learned global selector by 4.70 points at 25%. On a fixed 200-page Ovis workload at the same 50% visual-token budget, only 3 of its outputs hit the length limit, versus 30-34 for the evaluated RTPrune, DivPrune, and HiPrune adaptations, and it finishes the batch 35-40% sooner. Code will be made publicly available.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: b716a5cf-76
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 750ee00e-8b
 
 ---
 
-### 2. When Figures Disagree with Text: Evaluating Autonomous Visual Evidence Verification in Scientific Papers
+### 4. Democratizing Cross-Project Knowledge for Transforming Water Governance and Climate Resilience: an Agentic AI Ecosystem
 
-- **ArXiv ID**: [2611.24353v1](https://arxiv.org/abs/2611.24353v1)
-- **作者**: Guijia Zhang, Hongbo Qiu, Jiajun Zha, Guohao Cai, Hao Zheng...
-- **发布时间**: 2026-11-18
-- **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.24353v1](https://arxiv.org/pdf/2611.24353v1)
+- **ArXiv ID**: [2611.26398v1](https://arxiv.org/abs/2611.26398v1)
+- **作者**: Oriol Alàs, Ian Palacín, Iván Cester, Edgar Rubión
+- **发布时间**: 2026-11-20
+- **分类**: cs.IR, cs.AI, cs.CL
+- **PDF**: [https://arxiv.org/pdf/2611.26398v1](https://arxiv.org/pdf/2611.26398v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Scientific figures carry evidence for the claims that cite them, so reviewing a paper means checking that a figure agrees with the text, and not only describing what the figure shows. Benchmarks of figure-text verification typically hand the model the figure, the claim, or the knowledge that an inconsistency exists, which leaves untested whether a model can find the figure worth checking in a complete paper, relate a visual element to the claim it conflicts with, and recognize the conflict. We study this autonomous setting on 31 full manuscripts, each carrying a reviewer-documented figure-text inconsistency from PRISMM-Bench that is hidden from the model. Six multimodal models review each PDF under a neutral prompt, and we then add one input at a time to the same manuscripts. Of 1,445 open-ended reviews, 60.6% mention the flawed figure, yet a grading rubric accepts only 3.3% as diagnosing its contradiction; a blind audit finds the rubric lenient, so we read these as rubric-accepted rates and compare conditions rather than absolute values. In a separate controlled run, naming the figure, without stating that it is flawed, raises rubric-accepted diagnosis from 4.3% to 20.4%, while a consistency instruction and coarse visual cues do not. When the contradiction is visible only in the rendered figure, text-only review yields no accepted diagnosis, while review of the rendered pages with the figure named reaches 15.8%. A baseline that lets the model choose which figures to check, ranked by centrality, stays at 4.8%. Deciding what to verify is thus a large part of the difficulty, and the selection rule we tested does not resolve it. Multimodal document understanding should be evaluated on whether a model can propose what to verify, not only answer questions about a figure it is handed.
+EU-funded projects produce extensive evidence in the form of deliverables, reports, and case studies. However, this knowledge is typically scattered across projects and document structures, making it difficult to locate relevant, contextual information when making decisions. This paper introduces an Agentic AI Ecosystem that consolidates heterogeneous project documentation into a domain-aware knowledge base and provides adaptive access through an agentic Retrieval-Augmented Generation pipeline. Documents from three EU-funded projects (IMPETUS, NATALIE, and InnWater) are reconstructed into hierarchical section trees and indexed with structured metadata. Retrieval is supported by two domain-specific embedding models fine-tuned on domain data (water and climate). On top of this knowledge base, a ReAct-style controller iteratively orchestrates retrieval actions by allocating retrieval budget across domain collections and accumulating evidence until a stopping criterion is met. In a retrieval benchmark over the corpus, the proposed approach improves Mean Reciprocal Rank by 26.7% (relative) compared to a single-domain embedding baseline, indicating more consistent retrieval of relevant evidence to support cross-project knowledge synthesis and climate-resilient decision-making.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7ae71e44-55
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 819fe7f6-e9
 
 ---
 
-### 3. SEE: Unlocking the Hidden Perception of Frozen VLMs
+### 5. Prism: Hierarchical Text Detection with Minimalist Design
 
-- **ArXiv ID**: [2611.23962v1](https://arxiv.org/abs/2611.23962v1)
-- **作者**: Alin-Ionut Popa, Tuo Zhang, Dimitrios Dimitriadis
-- **发布时间**: 2026-11-18
+- **ArXiv ID**: [2611.26254v1](https://arxiv.org/abs/2611.26254v1)
+- **作者**: Yuchen Su, Xuesheng Wang, Zhilong Ji, Jinfeng Bai, Shijian Lu...
+- **发布时间**: 2026-11-19
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.26254v1](https://arxiv.org/pdf/2611.26254v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Hierarchical text detection aims to localize words, text lines, and paragraphs while parsing their structural relationships. It provides essential structural cues for visual text understanding. To maximize accuracy, existing methods typically rely on complex multi-scale feature fusion necks and heavy-weight heads, resulting in bloated architectures and low inference efficiency. In this paper, we argue that a sufficiently pre-trained backbone can effectively replace these sophisticated external modules, while simple geometric inclusion suffices for hierarchical text structural parsing. Thus, we propose Prism, a minimalist framework for hierarchical text detection. Prism performs multi-granularity detection by attaching parallel lightweight heads to a single-scale backbone feature map, covering words, text lines, and paragraphs, and reconstructs the structural hierarchy via an efficient geometric inclusion algorithm. In addition, we systematically compare representative lightweight head archetypes and show that pixel-level regression offers the best accuracy-efficiency trade-off in this setting. Experiments on multiple public benchmarks show that our significantly simplified architecture achieves state-of-the-art (SOTA) performance with remarkable efficiency. Specifically, it runs $1.7\times$ faster than LRANet on CTW1500 while achieving higher accuracy, and surpasses the current SOTA method, OmniParser V2, by over 6 PQ points on the hierarchical HierText dataset. Code will be released soon.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: f7fdd68e-41
+
+---
+
+### 6. RL Post-Training in Diffusion Transformers Is Activation Steering
+
+- **ArXiv ID**: [2611.26627v1](https://arxiv.org/abs/2611.26627v1)
+- **作者**: Tuna Han Salih Meral, Kaan Oktay, Alec Helbling, Atakan Kara, Duen Horng Chau...
+- **发布时间**: 2026-11-20
+- **分类**: cs.CV, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2611.26627v1](https://arxiv.org/pdf/2611.26627v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of these gains an input-independent shift explains, we probe each RL-tuned model with a deliberately simple parameterization: a fixed set of steering vectors added to the block outputs of the frozen base model. On SD3.5-M, these vectors hold 65x fewer parameters than the RL-tuned LoRA (0.29M against 18.8M). We fit them to match the velocity predictions of public RL-tuned checkpoints, with no reward in the objective. Although the vectors are identical for every prompt, token, and sampling seed, they recover 90.0-96.3% of the reward gains of six RL-tuned image models, and 89.8% and 111.9% on two RL-tuned video models. Initialized at zero and trained with online RL, the vectors alone exceed the reward gains of weight-based RL on text rendering (OCR) and human preference (PickScore) on SD3.5-M. A constant shift thus suffices for most of the gain of policy-gradient RL post-training: without new input-dependent transformations, it steers the pretrained generator toward what it can already compute.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 7d76fa7e-0a
+
+---
+
+### 7. AgentRoboCritic: Understanding the Capability of Frontier Agents on Direct Robot Control
+
+- **ArXiv ID**: [2611.26613v1](https://arxiv.org/abs/2611.26613v1)
+- **作者**: Yiyang Du, Yuxuan Kuang, Qitao Zhao, Yixuan Wang, Zhanqiu Guo...
+- **发布时间**: 2026-11-20
+- **分类**: cs.RO, cs.CL, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.26613v1](https://arxiv.org/pdf/2611.26613v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Frontier multimodal language agents such as GPT-6 Astra have demonstrated strong capabilities in controlling robots directly via low-level numerical actions without high-level primitives. However, existing benchmarks report only episode-level success rates, which show neither how these agents succeed nor where they fail. In this paper, we present a systematic action-level analysis of frontier agents on direct robot control across 12 manipulation benchmarks. We introduce AgentRoboCritic, an intent-grounded critique framework in which the policy agent states a local intent alongside each action, and a critic evaluates the action's outcome and failure mode against this intent. Our action-level analysis demonstrates the promising capabilities of frontier agents on direct robot control, including closed-loop recovery from local execution failures, reliable semantic grounding across diverse scenes, and strong zero-shot manipulation without task-specific adaptation. It also identifies their current limitations, including task-relevant physical execution bottlenecks such as grasping and alignment, and uneven recovery across failure modes. Finally, we validate our critic on a 400-action human-annotated benchmark and release a dataset of 12,844 annotated actions alongside a fine-tuned open-source critic, Muse-Glimmer-30B, whose failure-mode accuracy rises from 32.58% to 74.24%, enabling low-cost action-level analysis.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e6b71d56-19
+
+---
+
+### 8. Asuka-FM: A System-Architectural Co-Design Framework for Efficient Text-to-Image Pretraining on Consumer Hardware
+
+- **ArXiv ID**: [2611.26437v1](https://arxiv.org/abs/2611.26437v1)
+- **作者**: Víctor Rodrigo González, Pablo M. Olmos, Ignacio Peis, Alejandro Lancho
+- **发布时间**: 2026-11-20
 - **分类**: cs.CV, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.23962v1](https://arxiv.org/pdf/2611.23962v1)
+- **PDF**: [https://arxiv.org/pdf/2611.26437v1](https://arxiv.org/pdf/2611.26437v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Vision-language models (VLMs) grasp the overall content of an image but often miss the fine details a question hinges on, such as a small object in a large photo or a number in a dense infographic. Yet even when their answer is wrong, the region they point to often contains the evidence. We introduce Self-Elicited Evidence (SEE), a training-free method that lets a frozen VLM look again where it points. When the initial answer has low confidence, SEE prompts the model to propose regions where the details may appear, answers the question on these enlarged crops, and aggregates the answers with the original prediction through confidence-weighted voting. The model also answers with its own transcript, which helps on text-rich images. SEE needs no detector or OCR engine. Across five backbones, SEE improves every small-object benchmark by 2.3-13.1 points and outperforms five training-free baselines on small objects. With SEE, Qwen3.5-4B surpasses the direct answer of Qwen3.5-9B and matches the 6 times larger Qwen3.5-27B.
+Frontier text-to-image (T2I) foundation models predominantly rely on multi-billion parameter Diffusion Transformers (DiTs) pretrained across massive compute clusters, creating an accessibility barrier for academic laboratories. When training DiTs from scratch on single consumer GPUs (e.g., an NVIDIA RTX 4090 with 24\,GB VRAM), practitioners encounter three primary bottlenecks: quadratic attention sequence costs, Just-In-Time (JIT) compilation graph breaks induced by variable aspect-ratio bucketing, and an autoencoder throughput wall where frozen Variational Autoencoder (VAE) operations dominate step latency. In this work, we introduce \textbf{Asuka-FM}, an end-to-end system and architectural framework demonstrating that competitive dual-stream DiTs ($\sim$206M parameters) can be pretrained from scratch on a single consumer GPU in $\sim$160 GPU hours for under \$55. Asuka-FM integrates four core designs: (i) an AdaLN-free dual-stream DiT backbone reducing parameter count; (ii) structured sequence sparsification via Sparse-Dense Residual Fusion (SPRINT) to cut attention FLOPs by over 50\%; (iii) continuous aspect-normalized Rotary Position Embeddings (RoPE) coupled with shifted square crop training, guaranteeing static tensor shapes while unlocking zero-shot virtual camera control; and (iv) a pixel adaptation phase utilizing a lightweight (10M parameter) Patch Detailer Head operating under velocity regression ($v$-prediction). Evaluated on open-domain benchmarks without benchmark-specific fine-tuning, Asuka-FM achieves GenEval 0.588 / DPG 78.96 scores at 256px and GenEval 0.609 / DPG 78.51 scores at 512px, setting a new Pareto-optimal efficiency standard for democratic foundation modeling.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: faddd907-e7
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 689182ac-4a
 
 ---
 
-### 4. Coverage Governs Accuracy: When to Expand the Lexicon and When to Fall Back in Low-Resource Manchu OCR
+### 9. ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step
 
-- **ArXiv ID**: [2611.23900v1](https://arxiv.org/abs/2611.23900v1)
-- **作者**: Ruixin Yu, Zifan Wang, Mingxin Ding, Xiaoxin Sun, Dongjie Wang...
-- **发布时间**: 2026-11-18
-- **分类**: cs.CL, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.23900v1](https://arxiv.org/pdf/2611.23900v1)
+- **ArXiv ID**: [2611.26389v1](https://arxiv.org/abs/2611.26389v1)
+- **作者**: Kaiwen Zhang, Yiming Gao, Zeqi Xiao, Xintao Wang, Pengfei Wan...
+- **发布时间**: 2026-11-20
+- **分类**: cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.26389v1](https://arxiv.org/pdf/2611.26389v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Character-level OCR for low-resource Manchu often produces near-miss spelling errors. Lexicon-constrained decoding can correct such errors with lexical knowledge, but a fixed dictionary cannot cover the many unseen word forms produced by agglutinative word formation. We study whether morphological expansion alleviates this limitation, and how the expansion size and confidence fallback affect recognition. We segment the training transcriptions with a dictionary-based stem list, extract roots and suffix chains from them, generate about 510k candidates, select the expansion size through frequency ranking on the validation set, and decompose accuracy under hard lexicon constraints into the product of coverage and in-lexicon precision. Across three CRNN training seeds, adding 250k candidates to a base dictionary of about 29k words raises the type accuracy on unseen combinations of seen roots from 63.6% to 86.3%, and overall token accuracy from 82.4% to 84.2%. Adding all candidates lowers overall token accuracy to 81.5%, showing that the coverage gain comes with a loss of in-lexicon precision. A further comparison shows that the base dictionary with confidence fallback performs best overall among the CRNN systems tested, reaching 76.1% type and 85.5% token accuracy and outperforming the expanded lexicon both with and without fallback. A Transformer recognizer shows similar trends. These results indicate that morphological expansion relieves the constraint of a fixed dictionary, but a larger lexicon does not guarantee better recognition; in the present low-resource Manchu OCR setting, a selective combination of reliable lexical constraints and open recognition is more effective.
+Current leading video generation models can synthesize highly realistic videos, while still frequently violating physical and logical constraints in multi-step reasoning and planning, even after training with large-scale reasoning data or existing diffusion RL methods. We attribute these failures to the conventional video training paradigm, which treats a solution as a fixed-length clip rather than a chain of decisions. We present ViDecide, a decision-centric framework that trains video diffusion models to predict state transitions causally and decide when to stop, with a decision-focused training schedule. We further propose Corrective Fine-tuning (CFT), which corrects failed decisions by mapping their noise to the model's own successful continuations, achieving stable improvement without policy-gradient optimization. Across abstract games, planning tasks, and a new benchmark of multi-step robot planning, ViDecide achieves an average strict success rate of 83.8%, far above 23.3% for standard fine-tuning and 67.8% for the strongest prior method, and generalizes to larger puzzles and unseen layouts. Our framework therefore unlocks greater potential for video generation models as reliable reasoners and planners in the visual world. Project page: https://kevin-thu.github.io/ViDecide.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a3d3b85b-f0
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 282dd092-a3
 
 ---
 
-### 5. Mapping the AI Supply Chain: Dependencies, Vulnerabilities, and Market Concentration in the AI Ecosystem
+### 10. ProtoDiffusion: Token-per-Layer Generative Modeling of Multi-Layer Images
 
-- **ArXiv ID**: [2611.24927v1](https://arxiv.org/abs/2611.24927v1)
-- **作者**: Sarah H. Cen, Lindsey A. Gailmard, Joohan Kim, Rishi Bommasani, Daniel E. Ho...
-- **发布时间**: 2026-11-19
-- **分类**: cs.CY, cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.24927v1](https://arxiv.org/pdf/2611.24927v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-AI systems are built across many organizations that contribute models, data, compute, capital, talent, and other assets. While the layers of the AI stack are relatively well understood, the relationships between actors and components across layers remains sparsely documented. In this work, we focus on the organizations that make up the AI supply chain: the complex network of actors that contribute to the development and deployment of AI. We motivate the examination of the organizational AI supply chain---highlighting concerns about concentration, power, chokepoints, cascading failures, fragmented accountability, and risk---then describe our pipeline for mapping the AI supply chain. Our pipeline yields our main contribution: a multilayered, large-scale dataset of actors and relationships in the AI ecosystem, annotated with dates, descriptions, types, tags, and more. This work takes a step toward systematically mapping and measuring the AI supply chain and its properties, cataloging how models, data, chips, infrastructure, capital, and even talent flow between organizations. This data enable critical examinations of industry relationships and yield insights into the political economy of AI development and concentration. We provide several illustrative analyses, including studying the most central actors, analyzing network concentration, and identifying communities and chokepoints. While our dataset is fairly comprehensive, it is also necessarily incomplete: public documents omit private deals, and coverage is shaped by search design. Together, the approach, data, and findings aim to serve as a resource for studying the AI ecosystem. The dataset is publicly available at https://huggingface.co/datasets/sarahcen/ai-supply-chain and can be explored interactively at https://aisupplychains.org/.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0a2b332c-d1
-
----
-
-### 6. Choosing What to Observe: Budget-Paired Counterfactual Audits for Credible Evaluation of Visual Agents
-
-- **ArXiv ID**: [2611.24867v1](https://arxiv.org/abs/2611.24867v1)
-- **作者**: Ruiqi Liu, Jinming Li, Mo Wang, Yang Lu, Yanlan Kang
-- **发布时间**: 2026-11-19
+- **ArXiv ID**: [2611.26586v1](https://arxiv.org/abs/2611.26586v1)
+- **作者**: Adrià Ciurana Lanau, Harleen Hanspal, Lusine Abrahamyan, Emilio Tylson Baixauli, Yu Cao...
+- **发布时间**: 2026-11-20
 - **分类**: cs.AI
-- **PDF**: [https://arxiv.org/pdf/2611.24867v1](https://arxiv.org/pdf/2611.24867v1)
+- **PDF**: [https://arxiv.org/pdf/2611.26586v1](https://arxiv.org/pdf/2611.26586v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Visual agents that read dense documents must ration a finite observation budget across candidate regions, yet answer accuracy conflates where an agent looks, how it adapts to the reads that remain, and how it an?swers once observation stops. We introduce budget-paired counterfactual audits, an evaluation protocol that holds public evidence and region bindings fixed while perturbing only the remaining budget or de?clared task parameters, and credits every acquired history with exact continuation values. The resulting accounting decomposes lost expected accuracy into stepwise acquisition loss and terminal decision loss, separating planning from fixed-role heuristics. Across forty paired routing anchors, five open-weight
+Graphic designs are ordered compositions of RGBA layers whose separation enables selection, movement, and reuse. Existing layered models represent each layer with a full-canvas or region-sized spatial latent grid, so representation size grows with the cumulative spatial extent of the layers. We present ProtoDiffusion, a latent-diffusion framework built on ProtoVAE, a multi-layer variational autoencoder that encodes a design into one shared spatial prototype and one candidate vector per layer. Each candidate conditions a shared decoder to reconstruct its corresponding RGBA layer. For $N$ layers, the representation contains $HW+N$ tokens before backbone-specific packing, compared with $NHW$ for full-grid-per-layer representations. ProtoDiffusion jointly denoises the prototype and a fixed set of candidate slots, conditioned on an image or text, with bounding boxes as optional layout guidance. The model leaves unneeded slots empty and determines the number of layers and, in absence of boxes, their layout, requiring neither as input. The same architecture supports both image-to-design and text-to-design. ProtoVAE achieves high-fidelity reconstruction from its compact shared latent representation, reaching 40.43 dB PSNR on layer crops. On the LayerD evaluation split, image-to-design achieves RGB L1 scores of 0.040 with bounding boxes and 0.057 without, with box-guided alpha soft IoU (0.850) comparable to the strongest fine-tuned baseline (0.871). On merged images, text-to-design reaches 66.41 FID versus 86.84 for FLUX.2 [klein], achieves a 0.860 text-accuracy score, and runs $19.1\times$ faster than the same-backbone generation-then-decomposition cascade.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: e9c3937e-88
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: d20acd3f-16
 
 ---
 
-### 7. Can Programs Replace LLM Judges? Executable Program Judges for Scalable and Efficient Relevance Labeling
+### 11. Posterior Matching Distillation
 
-- **ArXiv ID**: [2611.24849v1](https://arxiv.org/abs/2611.24849v1)
-- **作者**: Eugene Agichtein, Charles L. A. Clarke, Kaustubh Dhole, William Stern
-- **发布时间**: 2026-11-19
-- **分类**: cs.IR, cs.CL
-- **PDF**: [https://arxiv.org/pdf/2611.24849v1](https://arxiv.org/pdf/2611.24849v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Large language model (LLM) judges have become a common way to create large-scale relevance judgments for retrieval evaluation. However, each judgment requires a potentially expensive call to a frontier model, and the judgments are hard to interpret and may not be reproducible. In this paper, we ask whether an LLM can write a readable program for each topic that replaces its per-document judgments. To address these issues, we propose ExecJudges, a method for generating fast, inspectable and scalable judges for automatic relevance labeling. Specifically, ExecJudges uses a frontier LLM to turn assessment guidelines into executable programs, which rely only on lexical matching, standard NLP libraries like parsers, and pool statistics. An ExecJudges-L variant also uses examples of human labels if available. We evaluate ExecJudges on seven TREC collections by comparing the produced labels with trained NIST assessors, frontier LLM judges, and recently proposed per-topic classifiers. Our results show that ExecJudges agrees with NIST assessors at the level of the Claude Sonnet 5.5 LLM judges on TREC DL 2019-2021. With a small number of human labels per topic, the ExecJudges-L variant agrees with NIST more than per-topic classifiers with the same labels on all seven collections, and either exceeds the agreement of LLM judges provided the same labels or is within about 0.05 of it in Krippendorff's alpha. The labels rank the official TREC DL runs with Kendall's tau of 0.87 to 0.94, and writing the programs incurs a one-time cost of $0.17 to $0.49 per topic, with no additional costs for grading. Our results suggest that ExecJudges offers a reproducible, inspectable, efficient and cost-effective alternative to LLM judges for labeling deep result pools for system evaluation or ranking improvements.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: f31db9cc-ec
-
----
-
-### 8. ShoWorld: Shape-Faithful Multi-Hypothesis Occupancy World Model
-
-- **ArXiv ID**: [2611.24457v1](https://arxiv.org/abs/2611.24457v1)
-- **作者**: Zhiqiang Yan, Guangfa Wang, Yuan Wu, Jian Yang, Gim Hee Lee
-- **发布时间**: 2026-11-18
+- **ArXiv ID**: [2611.26629v1](https://arxiv.org/abs/2611.26629v1)
+- **作者**: Hidir Yesiltepe, Julius Berner, Arash Vahdat, Pinar Yanardag
+- **发布时间**: 2026-11-20
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24457v1](https://arxiv.org/pdf/2611.24457v1)
+- **PDF**: [https://arxiv.org/pdf/2611.26629v1](https://arxiv.org/pdf/2611.26629v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Occupancy world models struggle to forecast moving objects due to motion uncertainty and shape distortion. A single trajectory can average plausible futures into an implausible path, and repeated re-voxelization can erode or inflate object shape even under correct motion. We introduce ShoWorld to address these challenges through separate motion and shape representations. The motion forecaster predicts probabilistic trajectories conditioned on scene layout, nearby agents and the future ego trajectory. Each hypothesis is rendered into occupancy and fused according to its probability to retain alternative futures. The shape component predicts sub-voxel points with occupancy probabilities and offsets from local geometry. These points move rigidly with the object, and voxel occupancy follows the probability that at least one occupied point falls within it. This representation reduces shape distortion under motion. ShoWorld achieves state-of-the-art results on Occ3D-nuScenes. With ground-truth occupancy and ego trajectory, it improves mIoU and IoU by 6.56 and 9.16 points overall and by 6.06 and 5.53 points on dynamic classes.
+Diffusion distillation accelerates image and video generation by compressing a pretrained teacher's iterative sampling process into a few network evaluations. Distribution-based methods achieve this by matching the student's output distribution to the teacher's. This matching is often driven by reverse-KL objectives, whose mode-seeking bias favors dominant teacher modes at the expense of diversity across samples. We introduce Posterior Matching Distillation (PMD), a new member of the distribution-based distillation family that combines mode-covering posterior sampling with any-step generation. At zero population loss, PMD recovers the teacher's full posterior of clean images at each trained noise level. Its stochastic student supports any-step sampling budgets within the trained timestep grid without further training. To learn these posteriors, PMD matches exponentially reweighted averages of student samples conditioned on a fixed noisy state to corresponding teacher posterior means. Under Gaussian corruption, exponentially tilted posterior mean is a single teacher evaluation at a shifted input. We prove that, matching tilted means over an open neighborhood uniquely identifies the full posterior. PMD thus supervises the entire conditional distribution through a family of mean constraints, without any auxiliary student-score network. Experiments on SDXL and FLUX.2 [klein] 4B demonstrate that PMD achieves the best FID among 4-step methods on both models, while maintaining competitive or leading performance across prompt-alignment and perceptual-quality metrics.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 1b05b540-80
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 823c577e-d5
 
 ---
 
-### 9. UltraTex: Aligning Physical Knowledge for High-Fidelity PBR Texture Generation
+### 12. PlayCraft: Designing Engaging Games from Agent Play Experience
 
-- **ArXiv ID**: [2611.24941v1](https://arxiv.org/abs/2611.24941v1)
-- **作者**: Jingzhi Bao, Xiaohe Ma, Hong Li, Yuanming Hu, Xiaoguang Han
-- **发布时间**: 2026-11-19
+- **ArXiv ID**: [2611.26624v1](https://arxiv.org/abs/2611.26624v1)
+- **作者**: Weihao Cheng
+- **发布时间**: 2026-11-20
+- **分类**: cs.AI, cs.CV
+- **PDF**: [https://arxiv.org/pdf/2611.26624v1](https://arxiv.org/pdf/2611.26624v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Recent AI agents can generate playable games, but these games are not necessarily engaging. Mastery is a key source of engagement, yet designing for it requires extensive human play and tuning. We propose PlayCraft, an automated framework that uses a vision-based agent to play games and draws on its detailed play experience to revise them for mastery. Starting from an initial game, PlayCraft alternates between playing and crafting. In the playing stage, a player agent watches the game screen, uses the controls, and pursues the game objective over repeated episodes while retaining memory. After each episode, it reports its progress, outcomes, decisions, and reflections. In the crafting stage, a crafter agent uses these reports to revise the game. It estimates player abilities, predicts performance at different proficiency levels, and compares those predictions with a target learning progression. It diagnoses the game and addresses the gaps by giving players meaningful opportunities to improve through better decisions and execution. We evaluate games in fresh runs with player agents across three intelligence settings, measuring learning gain and learning slope. Compared with the initial games, PlayCraft yields larger learning gains and steeper learning slopes in most games. It also outperforms the baselines on the macro-average of each metric at every intelligence setting.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 718cb320-97
+
+---
+
+### 13. One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning
+
+- **ArXiv ID**: [2611.26617v1](https://arxiv.org/abs/2611.26617v1)
+- **作者**: Yuxin Jiang, Wenqiang Sun, Jiaqi Li, Yuchao Gu, Lvmin Zhang...
+- **发布时间**: 2026-11-20
+- **分类**: cs.CV, cs.AI, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2611.26617v1](https://arxiv.org/pdf/2611.26617v1)
+- **相关度评分**: 10/10
+
+#### 英文摘要
+
+Videos reveal how the world changes, but rarely the actions that cause those changes. Latent action learning recovers such supervision from visual transitions, yet often learns the underlying dynamics largely from scratch. We ask whether a pretrained video generator can instead provide the prior for both inverse and forward dynamics. We introduce O$^{2}$LaF, built on a simple principle: one prior, two dynamics. We initialize both models from the same pretrained video DiT and adapt them to their distinct roles: a feed-forward transition encoder with learnable action queries for inverse dynamics, and a causal, action-conditioned video generator for forward dynamics. By controlling information access and optimizing both dynamics end-to-end through a compact bottleneck, O$^{2}$LaF learns transferable actions from unlabeled videos. Across navigation and robotic manipulation, O$^{2}$LaF sets a new state of the art in few-shot action probing and enables stronger zero-shot action transfer across visual contexts and embodiments. Beyond generative video priors, we further extend our framework to predictive representation priors such as V-JEPA2, achieving competitive performance. Our findings suggest a broader paradigm for latent-action learning: repurposing pretrained video models to discover transferable actions and predict their consequences.
+
+#### 深度分析（中文）
+
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: f0159e38-43
+
+---
+
+### 14. ScaleWorld: High-Resolution World Generation through Shared Prediction and Refinement
+
+- **ArXiv ID**: [2611.26615v1](https://arxiv.org/abs/2611.26615v1)
+- **作者**: Yansong Qu, Wesker Zheng, Quanjian Song, Zhiyuan Zhang, Xiao Cao...
+- **发布时间**: 2026-11-20
 - **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24941v1](https://arxiv.org/pdf/2611.24941v1)
+- **PDF**: [https://arxiv.org/pdf/2611.26615v1](https://arxiv.org/pdf/2611.26615v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-Generating physically based rendering (PBR) texture maps for a 3D mesh from a single reference image is highly ambiguous, as the observed appearance entangles material identity, surface reflectance, and illumination. While current generative methods produce realistic albedo maps, they still struggle to infer accurate metallic and roughness attributes for relighting. We present UltraTex, a cascaded multi-view framework that moves beyond appearance matching by integrating physical knowledge into multi-view diffusion-based PBR generation. UltraTex first jointly predicts albedo and world-space shading normals to generate more detailed albedo maps, and then predicts metallic-roughness (MR) maps conditioned on the generated albedo, reference image, and material semantic priors. To inject material semantics, a lightweight adapter transforms hidden-layer features of a vision-language model (VLM) into intrinsic material representation tokens, providing part-level knowledge anchors for MR estimation. To model material-light interaction, photometric representation alignment guides intermediate diffusion features toward ground-truth material renderings under controlled lighting. This makes metallic and roughness variations observable through highlight intensity, specular sharpness, and local reflectance contrast, providing stronger guidance for fine-grained material prediction without explicit lighting supervision. Extensive experiments show that UltraTex generates high-quality textures and outperforms existing open-source and commercial methods in visual fidelity, material accuracy, and physical plausibility.
+High-resolution generation enables video world models to render fine-grained scene structures and textures, but directly generating high-resolution video incurs substantial computational and memory costs. We present ScaleWorld, a causal video model that unifies low-resolution world prediction and high-resolution refinement within a single shared backbone. By refining its own predictions, ScaleWorld produces high-resolution world videos without requiring a separate refinement model. For each video chunk, the shared backbone first completes a low-resolution prediction and then performs one-step high-resolution refinement conditioned on that prediction. To support efficient streaming generation, we maintain separate causal states with a long low-resolution history for prediction and a short high-resolution history for refinement. To address task interference during distillation, we separate specialist optimization from capability consolidation and introduce task-asymmetric on-policy distillation (TA-OPD). This procedure transfers prediction and refinement behaviors from specialized teachers into a shared student through local velocity matching under their respective sampling and history policies. {Extensive experiments demonstrate that ScaleWorld achieves high-quality world generation with improved computational and memory efficiency.
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 0e9e5c13-78
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: b094d7e0-0d
 
 ---
 
-### 10. $Z$-sight: Unifying Vision-Language-Action and Latent World Modeling
+### 15. Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth
 
-- **ArXiv ID**: [2611.24940v1](https://arxiv.org/abs/2611.24940v1)
-- **作者**: Junjie Ye, Yiqi Zhao, Muchen Xu, Celina Shiyu Wang, Hao Dong...
-- **发布时间**: 2026-11-19
-- **分类**: cs.RO, cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24940v1](https://arxiv.org/pdf/2611.24940v1)
+- **ArXiv ID**: [2611.26603v1](https://arxiv.org/abs/2611.26603v1)
+- **作者**: Peiyun Hu, Marko Mihajlovic, Lyndon Duong, Lahav Lipson, Wei Dong...
+- **发布时间**: 2026-11-20
+- **分类**: cs.CV, cs.LG
+- **PDF**: [https://arxiv.org/pdf/2611.26603v1](https://arxiv.org/pdf/2611.26603v1)
 - **相关度评分**: 10/10
 
 #### 英文摘要
 
-We introduce $Z$-sight, a unified robot foundation model that couples vision-language-action (VLA) and generative latent world modeling. Video-based world action models (WAMs) show the value of joint future-and-action generation for control, yet inherit the heavy cost of video generators. Recent latent-space policies avoid pixel generation, yet typically align intermediate features or rely on frozen target encoders, decoupling future prediction from the VLM's native feature space. $Z$-sight instead predicts the future directly in the visual token space in which its VLM perceives the present. Coupling a foresight expert and a continuous action expert with the VLM in a mixture-of-transformers, $Z$-sight jointly denoises future spatial tokens and actions at inference without pixel reconstruction or external encoders. Trained on human video and robot trajectories, $Z$-sight achieves 81.9% success on SIMPLE (+9.6 points over the strongest baseline) and 73.3% across six Unitree G1 tasks (+20.0 points) at 110 ms per chunk, while remaining competitive on tabletop benchmarks.
+We present Depth Pro 2, an approach to estimating dense metric depth for images and video at full resolution. By analyzing prior methods for monocular depth estimation, we find that they commonly trade off temporal consistency and boundary sharpness: multi-frame methods favor consistency, single-frame methods favor sharpness. To overcome this trade-off, we train a single, scalable network that processes both images and video and predicts depth maps at native resolution. Depth Pro 2 produces depth maps that are metrically accurate, sharp, and temporally consistent all at once, outperforming prior work in all of these dimensions. We release a family of models that define a new Pareto frontier in terms of metric accuracy, sharpness, temporal consistency, and runtime. We release code and weights at https://apple-aiml-research.github.io/ml-depth-pro-2/
 
 #### 深度分析（中文）
 
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 8cc9903a-e4
-
----
-
-### 11. Unified Law for Visual Tasks (The Four Laws of Computer Vision)
-
-- **ArXiv ID**: [2611.24917v1](https://arxiv.org/abs/2611.24917v1)
-- **作者**: Sen Fang, Yalin Feng, Yancheng Zhang, Yanxin Zhang, Zonglin Lyu...
-- **发布时间**: 2026-11-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24917v1](https://arxiv.org/pdf/2611.24917v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-In this paper, we propose a Unified Law for Visual Tasks, which could be further divided into Four Laws of Computer Vision, with the goal of enabling a single framework or method to uniformly train on and perform nearly all visual tasks. Our starting point is an inspiration and hypothesis: if the world information is encoded into image, which we call World Snapshots, then image processing is world processing, and image generation is World Snapshot generation. Furthermore, if all visual and visualization tasks can be reformulated as generation tasks, then a unified method, World Snapshot Models (WSMs), can perform the vast majority of visual tasks, much as large language models have largely unified natural language processing. This paper validates these laws across more than 1,000 trained and evaluated visual tasks (defined by distinct input-output mappings) and presents a unified training framework for future visual-task research and applications.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 76789a7c-18
-
----
-
-### 12. PrismRestore: A Compact Restoration Toolbox for Agentic Image Restoration
-
-- **ArXiv ID**: [2611.24915v1](https://arxiv.org/abs/2611.24915v1)
-- **作者**: Zhaocheng Yu, Kui Jiang, Jing Cao, Yiang Chen, Xiaocheng Feng...
-- **发布时间**: 2026-11-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24915v1](https://arxiv.org/pdf/2611.24915v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Agentic image restoration composes operations to handle mixed degradations, yet its toolbox often requires storing multiple restoration networks. We propose PrismRestore, which constructs a compact bank of callable restoration actions from a single frozen all-in-one model. Our approach builds on task-dependent yet overlapping channel responses in the shared model. An offline task-prior search uses activation and gradient statistics to group channels with similar response profiles, then searches task-specific modulation coefficients over non-representative channels while leaving representative channels unmodulated. The resulting prior bank enables explicit action selection and composition without additional restoration backbones or task-specific adapter modules. A state-conditioned policy learns to compose these actions using Group Relative Policy Optimization. Its objective separately normalizes fidelity and perceptual feedback within groups of trajectories sampled for the same input, and combines terminal evaluation with return-to-go derived from stepwise quality changes. Experiments on synthetic composite-degradation and real-world multi-task benchmarks show improvements over the evaluated all-in-one baselines and restoration quality competitive with multi-model agents. PrismRestore achieves these results with a single restoration backbone and faster inference than the evaluated agentic baselines.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 471c8480-9b
-
----
-
-### 13. ShadowTransfer: A Geographic Transfer Benchmark for Overhead Shadow Detection
-
-- **ArXiv ID**: [2611.24904v1](https://arxiv.org/abs/2611.24904v1)
-- **作者**: Shagun Mittal, Raymond A. Yeh, Satish Ukkusuri
-- **发布时间**: 2026-11-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24904v1](https://arxiv.org/pdf/2611.24904v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Overhead aerial imagery feeds dense-prediction pipelines that are routinely trained in one geographic region and deployed in another, yet no benchmark measures how shadow detection models transfer across regions. Existing overhead shadow datasets either lack a geographic transfer protocol or rely on automatically generated labels. We introduce ShadowTransfer, a benchmark of 4,500 human-verified shadow masks across three U.S. cities at two native resolutions, paired with a leave-one-city-out evaluation protocol. Under vanilla training, holding out the test city costs 3.5 to 7.8 mIoU across four architectures, the gap remains significant when the training set grows from 225 to 900 images, and six of eight adaptation methods degrade more than vanilla training on average. We propose a three-probe framework that diagnoses where and how the transfer breaks: the failure operates in feature space, beyond the reach of pixel-histogram matching, shows up as a confidence collapse on shadow pixels while background confidence stays intact, and is recoverable by retraining different architectural components depending on the model: encoder for some, decoder for others. These findings replicate on INRIA building footprints, suggesting they describe geographic transfer beyond shadows. Guided by the diagnosis, we build Spectral Information Bottleneck (SIB), a plug-in module with one component per finding. Across the 9 (architecture, held-out city) cells, SIB has the smallest mean gap to the within-city upper bound of the ten methods we evaluate (6.42 mIoU), level with FDA. The benchmark, LOCO protocol, code, and trained models are released to support reproducible evaluation of geographic transfer in overhead dense prediction.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: a4d60b36-66
-
----
-
-### 14. NereidVLA: Learning to Understand and Navigate the Underwater World
-
-- **ArXiv ID**: [2611.24864v1](https://arxiv.org/abs/2611.24864v1)
-- **作者**: Chenjie Zhao, Zhiliang Zhu, Quan Chen, Yuquan Xue, Xingxue Shi...
-- **发布时间**: 2026-11-19
-- **分类**: cs.CV, cs.RO
-- **PDF**: [https://arxiv.org/pdf/2611.24864v1](https://arxiv.org/pdf/2611.24864v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Underwater navigation requires translating visual spatial cues into motion, yet marine vision-language datasets rarely include paired robot trajectories. We present NereidVLA, a vision-language-action model that transfers marine spatial knowledge to language-conditioned 3D navigation. We first train Sea2Know on approximately two million marine examples to learn target grounding, spatial relations, and scene structure without paired robot-motion supervision. We then adapt it using expert trajectories executed under simulated underwater vehicle dynamics. Given RGB histories and a language instruction, NereidVLA predicts discrete motion tokens that decode into local 3D trajectories for closed-loop tracking. Evaluation combines an independent six-dimensional underwater navigation understanding benchmark with offline prediction and closed-loop navigation. Under matched navigation training and execution settings, marine spatial pretraining increases simulation success from 72.4% to 84.4%. Without fine-tuning on the real test environment, NereidVLA achieves 78.75% success in laboratory-pool robot trials, compared with 47.50% for InternVLA-N1. These results show that marine spatial supervision can support downstream motion learning and physical underwater navigation.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: bf1f5743-5e
-
----
-
-### 15. Gaspard: Expressive unified speech and gesture synthesis with continuous autoregressive flow-matching and decoupled classifier-free guidance
-
-- **ArXiv ID**: [2611.24862v1](https://arxiv.org/abs/2611.24862v1)
-- **作者**: Téo Guichoux, Théodor Lemerle, Catherine Pelachaud, Nicolas Obin
-- **发布时间**: 2026-11-19
-- **分类**: cs.CV
-- **PDF**: [https://arxiv.org/pdf/2611.24862v1](https://arxiv.org/pdf/2611.24862v1)
-- **相关度评分**: 10/10
-
-#### 英文摘要
-
-Human communication involves highly coordinated multimodal signals such as speech and co-speech gestures. Existing approaches for generating both modalities commonly follow a cascaded pipeline, where speech is generated first and subsequently used to drive gesture generation; speech generation is therefore independent of gestures. We introduce Gaspard, a unified speech--gesture generation model based on continuous autoregressive generation with next-step flow-matching predictions, and trained on Seamless Interaction, a large-scale multimodal dataset. The heterogeneous temporal properties of speech and gesture motivate modality-specific prediction heads and decoupled classifier-free guidance over the two generation streams. This guidance rebalances the influence of speech and gesture at inference time, improving expressivity while mitigating dynamics collapse in continuous autoregressive gesture generation. Objective and perceptual evaluations show that Gaspard is a strong gesture generation model against unimodal baselines and that it produces highly synchronous speech and gestures compared to a matched cascaded system.
-
-#### 深度分析（中文）
-
-LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 607dd879-d3
+LLM 调用失败: litellm.AuthenticationError: DeepseekException - {"error":{"message":"Authentication Fails, Your api key: ****e78f is invalid (request_id: 24ea1c6d-f3
 
 ---
